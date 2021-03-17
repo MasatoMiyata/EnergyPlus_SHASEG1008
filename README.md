@@ -9,3 +9,4 @@ EnergyPlus は Ver.9.4.0 を使います。
 ### 参考：
 + SHASE-G 1008:2016  建物エネルギーシミュレーションツールの評価手法に関するガイドライン http://www.shasej.org/tosho/report.html
 + EnergyPlus　https://energyplus.net/
++ http://energyplus.helpserve.com/Knowledgebase/List/Index/49

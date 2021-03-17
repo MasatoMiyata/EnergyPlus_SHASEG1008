@@ -1,0 +1,269 @@
+:lang: ja
+:toc-title: EnergyPlus SHASE-G1008:2016
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:docname: EnergyPlus SHASE-G1008:2016
+:stem: latexmath
+:xrefstyle: short
+
+
+# SHASE-G 1008:2016 + EnergyPlus
+建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例
+
+## 1. 熱負荷シミュレーション
+
+ガイドライン第5章「熱負荷シミュレーションツールのテスト」を適用します。
+
+### 1.0 基本モデルの作成
+
+まずは、基本となる建物モデルを作成します。
+
+1) 建物情報の定義
+
+----
+!-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
+
+  Building,
+    Case500,                 !- Name
+    0.0,                     !- North Axis {deg}
+    City,                    !- Terrain
+    0.04,                    !- Loads Convergence Tolerance Value
+    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    FullInteriorAndExterior, !- Solar Distribution
+    25,                      !- Maximum Number of Warmup Days
+    ;                        !- Minimum Number of Warmup Days
+----
+
+2) ゾーンの定義
+
+.ゾーン名称
+----
+ !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
+
+  Output:VariableDictionary,IDF;
+
+  Zone,
+    Zone1,  !- Name
+    0.0,  !- Direction of Relative North {deg}
+    0.0,  !- X Origin {m}
+    0.0,  !- Y Origin {m}
+    0.0,  !- Z Origin {m}
+    ,  !- Type
+    1;  !- Multiplier
+----
+
+.床
+----
+  BuildingSurface:Detailed,
+    Floor,  !- Name
+    Floor,  !- Surface Type
+    Exterior Floor,  !- Construction Name
+    Zone1,  !- Zone Name
+    Ground,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    NoSun,  !- Sun Exposure
+    NoWind,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    8.000000000000,  !- Vertex 1 X-coordinate {m}
+    6.000000000000,  !- Vertex 1 Y-coordinate {m}
+    0.000000000000,  !- Vertex 1 Z-coordinate {m}
+    8.000000000000,  !- Vertex 2 X-coordinate {m}
+    0.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.000000000000,  !- Vertex 2 Z-coordinate {m}
+    0.000000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    0.000000000000,  !- Vertex 3 Z-coordinate {m}
+    0.000000000000,  !- Vertex 4 X-coordinate {m}
+    6.000000000000,  !- Vertex 4 Y-coordinate {m}
+    0.000000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.屋根
+----
+  BuildingSurface:Detailed,
+    Roof,  !- Name
+    Roof,  !- Surface Type
+    Exterior Roof,  !- Construction Name
+    Zone1,  !- Zone Name
+    Outdoors,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    SunExposed,  !- Sun Exposure
+    WindExposed,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    0.000000000000,  !- Vertex 1 X-coordinate {m}
+    6.000000000000,  !- Vertex 1 Y-coordinate {m}
+    2.700000000000,  !- Vertex 1 Z-coordinate {m}
+    0.000000000000,  !- Vertex 2 X-coordinate {m}
+    0.000000000000,  !- Vertex 2 Y-coordinate {m}
+    2.700000000000,  !- Vertex 2 Z-coordinate {m}
+    8.000000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    2.700000000000,  !- Vertex 3 Z-coordinate {m}
+    8.000000000000,  !- Vertex 4 X-coordinate {m}
+    6.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.700000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.外壁（南）
+----
+  BuildingSurface:Detailed,
+    Wall_S,  !- Name
+    Wall,  !- Surface Type
+    Exterior Wall,  !- Construction Name
+    Zone1,  !- Zone Name
+    Outdoors,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    SunExposed,  !- Sun Exposure
+    WindExposed,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    0.000000000000,  !- Vertex 1 X-coordinate {m}
+    0.000000000000,  !- Vertex 1 Y-coordinate {m}
+    2.700000000000,  !- Vertex 1 Z-coordinate {m}
+    0.000000000000,  !- Vertex 2 X-coordinate {m}
+    0.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.000000000000,  !- Vertex 2 Z-coordinate {m}
+    8.000000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    0.000000000000,  !- Vertex 3 Z-coordinate {m}
+    8.000000000000,  !- Vertex 4 X-coordinate {m}
+    0.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.700000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.外壁（北）
+----
+  BuildingSurface:Detailed,
+    Wall_N,  !- Name
+    Wall,  !- Surface Type
+    Exterior Wall,  !- Construction Name
+    Zone1,  !- Zone Name
+    Outdoors,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    SunExposed,  !- Sun Exposure
+    WindExposed,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    0.000000000000,  !- Vertex 1 X-coordinate {m}
+    6.000000000000,  !- Vertex 1 Y-coordinate {m}
+    2.700000000000,  !- Vertex 1 Z-coordinate {m}
+    0.000000000000,  !- Vertex 2 X-coordinate {m}
+    6.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.000000000000,  !- Vertex 2 Z-coordinate {m}
+    8.000000000000,  !- Vertex 3 X-coordinate {m}
+    6.000000000000,  !- Vertex 3 Y-coordinate {m}
+    0.000000000000,  !- Vertex 3 Z-coordinate {m}
+    8.000000000000,  !- Vertex 4 X-coordinate {m}
+    6.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.700000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.外壁（西）
+----
+  BuildingSurface:Detailed,
+    Wall_W,  !- Name
+    Wall,  !- Surface Type
+    Exterior Wall,  !- Construction Name
+    Zone1,  !- Zone Name
+    Outdoors,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    SunExposed,  !- Sun Exposure
+    WindExposed,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    0.000000000000,  !- Vertex 1 X-coordinate {m}
+    6.000000000000,  !- Vertex 1 Y-coordinate {m}
+    2.700000000000,  !- Vertex 1 Z-coordinate {m}
+    0.000000000000,  !- Vertex 2 X-coordinate {m}
+    6.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.000000000000,  !- Vertex 2 Z-coordinate {m}
+    0.000000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    0.000000000000,  !- Vertex 3 Z-coordinate {m}
+    0.000000000000,  !- Vertex 4 X-coordinate {m}
+    0.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.700000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.外壁（東）
+----
+  BuildingSurface:Detailed,
+    Wall_E,  !- Name
+    Wall,  !- Surface Type
+    Exterior Wall,  !- Construction Name
+    Zone1,  !- Zone Name
+    Outdoors,  !- Outside Boundary Condition
+    ,  !- Outside Boundary Condition Object
+    SunExposed,  !- Sun Exposure
+    WindExposed,  !- Wind Exposure
+    ,  !- View Factor to Ground
+    4,  !- Number of Vertices
+    8.000000000000,  !- Vertex 1 X-coordinate {m}
+    6.000000000000,  !- Vertex 1 Y-coordinate {m}
+    2.700000000000,  !- Vertex 1 Z-coordinate {m}
+    8.000000000000,  !- Vertex 2 X-coordinate {m}
+    6.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.000000000000,  !- Vertex 2 Z-coordinate {m}
+    8.000000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    0.000000000000,  !- Vertex 3 Z-coordinate {m}
+    8.000000000000,  !- Vertex 4 X-coordinate {m}
+    0.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.700000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.窓（南1）
+----
+  FenestrationSurface:Detailed,
+    window_S1,  !- Name
+    Window,  !- Surface Type
+    Exterior Window,  !- Construction Name
+    Wall_S,  !- Building Surface Name
+    ,  !- Outside Boundary Condition Object
+    ,  !- View Factor to Ground
+    ,  !- Frame and Divider Name
+    ,  !- Multiplier
+    4,  !- Number of Vertices
+    0.500000000000,  !- Vertex 1 X-coordinate {m}
+    0.000000000000,  !- Vertex 1 Y-coordinate {m}
+    0.200000000000,  !- Vertex 1 Z-coordinate {m}
+    3.500000000000,  !- Vertex 2 X-coordinate {m}
+    0.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.200000000000,  !- Vertex 2 Z-coordinate {m}
+    3.500000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    2.200000000000,  !- Vertex 3 Z-coordinate {m}
+    0.500000000000,  !- Vertex 4 X-coordinate {m}
+    0.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.200000000000;  !- Vertex 4 Z-coordinate {m}
+----
+
+.窓（南2）
+----
+  FenestrationSurface:Detailed,
+    window_S2,  !- Name
+    Window,  !- Surface Type
+    Exterior Window,  !- Construction Name
+    Wall_S,  !- Building Surface Name
+    ,  !- Outside Boundary Condition Object
+    ,  !- View Factor to Ground
+    ,  !- Frame and Divider Name
+    ,  !- Multiplier
+    4,  !- Number of Vertices
+    4.500000000000,  !- Vertex 1 X-coordinate {m}
+    0.000000000000,  !- Vertex 1 Y-coordinate {m}
+    0.200000000000,  !- Vertex 1 Z-coordinate {m}
+    7.500000000000,  !- Vertex 2 X-coordinate {m}
+    0.000000000000,  !- Vertex 2 Y-coordinate {m}
+    0.200000000000,  !- Vertex 2 Z-coordinate {m}
+    7.500000000000,  !- Vertex 3 X-coordinate {m}
+    0.000000000000,  !- Vertex 3 Y-coordinate {m}
+    2.200000000000,  !- Vertex 3 Z-coordinate {m}
+    4.500000000000,  !- Vertex 4 X-coordinate {m}
+    0.000000000000,  !- Vertex 4 Y-coordinate {m}
+    2.200000000000;  !- Vertex 4 Z-coordinate {m}
+----
+

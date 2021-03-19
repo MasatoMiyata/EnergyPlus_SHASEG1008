@@ -463,14 +463,14 @@ IDFファイルの作成方法は <a href="https://bigladdersoftware.com/epx/doc
 <div class="title">建物情報　Building　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>  Building,
-    Case500,                 !- Name
+    Case600,                 !- Name
     0.0,                     !- North Axis {deg}
-    City,                    !- Terrain
-    0.04,                    !- Loads Convergence Tolerance Value
-    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    Country,                 !- Terrain
+    3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
+    4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    25,                      !- Maximum Number of Warmup Days
-    ;                        !- Minimum Number of Warmup Days</pre>
+    ,                        !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -487,7 +487,7 @@ Buildingオブジェクトは、シミュレーション実行時に使用され
     39.8,                    !- Latitude {deg}
     -104.9,                  !- Longitude {deg}
     -7.0,                    !- Time Zone {hr}
-    1609.00;                  !- Elevation {m}</pre>
+    1609.00;                 !- Elevation {m}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -524,14 +524,16 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 <div class="listingblock">
 <div class="title">ゾーン名称　Zone　</div>
 <div class="content">
-<pre>  Zone,
-    Zone1,  !- Name
-    0.0,  !- Direction of Relative North {deg}
-    0.0,  !- X Origin {m}
-    0.0,  !- Y Origin {m}
-    0.0,  !- Z Origin {m}
-    ,  !- Type
-    1;  !- Multiplier</pre>
+<pre>Zone,
+    Zone1,                   !- Name
+    0.0,                     !- Direction of Relative North {deg}
+    0.0,                     !- X Origin {m}
+    0.0,                     !- Y Origin {m}
+    0.0,                     !- Z Origin {m}
+    ,                        !- Type
+    1,                       !- Multiplier
+    2.7000,                  !- Ceiling Height {m}
+    129.6;                   !- Volume {m3}</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -851,7 +853,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 <div class="title">屋根の部材　Material　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>  Material,
-    PLASTERBOARD-10mm,          !- Name
+    PLASTERBOARD-10mm,       !- Name
     Rough,                   !- Roughness
     0.01000,                 !- Thickness {m}
     0.16000,                 !- Conductivity {W/m-K}
@@ -1041,6 +1043,51 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     0;                       !- Velocity Squared Term Coefficient</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>8) 内部発熱</p>
+</div>
+<div class="listingblock">
+<div class="title">内部発熱　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>OtherEquipment,
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    200,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>9) 計算期間</p>
+</div>
+<div class="listingblock">
+<div class="title">計算期間　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>RunPeriod,
+    RUNPERIOD 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    ,                        !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    ,                        !- End Year
+    ,                        !- Day of Week for Start Day
+    Yes,                     !- Use Weather File Holidays and Special Days
+    Yes,                     !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1048,7 +1095,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-19 14:14:51 +0900
+Last updated 2021-03-19 14:39:55 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

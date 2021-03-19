@@ -26,14 +26,14 @@ SimulationControl,
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
 
 Building,
-    Case500,                 !- Name
+    Case600,                 !- Name
     0.0,                     !- North Axis {deg}
-    City,                    !- Terrain
-    0.04,                    !- Loads Convergence Tolerance Value {W}
-    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    Country,                 !- Terrain
+    3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
+    4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    25,                      !- Maximum Number of Warmup Days
-    ;                        !- Minimum Number of Warmup Days
+    ,                        !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SHADOWCALCULATION ===========
@@ -72,12 +72,23 @@ Site:Location,
     1609.00;                 !- Elevation {m}
 
 
-!-   ===========  ALL OBJECTS IN CLASS: RUNPERIODCONTROL:DAYLIGHTSAVINGTIME ===========
+!-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
 
-! Daylight Saving Period in US
-RunPeriodControl:DaylightSavingTime,
-    2nd Sunday in March,     !- Start Date
-    1st Sunday in November;  !- End Date
+RunPeriod,
+    RUNPERIOD 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    ,                        !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    ,                        !- End Year
+    ,                        !- Day of Week for Start Day
+    Yes,                     !- Use Weather File Holidays and Special Days
+    Yes,                     !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
@@ -345,7 +356,7 @@ Construction,
 GlobalGeometryRules,
     UpperLeftCorner,         !- Starting Vertex Position
     Counterclockwise,        !- Vertex Entry Direction
-    Relative;                !- Coordinate System
+    World;                   !- Coordinate System
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
@@ -357,7 +368,9 @@ Zone,
     0.0,                     !- Y Origin {m}
     0.0,                     !- Z Origin {m}
     ,                        !- Type
-    1;                       !- Multiplier
+    1,                       !- Multiplier
+    2.7000,                  !- Ceiling Height {m}
+    129.6;                   !- Volume {m3}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
@@ -554,6 +567,24 @@ FenestrationSurface:Detailed,
     7.500000000000,          !- Vertex 4 X-coordinate {m}
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========
+
+OtherEquipment,
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    200,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========

@@ -27,14 +27,14 @@ IDFファイルの作成方法は https://bigladdersoftware.com/epx/docs/8-8/inp
 .建物情報　Building　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-simulation-parameters.html#building[<bigladder>, role="external", window="_blank"]
 ----
   Building,
-    Case500,                 !- Name
+    Case600,                 !- Name
     0.0,                     !- North Axis {deg}
-    City,                    !- Terrain
-    0.04,                    !- Loads Convergence Tolerance Value
-    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    Country,                 !- Terrain
+    3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
+    4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    25,                      !- Maximum Number of Warmup Days
-    ;                        !- Minimum Number of Warmup Days
+    ,                        !- Maximum Number of Warmup Days
+    6;                       !- Minimum Number of Warmup Days
 ----
 
 【解説】 + 
@@ -50,7 +50,7 @@ Buildingオブジェクトは、シミュレーション実行時に使用され
     39.8,                    !- Latitude {deg}
     -104.9,                  !- Longitude {deg}
     -7.0,                    !- Time Zone {hr}
-    1609.00;                  !- Elevation {m}
+    1609.00;                 !- Elevation {m}
 ----
 
 【解説】 + 
@@ -84,14 +84,16 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 
 .ゾーン名称　Zone　
 ----
-  Zone,
-    Zone1,  !- Name
-    0.0,  !- Direction of Relative North {deg}
-    0.0,  !- X Origin {m}
-    0.0,  !- Y Origin {m}
-    0.0,  !- Z Origin {m}
-    ,  !- Type
-    1;  !- Multiplier
+Zone,
+    Zone1,                   !- Name
+    0.0,                     !- Direction of Relative North {deg}
+    0.0,                     !- X Origin {m}
+    0.0,                     !- Y Origin {m}
+    0.0,                     !- Z Origin {m}
+    ,                        !- Type
+    1,                       !- Multiplier
+    2.7000,                  !- Ceiling Height {m}
+    129.6;                   !- Volume {m3}
 ----
 
 .床　BuildingSurface:Detailed　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"]
@@ -398,7 +400,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 .屋根の部材　Material　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material[<bigladder>, role="external", window="_blank"]
 ----
   Material,
-    PLASTERBOARD-10mm,          !- Name
+    PLASTERBOARD-10mm,       !- Name
     Rough,                   !- Roughness
     0.01000,                 !- Thickness {m}
     0.16000,                 !- Conductivity {W/m-K}
@@ -576,4 +578,46 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Temperature Term Coefficient
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
+----
+
+8) 内部発熱
+
+.内部発熱　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment[<bigladder>, role="external", window="_blank"]
+----
+OtherEquipment,
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    200,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+----
+
+
+9) 計算期間
+
+.計算期間　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#runperiod[<bigladder>, role="external", window="_blank"]
+----
+RunPeriod,
+    RUNPERIOD 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    ,                        !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    ,                        !- End Year
+    ,                        !- Day of Week for Start Day
+    Yes,                     !- Use Weather File Holidays and Special Days
+    Yes,                     !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual
 ----

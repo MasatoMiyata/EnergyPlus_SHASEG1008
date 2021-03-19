@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例">
+<meta name="author" content="建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例（EnergyPlus Ver.9.4）">
 <title>SHASE-G 1008:2016 + EnergyPlus</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -437,11 +437,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>SHASE-G 1008:2016 + EnergyPlus</h1>
 <div class="details">
-<span id="author" class="author">建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例</span><br>
+<span id="author" class="author">建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例（EnergyPlus Ver.9.4）</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">EnergyPlus SHASE-G1008:2016</div>
+<ul class="sectlevel1">
+<li><a href="#_1_熱負荷シミュレーション">1. 熱負荷シミュレーション</a>
+<ul class="sectlevel2">
+<li><a href="#_1_0_基本モデルcase600の作成">1.0 基本モデル（Case600）の作成</a>
+<ul class="sectlevel3">
+<li><a href="#_1_建物情報の定義">1) 建物情報の定義</a></li>
+<li><a href="#_2_ゾーンの定義">2) ゾーンの定義</a></li>
+<li><a href="#_3_壁体構成の定義">3) 壁体構成の定義</a></li>
+<li><a href="#_4_窓構成の定義">4) 窓構成の定義</a></li>
+<li><a href="#_5_地中の温度の定義">5) 地中の温度の定義</a></li>
+<li><a href="#_6_スケジュール">6) スケジュール</a></li>
+<li><a href="#_7_すきま風">7) すきま風</a></li>
+<li><a href="#_8_内部発熱">8) 内部発熱</a></li>
+<li><a href="#_9_計算期間">9) 計算期間</a></li>
+<li><a href="#_10_空調の設定">10) 空調の設定</a>
+<ul class="sectlevel4">
+<li><a href="#_10_1_zonecontrolthermostat">10.1 ZoneControl:Thermostat</a></li>
+<li><a href="#_10_2_thermostatsetpointdualsetpoint">10.2 ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_10_3_zonehvacidealloadsairsystem">10.3 ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_10_4_zonehvacequipmentlist">10.4 ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_10_5_nodelist">10.5 NodeList</a></li>
+<li><a href="#_10_6_zonehvacequipmentconnections">10.6 ZoneHVAC:EquipmentConnections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
@@ -452,7 +484,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>ガイドライン第5章「熱負荷シミュレーションツールのテスト」を実行します。</p>
 </div>
 <div class="sect2">
-<h3 id="_1_0_基本モデルの作成">1.0 基本モデルの作成</h3>
+<h3 id="_1_0_基本モデルcase600の作成">1.0 基本モデル（Case600）の作成</h3>
 <div class="paragraph">
 <p>まずは、基本となる建物モデルを作成する。
 IDFファイルの作成方法は <a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/index.html" class="external" target="_blank" rel="noopener">bigladder</a> のページを参照。</p>
@@ -518,9 +550,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     0.2;                     !- December Ground Reflectance {dimensionless}</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>2) ゾーンの定義</p>
 </div>
+<div class="sect3">
+<h4 id="_2_ゾーンの定義">2) ゾーンの定義</h4>
 <div class="listingblock">
 <div class="title">ゾーン名称　Zone　</div>
 <div class="content">
@@ -758,9 +790,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     2.200000000000;          !- Vertex 4 Z-coordinate {m}</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>3) 壁体構成の定義</p>
 </div>
+<div class="sect3">
+<h4 id="_3_壁体構成の定義">3) 壁体構成の定義</h4>
 <div class="listingblock">
 <div class="title">外壁の部材　Material　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -896,9 +928,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     PLASTERBOARD-10mm;       !- Layer 3</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>4) 窓構成の定義</p>
 </div>
+<div class="sect3">
+<h4 id="_4_窓構成の定義">4) 窓構成の定義</h4>
 <div class="listingblock">
 <div class="title">窓の部材　WindowMaterial:Glazing　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -934,9 +966,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     GlassType1;              !- Layer 3</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>5) 地中の温度の定義</p>
 </div>
+<div class="sect3">
+<h4 id="_5_地中の温度の定義">5) 地中の温度の定義</h4>
 <div class="listingblock">
 <div class="title">地中温度　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -955,11 +987,11 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     10;                      !- December Ground Temperature {C}</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>6) スケジュール</p>
 </div>
+<div class="sect3">
+<h4 id="_6_スケジュール">6) スケジュール</h4>
 <div class="listingblock">
-<div class="title">時刻別スケジュール　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">時刻別スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>Schedule:Day:Hourly,
     Day Sch 1,               !- Name
@@ -991,7 +1023,103 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">曜日別スケジュール　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">時刻別スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Day:Hourly,
+    Zone Heating Setpoint All Days,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    20.,                     !- Hour 1
+    20.,                     !- Hour 2
+    20.,                     !- Hour 3
+    20.,                     !- Hour 4
+    20.,                     !- Hour 5
+    20.,                     !- Hour 6
+    20.,                     !- Hour 7
+    20.,                     !- Hour 8
+    20.,                     !- Hour 9
+    20.,                     !- Hour 10
+    20.,                     !- Hour 11
+    20.,                     !- Hour 12
+    20.,                     !- Hour 13
+    20.,                     !- Hour 14
+    20.,                     !- Hour 15
+    20.,                     !- Hour 16
+    20.,                     !- Hour 17
+    20.,                     !- Hour 18
+    20.,                     !- Hour 19
+    20.,                     !- Hour 20
+    20.,                     !- Hour 21
+    20.,                     !- Hour 22
+    20.,                     !- Hour 23
+    20.;                     !- Hour 24</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">時刻別スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Day:Hourly,
+    Zone Cooling Setpoint All Days,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    27.,                     !- Hour 1
+    27.,                     !- Hour 2
+    27.,                     !- Hour 3
+    27.,                     !- Hour 4
+    27.,                     !- Hour 5
+    27.,                     !- Hour 6
+    27.,                     !- Hour 7
+    27.,                     !- Hour 8
+    27.,                     !- Hour 9
+    27.,                     !- Hour 10
+    27.,                     !- Hour 11
+    27.,                     !- Hour 12
+    27.,                     !- Hour 13
+    27.,                     !- Hour 14
+    27.,                     !- Hour 15
+    27.,                     !- Hour 16
+    27.,                     !- Hour 17
+    27.,                     !- Hour 18
+    27.,                     !- Hour 19
+    27.,                     !- Hour 20
+    27.,                     !- Hour 21
+    27.,                     !- Hour 22
+    27.,                     !- Hour 23
+    27.;                     !- Hour 24</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">室温制御方法　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Day:Hourly,
+    Control Type All Days,   !- Name
+    Control Type,            !- Schedule Type Limits Name
+    4,                       !- Hour 1
+    4,                       !- Hour 2
+    4,                       !- Hour 3
+    4,                       !- Hour 4
+    4,                       !- Hour 5
+    4,                       !- Hour 6
+    4,                       !- Hour 7
+    4,                       !- Hour 8
+    4,                       !- Hour 9
+    4,                       !- Hour 10
+    4,                       !- Hour 11
+    4,                       !- Hour 12
+    4,                       !- Hour 13
+    4,                       !- Hour 14
+    4,                       !- Hour 15
+    4,                       !- Hour 16
+    4,                       !- Hour 17
+    4,                       !- Hour 18
+    4,                       !- Hour 19
+    4,                       !- Hour 20
+    4,                       !- Hour 21
+    4,                       !- Hour 22
+    4,                       !- Hour 23
+    4;                       !- Hour 24</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">曜日別スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>Schedule:Week:Daily,
     Week Sch 1,              !- Name
@@ -1010,7 +1138,64 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">年間スケジュール　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">曜日別スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Week:Daily,
+    Zone Heating Setpoint All Weeks,  !- Name
+    Zone Heating Setpoint All Days,  !- Sunday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Monday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Tuesday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Wednesday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Thursday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Friday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Saturday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- Holiday Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- SummerDesignDay Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- WinterDesignDay Schedule:Day Name
+    Zone Heating Setpoint All Days,  !- CustomDay1 Schedule:Day Name
+    Zone Heating Setpoint All Days;  !- CustomDay2 Schedule:Day Name</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">曜日別スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Week:Daily,
+    Zone Cooling Setpoint All Weeks,  !- Name
+    Zone Cooling Setpoint All Days,  !- Sunday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Monday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Tuesday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Wednesday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Thursday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Friday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Saturday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- Holiday Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- SummerDesignDay Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- WinterDesignDay Schedule:Day Name
+    Zone Cooling Setpoint All Days,  !- CustomDay1 Schedule:Day Name
+    Zone Cooling Setpoint All Days;  !- CustomDay2 Schedule:Day Name</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">曜日別スケジュール（室温制御方法）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Week:Daily,
+    Control Type All Weeks,  !- Name
+    Control Type All Days,   !- Sunday Schedule:Day Name
+    Control Type All Days,   !- Monday Schedule:Day Name
+    Control Type All Days,   !- Tuesday Schedule:Day Name
+    Control Type All Days,   !- Wednesday Schedule:Day Name
+    Control Type All Days,   !- Thursday Schedule:Day Name
+    Control Type All Days,   !- Friday Schedule:Day Name
+    Control Type All Days,   !- Saturday Schedule:Day Name
+    Control Type All Days,   !- Holiday Schedule:Day Name
+    Control Type All Days,   !- SummerDesignDay Schedule:Day Name
+    Control Type All Days,   !- WinterDesignDay Schedule:Day Name
+    Control Type All Days,   !- CustomDay1 Schedule:Day Name
+    Control Type All Days;   !- CustomDay2 Schedule:Day Name</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">年間スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>Schedule:Year,
     Sch 1,                   !- Name
@@ -1022,9 +1207,48 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     31;                      !- End Day 1</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>7) すきま風</p>
+<div class="listingblock">
+<div class="title">年間スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Year,
+    Heating Setpoints,       !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Zone Heating Setpoint All Weeks,  !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1</pre>
 </div>
+</div>
+<div class="listingblock">
+<div class="title">年間スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Year,
+    Cooling Setpoints,       !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Zone Cooling Setpoint All Weeks,  !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">年間スケジュール（制御方法）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>Schedule:Year,
+    Zone Control Type Sched, !- Name
+    Control Type,            !- Schedule Type Limits Name
+    Control Type All Weeks,  !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_すきま風">7) すきま風</h4>
 <div class="listingblock">
 <div class="title">すきま風　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -1043,9 +1267,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     0;                       !- Velocity Squared Term Coefficient</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>8) 内部発熱</p>
 </div>
+<div class="sect3">
+<h4 id="_8_内部発熱">8) 内部発熱</h4>
 <div class="listingblock">
 <div class="title">内部発熱　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -1065,9 +1289,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     General;                 !- End-Use Subcategory</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>9) 計算期間</p>
 </div>
+<div class="sect3">
+<h4 id="_9_計算期間">9) 計算期間</h4>
 <div class="listingblock">
 <div class="title">計算期間　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -1089,13 +1313,466 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_10_空調の設定">10) 空調の設定</h4>
+<div class="sect4">
+<h5 id="_10_1_zonecontrolthermostat">10.1 ZoneControl:Thermostat</h5>
+<div class="paragraph">
+<p>ZoneControl:Thermostatオブジェクトは、ゾーンを指定された温度に制御するために使用されます。<br>
+ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneControl:Thermostat　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>ZoneControl:Thermostat,
+    Zone 1 Thermostat,                !- Name
+    Zone1,                            !- Zone or ZoneList Name
+    Zone Control Type Sched,          !- Control Type Schedule Name
+    ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+    Heating Cooling Setpoints;        !- Control 1 Name</pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_name">Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>任意の名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_or_zonelist_name">Zone or ZoneList Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>対象とするゾーンもしくはゾーンリストの名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_control_type_schedule_name">Control Type Schedule Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>別途定義した制御スケジュール名を入力します。 制御スケジュールには、シミュレーション中に使用される制御タイプ番号を指定します。有効な制御タイプ番号は次のとおりです。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0 - 無制御（指定なし、またはデフォルト）</p>
+</li>
+<li>
+<p>1 - 単一の加熱セットポイント</p>
+</li>
+<li>
+<p>2 - 単一の冷房設定値</p>
+</li>
+<li>
+<p>3 - 暖房/冷房の単一設定値</p>
+</li>
+<li>
+<p>4 - 不感帯のある室温設定値（暖房と冷房）</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>例えば、ZoneControl:Thermostatから参照されるスケジュールが、特定の時間帯に制御タイプが4である場合、その時間帯に「不感帯のある室温設定値（暖房と冷房）」制御が使用されることを示しています。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_control_1_object_type">Control 1 Object Type</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>コントロールタイプの種類を次の4つの選択肢から選択します。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ThermostatSetpoint:SingleHeating　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</li>
+<li>
+<p>ThermostatSetpoint:SingleCooling　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</li>
+<li>
+<p>ThermostatSetpoint:SingleHeatingOrCooling　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</li>
+<li>
+<p>ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_control_1_name">Control 1 Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>別途定義したコントロールタイプの名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_10_2_thermostatsetpointdualsetpoint">10.2 ThermostatSetpoint:DualSetpoint</h5>
+<div class="listingblock">
+<div class="title">ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>ThermostatSetpoint:DualSetpoint,
+    Heating Cooling Setpoints,  !- Name
+    Heating Setpoints,          !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoints;          !- Cooling Setpoint Temperature Schedule Name</pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_name_2">Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>任意の名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_heating_setpoint_temperature_schedule_name">Heating Setpoint Temperature Schedule Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>暖房運転時設定温度のスケジュール名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_cooling_setpoint_temperature_schedule_name">Cooling Setpoint Temperature Schedule Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>冷房運転時設定温度のスケジュール名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_10_3_zonehvacidealloadsairsystem">10.3 ZoneHVAC:IdealLoadsAirSystem</h5>
+<div class="paragraph">
+<p>ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができます。
+ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用されます。
+設定が必要なのは、ゾーン制御、ゾーン機器構成、および理想的な負荷システムコンポーネントだけです。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneHVAC:IdealLoadsAirSystem　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>ZoneHVAC:IdealLoadsAirSystem,
+    Zone1Air,                !- Name
+    ,                        !- Availability Schedule Name
+    NODE_1,                  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.010,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSupplyHumidityRatio,  !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ConstantSupplyHumidityRatio,  !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_name_3">Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>任意の名称を入力します。</p>
+</li>
+<li>
+<p>この名称は　ZoneHVAC:EquipmentList から参照されます。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_supply_air_node_name">Zone Supply Air Node Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>給気ノードの名称を入力します。これは、本コンポーネントがサービスを提供するゾーンのゾーン給気ノードの1つと同じでなければなりません。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_maximum_heating_supply_air_temperature_c">Maximum Heating Supply Air Temperature {C}</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>給気温度の最大値を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_minimum_cooling_supply_air_temperature_c">Minimum Cooling Supply Air Temperature {C}</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>給気温度の最小値を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>給気湿度の最大値を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>給気湿度の最小値を入力します。選択肢は以下の4つです。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_dehumidification_control_type">Dehumidification Control Type</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>除湿の制御方式を選択します。選択肢は以下の4つです。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ConstantSensibleHeatRatio</p>
+</li>
+<li>
+<p>Humidistat</p>
+</li>
+<li>
+<p>None</p>
+</li>
+<li>
+<p>ConstantSupplyHumidityRatio</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_humidification_control_type">Humidification Control Type</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>加湿の制御方式を選択します。選択肢は以下の3つです。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>None</p>
+</li>
+<li>
+<p>Humidistat</p>
+</li>
+<li>
+<p>ConstantSupplyHumidityRatio</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_10_4_zonehvacequipmentlist">10.4 ZoneHVAC:EquipmentList</h5>
+<div class="paragraph">
+<p>このオブジェクトには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
+リストの各項目には、4つのフィールドが関連付けられています。
+Object TypeとNameは、特定の機器オブジェクトを識別します。
+Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器があるゾーンのシミュレーションの順番を指定します。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneHVAC:EquipmentList　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>ZoneHVAC:EquipmentList,
+    Zone1Equipment,          !- Name
+    SequentialLoad,          !- Load Distribution Scheme
+    ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+    Zone1Air,                !- Zone Equipment 1 Name
+    1,                       !- Zone Equipment 1 Cooling Sequence
+    1,                       !- Zone Equipment 1 Heating or No-Load Sequence
+    ,                        !- Zone Equipment 1 Sequential Cooling Fraction Schedule Name
+    ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name</pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_equipment_1_object_type">Zone Equipment 1 Object Type</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>ゾーンに設置されたHVAC機器の名称（ZoneHVAC:IdealLoadsAirSystem）を指定します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_equipment_1_cooling_sequence">Zone Equipment 1 Cooling Sequence</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>ゾーンサーモスタットが冷房を要求する際の、ゾーン機器のシミュレーション順序を指定します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_equipment_1_heating_or_no_load_sequence">Zone Equipment 1 Heating or No-Load Sequence</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>ゾーンサーモスタットが暖房を要求した場合、もしくは負荷がない場合のゾーン機器のシミュレーション順序を指定します。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_10_5_nodelist">10.5 NodeList</h5>
+<div class="listingblock">
+<div class="title">NodeList　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>NodeList,
+    Zone1Inlets,             !- Name
+    NODE_1;                  !- Node 1 Name</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_10_6_zonehvacequipmentconnections">10.6 ZoneHVAC:EquipmentConnections</h5>
+<div class="paragraph">
+<p>ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
+他のステートメントと同様に、このオブジェクトの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
+次の3つの項目は、以下に詳述するリスト（機器、吸気ノード、排気ノード）の名前である。
+ゾーンからの排気ノードがない場合、このフィールドは空白になることに注意してください。
+また、エアインレットノードがない場合、このフィールドは空白になります。
+最後に、ゾーン-HVACの記述を完成させるために、2つのノード名が必要です。
+1つ目のノードは、空気のヒートバランスを実行するゾーンのメイン空気ノードである。
+もう1つのノードは、ゾーンからの戻り空気の経路である。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneHVAC:EquipmentConnections　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="content">
+<pre>ZoneHVAC:EquipmentConnections,
+    Zone1,                   !- Zone Name
+    Zone1Equipment,          !- Zone Conditioning Equipment List Name
+    Zone1Inlets,             !- Zone Air Inlet Node or NodeList Name
+    ,                        !- Zone Air Exhaust Node or NodeList Name
+    NODE_2,                  !- Zone Air Node Name
+    NODE_3;                  !- Zone Return Air Node or NodeList Name</pre>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_name必須">Zone Name（必須）</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>ゾーン名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_conditioning_equipment_list_name">Zone Conditioning Equipment List Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>「ZoneHVAC:EquipmentList」で定義した名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_air_inlet_node_or_nodelist_name">Zone Air Inlet Node or NodeList Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>「NodeList」で定義した名称のうち、給気に関するノード名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_air_exhaust_node_or_nodelist_name">Zone Air Exhaust Node or NodeList Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>「NodeList」で定義した名称のうち、排気に関するノード名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_air_node_name">Zone Air Node Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>「NodeList」で定義した名称のうち、ゾーン空気に関するノード名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_zone_return_air_node_or_nodelist_name">Zone Return Air Node or NodeList Name</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>「NodeList」で定義した名称のうち、還気に関するノード名称を入力します。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-19 14:39:55 +0900
+Last updated 2021-03-19 17:02:17 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

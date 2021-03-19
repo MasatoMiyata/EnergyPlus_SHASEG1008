@@ -105,7 +105,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.000000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     8.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -132,7 +132,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
     WindExposed,             !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.000000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     0.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -159,7 +159,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
     WindExposed,             !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     0.000000000000,          !- Vertex 1 X-coordinate {m}
     0.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -186,7 +186,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
     WindExposed,             !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     0.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -213,7 +213,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
     WindExposed,             !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     0.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -240,7 +240,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     ,                        !- Outside Boundary Condition Object
     SunExposed,              !- Sun Exposure
     WindExposed,             !- Wind Exposure
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     8.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -264,9 +264,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     Window_configure,        !- Construction Name
     Wall_S,                  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     ,                        !- Frame and Divider Name
-    ,                        !- Multiplier
+    1,                       !- Multiplier
     4,                       !- Number of Vertices
     0.500000000000,          !- Vertex 1 X-coordinate {m}
     0.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -290,9 +290,9 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     Window_configure,        !- Construction Name
     Wall_S,                  !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
-    ,                        !- View Factor to Ground
+    0.500000000000,          !- View Factor to Ground
     ,                        !- Frame and Divider Name
-    ,                        !- Multiplier
+    1,                       !- Multiplier
     4,                       !- Number of Vertices
     4.500000000000,          !- Vertex 1 X-coordinate {m}
     0.000000000000,          !- Vertex 1 Y-coordinate {m}
@@ -476,4 +476,104 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     GlassType1;              !- Layer 3
 ----
 
+5) 地中の温度の定義
 
+.地中温度　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface[<bigladder>, role="external", window="_blank"]
+----
+  Site:GroundTemperature:BuildingSurface,
+    10,                      !- January Ground Temperature {C}
+    10,                      !- February Ground Temperature {C}
+    10,                      !- March Ground Temperature {C}
+    10,                      !- April Ground Temperature {C}
+    10,                      !- May Ground Temperature {C}
+    10,                      !- June Ground Temperature {C}
+    10,                      !- July Ground Temperature {C}
+    10,                      !- August Ground Temperature {C}
+    10,                      !- September Ground Temperature {C}
+    10,                      !- October Ground Temperature {C}
+    10,                      !- November Ground Temperature {C}
+    10;                      !- December Ground Temperature {C}
+----
+
+6) スケジュール
+
+.時刻別スケジュール　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly[<bigladder>, role="external", window="_blank"]
+----
+Schedule:Day:Hourly,
+    Day Sch 1,               !- Name
+    Fraction,                !- Schedule Type Limits Name
+    1,                       !- Hour 1
+    1,                       !- Hour 2
+    1,                       !- Hour 3
+    1,                       !- Hour 4
+    1,                       !- Hour 5
+    1,                       !- Hour 6
+    1,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    1,                       !- Hour 12
+    1,                       !- Hour 13
+    1,                       !- Hour 14
+    1,                       !- Hour 15
+    1,                       !- Hour 16
+    1,                       !- Hour 17
+    1,                       !- Hour 18
+    1,                       !- Hour 19
+    1,                       !- Hour 20
+    1,                       !- Hour 21
+    1,                       !- Hour 22
+    1,                       !- Hour 23
+    1;                       !- Hour 24
+----
+
+.曜日別スケジュール　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily[<bigladder>, role="external", window="_blank"]
+----
+Schedule:Week:Daily,
+    Week Sch 1,              !- Name
+    Day Sch 1,               !- Sunday Schedule:Day Name
+    Day Sch 1,               !- Monday Schedule:Day Name
+    Day Sch 1,               !- Tuesday Schedule:Day Name
+    Day Sch 1,               !- Wednesday Schedule:Day Name
+    Day Sch 1,               !- Thursday Schedule:Day Name
+    Day Sch 1,               !- Friday Schedule:Day Name
+    Day Sch 1,               !- Saturday Schedule:Day Name
+    Day Sch 1,               !- Holiday Schedule:Day Name
+    Day Sch 1,               !- SummerDesignDay Schedule:Day Name
+    Day Sch 1,               !- WinterDesignDay Schedule:Day Name
+    Day Sch 1,               !- CustomDay1 Schedule:Day Name
+    Day Sch 1;               !- CustomDay2 Schedule:Day Name
+----
+
+.年間スケジュール　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear[<bigladder>, role="external", window="_blank"]
+----
+Schedule:Year,
+    Sch 1,                   !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Week Sch 1,              !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+----
+
+
+7) すきま風
+
+.すきま風　https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate[<bigladder>, role="external", window="_blank"]
+----
+ZoneInfiltration:DesignFlowRate,
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+----

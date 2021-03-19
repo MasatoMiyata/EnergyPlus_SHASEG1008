@@ -36,20 +36,31 @@ Building,
     ;                        !- Minimum Number of Warmup Days
 
 
+!-   ===========  ALL OBJECTS IN CLASS: SHADOWCALCULATION ===========
+
+ShadowCalculation,
+    PolygonClipping,         !- Shading Calculation Method
+    Periodic,                !- Shading Calculation Update Frequency Method
+    1;                       !- Shading Calculation Update Frequency
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:INSIDE ===========
+
+SurfaceConvectionAlgorithm:Inside,
+    TARP;                    !- Algorithm
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:OUTSIDE ===========
+
+SurfaceConvectionAlgorithm:Outside,
+    DOE-2;                   !- Algorithm
+
+
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
     4;                       !- Number of Timesteps per Hour
 
-
-SurfaceConvectionAlgorithm:Inside,TARP;
-
-SurfaceConvectionAlgorithm:Outside,DOE-2;
-
-  ShadowCalculation,
-    PolygonClipping,         !- Shading Calculation Method
-    Periodic,                !- Shading Calculation Update Frequency Method
-    1;                       !- Shading Calculation Update Frequency
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
@@ -67,6 +78,23 @@ Site:Location,
 RunPeriodControl:DaylightSavingTime,
     2nd Sunday in March,     !- Start Date
     1st Sunday in November;  !- End Date
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
+
+Site:GroundTemperature:BuildingSurface,
+    10,                      !- January Ground Temperature {C}
+    10,                      !- February Ground Temperature {C}
+    10,                      !- March Ground Temperature {C}
+    10,                      !- April Ground Temperature {C}
+    10,                      !- May Ground Temperature {C}
+    10,                      !- June Ground Temperature {C}
+    10,                      !- July Ground Temperature {C}
+    10,                      !- August Ground Temperature {C}
+    10,                      !- September Ground Temperature {C}
+    10,                      !- October Ground Temperature {C}
+    10,                      !- November Ground Temperature {C}
+    10;                      !- December Ground Temperature {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDREFLECTANCE ===========
@@ -107,337 +135,70 @@ ScheduleTypeLimits,
     DISCRETE;                !- Numeric Type
 
 
-!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:DAY:HOURLY ===========
 
-Schedule:Compact,
-    Office Lights Schedule,  !- Name
+Schedule:Day:Hourly,
+    Day Sch 1,               !- Name
     Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 05:00,            !- Field 3
-    0.05,                    !- Field 4
-    Until: 07:00,            !- Field 5
-    0.1,                     !- Field 6
-    Until: 08:00,            !- Field 7
-    0.3,                     !- Field 8
-    Until: 17:00,            !- Field 9
-    0.9,                     !- Field 10
-    Until: 18:00,            !- Field 11
-    0.5,                     !- Field 12
-    Until: 20:00,            !- Field 13
-    0.3,                     !- Field 14
-    Until: 22:00,            !- Field 15
-    0.2,                     !- Field 16
-    Until: 23:00,            !- Field 17
-    0.1,                     !- Field 18
-    Until: 24:00,            !- Field 19
-    0.05,                    !- Field 20
-    For: SummerDesignDay,    !- Field 21
-    Until: 24:00,            !- Field 22
-    1.0,                     !- Field 23
-    For: Saturday,           !- Field 24
-    Until: 06:00,            !- Field 25
-    0.05,                    !- Field 26
-    Until: 08:00,            !- Field 27
-    0.1,                     !- Field 28
-    Until: 12:00,            !- Field 29
-    0.3,                     !- Field 30
-    Until: 17:00,            !- Field 31
-    0.15,                    !- Field 32
-    Until: 24:00,            !- Field 33
-    0.05,                    !- Field 34
-    For: WinterDesignDay,    !- Field 35
-    Until: 24:00,            !- Field 36
-    0.0,                     !- Field 37
-    For: Sunday Holidays AllOtherDays,  !- Field 38
-    Until: 24:00,            !- Field 39
-    0.05;                    !- Field 40
+    1,                       !- Hour 1
+    1,                       !- Hour 2
+    1,                       !- Hour 3
+    1,                       !- Hour 4
+    1,                       !- Hour 5
+    1,                       !- Hour 6
+    1,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    1,                       !- Hour 12
+    1,                       !- Hour 13
+    1,                       !- Hour 14
+    1,                       !- Hour 15
+    1,                       !- Hour 16
+    1,                       !- Hour 17
+    1,                       !- Hour 18
+    1,                       !- Hour 19
+    1,                       !- Hour 20
+    1,                       !- Hour 21
+    1,                       !- Hour 22
+    1,                       !- Hour 23
+    1;                       !- Hour 24
 
-Schedule:Compact,
-    Office Equipment Schedule,  !- Name
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:DAILY ===========
+
+Schedule:Week:Daily,
+    Week Sch 1,              !- Name
+    Day Sch 1,               !- Sunday Schedule:Day Name
+    Day Sch 1,               !- Monday Schedule:Day Name
+    Day Sch 1,               !- Tuesday Schedule:Day Name
+    Day Sch 1,               !- Wednesday Schedule:Day Name
+    Day Sch 1,               !- Thursday Schedule:Day Name
+    Day Sch 1,               !- Friday Schedule:Day Name
+    Day Sch 1,               !- Saturday Schedule:Day Name
+    Day Sch 1,               !- Holiday Schedule:Day Name
+    Day Sch 1,               !- SummerDesignDay Schedule:Day Name
+    Day Sch 1,               !- WinterDesignDay Schedule:Day Name
+    Day Sch 1,               !- CustomDay1 Schedule:Day Name
+    Day Sch 1;               !- CustomDay2 Schedule:Day Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
+
+Schedule:Year,
+    Sch 1,                   !- Name
     Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 08:00,            !- Field 3
-    0.40,                    !- Field 4
-    Until: 12:00,            !- Field 5
-    0.90,                    !- Field 6
-    Until: 13:00,            !- Field 7
-    0.80,                    !- Field 8
-    Until: 17:00,            !- Field 9
-    0.90,                    !- Field 10
-    Until: 18:00,            !- Field 11
-    0.50,                    !- Field 12
-    Until: 24:00,            !- Field 13
-    0.40,                    !- Field 14
-    For: SummerDesignDay,    !- Field 15
-    Until: 24:00,            !- Field 16
-    1.0,                     !- Field 17
-    For: Saturday,           !- Field 18
-    Until: 06:00,            !- Field 19
-    0.30,                    !- Field 20
-    Until: 08:00,            !- Field 21
-    0.4,                     !- Field 22
-    Until: 12:00,            !- Field 23
-    0.5,                     !- Field 24
-    Until: 17:00,            !- Field 25
-    0.35,                    !- Field 26
-    Until: 24:00,            !- Field 27
-    0.30,                    !- Field 28
-    For: WinterDesignDay,    !- Field 29
-    Until: 24:00,            !- Field 30
-    0.0,                     !- Field 31
-    For: Sunday Holidays AllOtherDays,  !- Field 32
-    Until: 24:00,            !- Field 33
-    0.30;                    !- Field 34
-
-Schedule:Compact,
-    Office Occupancy Schedule,  !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 06:00,            !- Field 3
-    0.0,                     !- Field 4
-    Until: 07:00,            !- Field 5
-    0.1,                     !- Field 6
-    Until: 08:00,            !- Field 7
-    0.2,                     !- Field 8
-    Until: 12:00,            !- Field 9
-    0.95,                    !- Field 10
-    Until: 13:00,            !- Field 11
-    0.5,                     !- Field 12
-    Until: 17:00,            !- Field 13
-    0.95,                    !- Field 14
-    Until: 18:00,            !- Field 15
-    0.3,                     !- Field 16
-    Until: 20:00,            !- Field 17
-    0.1,                     !- Field 18
-    Until: 24:00,            !- Field 19
-    0.05,                    !- Field 20
-    For: SummerDesignDay,    !- Field 21
-    Until: 06:00,            !- Field 22
-    0.0,                     !- Field 23
-    Until: 22:00,            !- Field 24
-    1.0,                     !- Field 25
-    Until: 24:00,            !- Field 26
-    0.05,                    !- Field 27
-    For: Saturday,           !- Field 28
-    Until: 06:00,            !- Field 29
-    0.0,                     !- Field 30
-    Until: 08:00,            !- Field 31
-    0.1,                     !- Field 32
-    Until: 12:00,            !- Field 33
-    0.3,                     !- Field 34
-    Until: 17:00,            !- Field 35
-    0.1,                     !- Field 36
-    Until: 19:00,            !- Field 37
-    0.0,                     !- Field 38
-    Until: 24:00,            !- Field 39
-    0.0,                     !- Field 40
-    For: WinterDesignDay,    !- Field 41
-    Until: 24:00,            !- Field 42
-    0.0,                     !- Field 43
-    For: Sunday Holidays AllOtherDays,  !- Field 44
-    Until: 06:00,            !- Field 45
-    0.0,                     !- Field 46
-    Until: 18:00,            !- Field 47
-    0.0,                     !- Field 48
-    Until: 24:00,            !- Field 49
-    0.0;                     !- Field 50
-
-Schedule:Compact,
-    Infiltration Schedule,   !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 06:00,            !- Field 3
-    1.0,                     !- Field 4
-    Until: 22:00,            !- Field 5
-    0.0,                     !- Field 6
-    Until: 24:00,            !- Field 7
-    1.0,                     !- Field 8
-    For: Saturday WinterDesignDay,  !- Field 9
-    Until: 06:00,            !- Field 10
-    1.0,                     !- Field 11
-    Until: 18:00,            !- Field 12
-    0.0,                     !- Field 13
-    Until: 24:00,            !- Field 14
-    1.0,                     !- Field 15
-    For: Sunday Holidays AllOtherDays,  !- Field 16
-    Until: 24:00,            !- Field 17
-    1.0;                     !- Field 18
-
-Schedule:Compact,
-    Infiltration Half On Schedule,  !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 06:00,            !- Field 3
-    1.0,                     !- Field 4
-    Until: 22:00,            !- Field 5
-    0.5,                     !- Field 6
-    Until: 24:00,            !- Field 7
-    1.0,                     !- Field 8
-    For: Saturday WinterDesignDay,  !- Field 9
-    Until: 06:00,            !- Field 10
-    1.0,                     !- Field 11
-    Until: 18:00,            !- Field 12
-    0.5,                     !- Field 13
-    Until: 24:00,            !- Field 14
-    1.0,                     !- Field 15
-    For: Sunday Holidays AllOtherDays,  !- Field 16
-    Until: 24:00,            !- Field 17
-    1.0;                     !- Field 18
-
-Schedule:Compact,
-    Infiltration Quarter On Schedule,  !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 06:00,            !- Field 3
-    1.0,                     !- Field 4
-    Until: 22:00,            !- Field 5
-    0.25,                    !- Field 6
-    Until: 24:00,            !- Field 7
-    1.0,                     !- Field 8
-    For: Saturday WinterDesignDay,  !- Field 9
-    Until: 06:00,            !- Field 10
-    1.0,                     !- Field 11
-    Until: 18:00,            !- Field 12
-    0.25,                    !- Field 13
-    Until: 24:00,            !- Field 14
-    1.0,                     !- Field 15
-    For: Sunday Holidays AllOtherDays,  !- Field 16
-    Until: 24:00,            !- Field 17
-    1.0;                     !- Field 18
-
-Schedule:Compact,
-    Hours of Operation Schedule,  !- Name
-    On/Off,                  !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 06:00,            !- Field 3
-    0.0,                     !- Field 4
-    Until: 22:00,            !- Field 5
-    1.0,                     !- Field 6
-    Until: 24:00,            !- Field 7
-    0.0,                     !- Field 8
-    For: Saturday WinterDesignDay,  !- Field 9
-    Until: 06:00,            !- Field 10
-    0.0,                     !- Field 11
-    Until: 18:00,            !- Field 12
-    1.0,                     !- Field 13
-    Until: 24:00,            !- Field 14
-    0.0,                     !- Field 15
-    For: Sunday Holidays AllOtherDays,  !- Field 16
-    Until: 24:00,            !- Field 17
-    0.0;                     !- Field 18
-
-Schedule:Compact,
-    Always On,               !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    1.0;                     !- Field 4
-
-Schedule:Compact,
-    Always Off,              !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    0.0;                     !- Field 4
-
-Schedule:Compact,
-    Heating Setpoint Schedule,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 05:00,            !- Field 3
-    15.6,                    !- Field 4
-    Until: 19:00,            !- Field 5
-    21.0,                    !- Field 6
-    Until: 24:00,            !- Field 7
-    15.6,                    !- Field 8
-    For SummerDesignDay,     !- Field 9
-    Until: 24:00,            !- Field 10
-    15.6,                    !- Field 11
-    For: Saturday,           !- Field 12
-    Until: 06:00,            !- Field 13
-    15.6,                    !- Field 14
-    Until: 17:00,            !- Field 15
-    21.0,                    !- Field 16
-    Until: 24:00,            !- Field 17
-    15.6,                    !- Field 18
-    For: WinterDesignDay,    !- Field 19
-    Until: 24:00,            !- Field 20
-    21.0,                    !- Field 21
-    For: Sunday Holidays AllOtherDays,  !- Field 22
-    Until: 24:00,            !- Field 23
-    15.6;                    !- Field 24
-
-Schedule:Compact,
-    Cooling Setpoint Schedule,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 06:00,            !- Field 3
-    30.0,                    !- Field 4
-    Until: 22:00,            !- Field 5
-    24.0,                    !- Field 6
-    Until: 24:00,            !- Field 7
-    30.0,                    !- Field 8
-    For: Saturday,           !- Field 9
-    Until: 06:00,            !- Field 10
-    30.0,                    !- Field 11
-    Until: 18:00,            !- Field 12
-    24.0,                    !- Field 13
-    Until: 24:00,            !- Field 14
-    30.0,                    !- Field 15
-    For WinterDesignDay,     !- Field 16
-    Until: 24:00,            !- Field 17
-    30.0,                    !- Field 18
-    For: Sunday Holidays AllOtherDays,  !- Field 19
-    Until: 24:00,            !- Field 20
-    30.0;                    !- Field 21
-
-Schedule:Compact,
-    Office Activity Schedule,!- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    120.;                    !- Field 4
-
-Schedule:Compact,
-    Office Work Eff. Schedule,  !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    0.0;                     !- Field 4
-
-Schedule:Compact,
-    Office Clothing Schedule,!- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 04/30,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    1.0,                     !- Field 4
-    Through: 09/30,          !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0.5,                     !- Field 8
-    Through: 12/31,          !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    1.0;                     !- Field 12
+    Week Sch 1,              !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
 
-  Material,
+Material,
     PLASTERBOARD-12mm,       !- Name
     Rough,                   !- Roughness
     0.01200,                 !- Thickness {m}
@@ -448,7 +209,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Material,
+Material,
     FIBERGLASS-66mm,         !- Name
     Rough,                   !- Roughness
     0.066,                   !- Thickness {m}
@@ -459,7 +220,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Material,
+Material,
     WOODSIDING-9mm,          !- Name
     Rough,                   !- Roughness
     0.00900,                 !- Thickness {m}
@@ -470,16 +231,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Construction,
-    Wall-configure,          !- Name
-    WOODSIDING-9mm,          !- Outside Layer
-    FIBERGLASS-66mm,         !- Layer 2
-    PLASTERBOARD-12mm;       !- Layer 3
-
-
-!-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
-
-  Material,
+Material,
     TIMBERFLOORING-25mm,     !- Name
     Rough,                   !- Roughness
     0.02500,                 !- Thickness {m}
@@ -490,7 +242,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Material,
+Material,
     FIBERGLASS-1003mm,       !- Name
     Rough,                   !- Roughness
     1.003,                   !- Thickness {m}
@@ -501,16 +253,8 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Construction,
-    Floor_configure,         !- Name
-    FIBERGLASS-1003mm,       !- Outside Layer
-    TIMBERFLOORING-25mm;     !- Layer 2
-
-
-!-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
-
-  Material,
-    PLASTERBOARD-10mm,          !- Name
+Material,
+    PLASTERBOARD-10mm,       !- Name
     Rough,                   !- Roughness
     0.01000,                 !- Thickness {m}
     0.16000,                 !- Conductivity {W/m-K}
@@ -520,7 +264,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Material,
+Material,
     FIBERGLASS-111mm,        !- Name
     Rough,                   !- Roughness
     0.1118,                  !- Thickness {m}
@@ -531,7 +275,7 @@ Schedule:Compact,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-  Material,
+Material,
     ROOFDECK-19mm,           !- Name
     Rough,                   !- Roughness
     0.01900,                 !- Thickness {m}
@@ -541,17 +285,11 @@ Schedule:Compact,
     0.9000000,               !- Thermal Absorptance
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
-    
-  Construction,
-    Roof_configure,          !- Name
-    ROOFDECK-19mm,           !- Outside Layer
-    FIBERGLASS-111mm,        !- Layer 2
-    PLASTERBOARD-10mm;       !- Layer 3
 
 
 !-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
 
-  WindowMaterial:Glazing,
+WindowMaterial:Glazing,
     GlassType1,              !- Name
     SpectralAverage,         !- Optical Data Type
     ,                        !- Window Glass Spectral Data Set Name
@@ -567,21 +305,44 @@ Schedule:Compact,
     0.84,                    !- Back Side Infrared Hemispherical Emissivity
     1.06;                    !- Conductivity {W/m-K}
 
-  WindowMaterial:Gas,
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GAS ===========
+
+WindowMaterial:Gas,
     AirSpaceResistance,      !- Name
     AIR,                     !- Gas Type
     0.013;                   !- Thickness {m}
 
-  Construction,
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    Wall-configure,          !- Name
+    WOODSIDING-9mm,          !- Outside Layer
+    FIBERGLASS-66mm,         !- Layer 2
+    PLASTERBOARD-12mm;       !- Layer 3
+
+Construction,
+    Floor_configure,         !- Name
+    FIBERGLASS-1003mm,       !- Outside Layer
+    TIMBERFLOORING-25mm;     !- Layer 2
+
+Construction,
+    Roof_configure,          !- Name
+    ROOFDECK-19mm,           !- Outside Layer
+    FIBERGLASS-111mm,        !- Layer 2
+    PLASTERBOARD-10mm;       !- Layer 3
+
+Construction,
     Window_configure,        !- Name
     GlassType1,              !- Outside Layer
     AirSpaceResistance,      !- Layer 2
     GlassType1;              !- Layer 3
-    
+
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
 
-  GlobalGeometryRules,
+GlobalGeometryRules,
     UpperLeftCorner,         !- Starting Vertex Position
     Counterclockwise,        !- Vertex Entry Direction
     Relative;                !- Coordinate System
@@ -589,7 +350,7 @@ Schedule:Compact,
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
 
-  Zone,
+Zone,
     Zone1,                   !- Name
     0.0,                     !- Direction of Relative North {deg}
     0.0,                     !- X Origin {m}
@@ -598,9 +359,10 @@ Schedule:Compact,
     ,                        !- Type
     1;                       !- Multiplier
 
+
 !-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Floor,                   !- Name
     Floor,                   !- Surface Type
     Floor_configure,         !- Construction Name
@@ -624,7 +386,7 @@ Schedule:Compact,
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     0.000000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Roof,                    !- Name
     Roof,                    !- Surface Type
     Roof_configure,          !- Construction Name
@@ -648,7 +410,7 @@ Schedule:Compact,
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Wall_S,                  !- Name
     Wall,                    !- Surface Type
     Wall-configure,          !- Construction Name
@@ -672,7 +434,7 @@ Schedule:Compact,
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Wall_N,                  !- Name
     Wall,                    !- Surface Type
     Wall-configure,          !- Construction Name
@@ -696,7 +458,7 @@ Schedule:Compact,
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Wall_W,                  !- Name
     Wall,                    !- Surface Type
     Wall-configure,          !- Construction Name
@@ -720,7 +482,7 @@ Schedule:Compact,
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Wall_E,                  !- Name
     Wall,                    !- Surface Type
     Wall-configure,          !- Construction Name
@@ -747,7 +509,7 @@ Schedule:Compact,
 
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 
-  FenestrationSurface:Detailed,
+FenestrationSurface:Detailed,
     Window_S1,               !- Name
     Window,                  !- Surface Type
     Window_configure,        !- Construction Name
@@ -770,7 +532,7 @@ Schedule:Compact,
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.200000000000;          !- Vertex 4 Z-coordinate {m}
 
-  FenestrationSurface:Detailed,
+FenestrationSurface:Detailed,
     Window_S2,               !- Name
     Window,                  !- Surface Type
     Window_configure,        !- Construction Name
@@ -794,6 +556,23 @@ Schedule:Compact,
     2.200000000000;          !- Vertex 4 Z-coordinate {m}
 
 
+!-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========
+
+ZoneInfiltration:DesignFlowRate,
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+
 !-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:THERMOSTAT ===========
 
 HVACTemplate:Thermostat,
@@ -806,32 +585,81 @@ HVACTemplate:Thermostat,
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
 
-Output:VariableDictionary, Regular;
+Output:VariableDictionary,
+    Regular;                 !- Key Field
 
-Output:Variable,*,Zone Mean Air Temperature,Hourly;
 
-Output:Variable,*,Zone Air System Sensible Heating Energy,Hourly;
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:SURFACES:DRAWING ===========
 
-Output:Variable,*,Zone Air System Sensible Cooling Energy,Hourly;
+Output:Surfaces:Drawing,
+    DXF;                     !- Report Type
 
-Output:Variable,*,Surface Outside Face Sunlit Area,Hourly;
 
-Output:Variable,*,Surface Outside Face Sunlit Fraction,Hourly;
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:CONSTRUCTIONS ===========
 
-Output:Variable,*,Surface Outside Face Incident Solar Radiation Rate per Area,Hourly;
+Output:Constructions,
+    Constructions;           !- Details Type 1
 
-Output:Variable,*,Surface Window Transmitted Solar Radiation Rate,Hourly;
 
-Output:Variable,*,Surface Window Transmitted Beam Solar Radiation Rate,Hourly;
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
-Output:Variable,*,Surface Window Transmitted Diffuse Solar Radiation Rate,Hourly;
+Output:Variable,
+    *,                       !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
 
-Output:Variable,*,Surface Window Transmitted Solar Radiation Energy,Hourly;
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Heating Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
 
-Output:Variable,*,Surface Window Transmitted Beam Solar Radiation Energy,Hourly;
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Cooling Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
 
-Output:Variable,*,Surface Window Transmitted Diffuse Solar Radiation Energy,Hourly;
+Output:Variable,
+    *,                       !- Key Value
+    Surface Outside Face Sunlit Area,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
 
-Output:Surfaces:Drawing,DXF;
+Output:Variable,
+    *,                       !- Key Value
+    Surface Outside Face Sunlit Fraction,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
 
-Output:Constructions,Constructions;
+Output:Variable,
+    *,                       !- Key Value
+    Surface Outside Face Incident Solar Radiation Rate per Area,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Solar Radiation Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Beam Solar Radiation Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Diffuse Solar Radiation Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Solar Radiation Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Beam Solar Radiation Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Surface Window Transmitted Diffuse Solar Radiation Energy,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+

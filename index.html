@@ -436,8 +436,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article toc2 toc-left">
+<body class="book toc2 toc-left">
 <div id="header">
 <h1>SHASE-G 1008:2016 + EnergyPlus</h1>
 <div class="details">
@@ -446,27 +447,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">EnergyPlus SHASE-G1008:2016</div>
 <ul class="sectlevel1">
-<li><a href="#_1_熱負荷シミュレーション">1. 熱負荷シミュレーション</a>
+<li><a href="#_はじめに">1. はじめに</a></li>
+<li><a href="#_熱負荷シミュレーション">2. 熱負荷シミュレーション</a>
 <ul class="sectlevel2">
-<li><a href="#_1_0_基本モデルcase600の作成">1.0 基本モデル（Case600）の作成</a>
+<li><a href="#_case600">2.1. Case600</a>
 <ul class="sectlevel3">
-<li><a href="#_1_建物情報の定義">1) 建物情報の定義</a></li>
-<li><a href="#_2_ゾーンの定義">2) ゾーンの定義</a></li>
-<li><a href="#_3_壁体構成の定義">3) 壁体構成の定義</a></li>
-<li><a href="#_4_窓構成の定義">4) 窓構成の定義</a></li>
-<li><a href="#_5_地中の温度の定義">5) 地中の温度の定義</a></li>
-<li><a href="#_6_スケジュール">6) スケジュール</a></li>
-<li><a href="#_7_すきま風">7) すきま風</a></li>
-<li><a href="#_8_内部発熱">8) 内部発熱</a></li>
-<li><a href="#_9_計算期間">9) 計算期間</a></li>
-<li><a href="#_10_空調の設定">10) 空調の設定</a>
+<li><a href="#_building">2.1.1. Building</a></li>
+<li><a href="#_sitelocation">2.1.2. Site:Location</a></li>
+<li><a href="#_runperiod">2.1.3. RunPeriod</a></li>
+<li><a href="#_sitegroundreflectance">2.1.4. Site:GroundReflectance</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface">2.1.5. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_zone">2.1.6. Zone</a></li>
+<li><a href="#_buildingsurfacedetailed">2.1.7. BuildingSurface:Detailed</a></li>
+<li><a href="#_fenestrationsurfacedetailed">2.1.8. FenestrationSurface:Detailed</a></li>
+<li><a href="#_material_construction">2.1.9. Material, Construction</a></li>
+<li><a href="#_windowmaterialglazing">2.1.10. WindowMaterial:Glazing</a></li>
+<li><a href="#_schedule">2.1.11. Schedule</a>
 <ul class="sectlevel4">
-<li><a href="#_10_1_zonecontrolthermostat">10.1 ZoneControl:Thermostat</a></li>
-<li><a href="#_10_2_thermostatsetpointdualsetpoint">10.2 ThermostatSetpoint:DualSetpoint</a></li>
-<li><a href="#_10_3_zonehvacidealloadsairsystem">10.3 ZoneHVAC:IdealLoadsAirSystem</a></li>
-<li><a href="#_10_4_zonehvacequipmentlist">10.4 ZoneHVAC:EquipmentList</a></li>
-<li><a href="#_10_5_nodelist">10.5 NodeList</a></li>
-<li><a href="#_10_6_zonehvacequipmentconnections">10.6 ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_scheduledayhourly">2.1.11.1. Schedule:Day:Hourly</a></li>
+<li><a href="#_scheduleweekdaily">2.1.11.2. Schedule:Week:Daily</a></li>
+<li><a href="#_scheduleyear">2.1.11.3. Schedule:Year</a></li>
+</ul>
+</li>
+<li><a href="#_zoneinfiltrationdesignflowrate">2.1.12. ZoneInfiltration:DesignFlowRate</a></li>
+<li><a href="#_otherequipment">2.1.13. OtherEquipment</a></li>
+<li><a href="#_hvac_system">2.1.14. HVAC system</a>
+<ul class="sectlevel4">
+<li><a href="#_zonecontrolthermostat">2.1.14.1. ZoneControl:Thermostat</a></li>
+<li><a href="#_thermostatsetpointdualsetpoint">2.1.14.2. ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_zonehvacidealloadsairsystem">2.1.14.3. ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_zonehvacequipmentlist">2.1.14.4. ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_nodelist">2.1.14.5. NodeList</a></li>
+<li><a href="#_zonehvacequipmentconnections">2.1.14.6. ZoneHVAC:EquipmentConnections</a></li>
 </ul>
 </li>
 </ul>
@@ -478,21 +490,58 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_1_熱負荷シミュレーション">1. 熱負荷シミュレーション</h2>
+<h2 id="_はじめに"><a class="link" href="#_はじめに">1. はじめに</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ガイドライン第5章「熱負荷シミュレーションツールのテスト」を実行します。</p>
+<p>SHASE-G1008:2016「建物エネルギーシミュレーションツールの評価手法に関するガイドライン」をEnergyPlusに対して適用する方法を解説します。<br>
+EnergyPlusはVer.9.4を使用しています。EnergyPlusのインストール方法や使用方法については省略します。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+SHASE-G1008:2016は <a href="http://www.shasej.org/tosho/report.html">空気調和・衛生工学会</a> にて購入できます。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html" class="external" target="_blank" rel="noopener">bigladder</a> を参照してください。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_熱負荷シミュレーション"><a class="link" href="#_熱負荷シミュレーション">2. 熱負荷シミュレーション</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」を実行します。</p>
 </div>
 <div class="sect2">
-<h3 id="_1_0_基本モデルcase600の作成">1.0 基本モデル（Case600）の作成</h3>
+<h3 id="_case600"><a class="link" href="#_case600">2.1. Case600</a></h3>
 <div class="paragraph">
-<p>まずは、基本となる建物モデルを作成する。
-IDFファイルの作成方法は <a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/index.html" class="external" target="_blank" rel="noopener">bigladder</a> のページを参照。</p>
+<p>基本となる建物モデルを作成します。</p>
 </div>
 <div class="sect3">
-<h4 id="_1_建物情報の定義">1) 建物情報の定義</h4>
+<h4 id="_building"><a class="link" href="#_building">2.1.1. Building</a></h4>
+<div class="paragraph">
+<p>Buildingオブジェクトは、シミュレーション実行時に使用されるパラメータを記述します。<br>
+Buildingオブジェクトの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
+このオブジェクトの入力内容と、Site:WeatherStation や Site:HeightVariationのいくつかのエントリ（特にTerrainフィールド）の内容は整合が取れていなければいけません。</p>
+</div>
 <div class="listingblock">
-<div class="title">建物情報　Building　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Buildingオブジェクト</div>
 <div class="content">
 <pre>  Building,
     Case600,                 !- Name
@@ -505,14 +554,17 @@ IDFファイルの作成方法は <a href="https://bigladdersoftware.com/epx/doc
     6;                       !- Minimum Number of Warmup Days</pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_sitelocation"><a class="link" href="#_sitelocation">2.1.2. Site:Location</a></h4>
 <div class="paragraph">
-<p>【解説】<br>
-Buildingオブジェクトは、シミュレーション実行時に使用されるパラメータを記述します。
-このオブジェクトの入力内容と、Site:WeatherStation や Site:HeightVariationのいくつかのエントリ（特にTerrainフィールド）の内容は
-整合が取れていなければいけません。</p>
+<p>Site:Locationクラスは、建物の位置に関するパラメータを記述します。位置は1つしか指定できません。<br>
+Site:Locationクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
+気象データファイルに位置情報が存在する場合は、IDFに記された位置情報データよりも優先されます。
+したがって、年間シミュレーションの場合、Locationを入力する必要はありません。</p>
 </div>
 <div class="listingblock">
-<div class="title">位置情報　Site:Location　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Site:Locationクラス</div>
 <div class="content">
 <pre>  Site:Location,
     Denver-Stapleton,CO,USA,TMY--23062,  !- Name
@@ -523,17 +575,45 @@ Buildingオブジェクトは、シミュレーション実行時に使用され
 </div>
 </div>
 <div class="paragraph">
-<p>【解説】<br>
-Site:Locationクラスは、建物の位置に関するパラメータを記述します。位置は1つしか指定できません。
-気象データファイルに位置情報が存在する場合は、IDFに記された位置情報データよりも優先されます。
-したがって、年間シミュレーションの場合、Locationを入力する必要はありません。</p>
-</div>
-<div class="paragraph">
 <p>【作業メモ】<br>
 気象データファイルと緯度・経度の桁が違う・・・。標高も違う。</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_runperiod"><a class="link" href="#_runperiod">2.1.3. RunPeriod</a></h4>
+<div class="paragraph">
+<p>RunPeriodクラスでは、計算期間の設定を行います。<br>
+RunPeriodクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">地物反射率　Site:GroundReflectance　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#sitegroundreflectance" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">RunPeriod</div>
+<div class="content">
+<pre>RunPeriod,
+    RUNPERIOD 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    ,                        !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    ,                        !- End Year
+    ,                        !- Day of Week for Start Day
+    Yes,                     !- Use Weather File Holidays and Special Days
+    Yes,                     !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.1.4. Site:GroundReflectance</a></h4>
+<div class="paragraph">
+<p>Site:GroundReflectanceクラスは、地物反射率に関するパラメータを記述します。<br>
+Site:GroundReflectanceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundreflectance" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
+<div class="listingblock">
+<div class="title">Site:GroundReflectance　</div>
 <div class="content">
 <pre>  Site:GroundReflectance,
     0.2,                     !- January Ground Reflectance {dimensionless}
@@ -552,9 +632,37 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_2_ゾーンの定義">2) ゾーンの定義</h4>
+<h4 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.1.5. Site:GroundTemperature:BuildingSurface</a></h4>
+<div class="paragraph">
+<p>Site:GroundTemperature:BuildingSurfaceクラスでは、地中の温度を入力します。<br>
+Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">ゾーン名称　Zone　</div>
+<div class="title">Site:GroundTemperature:BuildingSurface　</div>
+<div class="content">
+<pre>  Site:GroundTemperature:BuildingSurface,
+    10,                      !- January Ground Temperature {C}
+    10,                      !- February Ground Temperature {C}
+    10,                      !- March Ground Temperature {C}
+    10,                      !- April Ground Temperature {C}
+    10,                      !- May Ground Temperature {C}
+    10,                      !- June Ground Temperature {C}
+    10,                      !- July Ground Temperature {C}
+    10,                      !- August Ground Temperature {C}
+    10,                      !- September Ground Temperature {C}
+    10,                      !- October Ground Temperature {C}
+    10,                      !- November Ground Temperature {C}
+    10;                      !- December Ground Temperature {C}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_zone"><a class="link" href="#_zone">2.1.6. Zone</a></h4>
+<div class="paragraph">
+<p>Zoneオプジェクトは、ゾーンに関するパラメータを記述します。</p>
+</div>
+<div class="listingblock">
+<div class="title">Zone　</div>
 <div class="content">
 <pre>Zone,
     Zone1,                   !- Name
@@ -568,8 +676,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     129.6;                   !- Volume {m3}</pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.1.7. BuildingSurface:Detailed</a></h4>
+<div class="paragraph">
+<p>BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。<br>
+BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">床　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　床</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Floor,                   !- Name
@@ -597,7 +712,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">屋根　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　屋根</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Roof,                    !- Name
@@ -625,7 +740,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">外壁（南）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　外壁（南）</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Wall_S,                  !- Name
@@ -653,7 +768,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">外壁（北）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　外壁（北）</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Wall_N,                  !- Name
@@ -681,7 +796,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">外壁（西）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　外壁（西）</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Wall_W,                  !- Name
@@ -709,7 +824,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">外壁（東）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　外壁（東）</div>
 <div class="content">
 <pre>  BuildingSurface:Detailed,
     Wall_E,                  !- Name
@@ -736,8 +851,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     2.700000000000;          !- Vertex 4 Z-coordinate {m}</pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.1.8. FenestrationSurface:Detailed</a></h4>
+<div class="paragraph">
+<p>FenestrationSurface:Detailedクラスは、窓構成に関するパラメータを記述します。<br>
+FenestrationSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">窓（南1）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　窓（南1）</div>
 <div class="content">
 <pre>  FenestrationSurface:Detailed,
     Window_S1,               !- Name
@@ -764,7 +886,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">窓（南2）　BuildingSurface:Detailed　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">BuildingSurface:Detailed　窓（南2）</div>
 <div class="content">
 <pre>  FenestrationSurface:Detailed,
     Window_S2,               !- Name
@@ -792,9 +914,14 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_3_壁体構成の定義">3) 壁体構成の定義</h4>
+<h4 id="_material_construction"><a class="link" href="#_material_construction">2.1.9. Material, Construction</a></h4>
+<div class="paragraph">
+<p>Materialクラスで建材の熱物性値を定義し、Constructionクラスで建材構成を記述します。<br>
+Materialクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
+Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">外壁の部材　Material　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Material　外壁</div>
 <div class="content">
 <pre>  Material,
     PLASTERBOARD-12mm,       !- Name
@@ -831,7 +958,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">外壁の構成　Construction　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Construction　外壁</div>
 <div class="content">
 <pre>  Construction,
     Wall-configure,          !- Name
@@ -841,7 +968,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">床の部材　Material　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Material　床</div>
 <div class="content">
 <pre>  Material,
     TIMBERFLOORING-25mm,     !- Name
@@ -870,10 +997,10 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 <p>【作業メモ】<br>
 断熱材（FIBERGLASS-1003mm）について、密度と比熱はプログラムが許容する最小値とすることとされている。
 比熱の最小値は　100 J/kg-K　と記載があったが、密度については記載が見つからなかった。<br>
-参考：　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#field-specific-heat">比熱の最小値</a></p>
+参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#field-specific-heat">比熱の最小値</a></p>
 </div>
 <div class="listingblock">
-<div class="title">床の構成　Construction　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Construction　床</div>
 <div class="content">
 <pre>  Construction,
     Floor_configure,         !- Name
@@ -882,7 +1009,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">屋根の部材　Material　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Material　屋根</div>
 <div class="content">
 <pre>  Material,
     PLASTERBOARD-10mm,       !- Name
@@ -919,7 +1046,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">屋根の構成　Construction　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Construction　屋根</div>
 <div class="content">
 <pre>  Construction,
     Roof_configure,          !- Name
@@ -930,9 +1057,13 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_4_窓構成の定義">4) 窓構成の定義</h4>
+<h4 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.1.10. WindowMaterial:Glazing</a></h4>
+<div class="paragraph">
+<p>WindowMaterial:Glazingクラスでガラスの熱物性値を定義し、Constructionクラスで窓構成を記述します。<br>
+WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">窓の部材　WindowMaterial:Glazing　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">WindowMaterial:Glazing</div>
 <div class="content">
 <pre>  WindowMaterial:Glazing,
     GlassType1,              !- Name
@@ -957,7 +1088,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">窓の構成　Construction　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Construction　窓</div>
 <div class="content">
 <pre>  Construction,
     window_configure,        !- Name
@@ -968,30 +1099,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_5_地中の温度の定義">5) 地中の温度の定義</h4>
+<h4 id="_schedule"><a class="link" href="#_schedule">2.1.11. Schedule</a></h4>
+<div class="sect4">
+<h5 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.1.11.1. Schedule:Day:Hourly</a></h5>
+<div class="paragraph">
+<p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。<br>
+Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">地中温度　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
-<div class="content">
-<pre>  Site:GroundTemperature:BuildingSurface,
-    10,                      !- January Ground Temperature {C}
-    10,                      !- February Ground Temperature {C}
-    10,                      !- March Ground Temperature {C}
-    10,                      !- April Ground Temperature {C}
-    10,                      !- May Ground Temperature {C}
-    10,                      !- June Ground Temperature {C}
-    10,                      !- July Ground Temperature {C}
-    10,                      !- August Ground Temperature {C}
-    10,                      !- September Ground Temperature {C}
-    10,                      !- October Ground Temperature {C}
-    10,                      !- November Ground Temperature {C}
-    10;                      !- December Ground Temperature {C}</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_6_スケジュール">6) スケジュール</h4>
-<div class="listingblock">
-<div class="title">時刻別スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Day:Hourly　すきま風</div>
 <div class="content">
 <pre>Schedule:Day:Hourly,
     Day Sch 1,               !- Name
@@ -1023,7 +1139,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">時刻別スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Day:Hourly　暖房設定温度</div>
 <div class="content">
 <pre>Schedule:Day:Hourly,
     Zone Heating Setpoint All Days,  !- Name
@@ -1055,7 +1171,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">時刻別スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Day:Hourly　冷房設定温度</div>
 <div class="content">
 <pre>Schedule:Day:Hourly,
     Zone Cooling Setpoint All Days,  !- Name
@@ -1087,7 +1203,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">室温制御方法　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Day:Hourly　室温制御方法</div>
 <div class="content">
 <pre>Schedule:Day:Hourly,
     Control Type All Days,   !- Name
@@ -1118,8 +1234,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     4;                       !- Hour 24</pre>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.1.11.2. Schedule:Week:Daily</a></h5>
+<div class="paragraph">
+<p>Schedule:Week:Dailyクラスでは、曜日別のスケジュールの設定を行います。<br>
+Schedule:Week:Dailyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">曜日別スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Week:Daily　すきま風　</div>
 <div class="content">
 <pre>Schedule:Week:Daily,
     Week Sch 1,              !- Name
@@ -1138,7 +1261,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">曜日別スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Week:Daily　暖房設定温度</div>
 <div class="content">
 <pre>Schedule:Week:Daily,
     Zone Heating Setpoint All Weeks,  !- Name
@@ -1157,7 +1280,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">曜日別スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Week:Daily　冷房設定温度</div>
 <div class="content">
 <pre>Schedule:Week:Daily,
     Zone Cooling Setpoint All Weeks,  !- Name
@@ -1176,7 +1299,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">曜日別スケジュール（室温制御方法）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Week:Daily　室温制御方法</div>
 <div class="content">
 <pre>Schedule:Week:Daily,
     Control Type All Weeks,  !- Name
@@ -1194,8 +1317,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
     Control Type All Days;   !- CustomDay2 Schedule:Day Name</pre>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.1.11.3. Schedule:Year</a></h5>
+<div class="paragraph">
+<p>Schedule:Yearクラスでは、年間スケジュールの設定を行います。<br>
+Schedule:Yearクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">年間スケジュール（すきま風）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Year　すきま風　</div>
 <div class="content">
 <pre>Schedule:Year,
     Sch 1,                   !- Name
@@ -1208,7 +1338,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">年間スケジュール（暖房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Year　暖房設定温度</div>
 <div class="content">
 <pre>Schedule:Year,
     Heating Setpoints,       !- Name
@@ -1221,7 +1351,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">年間スケジュール（冷房設定温度）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Year　冷房設定温度</div>
 <div class="content">
 <pre>Schedule:Year,
     Cooling Setpoints,       !- Name
@@ -1234,7 +1364,7 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="listingblock">
-<div class="title">年間スケジュール（制御方法）　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">Schedule:Year　室温制御方法</div>
 <div class="content">
 <pre>Schedule:Year,
     Zone Control Type Sched, !- Name
@@ -1247,10 +1377,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="_7_すきま風">7) すきま風</h4>
+<h4 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.1.12. ZoneInfiltration:DesignFlowRate</a></h4>
+<div class="paragraph">
+<p>ZoneInfiltration:DesignFlowRateクラスでは、すきま風の設定を行います。<br>
+ZoneInfiltration:DesignFlowRateクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">すきま風　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">すきま風　</div>
 <div class="content">
 <pre>ZoneInfiltration:DesignFlowRate,
     Infil_1,                 !- Name
@@ -1269,9 +1404,13 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_8_内部発熱">8) 内部発熱</h4>
+<h4 id="_otherequipment"><a class="link" href="#_otherequipment">2.1.13. OtherEquipment</a></h4>
+<div class="paragraph">
+<p>OtherEquipmentクラスでは、内部発熱の設定を行います。<br>
+OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
 <div class="listingblock">
-<div class="title">内部発熱　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">OtherEquipment</div>
 <div class="content">
 <pre>OtherEquipment,
     Euip 1,                  !- Name
@@ -1291,38 +1430,15 @@ Site:Locationクラスは、建物の位置に関するパラメータを記述�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_9_計算期間">9) 計算期間</h4>
-<div class="listingblock">
-<div class="title">計算期間　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
-<div class="content">
-<pre>RunPeriod,
-    RUNPERIOD 1,             !- Name
-    1,                       !- Begin Month
-    1,                       !- Begin Day of Month
-    ,                        !- Begin Year
-    12,                      !- End Month
-    31,                      !- End Day of Month
-    ,                        !- End Year
-    ,                        !- Day of Week for Start Day
-    Yes,                     !- Use Weather File Holidays and Special Days
-    Yes,                     !- Use Weather File Daylight Saving Period
-    No,                      !- Apply Weekend Holiday Rule
-    Yes,                     !- Use Weather File Rain Indicators
-    Yes,                     !- Use Weather File Snow Indicators
-    No;                      !- Treat Weather as Actual</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_10_空調の設定">10) 空調の設定</h4>
+<h4 id="_hvac_system"><a class="link" href="#_hvac_system">2.1.14. HVAC system</a></h4>
 <div class="sect4">
-<h5 id="_10_1_zonecontrolthermostat">10.1 ZoneControl:Thermostat</h5>
+<h5 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.1.14.1. ZoneControl:Thermostat</a></h5>
 <div class="paragraph">
 <p>ZoneControl:Thermostatオブジェクトは、ゾーンを指定された温度に制御するために使用されます。<br>
 ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneControl:Thermostat　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneControl:Thermostat　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>ZoneControl:Thermostat,
     Zone 1 Thermostat,                !- Name
@@ -1333,7 +1449,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_name">Name</h6>
+<h6 id="_name"><a class="link" href="#_name">Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1343,7 +1459,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_or_zonelist_name">Zone or ZoneList Name</h6>
+<h6 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">Zone or ZoneList Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1353,7 +1469,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_control_type_schedule_name">Control Type Schedule Name</h6>
+<h6 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">Control Type Schedule Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1385,7 +1501,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_control_1_object_type">Control 1 Object Type</h6>
+<h6 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">Control 1 Object Type</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1393,16 +1509,16 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 <div class="ulist">
 <ul>
 <li>
-<p>ThermostatSetpoint:SingleHeating　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+<p>ThermostatSetpoint:SingleHeating　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </li>
 <li>
-<p>ThermostatSetpoint:SingleCooling　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+<p>ThermostatSetpoint:SingleCooling　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </li>
 <li>
-<p>ThermostatSetpoint:SingleHeatingOrCooling　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+<p>ThermostatSetpoint:SingleHeatingOrCooling　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </li>
 <li>
-<p>ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+<p>ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </li>
 </ul>
 </div>
@@ -1411,7 +1527,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_control_1_name">Control 1 Name</h6>
+<h6 id="_control_1_name"><a class="link" href="#_control_1_name">Control 1 Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1422,9 +1538,9 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_10_2_thermostatsetpointdualsetpoint">10.2 ThermostatSetpoint:DualSetpoint</h5>
+<h5 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.1.14.2. ThermostatSetpoint:DualSetpoint</a></h5>
 <div class="listingblock">
-<div class="title">ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>ThermostatSetpoint:DualSetpoint,
     Heating Cooling Setpoints,  !- Name
@@ -1433,7 +1549,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_name_2">Name</h6>
+<h6 id="_name_2"><a class="link" href="#_name_2">Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1443,7 +1559,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_heating_setpoint_temperature_schedule_name">Heating Setpoint Temperature Schedule Name</h6>
+<h6 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">Heating Setpoint Temperature Schedule Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1453,7 +1569,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_cooling_setpoint_temperature_schedule_name">Cooling Setpoint Temperature Schedule Name</h6>
+<h6 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">Cooling Setpoint Temperature Schedule Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1464,14 +1580,14 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_10_3_zonehvacidealloadsairsystem">10.3 ZoneHVAC:IdealLoadsAirSystem</h5>
+<h5 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.1.14.3. ZoneHVAC:IdealLoadsAirSystem</a></h5>
 <div class="paragraph">
 <p>ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができます。
 ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用されます。
 設定が必要なのは、ゾーン制御、ゾーン機器構成、および理想的な負荷システムコンポーネントだけです。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:IdealLoadsAirSystem　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:IdealLoadsAirSystem　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>ZoneHVAC:IdealLoadsAirSystem,
     Zone1Air,                !- Name
@@ -1504,7 +1620,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_name_3">Name</h6>
+<h6 id="_name_3"><a class="link" href="#_name_3">Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1517,7 +1633,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_supply_air_node_name">Zone Supply Air Node Name</h6>
+<h6 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">Zone Supply Air Node Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1527,7 +1643,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_maximum_heating_supply_air_temperature_c">Maximum Heating Supply Air Temperature {C}</h6>
+<h6 id="_maximum_heating_supply_air_temperature_c"><a class="link" href="#_maximum_heating_supply_air_temperature_c">Maximum Heating Supply Air Temperature {C}</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1537,7 +1653,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_minimum_cooling_supply_air_temperature_c">Minimum Cooling Supply Air Temperature {C}</h6>
+<h6 id="_minimum_cooling_supply_air_temperature_c"><a class="link" href="#_minimum_cooling_supply_air_temperature_c">Minimum Cooling Supply Air Temperature {C}</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1547,7 +1663,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</h6>
+<h6 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1557,7 +1673,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</h6>
+<h6 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1567,7 +1683,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_dehumidification_control_type">Dehumidification Control Type</h6>
+<h6 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">Dehumidification Control Type</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1593,7 +1709,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect5">
-<h6 id="_humidification_control_type">Humidification Control Type</h6>
+<h6 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">Humidification Control Type</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1617,7 +1733,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_10_4_zonehvacequipmentlist">10.4 ZoneHVAC:EquipmentList</h5>
+<h5 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.1.14.4. ZoneHVAC:EquipmentList</a></h5>
 <div class="paragraph">
 <p>このオブジェクトには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
 リストの各項目には、4つのフィールドが関連付けられています。
@@ -1625,7 +1741,7 @@ Object TypeとNameは、特定の機器オブジェクトを識別します。
 Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器があるゾーンのシミュレーションの順番を指定します。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:EquipmentList　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:EquipmentList　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>ZoneHVAC:EquipmentList,
     Zone1Equipment,          !- Name
@@ -1639,7 +1755,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_equipment_1_object_type">Zone Equipment 1 Object Type</h6>
+<h6 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">Zone Equipment 1 Object Type</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1649,7 +1765,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_equipment_1_cooling_sequence">Zone Equipment 1 Cooling Sequence</h6>
+<h6 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">Zone Equipment 1 Cooling Sequence</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1659,7 +1775,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_equipment_1_heating_or_no_load_sequence">Zone Equipment 1 Heating or No-Load Sequence</h6>
+<h6 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">Zone Equipment 1 Heating or No-Load Sequence</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1670,9 +1786,9 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_10_5_nodelist">10.5 NodeList</h5>
+<h5 id="_nodelist"><a class="link" href="#_nodelist">2.1.14.5. NodeList</a></h5>
 <div class="listingblock">
-<div class="title">NodeList　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">NodeList　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>NodeList,
     Zone1Inlets,             !- Name
@@ -1681,7 +1797,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_10_6_zonehvacequipmentconnections">10.6 ZoneHVAC:EquipmentConnections</h5>
+<h5 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.1.14.6. ZoneHVAC:EquipmentConnections</a></h5>
 <div class="paragraph">
 <p>ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
 他のステートメントと同様に、このオブジェクトの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
@@ -1693,7 +1809,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 もう1つのノードは、ゾーンからの戻り空気の経路である。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:EquipmentConnections　<a href="https://bigladdersoftware.com/epx/docs/8-8/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:EquipmentConnections　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
 <pre>ZoneHVAC:EquipmentConnections,
     Zone1,                   !- Zone Name
@@ -1705,7 +1821,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_name必須">Zone Name（必須）</h6>
+<h6 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">Zone Name（required）</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1715,7 +1831,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_conditioning_equipment_list_name">Zone Conditioning Equipment List Name</h6>
+<h6 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">Zone Conditioning Equipment List Name（required）</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1725,41 +1841,41 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_air_inlet_node_or_nodelist_name">Zone Air Inlet Node or NodeList Name</h6>
+<h6 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">Zone Air Inlet Node or NodeList Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>「NodeList」で定義した名称のうち、給気に関するノード名称を入力します。</p>
+<p>給気に関するノード名称を入力します。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_air_exhaust_node_or_nodelist_name">Zone Air Exhaust Node or NodeList Name</h6>
+<h6 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">Zone Air Exhaust Node or NodeList Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>「NodeList」で定義した名称のうち、排気に関するノード名称を入力します。</p>
+<p>排気に関するノード名称を入力します。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_air_node_name">Zone Air Node Name</h6>
+<h6 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">Zone Air Node Name（required）</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>「NodeList」で定義した名称のうち、ゾーン空気に関するノード名称を入力します。</p>
+<p>ゾーン空気に関するノード名称を入力します。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect5">
-<h6 id="_zone_return_air_node_or_nodelist_name">Zone Return Air Node or NodeList Name</h6>
+<h6 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">Zone Return Air Node or NodeList Name</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p>「NodeList」で定義した名称のうち、還気に関するノード名称を入力します。</p>
+<p>還気に関するノード名称を入力します。</p>
 </li>
 </ul>
 </div>
@@ -1772,7 +1888,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-19 17:02:17 +0900
+Last updated 2021-03-23 10:16:59 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

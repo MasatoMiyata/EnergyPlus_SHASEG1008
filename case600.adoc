@@ -132,13 +132,29 @@ Zone,
     129.6;                   !- Volume {m3}
 ----
 
+==== GlobalGeometryRules
+
+GlobalGeometryRulesクラスは、座標に関する設定を記述します。 +
+作成方法は 
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#globalgeometryrules[<bigladder>, role="external", window="_blank"] をご覧下さい。
+
+.GlobalGeometryRules
+----
+GlobalGeometryRules,
+    UpperLeftCorner,         !- Starting Vertex Position
+    Counterclockwise,        !- Vertex Entry Direction
+    World;                   !- Coordinate System
+----
+
+上のように設定すると、座標は「左上」から始まり「反時計回り」に指定しなければなりません。 +
+
+
 ==== BuildingSurface:Detailed
 
 BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。 +
 BuildingSurface:Detailedクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
 
-座標は、左上から始まり、反時計回りに指定しなければならない。 +
-https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"]
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"] 
 
 .BuildingSurface:Detailed　床
 ----

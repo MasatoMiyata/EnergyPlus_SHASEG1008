@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-filename = "./results/case600/case600.csv"
+filename = "./results/case600FF/case600FF.csv"
 
 #%%
 ## データの読み込み
@@ -105,12 +105,29 @@ print(data["WALL_S:Surface Outside Face Incident Solar Radiation Rate per Area [
 print("--- 7/27 西面 ---")
 print(data["WALL_W:Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"])
 
-# 代表日1/4の冷暖房負荷（Case 600）
+# 代表日1/4の冷暖房負荷
 hourly_heatload_winter = ( data["ZONE1:Zone Air System Sensible Heating Energy [J](Hourly)"]["2021/1/4"] - \
     data["ZONE1:Zone Air System Sensible Cooling Energy [J](Hourly) "]["2021/1/4"] ) /3600 /1000
 
 print("--- 1/4 冷暖房負荷 ---")
 print(hourly_heatload_winter)
+
+
+# 自然室温
+maximum_room_air_temperature = np.max( data["ZONE1:Zone Mean Air Temperature [C](Hourly)"] )
+print(f"自然室温 最大値 ℃ {maximum_room_air_temperature}")
+
+minimum_room_air_temperature = np.min( data["ZONE1:Zone Mean Air Temperature [C](Hourly)"] )
+print(f"自然室温 最小値 ℃ {minimum_room_air_temperature}")
+
+average_room_air_temperature = np.mean( data["ZONE1:Zone Mean Air Temperature [C](Hourly)"] )
+print(f"自然室温 平均値 ℃ {average_room_air_temperature}")
+
+
+# 代表日1/4の自然室温
+hourly_room_air_temperature = ( data["ZONE1:Zone Mean Air Temperature [C](Hourly)"]["2021/1/4"] )
+print("--- 1/4 自然室温 ---")
+print(hourly_room_air_temperature)
 
 
 # %%

@@ -56,7 +56,7 @@ Site:Location,
     Denver-Stapleton CO USA TMY23062,  !- Name
     39.8,                    !- Latitude {deg}
     -104.9,                  !- Longitude {deg}
-    -6.0,                    !- Time Zone {hr}
+    -7.0,                    !- Time Zone {hr}
     1609.00;                 !- Elevation {m}
 
 
@@ -530,17 +530,17 @@ BuildingSurface:Detailed,
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
     4,                       !- Number of Vertices
-    8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     0.000000000000,          !- Vertex 1 Z-coordinate {m}
-    8.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    0.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    0.000000000000,          !- Vertex 4 X-coordinate {m}
-    6.000000000000,          !- Vertex 4 Y-coordinate {m}
+    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
     0.000000000000;          !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
@@ -602,18 +602,19 @@ BuildingSurface:Detailed,
     WindExposed,             !- Wind Exposure
     0.5,                     !- View Factor to Ground
     4,                       !- Number of Vertices
-    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
-    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    8.000000000000,          !- Vertex 2 X-coordinate {m}
     6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
     6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
 
 BuildingSurface:Detailed,
     Wall_W,                  !- Name
@@ -651,16 +652,16 @@ BuildingSurface:Detailed,
     0.5,                     !- View Factor to Ground
     4,                       !- Number of Vertices
     8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
     8.000000000000,          !- Vertex 2 X-coordinate {m}
-    6.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
     8.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
     8.000000000000,          !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
 

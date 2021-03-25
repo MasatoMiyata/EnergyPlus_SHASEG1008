@@ -137,6 +137,8 @@ Zone,
 BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。 +
 BuildingSurface:Detailedクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
 
+座標は、左上から始まり、反時計回りに指定しなければならない。 +
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed[<bigladder>, role="external", window="_blank"]
 
 .BuildingSurface:Detailed　床
 ----
@@ -151,17 +153,17 @@ BuildingSurface:Detailedクラスの作成方法は https://bigladdersoftware.co
     NoWind,                  !- Wind Exposure
     0.000000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
-    8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     0.000000000000,          !- Vertex 1 Z-coordinate {m}
-    8.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    0.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    0.000000000000,          !- Vertex 4 X-coordinate {m}
-    6.000000000000,          !- Vertex 4 Y-coordinate {m}
+    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
     0.000000000000;          !- Vertex 4 Z-coordinate {m}
 ----
 
@@ -232,16 +234,16 @@ BuildingSurface:Detailedクラスの作成方法は https://bigladdersoftware.co
     WindExposed,             !- Wind Exposure
     0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
-    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
-    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    8.000000000000,          !- Vertex 2 X-coordinate {m}
     6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
     6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 ----
@@ -287,16 +289,16 @@ BuildingSurface:Detailedクラスの作成方法は https://bigladdersoftware.co
     0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
     8.000000000000,          !- Vertex 2 X-coordinate {m}
-    6.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
     8.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
     8.000000000000,          !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 ----
 
@@ -1063,3 +1065,10 @@ ZoneHVAC:EquipmentConnections,
 
 ====== Zone Return Air Node or NodeList Name
 * 還気に関するノード名称を入力します。
+
+
+==== Output:Variable
+
+===== Surface Outside Face Incident Solar Radiation Rate per Area
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2[<bigladder>, role="external", window="_blank"]

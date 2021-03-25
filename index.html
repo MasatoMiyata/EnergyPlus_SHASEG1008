@@ -481,6 +481,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_zonehvacequipmentconnections">2.1.14.6. ZoneHVAC:EquipmentConnections</a></li>
 </ul>
 </li>
+<li><a href="#_outputvariable">2.1.15. Output:Variable</a>
+<ul class="sectlevel4">
+<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.1.15.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -536,12 +541,12 @@ EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は 
 <div class="sect3">
 <h4 id="_building"><a class="link" href="#_building">2.1.1. Building</a></h4>
 <div class="paragraph">
-<p>Buildingオブジェクトは、シミュレーション実行時に使用されるパラメータを記述します。<br>
-Buildingオブジェクトの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
-このオブジェクトの入力内容と、Site:WeatherStation や Site:HeightVariationのいくつかのエントリ（特にTerrainフィールド）の内容は整合が取れていなければいけません。</p>
+<p>Buildingクラスは、シミュレーション実行時に使用されるパラメータを記述します。<br>
+Buildingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
+このクラスの入力内容と、Site:WeatherStation や Site:HeightVariationのいくつかのエントリ（特にTerrainフィールド）の内容は整合が取れていなければいけません。</p>
 </div>
 <div class="listingblock">
-<div class="title">Buildingオブジェクト</div>
+<div class="title">Building</div>
 <div class="content">
 <pre>  Building,
     Case600,                 !- Name
@@ -564,7 +569,7 @@ Site:Locationクラスの作成方法は <a href="https://bigladdersoftware.com/
 したがって、年間シミュレーションの場合、Locationを入力する必要はありません。</p>
 </div>
 <div class="listingblock">
-<div class="title">Site:Locationクラス</div>
+<div class="title">Site:Location</div>
 <div class="content">
 <pre>  Site:Location,
     Denver-Stapleton,CO,USA,TMY--23062,  !- Name
@@ -659,7 +664,7 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 <div class="sect3">
 <h4 id="_zone"><a class="link" href="#_zone">2.1.6. Zone</a></h4>
 <div class="paragraph">
-<p>Zoneオプジェクトは、ゾーンに関するパラメータを記述します。</p>
+<p>Zoneクラスは、ゾーンに関するパラメータを記述します。</p>
 </div>
 <div class="listingblock">
 <div class="title">Zone　</div>
@@ -683,6 +688,10 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 <p>BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。<br>
 BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
 </div>
+<div class="paragraph">
+<p>座標は、左上から始まり、反時計回りに指定しなければならない。<br>
+<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</div>
 <div class="listingblock">
 <div class="title">BuildingSurface:Detailed　床</div>
 <div class="content">
@@ -697,17 +706,17 @@ BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladderso
     NoWind,                  !- Wind Exposure
     0.000000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
-    8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     0.000000000000,          !- Vertex 1 Z-coordinate {m}
-    8.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    0.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    0.000000000000,          !- Vertex 4 X-coordinate {m}
-    6.000000000000,          !- Vertex 4 Y-coordinate {m}
+    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
     0.000000000000;          !- Vertex 4 Z-coordinate {m}</pre>
 </div>
 </div>
@@ -781,16 +790,16 @@ BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladderso
     WindExposed,             !- Wind Exposure
     0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
-    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 X-coordinate {m}
     6.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
-    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    8.000000000000,          !- Vertex 2 X-coordinate {m}
     6.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
-    8.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
     6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
-    8.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
     6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}</pre>
 </div>
@@ -838,16 +847,16 @@ BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladderso
     0.500000000000,          !- View Factor to Ground
     4,                       !- Number of Vertices
     8.000000000000,          !- Vertex 1 X-coordinate {m}
-    6.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.700000000000,          !- Vertex 1 Z-coordinate {m}
     8.000000000000,          !- Vertex 2 X-coordinate {m}
-    6.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.000000000000,          !- Vertex 2 Z-coordinate {m}
     8.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    6.000000000000,          !- Vertex 3 Y-coordinate {m}
     0.000000000000,          !- Vertex 3 Z-coordinate {m}
     8.000000000000,          !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    6.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}</pre>
 </div>
 </div>
@@ -1434,7 +1443,7 @@ OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com
 <div class="sect4">
 <h5 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.1.14.1. ZoneControl:Thermostat</a></h5>
 <div class="paragraph">
-<p>ZoneControl:Thermostatオブジェクトは、ゾーンを指定された温度に制御するために使用されます。<br>
+<p>ZoneControl:Thermostatクラスは、ゾーンを指定された温度に制御するために使用されます。<br>
 ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。</p>
 </div>
 <div class="listingblock">
@@ -1735,7 +1744,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 <div class="sect4">
 <h5 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.1.14.4. ZoneHVAC:EquipmentList</a></h5>
 <div class="paragraph">
-<p>このオブジェクトには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
+<p>このクラスには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
 リストの各項目には、4つのフィールドが関連付けられています。
 Object TypeとNameは、特定の機器オブジェクトを識別します。
 Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器があるゾーンのシミュレーションの順番を指定します。</p>
@@ -1800,7 +1809,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 <h5 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.1.14.6. ZoneHVAC:EquipmentConnections</a></h5>
 <div class="paragraph">
 <p>ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
-他のステートメントと同様に、このオブジェクトの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
+他のステートメントと同様に、このクラスの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
 次の3つの項目は、以下に詳述するリスト（機器、吸気ノード、排気ノード）の名前である。
 ゾーンからの排気ノードがない場合、このフィールドは空白になることに注意してください。
 また、エアインレットノードがない場合、このフィールドは空白になります。
@@ -1882,13 +1891,22 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_outputvariable"><a class="link" href="#_outputvariable">2.1.15. Output:Variable</a></h4>
+<div class="sect4">
+<h5 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.1.15.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h5>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-23 10:16:59 +0900
+Last updated 2021-03-23 10:21:34 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

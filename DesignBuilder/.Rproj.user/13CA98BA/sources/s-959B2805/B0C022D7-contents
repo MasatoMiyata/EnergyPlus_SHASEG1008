@@ -1,0 +1,796 @@
+## Demo code for Zoning optimization
+## 2021-03-05 E.Ono
+## 2021-03-16 revised
+
+
+#####################################
+# Preprocess
+#####################################
+# # occupancy
+# path_occ <- "/Users/eikichiono/Documents/02_Research/PhD/Demo/output_29941844/output_byOccupant.csv"
+
+# Nocc <- 100
+# Ntp <- 26 # from Dr. Mihara's experiment
+# Nfunction <- 4
+# 
+# occ0 <- read.csv(path_occ, skip=6, header=T)
+# occ1 <- occ0[,sample(ncol(occ0)-3,Nocc)]
+# tp <- sample(Ntp,Nocc,replace=TRUE)
+# 
+# ## convert timestep from 10 min to 1 hour
+# occ_occupant <- matrix(numeric((Nocc)*8760),nrow=8760,ncol=(Nocc))
+# occ_function <- matrix(numeric((Nfunction+1)*8760),nrow=8760,ncol=(Nfunction+1))
+# ave_period <- 6
+# 
+# 
+# for (i in 1:8760){
+#   for (j in 1:Nocc){
+#     tmp <- occ1[((i-1)*ave_period+1):(i*ave_period),j]
+#     counter <- numeric(Nfunction+1)
+#     counter[1] <- length(tmp[tmp<=0]) # outside office
+#     counter[2] <- length(tmp[tmp==1]) # concentration
+#     counter[3] <- length(tmp[tmp==19]) # core
+#     counter[4] <- length(tmp[tmp==2]) # interaction
+#     counter[5] <- length(tmp[tmp>=3&tmp<=18]) # meeting room
+# 
+#     func <- which.max(counter) - 1
+# 
+#     occ_occupant[i,j] <- func
+# 
+#     if (func > 0){
+#       occ_function[i,func] <- occ_function[i,func] + 1
+#       occ_function[i,Nfunction+1] <- occ_function[i,Nfunction+1] + 1
+#     }
+#   }
+# }
+# 
+# write.csv(as.matrix(tp),"occ_tp.csv")
+# write.csv(as.matrix(occ_occupant),"occ_occupant.csv")
+# write.csv(as.matrix(occ_function),"occ_function.csv")
+
+
+#####################################
+# Load libraries
+#####################################
+# load the packages
+library(eplusr)
+library(epluspar)
+
+
+# install here package if not exists
+if (!require("here", quietly = TRUE)) install.packages("here")
+
+# turn off verbose information of eplusr package
+eplusr_option(verbose_info = FALSE)
+
+eplusr_option(autocomplete = TRUE)
+
+# see what EnergyPlus has been installed
+avail_eplus()
+
+# use the example file from latest EnergyPlus installed
+ver <- max(avail_eplus())
+
+# parse IDD
+#idd <- use_idd(ver, download = "auto")
+
+path_idf <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/demo.idf"
+path_epw <- "/Users/eikichiono/Documents/07_Program_codes/Weather/SGP_Singapore.486980_IWEC.epw"
+
+
+# create a GA optimization job
+ga <- GAOptimJob$new(path_idf, path_epw)
+
+#####################################
+# Update IDF file based on zonal design
+#####################################
+zonal_design <- function (idf, func1=4L, func2=1L, func3=1L, func4=3L, func5=2L, func6=3L, func7=1L,
+                          func8=1L, func9=4L, tsp1=25, tsp2=25, tsp3=25, tsp4=25, tsp5=25, tsp6=25, 
+                          tsp7=25, tsp8=25, tsp9=25, xs1=0.3, xs2=0.7, xs3=0.3, xs4=0.7, xs5=0.3, xs6=0.7) {
+  
+  source( "/Users/eikichiono/Documents/07_Program_codes/R/Hybrid_system_optimization/set_calc_cbe.R" )
+  
+  ## Settings
+  #path_idf <- "C:/Users/eikic/Documents/07_Program_codes/R/Zoning_optimization/demo.idf"
+  length_geometry <- 50
+  depth_geometry <- 30
+  ceiling_height <- 3.5
+  wwr <- 0.3
+  y_section <- c(0,10,20,30)
+  Nx = 3;
+  area_per_occ_limit <- 15 # m2/person
+  deltaT <- c(3, 3, 3, 3, 3, 3, 3, 3, 3)
+  mode <- 3
+  velocity <- 0.035*mode^2 + 0.185*mode + 0.07
+  rh <- 60
+  met <- 1.1
+  clo <- 0.57
+  Nstep <- 24*31
+  
+  function_name <- c("concentration","core","interaction","meeting")
+  Nfunction <- length(function_name)
+  Ny = length(y_section)-1
+  
+  ## Design variables
+  #function_no <- c(4,3,1,1,2,1,1,3,4)
+  #function_no <- c(1,2,1,1,2,1,1,2,1)
+  #tsp <- c(24.3422,24.8975,25.03,26.367,26.549,24.57641,25.54678,26.54673,24.5674)
+  #tsp <- c(24,24,24,26,26,24,26,26,26)
+  #tsp <- c(25,25,25,27,27,25,27,27,27)
+  #x_section <- c(0.35,0.75,0.25,0.75,0.25,0.65)
+  #x_section <- c(0.323451,0.743513,0.345315,0.7762,0.276542,0.6768)
+
+  function_no <- c(func1,func2,func3,func4,func5,func6,func7,func8,func9)
+  tsp <- c(tsp1,tsp2,tsp3,tsp4,tsp5,tsp6,tsp7,tsp8,tsp9)
+  x_section <- c(xs1,xs2,xs3,xs4,xs5,xs6)
+  
+  Nzone <- length(function_no)
+  Nzone_func <- numeric(Nfunction)
+  for (i in 1:Nfunction){
+    Nzone_func[i] <- length(function_no[function_no==i])
+  }
+
+  #####################################
+  # Spatial information
+  #####################################
+  x_section2 <- rep(0,(Nx+1)*Ny)
+  for (i in 1:Ny){
+    x_section2[((i-1)*4+1):(i*4)] <- c(0,x_section[((i-1)*2+1):(i*2)],1)
+  }
+  x_section2 <- x_section2*length_geometry
+  
+  x_zones <- c()
+  y_zones <- c()
+  for (i in 1:Ny){
+    for (j in 1:Nx){
+      x_zones <- c(x_zones,c(x_section2[(i-1)*4+j],x_section2[(i-1)*4+j+1],x_section2[(i-1)*4+j+1],x_section2[(i-1)*4+j]))
+      y_zones <- c(y_zones,c(y_section[i],y_section[i],y_section[i+1],y_section[i+1]))
+    }
+  }
+  
+  # Surfaces for floor, ceiling, wall-1,2,3,4 from lowerleft corner by counterclockwise
+  surfaces <- data.frame(matrix(rep(NA, 15*Nzone*6), nrow=Nzone*6))
+  colnames(surfaces) <- c("zone", "type", "no", "x1", "y1", "z1", "x2", "y2", "z2", "x3", "y3", "z3", "x4", "y4", "z4")
+  
+  zone_spec <- matrix(numeric(Nzone*5),nrow=Nzone,ncol=5)
+  count <- 1
+  for (i in 1:Nzone){
+    wall_count <- 0
+    area <- (x_zones[(i-1)*4+2]-x_zones[(i-1)*4+1])*(y_zones[i*4]-y_zones[(i-1)*4+1])
+    volume <- area*ceiling_height
+    zone_spec[i,] <- c(i,function_no[i],area,volume,tsp[i])
+    for (j in 1:6){
+      no <- 1
+      if (j == 1){
+        surface_type <- "Floor"
+        vertex <- c(x_zones[(i-1)*4+2],y_zones[(i-1)*4+2],0,x_zones[(i-1)*4+1],y_zones[(i-1)*4+1],0,x_zones[(i-1)*4+4],y_zones[(i-1)*4+4],0,x_zones[(i-1)*4+3],y_zones[(i-1)*4+3],0)
+      } else if (j == 2){
+        surface_type <- "Ceiling"
+        vertex <- c(x_zones[(i-1)*4+1],y_zones[(i-1)*4+1],ceiling_height,x_zones[(i-1)*4+2],y_zones[(i-1)*4+2],ceiling_height,x_zones[(i-1)*4+3],y_zones[(i-1)*4+3],ceiling_height,x_zones[(i-1)*4+4],y_zones[(i-1)*4+4],ceiling_height)
+      } else{
+        ind1 <- (i-1)*4 + j - 2
+        ind2 <- (i-1)*4 + (j-2)%%4 + 1
+        tmp <- c(x_zones[ind1],y_zones[ind1],x_zones[ind2],y_zones[ind2])
+        if ((x_zones[ind1] == 0 && x_zones[ind2] == 0) || (x_zones[ind1] ==length_geometry && x_zones[ind2] == length_geometry) || (y_zones[ind1] == 0 && y_zones[ind2] ==0) || (y_zones[ind1] == depth_geometry && y_zones[ind2] < depth_geometry)){
+          surface_type <- "Wall"
+          wall_count <- wall_count + 1
+          no <- wall_count
+        } else{
+          surface_type <- "Air wall"
+        }
+        vertex <- c(x_zones[ind1],y_zones[ind1],0,x_zones[ind2],y_zones[ind2],0,x_zones[ind2],y_zones[ind2],ceiling_height,x_zones[ind1],y_zones[ind1],ceiling_height)
+      }
+      
+      surfaces[count,] <- c(i, surface_type,no,vertex)
+      count = count + 1
+    }
+  }
+  
+  #####################################
+  # Occupancy calculation
+  #####################################
+  
+  path_tp <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/thermal_preference.csv"
+  path_occ_tp <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_tp.csv"
+  path_occ_occupant <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_occupant.csv"
+  path_occ_function <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_function.csv"
+  occ_occupant <- read.csv(path_occ_occupant,header=T)
+  occ_function <- read.csv(path_occ_function,header=T)
+  occ_tp <- read.csv(path_occ_tp,header=T)
+  tp <- read.csv(path_tp,header=T)
+  
+  Nocc <- ncol(occ_occupant)
+  occ_zone <- matrix(numeric(Nzone*8760),nrow=8760,ncol=Nzone)
+  occ_occupant2 <- matrix(numeric(Nocc*8760),nrow=8760,ncol=Nocc)
+  
+  # calculate SET*
+  set <- numeric(Nzone)
+  for (i in 1:Nzone){
+    u <- c(tsp[i],tsp[i]+deltaT[i],velocity,rh,met,clo,0)
+    set[i] <- set_calc_cbe(u)
+  }
+  
+  # calculate zone-level occupancy
+  for (i in 2:Nstep){
+    
+    if (sum(occ_occupant[i,]) > 0){ # during occupied hours
+      
+      # those who do not move to other zones (i.e. those who have the same activity as previous step)
+      for (j in 1:Nocc){
+        
+        if (occ_occupant[i,j] > 0 && occ_occupant[i,j] == occ_occupant[i-1,j]){
+          
+          occ_occupant2[i,j] <- occ_occupant2[i-1,j]
+          occ_zone[i,occ_occupant2[i,j]] <- occ_zone[i,occ_occupant2[i,j]] + 1
+        }
+      }
+      
+      # those who move to other zones (i.e. those who have different activity from previous step)
+      for (j in 1:Nocc){
+        
+        if (occ_occupant[i,j] > 0 && occ_occupant[i,j] != occ_occupant[i-1,j]){
+          
+          # possible zones in terms of activity
+          ind_func <- which(function_no==occ_occupant[i,j])
+          
+          if (length(ind_func) == 1){ # there is only a possible zone in terms of activity
+            
+            occ_occupant2[i,j] <- ind_func
+            occ_zone[i,occ_occupant2[i,j]] <- occ_zone[i,occ_occupant2[i,j]] + 1
+            
+          }else if (length(ind_func) > 1){ # there are more than one possible zone in terms of activity
+            
+            tsp_zone <- tsp[ind_func]
+            satisfied <- numeric(length(ind_func))
+            occ_density <- numeric(length(ind_func))
+            zone_score <- numeric(length(ind_func))
+            
+            # calculate occupancy density and thermal satisfaction for the possible zones
+            for (k in 1:length(ind_func)){ 
+              
+              # calculate the density after the occupant enter the zone
+              occ_density[k] <- (occ_zone[i,ind_func[k]] + 1)/zone_spec[ind_func[k],3] 
+              
+              # evaluate thermal satisfaction
+              if (set[ind_func[k]] >= tp[occ_tp[j,1],1] && set[ind_func[k]] <= tp[occ_tp[j,1],2]){ 
+                
+                satisfied[k] <- 1
+                
+              }
+              
+              # scoring zones
+              if (occ_density[k] <= area_per_occ_limit){ # add a score for occupancy density
+                
+                zone_score[k] <- zone_score[k] + 2 - occ_density[k]
+                
+              }
+              if (satisfied[k] == 1){ # add a score for thermal satisfaction
+                
+                zone_score[k] <- zone_score[k] + 1
+                
+              }
+            }
+            
+            # select a zone which has the highest scores
+            occ_occupant2[i,j] <- ind_func[which.max(zone_score)]
+            occ_zone[i,occ_occupant2[i,j]] <- occ_zone[i,occ_occupant2[i,j]] + 1
+          }
+          
+        }
+      }
+    }
+  }
+  
+  #####################################
+  # Internal gains
+  #####################################
+  
+  # load ASHRAE schedules
+  path_sch <- "/Users/eikichiono/Documents/07_Program_codes/Schedule/ASHRAEschedule_office_Singapore2019.csv"
+  sch_ashrae <- read.csv(path_sch,header=T)
+  
+  sch_light <- matrix(numeric(Nzone*8760),nrow=8760,ncol=Nzone)
+  sch_plug <- matrix(numeric(Nzone*8760),nrow=8760,ncol=Nzone)
+  
+  for (i in 1:Nzone){
+    sch_light[,i] <- sch_ashrae[,2]
+    sch_plug[,i] <- sch_ashrae[,3]
+  }
+  
+  for (i in 1:Nstep){
+    for (j in 1:Nzone){
+      
+      if (function_no[j]==1 || function_no[j]==3){ # concentration or interaction
+        
+        if (sch_plug[i,j] > 0.3){
+          
+          occ_ratio <- occ_zone[i,j]/(zone_spec[j,3]*area_per_occ_limit)
+          sch_plug[i,j] <- sch_plug[i,j]*0.7 + sch_plug[i,j]*0.3*occ_ratio
+          
+          if (sch_plug[i,j] < 0.3){
+            
+            sch_plug[i,j] <- 0.3
+          }
+        }
+        
+      }else if (function_no[j]==4){ # meeting room
+        
+        if (occ_zone[i,j] == 0){
+          
+          sch_light[i,j] <- 0
+          sch_plug[i,j] <- 0
+        }
+      }
+    }
+  }
+  
+  #idf <- read_idf(path = path_idf, idd = NULL)
+  
+  #####################################
+  # Update IDF
+  #####################################
+  ## Update "Zone"
+  for (i in 1:Nzone){
+    #tmp <- eplusr::read_idf(path_idf)$Zone[[sprintf("Block1:Zone%i", i)]]
+    tmp <- idf$Zone[[sprintf("Block1:Zone%i", i)]]
+    dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+    dt[9,6] <- unlist(zone_spec[i,4])
+    dt[10,6] <- unlist(zone_spec[i,3])
+    idf$update(dt)
+  }
+  
+  ## Update "Zone cooling setpoint"
+  for (i in 1:Nzone){
+    #tmp <- eplusr::read_idf(path_idf)$"Schedule:Compact"[[paste0("SDE4_cooling_zone",as.character(i))]]
+    tmp <- idf$"Schedule:Compact"[[sprintf("SDE4_cooling_zone%i",i)]]
+    dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+    dt[6,6] <- tsp[i]
+    idf$update(dt)
+  }
+  
+  ## Update "BuildingSurface:Detailed" and "FenestrationSurface:Detailed"
+  for (i in 1:(Nzone*6)){
+    if (surfaces[i,2] != "Air wall"){
+      if (surfaces[i,2] == "Wall"){
+        ob_name <- paste0("Block1:Zone",surfaces[i,1],"_",surfaces[i,2],"_",surfaces[i,3])
+        ob_win_name <- paste0("Block1:Zone",surfaces[i,1],"_",surfaces[i,2],"_",surfaces[i,3],"_Win")
+      } else{
+        ob_name <- paste0("Block1:Zone",surfaces[i,1],"_",surfaces[i,2])
+      }
+      
+      #tmp <- eplusr::read_idf(path_idf)$"BuildingSurface:Detailed"[[ob_name]]
+      tmp <- idf$"BuildingSurface:Detailed"[[ob_name]]
+      dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+      dt[11:22,6] <- unlist(surfaces[i,4:15])
+      idf$update(dt)
+      
+      if (surfaces[i,2] == "Wall"){
+        #tmp <- eplusr::read_idf(path_idf)$"FenestrationSurface:Detailed"[[ob_win_name]]
+        tmp <- idf$"FenestrationSurface:Detailed"[[ob_win_name]]
+        dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+        tmp2 <- unlist(surfaces[i,4:15])
+        tmp2[3] <- ceiling_height*(1 - wwr)/2
+        tmp2[6] <- ceiling_height*(1 - wwr)/2
+        tmp2[9] <- ceiling_height*(1 + wwr)/2
+        tmp2[12] <- ceiling_height*(1 + wwr)/2
+        dt[10:21,6] <- tmp2
+        dt[8,6] <- 1
+        idf$update(dt)
+      }
+    }else{
+      if (i == 27){ # Air wall-1 of Zone 5 (to add an internal wall to form the zone)
+        ob_name <- "Block1:Zone5_Wall_1"
+        tmp <- idf$"BuildingSurface:Detailed"[[ob_name]]
+        dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+        dt[11:22,6] <- unlist(surfaces[i,4:15])
+        idf$update(dt)
+      }
+    }
+  }
+  
+  ## save zone_spec
+  #tmp <- eplusr::read_idf(path_idf)$"Material"[["zone_spec"]]
+  tmp <- idf$"Material"[["zone_spec"]]
+  dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+  
+  str_func <- as.character(zone_spec[1,2])
+  
+  for (i in 2:Nzone){
+    str_func <- paste0(str_func,as.character(zone_spec[i,2]))
+  }
+  tmp1 <- as.integer(str_func)/10000000000
+  tmp2 <- sum(tsp)/100
+  tmp3 <- sum(x_section)*5*100
+  dt[3,6] <- tmp1
+  dt[4,6] <- tmp2
+  dt[5,6] <- tmp3
+  
+  idf$update(dt)
+  
+  ## Update schedules
+  str_tsp <- as.character(as.integer(sum(tsp)*1000))
+  str_x <- as.character(as.integer(sum(x_section)*5*10000))
+  fname_occ_zone <- paste0(str_func,"_",str_tsp,"_",str_x,"_occ_zone.csv")
+  fname_occ_occupant <- paste0(str_func,"_",str_tsp,"_",str_x,"_occ_occupant.csv")
+  fname_light <- paste0(str_func,"_",str_tsp,"_",str_x,"_light.csv")
+  fname_plug <- paste0(str_func,"_",str_tsp,"_",str_x,"_plug.csv")
+  write.csv(as.matrix(occ_zone/100),fname_occ_zone)
+  write.csv(as.matrix(occ_occupant2),fname_occ_occupant)
+  write.csv(as.matrix(sch_light),fname_light)
+  write.csv(as.matrix(sch_plug),fname_plug)
+  for (i in 1:Nzone){
+    tmp <- idf$"Schedule:File"[[sprintf("Occupancy_Zone%i",i)]]
+    dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+    dt[3,6] <- fname_occ_zone
+    idf$update(dt)
+
+    tmp <- idf$"Schedule:File"[[sprintf("lighting_Zone%i",i)]]
+    dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+    dt[3,6] <- fname_light
+    idf$update(dt)
+
+    tmp <- idf$"Schedule:File"[[sprintf("plug_Zone%i",i)]]
+    dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+    dt[3,6] <- fname_plug
+    idf$update(dt)
+  }
+
+  #idf$save(path_idf,"overwrite" = TRUE)
+  idf
+}
+
+####################
+## apply_measure {{{
+####################
+ga$apply_measure(
+  measure = zonal_design,
+  func1 = integer_space(1:4),
+  func2 = integer_space(1:4),
+  func3 = integer_space(1:4),
+  func4 = integer_space(1:4),
+  func5 = integer_space(1:4),
+  func6 = integer_space(1:4),
+  func7 = integer_space(1:4),
+  func8 = integer_space(1:4),
+  func9 = integer_space(1:4),
+  tsp1 = float_space(24, 28),
+  tsp2 = float_space(24, 28),
+  tsp3 = float_space(24, 28),
+  tsp4 = float_space(24, 28),
+  tsp5 = float_space(24, 28),
+  tsp6 = float_space(24, 28),
+  tsp7 = float_space(24, 28),
+  tsp8 = float_space(24, 28),
+  tsp9 = float_space(24, 28),
+  xs1 = float_space(0.2, 0.4),
+  xs2 = float_space(0.6, 0.8),
+  xs3 = float_space(0.2, 0.4),
+  xs4 = float_space(0.6, 0.8),
+  xs5 = float_space(0.2, 0.4),
+  xs6 = float_space(0.6, 0.8)
+)
+
+################################
+# calculate objective function 1
+################################
+get_energy <- function (idf) {
+
+  #idf <- read_idf(path = path_idf, idd = NULL)
+  #job <- idf$run(path_epw, wait = TRUE)
+  job <- idf$last_job()
+  stopifnot(!is.null(job))
+
+  Nahu <- 3
+
+  tmp <- job$report_data(sprintf("Block1:Zone%i", 1),"Zone People Occupant Count")[,6]
+  Nstep <- nrow(tmp)
+  
+  # calculate energy consumption
+  COP <- 5.86 # plant system COP of district coolingß
+  
+  Qcoil <- matrix(numeric(Nahu*Nstep),nrow=Nstep,ncol=Nahu)
+  Eahu <- matrix(numeric(Nahu*Nstep),nrow=Nstep,ncol=Nahu)
+  for (i in 1:Nahu){
+    Qcoil[,i] <- unlist(job$report_data(sprintf("Air Loop %i AHU Cooling Coil", i),"Cooling Coil Total Cooling Rate")[,6])
+    Eahu[,i] <- unlist(job$report_data(sprintf("Air Loop %i AHU Supply Fan", i),"Fan Electric Power")[,6])
+  }
+  
+  Nzone <- 9
+  area_per_occ_limit <- 10 # m2/person
+
+  zone_floor_area <- job$read_table("Zones")[,floor_area]
+  tmp1 <- job$read_table("Materials")[name=="ZONE_SPEC",thickness]
+  tmp2 <- job$read_table("Materials")[name=="ZONE_SPEC",conductivity]
+  tmp3 <- job$read_table("Materials")[name=="ZONE_SPEC",density]
+  str1 <- as.character(tmp1*10000000000)
+  str2 <- as.character(as.integer(tmp2*100000))
+  str3 <- as.character(as.integer(tmp3*100))
+  
+  zone_spec <- matrix(numeric(Nzone*2),nrow=Nzone,ncol=2)
+  for (i in 1:Nzone){
+    zone_spec[i,1] <- as.integer(substr(str1,i,i))
+    zone_spec[i,2] <- zone_floor_area[i]
+  }
+
+  occ <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  for (i in 1:Nzone){
+    occ[,i] <- unlist(job$report_data(sprintf("Block1:Zone%i", i),"Zone People Occupant Count")[,6])
+  }
+  
+  path_occ_function <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_function.csv"
+  occ_function <- read.csv(path_occ_function,header=T)
+  err_occ <- 0
+  err_occ2 <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  for (i in 1:Nstep){
+    for (j in 1:Nzone){
+      dif <- occ[i,j] - zone_spec[j,2]/area_per_occ_limit
+      err_occ2[i,j] <- dif
+      if (dif > 0){
+        err_occ <- err_occ + dif
+      }
+    }
+  }
+  for (i in 1:4){
+    if (length(zone_spec[zone_spec[,1]==i,1]) == 0){
+      err_occ <- err_occ + sum(occ_function[1:Nstep,i])
+    }
+  }
+  
+  
+  Eall = (sum(Eahu)+ sum(Qcoil)/COP)/1000 + err_occ*1000
+
+  return(Eall)
+}
+
+################################
+# calculate objective function 2
+################################
+get_discomfort <- function (idf) {
+  
+  source( "/Users/eikichiono/Documents/07_Program_codes/R/Hybrid_system_optimization/set_calc_cbe.R" )
+  
+  #idf <- read_idf(path = path_idf, idd = NULL)
+  #job <- idf$run(path_epw, wait = TRUE)
+  job <- idf$last_job()
+  stopifnot(!is.null(job))
+  
+  Nzone <- 9
+  Nahu <- 3
+  area_per_occ_limit <- 10 # m2/person
+  area_base <- c(500,250,450,300)
+  r_low <- 0.7
+  r_high <- 1.3
+  
+  zone_floor_area <- job$read_table("Zones")[,floor_area]
+  tmp1 <- job$read_table("Materials")[name=="ZONE_SPEC",thickness]
+  tmp2 <- job$read_table("Materials")[name=="ZONE_SPEC",conductivity]
+  tmp3 <- job$read_table("Materials")[name=="ZONE_SPEC",density]
+  str1 <- as.character(tmp1*10000000000)
+  str2 <- as.character(as.integer(tmp2*100000))
+  str3 <- as.character(as.integer(tmp3*100))
+
+  zone_spec <- matrix(numeric(Nzone*2),nrow=Nzone,ncol=2)
+  for (i in 1:Nzone){
+    zone_spec[i,1] <- as.integer(substr(str1,i,i))
+    zone_spec[i,2] <- zone_floor_area[i]
+  }
+
+  # err_area <- 0
+  # for (i in 1:4){
+  #   area <- sum(zone_spec[zone_spec[,1]==i,2])
+  #   if (area < area_base[i]*r_low){
+  #     err <- area_base[i]*r_low - area
+  #   } else if (area > area_base[i]*r_high){
+  #     err <- area - area_base[i]*r_high
+  #   } else{
+  #     err <- 0
+  #   }
+  #   err_area <- err_area + err
+  # }
+  
+  #job$report_data_dict()
+  tmp <- job$report_data(sprintf("Block1:Zone%i", 1),"Zone People Occupant Count")[,6]
+  Nstep <- nrow(tmp)
+  occ <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  for (i in 1:Nzone){
+    occ[,i] <- unlist(job$report_data(sprintf("Block1:Zone%i", i),"Zone People Occupant Count")[,6])
+  }
+  
+  path_occ_function <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_function.csv"
+  occ_function <- read.csv(path_occ_function,header=T)
+  err_occ <- 0
+  err_occ2 <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  for (i in 1:Nstep){
+    for (j in 1:Nzone){
+      dif <- occ[i,j] - zone_spec[j,2]/area_per_occ_limit
+      err_occ2[i,j] <- dif
+      if (dif > 0){
+        err_occ <- err_occ + dif
+      }
+    }
+  }
+  for (i in 1:4){
+    if (length(zone_spec[zone_spec[,1]==i,1]) == 0){
+      err_occ <- err_occ + sum(occ_function[1:Nstep,i])
+    }
+  }
+  
+  
+  # calculate thermal satisfaction rate
+  ta <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  tr <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  rh <- matrix(numeric(Nzone*Nstep),nrow=Nstep,ncol=Nzone)
+  
+  for (i in 1:Nzone){
+    ta[,i] <- unlist(job$report_data(sprintf("Block1:Zone%i", i),"Zone Mean Air Temperature")[,6])
+    tr[,i] <- unlist(job$report_data(sprintf("Block1:Zone%i", i),"Zone Mean Radiant Temperature")[,6])
+    rh[,i] <- unlist(job$report_data(sprintf("Block1:Zone%i", i),"Zone Air Relative Humidity")[,6])
+  }
+
+  path_occ_occupant <- paste0("/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/",
+                              str1,"_",str2,"_",str3,"_occ_occupant.csv")
+  path_tp <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/thermal_preference.csv"
+  path_occ_tp <- "/Users/eikichiono/Documents/07_Program_codes/R/Zoning_optimization/occ_tp.csv"
+  
+  occ_occupant <- read.csv(path_occ_occupant,header=T)
+  Nocc <- ncol(occ_occupant)
+  occ_occupant <- occ_occupant[,2:Nocc]
+  Nocc <- ncol(occ_occupant)
+  tp <- read.csv(path_tp,header=T)
+  occ_tp <- read.csv(path_occ_tp,header=T)
+  
+  mode <- 3
+  velocity <- 0.035*mode^2 + 0.185*mode + 0.07
+  met <- 1.1
+  clo <- 0.57
+  
+  Nsatisfied <- numeric(Nstep)
+  set2 <- c()
+  deltaT2 <- c()
+  for (i in 1:Nstep){
+    if (sum(occ[i,] > 0)){
+      set <- numeric(Nzone)
+      for (j in 1:Nzone){
+        u <- c(unlist(ta[i,j]),unlist(tr[i,j]),velocity,unlist(rh[i,j]),met,clo,0)
+        set[j] <- set_calc_cbe(u)
+      }
+      set2 <- rbind(set2,set)
+      deltaT2 <- rbind(deltaT2,tr[i,]-ta[i,])
+      for (j in 1:Nocc){
+        if (occ_occupant[i,j] > 0){
+          set0 <- set[unlist(occ_occupant[i,j])]
+          setmin <- tp[unlist(occ_tp[j,1]),1]
+          setmax <- tp[unlist(occ_tp[j,1]),2]
+          if (set0 >= setmin && set0 <= setmax){
+            Nsatisfied[i] <- Nsatisfied[i] + 1
+          }
+        }
+      }
+    }
+  }
+  
+  Rsatisfied <- sum(Nsatisfied)/sum(occ)
+  Rdissatisfied <- 1 - Rsatisfied + err_occ
+  
+  # baseline 25-27, Eall_base = 4520.95, Rsatisfied = 0.671499
+  
+  # deltaT <- numeric(Nzone)
+  # for (i in 1:Nzone){
+  #   deltaT[i] <- mean(deltaT2[,i])
+  # }
+
+  #print(Rdissatisfied)
+  return(Rdissatisfied)
+}
+
+################################
+# Run GA optimization
+################################
+ga$objective(get_energy, get_discomfort ,.dir = "min")
+
+options("warning.length" = 8170) 
+ga$validate()
+
+# specify how to mix solutions
+ga$recombinator()
+# specify how to change parts of one solution randomly
+ga$mutator()
+# specify how to select best solutions
+ga$selector()
+# specify the conditions when to terminate the computation
+ga$terminator(max_gen = 40L)
+ga$run(mu = 20, dir = here::here("results"))
+
+
+################################################
+# Gather results and perform further analyses  #
+################################################
+
+library(ggplot2)
+
+baseline <- data.frame(get_energy=4520.95, get_discomfort=1-0.671499)
+# get all population
+population <- ga$population()
+# get Pareto set
+pareto <- ga$pareto_set()
+# plot Pareto front
+p_pareto <- ggplot() +
+  geom_point(aes(get_energy, get_discomfort), population, color = "darkgoldenrod", alpha = 0.5) +
+  geom_line(aes(get_energy, get_discomfort), pareto, color = "darkblue", linetype = 2) +
+  geom_point(aes(get_energy, get_discomfort), pareto, color = "darkblue", size = 2) +
+  geom_point(aes(get_energy, get_discomfort), baseline, color = "red", size = 2) +
+  scale_x_continuous("Energy consumption [kWh]", 
+                     #labels = scales::number_format(scale = 0.001)) +
+                     limits = c(3500,5500)) + 
+  scale_y_continuous("Thermal dissatisfaction rate [-]",
+  #                   labels = scales::number_format(big.mark = ",") + 
+                    limits = c(0,0.5)
+                       #xlim(3000,6000) + ylim(0,1)
+  )
+#```
+p_pareto
+
+#```{r moo-post-process, echo = FALSE, eval = run_sim}
+pareto <- data.table::fwrite(pareto, here::here("poreto.csv"))
+population <- data.table::fwrite(pareto, here::here("population.csv"))
+ggsave(here::here("pareto.png"), p_pareto, width = 6, height = 5, dpi = 600)
+
+
+
+
+
+
+
+
+
+
+
+
+rng <- tribble(
+  ~name                  , ~min        , ~max        ,
+  "htg_sp"               , "18 °C"     , "22 °C"     ,
+  "clg_sp"               , "23 °C"     , "27 °C"     ,
+  "wwr"                  , "20 %"      , "80 %"      ,
+  "insulation_thickness" , "0.02 m"    , "0.50 m"    ,
+  "carbon_emissions"     , "215.5 ton" , "246.6 ton" ,
+  "discomfort_hours"     , "648 hours" , "3507 hour"
+)
+normalize <- function (x, min = NULL, max = NULL) {
+  if (is.null(min)) min <- min(x)
+  if (is.null(max)) max <- max(x)
+  (x - min) / (max - min)
+}
+p_parallel <- pareto %>%
+  mutate(
+    htg_sp = normalize(htg_sp, 18, 22),
+    clg_sp = normalize(clg_sp, 23, 27),
+    wwr = normalize(wwr, 0.2, 0.8),
+    insulation_thickness = normalize(insulation_thickness, 0.02, 0.5),
+    carbon_emissions = normalize(carbon_emissions),
+    discomfort_hours = normalize(discomfort_hours)
+  ) %>%
+  pivot_longer(-index) %>%
+  mutate(index = as_factor(index), name = as_factor(name)) %>%
+  ggplot(aes(name, value, group = index, color = index)) +
+  geom_segment(aes(x = name, xend = name, y = 0.0, yend = 1.0), color = "grey80") +
+  geom_hline(aes(yintercept = 1.0), color = "grey80") +
+  geom_hline(aes(yintercept = 0.0), color = "grey80") +
+  geom_line(show.legend = FALSE, alpha = 0.5, size = 1.2) +
+  geom_point(show.legend = FALSE, alpha = 0.5, size = 2.5) +
+  geom_text(aes(name, 1, label = max), rng, vjust =-1.0, inherit.aes = FALSE, color = "grey50", fontface = "bold") +
+  geom_text(aes(name, 0, label = min), rng, vjust = 2.0, inherit.aes = FALSE, color = "grey50", fontface = "bold") +
+  scale_x_discrete(NULL, position = "top", expand = expand_scale(0.05, 0.05),
+                   labels = c("Heating\nsetpoint", "Cooling\nsetpoint", "WWR", "Insulation\nThickness", "Carbon\n Emissions", "Discomfort\nHours")
+  ) +
+  scale_y_continuous(expand = expand_scale(mult = c(0.05, 0.08))) +
+  scale_color_viridis_d() +
+  theme(
+    axis.text.x = element_text(size = 12, vjust = -2.0, face = "bold", color = "grey30"),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.ticks.y = element_blank(),
+    panel.background = element_rect(fill = NA)
+  )
+ggsave(here("figures/parallel.png"), p_parallel, width = 10, height = 6, dpi = 600)
+

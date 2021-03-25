@@ -1,0 +1,81 @@
+## Run and postprocess IDF files for ASHRAE Standard 140
+## 2021-03-25 E.Ono
+
+#####################################
+# Load libraries
+#####################################
+# load the packages
+library(eplusr)
+
+# install here package if not exists
+if (!require("here", quietly = TRUE)) install.packages("here")
+
+# turn off verbose information of eplusr package
+eplusr_option(verbose_info = FALSE)
+
+eplusr_option(autocomplete = TRUE)
+
+# see what EnergyPlus has been installed
+avail_eplus()
+
+# use the example file from latest EnergyPlus installed
+ver <- max(avail_eplus())
+
+# parse IDD
+#idd <- use_idd(ver, download = "auto")
+
+path_epw <- here::here("DRYCOLDTMY.epw")
+path_idf <- here::here("Case600.idf")
+
+idf <- read_idf(path = path_idf, idd = NULL)
+
+#####################################
+# Run simulations
+#####################################
+
+job <- idf$run(path_epw, wait = TRUE)
+job <- idf$last_job()
+stopifnot(!is.null(job))
+
+key_values <- job$report_data_dict()$key_value
+names <- job$report_data_dict()$name
+N <- length(names)
+
+floor_area <- 48 # floor area of seminar room from E+
+
+A <- c()
+for (j in 1:N){
+  x <- job$report_data(key_values[j],names[j])
+  if (j == 2 || j == 5){
+    tmp <- (x$value)/floor_area # W -> W/m2
+  }else if (j == 3 || j == 4){
+    tmp <- (x$value)/3600/floor_area/10.76 # J -> fraction
+  }else if (j == 11 || j == 12){
+    tmp <- (x$value)/1000 # W -> kW
+  }else if (j == 16){
+    tmp <- (x$value)*3600 # m3/s -> m3/h
+  }else{
+    tmp <- x$value
+  }
+  A <- cbind(A,tmp)
+}
+
+colnames(A)=names
+tsp_str <- sprintf(tsp,fmt = "%0.1f")
+oct_str <- sprintf(oct,fmt = "%0.1f")
+fname <- paste0(ob_style[i],"_tsp",tsp_str,"_oct",oct_str,".csv")
+
+write.csv(as.matrix(A),fname)
+ 
+
+
+
+
+
+
+
+
+
+
+
+

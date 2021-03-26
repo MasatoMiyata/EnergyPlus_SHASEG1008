@@ -41,15 +41,13 @@ key_values <- job$report_data_dict()$key_value
 names <- job$report_data_dict()$name
 N <- length(names)
 
-wall_area_S <- 8*2.7
-wall_area_W <- 6*2.7
 window_area <- 12 # floor area of seminar room from E+
 
 ta <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Mean Air Temperature")[,6])
 qh <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Heating Rate")[,6])
 qc <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Cooling Rate")[,6])
 ri <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Windows Total Transmitted Solar Radiation Rate")[,6])
-rh <- unlist(job$report_data("BLOCK1:ZONE1_ROOF_1_0_0" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+rh <- unlist(job$report_data("BLOCK1:ZONE1_ROOF" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
 rn <- unlist(job$report_data("BLOCK1:ZONE1_WALL_N" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
 re <- unlist(job$report_data("BLOCK1:ZONE1_WALL_E" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
 rs <- unlist(job$report_data("BLOCK1:ZONE1_WALL_S" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
@@ -75,15 +73,15 @@ ri_sum <- sum(ri)/window_area/1000
 date0 <- "2021-01-01"
 date1 <- "2021-03-05"
 Nday <- as.integer(difftime(date1,date0,units="days"))
-inds <- (Nday-1)*24 + 1
-inde <- Nday*24
+inds <- Nday*24 + 1
+inde <- Nday*24 + 24
 rs0305 <- rs[inds:inde]
 rw0305 <- rw[inds:inde]
 
 date1 <- "2021-07-27"
 Nday <- as.integer(difftime(date1,date0,units="days"))
-inds <- (Nday-1)*24 + 1
-inde <- Nday*24
+inds <- Nday*24 + 1
+inde <- Nday*24 + 24
 rs0727 <- rs[inds:inde]
 rw0727 <- rw[inds:inde]
 
@@ -98,13 +96,7 @@ tmp <- c(qh_sum,qc_sum,qh_peak,qc_peak,rn_sum,re_sum,rw_sum,rs_sum,rh_sum,ri_sum
 
 output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104)
 
-
-colnames(A)=names
-tsp_str <- sprintf(tsp,fmt = "%0.1f")
-oct_str <- sprintf(oct,fmt = "%0.1f")
-fname <- paste0(ob_style[i],"_tsp",tsp_str,"_oct",oct_str,".csv")
-
-write.csv(as.matrix(A),fname)
+write.csv(as.matrix(output),"Case600_postprocessed.csv")
  
 
 

@@ -368,309 +368,6 @@ ScheduleTypeLimits,
     DISCRETE;                !- Numeric Type
 
 
-!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:DAY:HOURLY ===========
-
-! off heating day
-Schedule:Day:Hourly,
-    0,                       !- Name
-    Any Number,              !- Schedule Type Limits Name
-    0,                       !- Hour 1
-    0,                       !- Hour 2
-    0,                       !- Hour 3
-    0,                       !- Hour 4
-    0,                       !- Hour 5
-    0,                       !- Hour 6
-    0,                       !- Hour 7
-    0,                       !- Hour 8
-    0,                       !- Hour 9
-    0,                       !- Hour 10
-    0,                       !- Hour 11
-    0,                       !- Hour 12
-    0,                       !- Hour 13
-    0,                       !- Hour 14
-    0,                       !- Hour 15
-    0,                       !- Hour 16
-    0,                       !- Hour 17
-    0,                       !- Hour 18
-    0,                       !- Hour 19
-    0,                       !- Hour 20
-    0,                       !- Hour 21
-    0,                       !- Hour 22
-    0,                       !- Hour 23
-    0;                       !- Hour 24
-
-! off cooling day
-Schedule:Day:Hourly,
-    50,                      !- Name
-    Any Number,              !- Schedule Type Limits Name
-    50,                      !- Hour 1
-    50,                      !- Hour 2
-    50,                      !- Hour 3
-    50,                      !- Hour 4
-    50,                      !- Hour 5
-    50,                      !- Hour 6
-    50,                      !- Hour 7
-    50,                      !- Hour 8
-    50,                      !- Hour 9
-    50,                      !- Hour 10
-    50,                      !- Hour 11
-    50,                      !- Hour 12
-    50,                      !- Hour 13
-    50,                      !- Hour 14
-    50,                      !- Hour 15
-    50,                      !- Hour 16
-    50,                      !- Hour 17
-    50,                      !- Hour 18
-    50,                      !- Hour 19
-    50,                      !- Hour 20
-    50,                      !- Hour 21
-    50,                      !- Hour 22
-    50,                      !- Hour 23
-    50;                      !- Hour 24
-
-! used in seasonal schedules
-Schedule:Day:Hourly,
-    Off,                     !- Name
-    Fraction,                !- Schedule Type Limits Name
-    0,                       !- Hour 1
-    0,                       !- Hour 2
-    0,                       !- Hour 3
-    0,                       !- Hour 4
-    0,                       !- Hour 5
-    0,                       !- Hour 6
-    0,                       !- Hour 7
-    0,                       !- Hour 8
-    0,                       !- Hour 9
-    0,                       !- Hour 10
-    0,                       !- Hour 11
-    0,                       !- Hour 12
-    0,                       !- Hour 13
-    0,                       !- Hour 14
-    0,                       !- Hour 15
-    0,                       !- Hour 16
-    0,                       !- Hour 17
-    0,                       !- Hour 18
-    0,                       !- Hour 19
-    0,                       !- Hour 20
-    0,                       !- Hour 21
-    0,                       !- Hour 22
-    0,                       !- Hour 23
-    0;                       !- Hour 24
-
-! -------------------- Control type schedules (for heating & cooling) ----------------------
-Schedule:Day:Hourly,
-    Summer Control Type Day Sch,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    4,                       !- Hour 1
-    4,                       !- Hour 2
-    4,                       !- Hour 3
-    4,                       !- Hour 4
-    4,                       !- Hour 5
-    4,                       !- Hour 6
-    4,                       !- Hour 7
-    4,                       !- Hour 8
-    4,                       !- Hour 9
-    4,                       !- Hour 10
-    4,                       !- Hour 11
-    4,                       !- Hour 12
-    4,                       !- Hour 13
-    4,                       !- Hour 14
-    4,                       !- Hour 15
-    4,                       !- Hour 16
-    4,                       !- Hour 17
-    4,                       !- Hour 18
-    4,                       !- Hour 19
-    4,                       !- Hour 20
-    4,                       !- Hour 21
-    4,                       !- Hour 22
-    4,                       !- Hour 23
-    4;                       !- Hour 24
-
-Schedule:Day:Hourly,
-    Winter Control Type Day Sch,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    4,                       !- Hour 1
-    4,                       !- Hour 2
-    4,                       !- Hour 3
-    4,                       !- Hour 4
-    4,                       !- Hour 5
-    4,                       !- Hour 6
-    4,                       !- Hour 7
-    4,                       !- Hour 8
-    4,                       !- Hour 9
-    4,                       !- Hour 10
-    4,                       !- Hour 11
-    4,                       !- Hour 12
-    4,                       !- Hour 13
-    4,                       !- Hour 14
-    4,                       !- Hour 15
-    4,                       !- Hour 16
-    4,                       !- Hour 17
-    4,                       !- Hour 18
-    4,                       !- Hour 19
-    4,                       !- Hour 20
-    4,                       !- Hour 21
-    4,                       !- Hour 22
-    4,                       !- Hour 23
-    4;                       !- Hour 24
-
-Schedule:Day:Hourly,
-    Summer Control Type Day Sch - cool,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    2,                       !- Hour 1
-    2,                       !- Hour 2
-    2,                       !- Hour 3
-    2,                       !- Hour 4
-    2,                       !- Hour 5
-    2,                       !- Hour 6
-    2,                       !- Hour 7
-    2,                       !- Hour 8
-    2,                       !- Hour 9
-    2,                       !- Hour 10
-    2,                       !- Hour 11
-    2,                       !- Hour 12
-    2,                       !- Hour 13
-    2,                       !- Hour 14
-    2,                       !- Hour 15
-    2,                       !- Hour 16
-    2,                       !- Hour 17
-    2,                       !- Hour 18
-    2,                       !- Hour 19
-    2,                       !- Hour 20
-    2,                       !- Hour 21
-    2,                       !- Hour 22
-    2,                       !- Hour 23
-    2;                       !- Hour 24
-
-Schedule:Day:Hourly,
-    Winter Control Type Day Sch - heat,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    1,                       !- Hour 1
-    1,                       !- Hour 2
-    1,                       !- Hour 3
-    1,                       !- Hour 4
-    1,                       !- Hour 5
-    1,                       !- Hour 6
-    1,                       !- Hour 7
-    1,                       !- Hour 8
-    1,                       !- Hour 9
-    1,                       !- Hour 10
-    1,                       !- Hour 11
-    1,                       !- Hour 12
-    1,                       !- Hour 13
-    1,                       !- Hour 14
-    1,                       !- Hour 15
-    1,                       !- Hour 16
-    1,                       !- Hour 17
-    1,                       !- Hour 18
-    1,                       !- Hour 19
-    1,                       !- Hour 20
-    1,                       !- Hour 21
-    1,                       !- Hour 22
-    1,                       !- Hour 23
-    1;                       !- Hour 24
-
-
-!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:DAILY ===========
-
-Schedule:Week:Daily,
-    Off,                     !- Name
-    Off,                     !- Sunday Schedule:Day Name
-    Off,                     !- Monday Schedule:Day Name
-    Off,                     !- Tuesday Schedule:Day Name
-    Off,                     !- Wednesday Schedule:Day Name
-    Off,                     !- Thursday Schedule:Day Name
-    Off,                     !- Friday Schedule:Day Name
-    Off,                     !- Saturday Schedule:Day Name
-    Off,                     !- Holiday Schedule:Day Name
-    Off,                     !- SummerDesignDay Schedule:Day Name
-    Off,                     !- WinterDesignDay Schedule:Day Name
-    Off,                     !- CustomDay1 Schedule:Day Name
-    Off;                     !- CustomDay2 Schedule:Day Name
-
-Schedule:Week:Daily,
-    Summer Control Type Week Sch,  !- Name
-    Summer Control Type Day Sch,  !- Sunday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Monday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Tuesday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Wednesday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Thursday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Friday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Saturday Schedule:Day Name
-    Summer Control Type Day Sch,  !- Holiday Schedule:Day Name
-    Summer Control Type Day Sch,  !- SummerDesignDay Schedule:Day Name
-    Summer Control Type Day Sch,  !- WinterDesignDay Schedule:Day Name
-    Summer Control Type Day Sch,  !- CustomDay1 Schedule:Day Name
-    Summer Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
-
-Schedule:Week:Daily,
-    Winter Control Type Week Sch,  !- Name
-    Winter Control Type Day Sch,  !- Sunday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Monday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Tuesday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Wednesday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Thursday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Friday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Saturday Schedule:Day Name
-    Winter Control Type Day Sch,  !- Holiday Schedule:Day Name
-    Winter Control Type Day Sch,  !- SummerDesignDay Schedule:Day Name
-    Winter Control Type Day Sch,  !- WinterDesignDay Schedule:Day Name
-    Winter Control Type Day Sch,  !- CustomDay1 Schedule:Day Name
-    Winter Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
-
-Schedule:Week:Daily,
-    Summer Control Type Week Sch - cool,  !- Name
-    Summer Control Type Day Sch - cool,  !- Sunday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Monday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Tuesday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Wednesday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Thursday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Friday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Saturday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Holiday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- SummerDesignDay Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- WinterDesignDay Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- CustomDay1 Schedule:Day Name
-    Summer Control Type Day Sch - cool;  !- CustomDay2 Schedule:Day Name
-
-Schedule:Week:Daily,
-    Winter Control Type Week Sch - heat,  !- Name
-    Winter Control Type Day Sch - heat,  !- Sunday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Monday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Tuesday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Wednesday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Thursday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Friday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Saturday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Holiday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- SummerDesignDay Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- WinterDesignDay Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- CustomDay1 Schedule:Day Name
-    Winter Control Type Day Sch - heat;  !- CustomDay2 Schedule:Day Name
-
-
-!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
-
-Schedule:Year,
-    Zone Control Type Sched, !- Name
-    Control Type,            !- Schedule Type Limits Name
-    Winter Control Type Week Sch,  !- Schedule:Week Name 1
-    1,                       !- Start Month 1
-    1,                       !- Start Day 1
-    3,                       !- End Month 1
-    31,                      !- End Day 1
-    Summer Control Type Week Sch,  !- Schedule:Week Name 2
-    4,                       !- Start Month 2
-    1,                       !- Start Day 2
-    9,                       !- End Month 2
-    30,                      !- End Day 2
-    Winter Control Type Week Sch,  !- Schedule:Week Name 3
-    10,                      !- Start Month 3
-    1,                       !- Start Day 3
-    12,                      !- End Month 3
-    31;                      !- End Day 3
-
-
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
 
 Schedule:Compact,
@@ -689,82 +386,6 @@ Schedule:Compact,
     Until: 24:00,            !- Field 3
     0;                       !- Field 4
 
-Schedule:Compact,
-    Work efficiency,         !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    0;                       !- Field 4
-
-Schedule:Compact,
-    OpaqueShade,             !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    0;                       !- Field 4
-
-Schedule:Compact,
-    Zone Comfort Control Type Sched,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    4;                       !- Field 4
-
-Schedule:Compact,
-    Design Days Only,        !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: SummerDesignDay WinterDesignDay,  !- Field 2
-    Until: 24:00,            !- Field 3
-    1,                       !- Field 4
-    For: AllOtherDays,       !- Field 5
-    Until: 24:00,            !- Field 6
-    0;                       !- Field 7
-
-Schedule:Compact,
-    TypOperativeTempControlSch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: SummerDesignDay WinterDesignDay,  !- Field 2
-    Until: 24:00,            !- Field 3
-    0.0,                     !- Field 4
-    For: AllOtherDays,       !- Field 5
-    Until: 24:00,            !- Field 6
-    0.5;                     !- Field 7
-
-Schedule:Compact,
-    OnWinterDesignDay,       !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: WinterDesignDay,    !- Field 2
-    Until: 24:00,            !- Field 3
-    1,                       !- Field 4
-    For: AllOtherDays,       !- Field 5
-    Until: 24:00,            !- Field 6
-    0;                       !- Field 7
-
-Schedule:Compact,
-    OnSummerDesignDay,       !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: SummerDesignDay,    !- Field 2
-    Until: 24:00,            !- Field 3
-    1,                       !- Field 4
-    For: AllOtherDays,       !- Field 5
-    Until: 24:00,            !- Field 6
-    0;                       !- Field 7
-
-Schedule:Compact,
-    AirVelocitySchedule,     !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    .137;                    !- Field 4
-
 ! Schedule: On 24/7
 Schedule:Compact,
     On 24/7,                 !- Name
@@ -774,39 +395,14 @@ Schedule:Compact,
     Until: 24:00,            !- Field 3
     1;                       !- Field 4
 
-! Schedule: Office_OpenOff_Occ
+! Schedule: On 24/7
 Schedule:Compact,
-    Office_OpenOff_Occ,      !- Name
-    Fraction,                !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 08:00,            !- Field 5
-    0.25,                    !- Field 6
-    Until: 09:00,            !- Field 7
-    0.5,                     !- Field 8
-    Until: 12:00,            !- Field 9
-    1,                       !- Field 10
-    Until: 14:00,            !- Field 11
-    0.75,                    !- Field 12
-    Until: 17:00,            !- Field 13
-    1,                       !- Field 14
-    Until: 18:00,            !- Field 15
-    0.5,                     !- Field 16
-    Until: 19:00,            !- Field 17
-    0.25,                    !- Field 18
-    Until: 24:00,            !- Field 19
-    0,                       !- Field 20
-    For: Weekends,           !- Field 21
-    Until: 24:00,            !- Field 22
-    0,                       !- Field 23
-    For: Holidays,           !- Field 24
-    Until: 24:00,            !- Field 25
-    0,                       !- Field 26
-    For: WinterDesignDay AllOtherDays,  !- Field 27
-    Until: 24:00,            !- Field 28
-    0;                       !- Field 29
+    HVAC4 24/7,                 !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    4;                       !- Field 4
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
@@ -944,28 +540,6 @@ Material,
     0.6;                     !- Visible Absorptance
 
 
-!-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
-
-!Material:InfraredTransparent,
-!RTMaterial; !- Name
-!Construction,
-!RTSurface,  !- Name
-!RTMaterial; !- Outside Layer
-Material:NoMass,
-    LinearBridgingLayer,     !- Name
-    Rough,                   !- Roughness
-    0.6267,                  !- Thermal Resistance {m2-K/W}
-    0.01,                    !- Thermal Absorptance
-    0.01,                    !- Solar Absorptance
-    0.01;                    !- Visible Absorptance
-
-
-!-   ===========  ALL OBJECTS IN CLASS: MATERIAL:INFRAREDTRANSPARENT ===========
-
-Material:InfraredTransparent,
-    IRTMaterial;             !- Name
-
-
 !-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
 
 WindowMaterial:Glazing,
@@ -992,11 +566,6 @@ WindowMaterial:Gas,
     1002,                    !- Name
     Air,                     !- Gas Type
     0.013;                   !- Thickness {m}
-
-WindowMaterial:Gas,
-    Half thickness 1002,     !- Name
-    Air,                     !- Gas Type
-    0.0065;                  !- Thickness {m}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIALPROPERTY:GLAZINGSPECTRALDATA ===========
@@ -1463,14 +1032,6 @@ MaterialProperty:GlazingSpectralData,
 
 !-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
 
-Construction,
-    LinearBridgingConstruction,  !- Name
-    LinearBridgingLayer;     !- Outside Layer
-
-Construction,
-    IRTSurface,              !- Name
-    IRTMaterial;             !- Outside Layer
-
 ! AS140 external floor
 Construction,
     AS14O external floor,    !- Name
@@ -1549,7 +1110,7 @@ Zone,
 
 ! Block 1, Zone 1, External floor - 48.000 m2, Surface Area: 48.000m2
 BuildingSurface:Detailed,
-    Block1:Zone1_ExtFloor_0_0_0,  !- Name
+    Block1:Zone1_Floor,  !- Name
     Floor,                   !- Surface Type
     AS14O external floor,    !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1574,7 +1135,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Roof - 48.000 m2, Surface Area: 48.000m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Roof_1_0_0, !- Name
+    Block1:Zone1_Roof, !- Name
     Roof,                    !- Surface Type
     AS14O Roof,              !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1844,7 +1405,7 @@ Sizing:Zone,
 ZoneControl:Thermostat,
     Block1:Zone1 Thermostat, !- Name
     Block1:Zone1,            !- Zone or ZoneList Name
-    Zone Control Type Sched, !- Control Type Schedule Name
+    HVAC4 24/7,                 !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     Dual Setpoint - Zone Block1:Zone1;  !- Control 1 Name
 

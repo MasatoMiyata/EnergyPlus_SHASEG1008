@@ -24,8 +24,9 @@ ver <- max(avail_eplus())
 # parse IDD
 #idd <- use_idd(ver, download = "auto")
 
+case_name <- "Case600FF"
 path_epw <- here::here("DRYCOLDTMY.epw")
-path_idf <- here::here("Case600.idf")
+path_idf <- here::here(paste0(case_name,".idf"))
 
 idf <- read_idf(path = path_idf, idd = NULL)
 
@@ -61,6 +62,11 @@ qc_sum <- sum(qc)/1000/1000
 qh_peak <- max(qh)/1000
 qc_peak <- max(qc)/1000
 
+# free-float temperature
+ta_max <- max(ta)
+ta_min <- min(ta)
+ta_ave <- mean(ta)
+
 # annual incident total
 rn_sum <- sum(rn)/1000
 re_sum <- sum(re)/1000
@@ -91,12 +97,14 @@ Nday <- as.integer(difftime(date1,date0,units="days"))
 inds <- Nday*24 + 1
 inde <- Nday*24 + 24
 q0104 <- (qh[inds:inde] - qc[inds:inde])/1000
+ta0104 <- ta[inds:inde]
 
-tmp <- c(qh_sum,qc_sum,qh_peak,qc_peak,rn_sum,re_sum,rw_sum,rs_sum,rh_sum,ri_sum,numeric(14))
+tmp <- c(qh_sum,qc_sum,qh_peak,qc_peak,rn_sum,re_sum,rw_sum,rs_sum,rh_sum,ri_sum,ta_max,ta_min,ta_ave,numeric(11))
 
-output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104)
+output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104,ta0104=ta0104)
 
-write.csv(as.matrix(output),"Case600_postprocessed.csv")
+fname <- paste0(case_name,"_postprocessed.csv")
+write.csv(as.matrix(output),fname)
  
 
 

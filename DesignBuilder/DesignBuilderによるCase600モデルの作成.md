@@ -8,9 +8,7 @@ output:
     number_section: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 DesignBuilder（version 6.1.5.001）とR（version 4.0.4）を使ってASHRAE Standard 140の単室テストを実施する。
 

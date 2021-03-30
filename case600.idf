@@ -16,11 +16,11 @@ Version,
 Building,
     Case600,                 !- Name
     0.0,                     !- North Axis {deg}
-    Country,                 !- Terrain
+    Country,                 !- Terrain　★
     3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
-    4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
-    FullInteriorAndExterior, !- Solar Distribution
-    ,                        !- Maximum Number of Warmup Days
+    4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC} ★
+    FullInteriorAndExterior, !- Solar Distribution ★
+    25,                      !- Maximum Number of Warmup Days　★
     6;                       !- Minimum Number of Warmup Days
 
 
@@ -47,7 +47,7 @@ SurfaceConvectionAlgorithm:Outside,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    4;                       !- Number of Timesteps per Hour
+    4;                       !- Number of Timesteps per Hour ★
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
@@ -71,17 +71,17 @@ RunPeriod,
     31,                      !- End Day of Month
     ,                        !- End Year
     ,                        !- Day of Week for Start Day
-    Yes,                     !- Use Weather File Holidays and Special Days
-    Yes,                     !- Use Weather File Daylight Saving Period
-    No,                      !- Apply Weekend Holiday Rule
-    Yes,                     !- Use Weather File Rain Indicators
-    Yes,                     !- Use Weather File Snow Indicators
-    No;                      !- Treat Weather as Actual
+    Yes,                     !- Use Weather File Holidays and Special Days　★
+    Yes,                     !- Use Weather File Daylight Saving Period　★
+    No,                      !- Apply Weekend Holiday Rule　★
+    Yes,                     !- Use Weather File Rain Indicators　★
+    Yes,                     !- Use Weather File Snow Indicators　★
+    No;                      !- Treat Weather as Actual　★
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
 
-Site:GroundTemperature:BuildingSurface,
+Site:GroundTemperature:Deep,
     10,                      !- January Ground Temperature {C}
     10,                      !- February Ground Temperature {C}
     10,                      !- March Ground Temperature {C}

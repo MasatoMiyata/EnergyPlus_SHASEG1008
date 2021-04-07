@@ -1,0 +1,95 @@
+// 地盤温度の設定について
+
+==== Site:GroundTemperature:BuildingSurface
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface[リンク]
+
+地面の温度は、地面の熱伝導モデルに使用されます。
+地面温度オブジェクトは1つだけ指定することができ、Outside Boundary Condition = Ground とされたサーフェスにおける外側の温度として使用されます。
+地面と接触するサーフェスがない場合は、このオブジェクトはオプションとなります。
+
+個々のサーフェスの外側温度を個別に指定する場合は、OtherSideCoefficients オブジェクトを使用します。
+このオブジェクトを使用すれば、いくつもの異なる温度を指定することができます。
+
+注意：気象データコンバータによって計算された「乱されていない（undisturbed）」地面温度は、建物の熱損失計算（building losses）には使用すべきではありません。
+Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブジェクトを使用するのが適切です。
+この理由は（建物の熱損失に対して）、これらの値は空調された建物の下にある地盤に対しては極端すぎるからです。
+最良の結果を得るためには、本書に記載されているスラブまたは地下室プログラムを使用して、月平均地中温度を計算してください（「Ground Heat Transfer」のセクションを参照）。
+これは、住宅や非常に小さな建物では特に重要です。
+これらの地中温度プリプロセッサを使用しない場合、米国の一般的な商業ビルでは、平均的な室内空間温度よりも2℃低い値が妥当なデフォルト値となります。
+適切な地中温度の決定に関する詳細は、「Auxiliary Programs」ドキュメントに記載されています。
+
+
+==== Site:GroundTemperature:Shallow
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureshallow[リンク]
+
+Site:GroundTemperature:Shallowは、Surface Ground Heat Exchanger（例：GroundHeatExchanger:Surface　オブジェクト）で使用されます。
+浅い地中温度は1つだけ指定することができます。
+
+通年の気象データファイルに含まれている地中温度は、これらのフィールドの値に使用するのに適しているかもしれないことに注意してください。
+つまり、「典型的な」条件の「乱されていない」土壌に対して計算された0.5mの深さの温度です。
+しかし、建物の位置の気象条件に基づいて、他の変化を考慮したい場合もあります。
+
+このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できます。
+このような場合、「名前」の入力フィールドは必要ありません。
+
+
+==== Site:GroundTemperature:Deep
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturedeep[リンク]
+
+Site:GroundTemperature:Deepは、Pond Ground Heat Exchangerオブジェクト（例：GroundHeatExchanger:Pond オブジェクト）で使用されます。
+深い地中温度は1つだけ指定することができます。
+
+通年の気象データファイルに含まれる地中温度は、これらのフィールドの値に使用するのに適しているかもしれないことに注意してください。
+つまり、「典型的な」条件の「乱されていない」土壌に対して計算される4mの深さの温度です。
+しかし、建物の位置の気象条件に基づいて、他の変化を考慮したい場合もあります。
+
+このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できます。
+このような場合、「名前」の入力フィールドは必要ありません。
+
+
+==== Site:GroundTemperature:Undisturbed:FiniteDifference
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedfinitedifference[リンク]
+
+Site:GroundTemperature:Undisturbed:FiniteDifferenceは、「乱されていない」地中温度を必要とするすべてのオブジェクトで使用できます。
+このオブジェクトは、気象データファイルを使用して表面の境界条件を取得する1次元有限差分熱伝達モデルを使用します。
+このモデルは、初期化時に、年間の地中温度プロファイルが定常的な周期性に達するまで、年間シミュレーションが実行されます。
+安定した周期的な挙動に達すると、残りのシミュレーション期間中に地中温度を取得するためにキャッシュされます。
+
+==== Site:GroundTemperature:FCfactorMethod
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod[リンク]
+
+Site:GroundTemperature:FCfactorMethodは、詳細な建材構成が不明な場合のコードコンプライアンス計算のために、C-factor（Construction:CfactorUndergroundWall）およびF-factor（Construction:FfactorGroundFloor）メソッドで定義された地下の壁またはスラブまたは地下の床でのみ使用されます。
+この地表温度オブジェクトは1つだけ含めることができます。
+このオブジェクトの月別地中温度は、月別外気温度を3ヶ月遅らせたものに近いです。
+ユーザーがIDFファイルにこのオブジェクトを入力しない場合、気象データファイルから0.5mの月別地中温度が利用可能であれば、それがデフォルトになります。
+このオブジェクトを入力すると、FおよびCファクターの使用において、ウェザーファイルからの地上温度が上書きされます。
+どちらも利用できない場合は、エラーになります。
+
+
+==== Site:GroundTemperature:Undisturbed:KusudaAchenbach
+
+Kusuda, T. と P.R. Achenbach　による回帰式
+
+==== Site:GroundTemperature:Undisturbed:Xing
+
+Xing　による回帰式
+
+
+
+// 参考
+==== GroundHeatExchanger:Surface
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#groundheatexchangersurface[リンク]
+
+表面熱交換器モデルは、水式の表面地中熱交換器をシミュレーションするためのものです。
+これには、融雪用のパイプを埋め込んだ舗装面や、ハイブリッド地中熱源ヒートポンプシステムからの排熱が含まれます。
+
+熱交換器は地面と連動している場合とそうでない場合があります。後者の場合、底面は風にさらされますが、ソーラーゲインは得られません。
+このタイプの熱交換器は、凝縮器ループの供給側に接続することを目的としていますが、あらゆるタイプのプラントループに使用することができます。
+表面熱交換器は、凝縮器ループの唯一の熱交換器として指定することもできるし（図1）、
+図2のように他の凝縮器ループ熱交換器（冷却塔、地表熱交換器など）と並列に接続することもできる。

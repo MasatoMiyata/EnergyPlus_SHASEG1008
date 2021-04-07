@@ -21,6 +21,10 @@ Buildingクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/i
     6;                       !- Minimum Number of Warmup Days
 ----
 
+メモ
+Terrain　と　Solar Distribution　と　Maximum Number of Warmup Days　が異なる。
+定義を調べる。
+
 
 ==== Site:Location
 

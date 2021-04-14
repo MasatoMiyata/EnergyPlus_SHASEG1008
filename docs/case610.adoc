@@ -1,0 +1,49 @@
+// Case 610
+
+水平庇の設置
+
+==== Shading:Zone:Detailed
+
+Shading:Zone:Detailedクラスは、庇に関するパラメータを記述します。 +
+Shading:Zone:Detailedクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#shadingzonedetailed-000[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
+
+このオブジェクトは、ベースサーフェスから外側に突き出たオーバーハング、ウィング、フィンなどの取り付けられた「サブサーフェス」を表すために使用されます。この分類は便宜上のものであり、実際には、このタイプのデバイスは、取り付けられている表面だけでなく、隣接する表面にも影を落とすことがある。例えば、フィンはその親となる壁や隣接する壁に影を落とすことがある。
+
+なお、ゾーンサーフェスは他のゾーンサーフェスに影を落とすことができます。しかし、EnergyPlusはこのような "セルフシャドウイング "を自動的にチェックし、適切な計算を行うので、例えばL字型の建物の一方の壁が他方の壁に影を落とすような効果を心配する必要はありません。
+
+貼り付けられた（または切り離された）陰影面とは異なり、建築物の表面は、それが向いている半球にしか影を落とすことができません。つまり、例えば上向きの屋根は下向きの影を落とすことはありません（したがって、オーバーハングによる影の影響を考慮して、大きめの屋根を指定しても効果はありません）。内部の表面は、いかなる種類の影も落としません。
+
+.Shading:Zone:Detailed
+----
+Shading:Zone:Detailed,
+    OverHang,                !- Name
+    Wall_S,                  !- Base Surface Name
+    ,                        !- Transmittance Schedule Name
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    2.7,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -1,                      !- Vertex 2 Y-coordinate {m}
+    2.7,                     !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    -1,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+----
+
+===== Base Surface Name
+
+これは、この庇等が設置されている面の名前です。この面は、壁（または屋根）であるとし、窓やドアは指定できない。
+
+
+===== Transmittance Schedule Name
+
+遮光面の日射透過率を0.0から1.0までの範囲で設定したスケジュールの名前です。
+このフィールドに空白を入力すると、透過率の値はデフォルトで0.0になり、遮光面は常に不透明になります。
+このスケジューリングは、夏よりも冬の方が透過率が高い落葉樹など、季節による透過率の変化を考慮して使用することができます。
+また、時間帯による透過率の変化を利用することもできます。
+例えば、可動式のオーニングの場合、オーニングが設置されているときには透過率が1.0より小さい値となり、
+オーニングが格納されているときには1.0となります。

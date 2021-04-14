@@ -3,18 +3,18 @@ import pandas as pd
 import numpy as np
 
 # ## 宮田作成ファイル
-filename = "./idf_miyata/case600.csv"
+# filename = "./idf_miyata/case610.csv"
 
-name_dict = {
-    "zone_name"   : "ZONE1",
-    "wall_name_s" : "WALL_S",
-    "wall_name_n" : "WALL_N",
-    "wall_name_w" : "WALL_W",
-    "wall_name_e" : "WALL_E",
-    "roof_name"   : "ROOF",
-    "window_name_1" : "WINDOW_S1",
-    "window_name_2" : "WINDOW_S2"
-}
+# name_dict = {
+#     "zone_name"   : "ZONE1",
+#     "wall_name_s" : "WALL_S",
+#     "wall_name_n" : "WALL_N",
+#     "wall_name_w" : "WALL_W",
+#     "wall_name_e" : "WALL_E",
+#     "roof_name"   : "ROOF",
+#     "window_name_1" : "WINDOW_S1",
+#     "window_name_2" : "WINDOW_S2"
+# }
 
 ## 小野さん作成ファイル
 # filename = "./DesignBuilder/Case600.csv"
@@ -29,18 +29,18 @@ name_dict = {
 # }
 
 ## AS140のファイル
-# filename = "./idf_miyata/case600_AS140.csv"
+filename = "./idf_miyata/case610_AS140.csv"
 
-# name_dict = {
-#     "zone_name"   : "ZONE ONE",
-#     "wall_name_s" : "ZONE SURFACE SOUTH",
-#     "wall_name_n" : "ZONE SURFACE NORTH",
-#     "wall_name_w" : "ZONE SURFACE WEST",
-#     "wall_name_e" : "ZONE SURFACE EAST",
-#     "roof_name"   : "ZONE SURFACE ROOF",
-#     "window_name_1" : "ZONE SUBSURFACE 1",
-#     "window_name_2" : "ZONE SUBSURFACE 2"
-# }
+name_dict = {
+    "zone_name"   : "ZONE ONE",
+    "wall_name_s" : "ZONE SURFACE SOUTH",
+    "wall_name_n" : "ZONE SURFACE NORTH",
+    "wall_name_w" : "ZONE SURFACE WEST",
+    "wall_name_e" : "ZONE SURFACE EAST",
+    "roof_name"   : "ZONE SURFACE ROOF",
+    "window_name_1" : "ZONE SUBSURFACE 1",
+    "window_name_2" : "ZONE SUBSURFACE 2"
+}
 
 
 #%%

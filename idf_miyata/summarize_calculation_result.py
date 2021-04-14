@@ -2,46 +2,95 @@
 import pandas as pd
 import numpy as np
 
-# ## 宮田作成ファイル
-# filename = "./idf_miyata/case610.csv"
+# ケース名の入力
+CASENAME = "Case600"
 
-# name_dict = {
-#     "zone_name"   : "ZONE1",
-#     "wall_name_s" : "WALL_S",
-#     "wall_name_n" : "WALL_N",
-#     "wall_name_w" : "WALL_W",
-#     "wall_name_e" : "WALL_E",
-#     "roof_name"   : "ROOF",
-#     "window_name_1" : "WINDOW_S1",
-#     "window_name_2" : "WINDOW_S2"
-# }
 
-## 小野さん作成ファイル
-# filename = "./DesignBuilder/Case600.csv"
+file_list = {
 
-# name_dict = {
-#     "zone_name"   : "BLOCK1:ZONE1",
-#     "wall_name_s" : "BLOCK1:ZONE1_WALL_S",
-#     "wall_name_n" : "BLOCK1:ZONE1_WALL_N",
-#     "wall_name_w" : "BLOCK1:ZONE1_WALL_W",
-#     "wall_name_e" : "BLOCK1:ZONE1_WALL_E",
-#     "roof_name"   : "BLOCK1:ZONE1_ROOF_1_0_0",
-# }
+    "Case600": {
+        "memo": "宮田作成ファイル Case600",
+        "case_ID" : "600",
+        "filename": "./idf_miyata/case600.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
 
-## AS140のファイル
-filename = "./idf_miyata/case610_AS140.csv"
+    "Case620": {
+        "memo": "宮田作成ファイル Case620",
+        "case_ID" : "620",
+        "filename": "./idf_miyata/case620.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_E1",
+            "window_name_2" : "WINDOW_W1"
+        }
+    },
 
-name_dict = {
-    "zone_name"   : "ZONE ONE",
-    "wall_name_s" : "ZONE SURFACE SOUTH",
-    "wall_name_n" : "ZONE SURFACE NORTH",
-    "wall_name_w" : "ZONE SURFACE WEST",
-    "wall_name_e" : "ZONE SURFACE EAST",
-    "roof_name"   : "ZONE SURFACE ROOF",
-    "window_name_1" : "ZONE SUBSURFACE 1",
-    "window_name_2" : "ZONE SUBSURFACE 2"
+    "Case600_AS140": {
+        "memo": "AS140公式ファイル Case600",
+        "case_ID" : "600",
+        "filename": "./idf_miyata/Case600_AS140.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE ONE",
+            "wall_name_s" : "ZONE SURFACE SOUTH",
+            "wall_name_n" : "ZONE SURFACE NORTH",
+            "wall_name_w" : "ZONE SURFACE WEST",
+            "wall_name_e" : "ZONE SURFACE EAST",
+            "roof_name"   : "ZONE SURFACE ROOF",
+            "window_name_1" : "ZONE SUBSURFACE 1",
+            "window_name_2" : "ZONE SUBSURFACE 2"
+        }
+    },
+
+    "Case620_AS140": {
+        "memo": "AS140公式ファイル Case620",
+        "case_ID" : "620",
+        "filename": "./idf_miyata/Case620_AS140.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE ONE",
+            "wall_name_s" : "ZONE SURFACE SOUTH",
+            "wall_name_n" : "ZONE SURFACE NORTH",
+            "wall_name_w" : "ZONE SURFACE WEST",
+            "wall_name_e" : "ZONE SURFACE EAST",
+            "roof_name"   : "ZONE SURFACE ROOF",
+            "window_name_1" : "ZONE SUBSURFACE 1 EAST WINDOW",
+            "window_name_2" : "ZONE SUBSURFACE 2 WEST WINDOW"
+        }
+    },
+
+    "Case600_Ono": {
+        "memo": "小野さん作成ファイル Case600",
+        "case_ID" : "600",
+        "filename": "./idf_miyata/case600_ono.csv",
+        "name_dict" : {
+            "zone_name"   : "BLOCK1:ZONE1",
+            "wall_name_s" : "BLOCK1:ZONE1_WALL_S",
+            "wall_name_n" : "BLOCK1:ZONE1_WALL_N",
+            "wall_name_w" : "BLOCK1:ZONE1_WALL_W",
+            "wall_name_e" : "BLOCK1:ZONE1_WALL_E",
+            "roof_name"   : "BLOCK1:ZONE1_ROOF_1_0_0"
+        }
+    },
+
 }
 
+
+filename =  file_list[CASENAME]["filename"]
+name_dict = file_list[CASENAME]["name_dict"]
 
 #%%
 ## データの読み込み
@@ -67,7 +116,7 @@ data.index.name = "data_hour"
 
 df_results = pd.DataFrame()
 
-df_results["case600"] = pd.Series({
+df_results[CASENAME] = pd.Series({
 
     "anual_heating_load" : np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"] ) /3600 /1000000,  # 年間の暖房負荷 [MWh/年]   1 Wh = 3600 J
     "anual_cooling_load" : np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "] ) /3600 /1000000,  # 年間の冷房負荷 [MWh/年]
@@ -84,14 +133,14 @@ df_results["case600"] = pd.Series({
 })
 
 # 窓の日射透過係数
-df_results["case600"]["transmissivity_coefficient"] = df_results["case600"]["solar_transitted"] / df_results["case600"]["solar_radiation_S"]
+df_results[CASENAME]["transmissivity_coefficient"] = df_results[CASENAME]["solar_transitted"] / df_results[CASENAME]["solar_radiation_S"]
 
 # 曇天日3/5の南面日射量 [Wh/m2]
 df = pd.DataFrame()
 tmp = {}
 for hh in range(0,24):
     tmp["solar_radiation_March_5_south_"+str(hh)] = data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"][hh]
-df["case600"] = pd.Series(tmp)
+df[CASENAME] = pd.Series(tmp)
 df_results = df_results.append(df)
 
 # 曇天日3/5の西面日射量 [Wh/m2]
@@ -99,7 +148,7 @@ df = pd.DataFrame()
 tmp = {}
 for hh in range(0,24):
     tmp["solar_radiation_March_5_west_"+str(hh)] = data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"][hh]
-df["case600"] = pd.Series(tmp)
+df[CASENAME] = pd.Series(tmp)
 df_results = df_results.append(df)
 
 # 晴天日7/27の南面・西面日射量 [Wh/m2]
@@ -107,7 +156,7 @@ df = pd.DataFrame()
 tmp = {}
 for hh in range(0,24):
     tmp["solar_radiation_July_27_south_"+str(hh)] = data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"][hh]
-df["case600"] = pd.Series(tmp)
+df[CASENAME] = pd.Series(tmp)
 df_results = df_results.append(df)
 
 # 曇天日7/27の西面日射量 [Wh/m2]
@@ -115,7 +164,7 @@ df = pd.DataFrame()
 tmp = {}
 for hh in range(0,24):
     tmp["solar_radiation_July_27_west_"+str(hh)] = data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"][hh]
-df["case600"] = pd.Series(tmp)
+df[CASENAME] = pd.Series(tmp)
 df_results = df_results.append(df)
 
 
@@ -125,10 +174,22 @@ tmp = {}
 for hh in range(0,24):
     tmp["hourly_heatload_winter_"+str(hh)] = ( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"]["2021/1/4"][hh] - \
         data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "]["2021/1/4"][hh] ) /3600 /1000
-df["case600"] = pd.Series(tmp)
+df[CASENAME] = pd.Series(tmp)
 df_results = df_results.append(df)
 
-df_results.to_csv("集計データ.csv")
+
+#--------------------------------
+# for Case 620
+#--------------------------------
+
+if file_list[CASENAME]["case_ID"] == "620":
+
+    # 年間積算透過日射量（全天、庇なし） 西面
+    df = pd.DataFrame()
+    df[CASENAME] = pd.Series({
+        "solar_transitted_West"  : np.sum( data[ name_dict["window_name_2"] + ":Surface Window Transmitted Solar Radiation Rate [W](Hourly)"]) /1000 /6,   # 窓面透過日射量 [kWh/m2]
+        })
+    df_results = df_results.append(df)
 
 
 #--------------------------------
@@ -153,7 +214,7 @@ df_results.to_csv("集計データ.csv")
 
 
 
-
+df_results.to_csv("集計結果_"+ CASENAME + ".csv")
 
 # %%
 

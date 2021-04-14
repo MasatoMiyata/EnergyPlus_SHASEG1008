@@ -81,7 +81,7 @@ RunPeriod,
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
 
-Site:GroundTemperature:Deep,
+Site:GroundTemperature:BuildingSurface,
     10,                      !- January Ground Temperature {C}
     10,                      !- February Ground Temperature {C}
     10,                      !- March Ground Temperature {C}

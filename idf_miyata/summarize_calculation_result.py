@@ -2,9 +2,8 @@
 import pandas as pd
 import numpy as np
 
-## 宮田作成ファイル
+# ## 宮田作成ファイル
 filename = "./idf_miyata/case600.csv"
-
 
 name_dict = {
     "zone_name"   : "ZONE1",
@@ -30,7 +29,7 @@ name_dict = {
 # }
 
 ## AS140のファイル
-# filename = "./docs/EnergyPlus-Std140TestSuites-InputFiles-v8.2/Case600_BESTEST.csv"
+# filename = "./idf_miyata/case600_AS140.csv"
 
 # name_dict = {
 #     "zone_name"   : "ZONE ONE",
@@ -39,6 +38,8 @@ name_dict = {
 #     "wall_name_w" : "ZONE SURFACE WEST",
 #     "wall_name_e" : "ZONE SURFACE EAST",
 #     "roof_name"   : "ZONE SURFACE ROOF",
+#     "window_name_1" : "ZONE SUBSURFACE 1",
+#     "window_name_2" : "ZONE SUBSURFACE 2"
 # }
 
 

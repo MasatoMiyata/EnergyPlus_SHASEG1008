@@ -1,0 +1,102 @@
+== Windowの入力方法についての解説
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materials-for-glass-windows-and-doors[Input Output Manual]
+
+https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#window-calculation-module[Engineering Reference]
+
+窓システムの入力方法には、
+
+. レイヤー1つ1つの特性を定義していく方法（WindowMaterial:Glazing）
+
+. 窓システム全体の特性を一括して定義する方法（WindowMaterial:SimpleGlazingSystem）
+
+がある。後者は近似的な方法のため基本的には前者が推奨されているが、通常はガラス1枚ずつの特性までメーカから取り寄せることはしないため、実務上は後者の方が用いやすいと言える。
+
+=== WindowMaterial:Glazing
+==== Field: Name
+ガラスレイヤーの名称です。Window construtionのレイヤーとして指定します。
+
+==== Field: Optical Data Type
+このフィールドの有効な値は、SpectralAverage、Spectral、SpectralAndAngle、およびBSDFです。
+
+SpectralAverageの場合、太陽光の透過率と反射率に入力した値は太陽光スペクトル全体で平均化されていると見なされ、可視透過率と反射率に入力した値は太陽光スペクトル全体で平均化され、人間の目の反応によって重み付けされていると見なされます。さまざまな種類のガラスのスペクトル平均特性を含むEnergyPlusのリファレンスデータセットがあります。
+
+Spectralの場合、次のフィールドに、WindowGlassSpectralDataオブジェクトで定義されたスペクトルデータセットの名前を入力する必要があります。この場合、以下のフィールドの太陽光と可視光の透過率と反射率の値は空白にする必要があります。
+
+SpectralAndAngleの場合、最後の3つのフィールドに、2つの独立変数を持つ曲線またはテーブルオブジェクトで定義されたスペクトルおよび角度データセットの名前を入力する必要があります。この場合、Window Glassスペクトルデータセット名は空白である必要があり、以下のフィールドの太陽光および可視光の透過率と反射率の値は空白である必要があります。
+
+BSDFの場合、Construction：ComplexFenestrationStateオブジェクトを使用してWindow constructioのレイヤーを定義する必要があります。 Construction：ComplexFenestrationStateオブジェクトには、ComplexFenestrationレイヤーの光学プロパティを含むBSDFファイルへの参照が含まれています。
+
+==== Field: Window Glass Spectral Data Set Name
+Optical Data Type = Spectralの場合、WindowGlassSpectralDataオブジェクトで定義されたスペクトルデータセットの名前を入力します。
+
+==== Field: Thickness
+ガラスの厚さ [m]です。
+
+==== Field: Solar Transmittance at Normal Incidence
+太陽スペクトル全体で平均化された法線入射での透過率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Front Side Solar Reflectance at Normal Incidence
+太陽スペクトル全体で平均化された法線入射での前面の反射率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Back Side Solar Reflectance at Normal Incidence
+太陽スペクトル全体で平均化された法線入射での背面の反射率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Visible Transmittance at Normal Incidence
+太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線入射での可視光透過率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Front Side Visible Reflectance at Normal Incidence
+太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線入射での前面の可視光反射率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Back Side Visible Reflectance at Normal Incidence
+太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線入射での背面の可視光反射率です。Optical Data Type = SpectralAverageの場合にのみ使用されます。
+
+==== Field: Infrared Transmittance at Normal Incidence
+法線入射での長波長透過率です。
+
+==== Field: Front Side Infrared Hemispherical Emissivity
+前面の放射率です。
+
+==== Field: Back Side Infrared Hemispherical Emissivity
+背面の放射率です。
+
+==== Field: Conductivity
+熱伝導率 [W/mK]です。
+
+==== Field: Dirt Correction Factor for Solar and Visible Transmittance
+これは、ガラスの汚れの影響を補正する係数です。材料が外部の窓またはガラスドアの外側のガラス層として使用されている場合、プログラムは「法線入射での太陽透過率」および「法線入射での可視光透過率」のフィールドにこの係数を掛けます。材料が内側のガラス層として使用されている場合（二層ガラスなど）では、内側のガラス層はきれいであると想定されているため、汚れ補正係数は適用されません。
+
+==== Field: Solar Diffusing
+No（デフォルト）およびYesの値を取ります。Noの場合、ガラスは透明であり、ガラスに入射する直達日射は、拡散成分のない直達放射として透過します。Yesの場合、ガラスは半透明で、ガラスに入射する直達日射は、直達成分のない半球拡散放射として透過します。このオプションは、外部窓の最も内側のレイヤーでのみ使用する必要があります。
+
+Buildingオブジェクトで、Solar Distribution = FullInteriorAndExteriorの場合、外部窓のガラスにSolar Diffusing = Yesを使用すると、その窓からの室内における日射分配が変化します。その結果、透明な窓を透過して特定の内表面に吸収される直達日射は、半透明の窓によって拡散され、より多くの内表面に拡散されます。これにより、ゾーン内の冷暖房負荷の時間依存性が変わる可能性があります。
+
+=== WindowMaterial:SimpleGlazingSystem
+この入力オブジェクトは、個々のレイヤーではなく窓システム全体を記述するという点で、他のWindowMaterialオブジェクトとは異なります。このオブジェクトは、窓レイヤーで利用できる情報が非常に限られている場合、または特定のパフォーマンスレベルを対象としている場合に使用されます。レイヤーごとの記述は、十分なデータが利用可能な場合にこのオブジェクトの代わりに使用する必要があるウィンドウをモデル化する優れた方法を提供します。このオブジェクトは、単純なパフォーマンス指標を窓システムのより完全なモデルに変換するlink:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#simple-window-model[Simple Window Model]にアクセスします。
+
+性能指標は、UファクターとSHGC、およびオプションで可視光透過率です。これらの値は、グレージングのみのウィンドウ（フレームなし）またはフレームを含む平均ウィンドウパフォーマンスのいずれかを表すためにユーザーが選択できます。プログラム内で、モデルはフレームのない同等の窓ガラス層を生成します。
+
+=== ガラスの入射角特性
+link:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#calculation-of-angular-properties[Engineering Manual]に記載の通り、ユーザーが定義した法線入射時の透過率、反射率に基づいて角度特性を計算するモデルを用いている。
+
+=== AS140の入力方法に関する考察
+大きな分かれ道は、レイヤーを１つずつ定義するWindowMaterial:Glazingと、窓システム全体を一括して表現するWindowMaterial:SimpleGlazingSystemのどちらを使うかである。
+
+前者を用いる場合、細かな入力を行えるというメリットがあるが、AS140では法線入射時の反射率が指定されておらず（link:https://www.shimadzu.co.jp/products/opt/guide4/02.html[フレネルの式]を用いると0.04336）、また単板ガラスとしての入射角特性も指定されていない。
+
+後者を用いる場合、U値とSHGCという窓システムを代表する特性のみを指定すれば良いというメリットがある一方、細かな入射角特性等は指定できない。
+
+AS140のTable 5-7で指定されている入射角特性は２枚のガラスを合わせた窓システムとしての特性であることから、本スタンダードではWindowMaterial:Glazingで使用するようなガラス１枚の入射角特性を指定することは想定していないと考えられる。
+
+よって、法線入射時の特性値のみを用いて、それぞれで計算した結果を比較する。また、小野が当初用いていたAGC特性を用いた結果も併記する。
+
+.Difference in heating/cooling load between window models
+[options="header"]
+|===============================================================
+|窓モデル|暖房積算 [MWh]|冷房積算 [MWh]|暖房ピーク [kW]|冷房ピーク [kW]
+|WindowMaterial:SimpleGlazingSystem|4.2887|7.1843|3.8261|6.8529
+|WindowMaterial:Glazing|4.2329| 7.2764| 3.7777| 6.9069
+|WindowMaterial:Glazing with AGC|4.2563| 6.9803 |3.7777 |6.7026 
+|===============================================================
+
+表のように無視できない程度の差があることが分かる。悩ましいが、やはり、WindowMaterial:Glazingを使うべきなのかもしれない。

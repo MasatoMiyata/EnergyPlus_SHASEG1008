@@ -397,7 +397,7 @@ Schedule:Compact,
 
 ! Schedule: On 24/7
 Schedule:Compact,
-    HVAC4 24/7,                 !- Name
+    HVAC4 24/7,              !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
@@ -540,7 +540,32 @@ Material,
     0.6;                     !- Visible Absorptance
 
 
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
+
+WindowMaterial:SimpleGlazingSystem,
+    10002,                   !- Name
+    3,                       !- U-Factor {W/m2-K}
+    0.789;                   !- Solar Heat Gain Coefficient
+
+
 !-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
+
+WindowMaterial:Glazing,
+    10001,                   !- Name
+    SpectralAverage,         !- Optical Data Type
+    ,                        !- Window Glass Spectral Data Set Name
+    0.003175,                !- Thickness {m}
+    0.86156,                 !- Solar Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Solar Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Solar Reflectance at Normal Incidence
+    0.86156,                 !- Visible Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Visible Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Visible Reflectance at Normal Incidence
+    0,                       !- Infrared Transmittance at Normal Incidence
+    0.84,                    !- Front Side Infrared Hemispherical Emissivity
+    0.84,                    !- Back Side Infrared Hemispherical Emissivity
+    1.06,                    !- Conductivity {W/m-K}
+    1;                       !- Dirt Correction Factor for Solar and Visible Transmittance
 
 WindowMaterial:Glazing,
     10000,                   !- Name
@@ -1078,6 +1103,16 @@ Construction,
     1002,                    !- Layer 2
     10000;                   !- Layer 3
 
+Construction,
+    1002,                    !- Name
+    10001,                   !- Outside Layer
+    1002,                    !- Layer 2
+    10001;                   !- Layer 3
+
+Construction,
+    1003,                    !- Name
+    10002;                   !- Outside Layer
+
 
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
 
@@ -1110,7 +1145,7 @@ Zone,
 
 ! Block 1, Zone 1, External floor - 48.000 m2, Surface Area: 48.000m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Floor,  !- Name
+    Block1:Zone1_Floor,      !- Name
     Floor,                   !- Surface Type
     AS14O external floor,    !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1135,7 +1170,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Roof - 48.000 m2, Surface Area: 48.000m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Roof, !- Name
+    Block1:Zone1_Roof,       !- Name
     Roof,                    !- Surface Type
     AS14O Roof,              !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1160,7 +1195,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Wall - 16.200 m2 - 90.0�, Surface Area: 16.200m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Wall_E, !- Name
+    Block1:Zone1_Wall_E,     !- Name
     Wall,                    !- Surface Type
     AS14O external wall,     !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1185,7 +1220,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Wall - 21.600 m2 - 0.0�, Surface Area: 21.600m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Wall_N, !- Name
+    Block1:Zone1_Wall_N,     !- Name
     Wall,                    !- Surface Type
     AS14O external wall,     !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1210,7 +1245,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Wall - 16.200 m2 - 270.0�, Surface Area: 16.200m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Wall_W, !- Name
+    Block1:Zone1_Wall_W,     !- Name
     Wall,                    !- Surface Type
     AS14O external wall,     !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1235,7 +1270,7 @@ BuildingSurface:Detailed,
 
 ! Block 1, Zone 1, Wall - 21.600 m2 - 180.0�, Surface Area: 21.600m2
 BuildingSurface:Detailed,
-    Block1:Zone1_Wall_S, !- Name
+    Block1:Zone1_Wall_S,     !- Name
     Wall,                    !- Surface Type
     AS14O external wall,     !- Construction Name
     Block1:Zone1,            !- Zone Name
@@ -1265,8 +1300,8 @@ BuildingSurface:Detailed,
 FenestrationSurface:Detailed,
     Block1:Zone1_Wall_S_Win_1,  !- Name
     Window,                  !- Surface Type
-    1001,                    !- Construction Name
-    Block1:Zone1_Wall_S, !- Building Surface Name
+    1002,                    !- Construction Name
+    Block1:Zone1_Wall_S,     !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
     ,                        !- Frame and Divider Name
@@ -1285,13 +1320,12 @@ FenestrationSurface:Detailed,
     0,                       !- Vertex 4 Y-coordinate {m}
     2.2;                     !- Vertex 4 Z-coordinate {m}
 
-
 ! Window, 6.0m2
 FenestrationSurface:Detailed,
     Block1:Zone1_Wall_S_Win_2,  !- Name
     Window,                  !- Surface Type
-    1001,                    !- Construction Name
-    Block1:Zone1_Wall_S, !- Building Surface Name
+    1002,                    !- Construction Name
+    Block1:Zone1_Wall_S,     !- Building Surface Name
     ,                        !- Outside Boundary Condition Object
     AutoCalculate,           !- View Factor to Ground
     ,                        !- Frame and Divider Name
@@ -1309,6 +1343,7 @@ FenestrationSurface:Detailed,
     4.5,                     !- Vertex 4 X-coordinate {m}
     0,                       !- Vertex 4 Y-coordinate {m}
     2.2;                     !- Vertex 4 Z-coordinate {m}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========
 
@@ -1405,7 +1440,7 @@ Sizing:Zone,
 ZoneControl:Thermostat,
     Block1:Zone1 Thermostat, !- Name
     Block1:Zone1,            !- Zone or ZoneList Name
-    HVAC4 24/7,                 !- Control Type Schedule Name
+    HVAC4 24/7,              !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     Dual Setpoint - Zone Block1:Zone1;  !- Control 1 Name
 

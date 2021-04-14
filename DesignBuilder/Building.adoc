@@ -1,9 +1,5 @@
 Building objectの入力についての解説
 
-----
-include::Case600.idf[lines=28..40]
-----
-
 https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building[リンク]
 
 === Field: Building Name

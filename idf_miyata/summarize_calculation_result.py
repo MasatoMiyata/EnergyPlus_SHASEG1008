@@ -3,9 +3,8 @@ import pandas as pd
 import numpy as np
 
 ## 宮田作成ファイル
-filename = "case600.csv"
-# filename = "./results/case600/case600.csv"
-# filename = "./results/case600FF/case600FF.csv"
+filename = "./idf_miyata/case600.csv"
+
 
 name_dict = {
     "zone_name"   : "ZONE1",
@@ -14,6 +13,8 @@ name_dict = {
     "wall_name_w" : "WALL_W",
     "wall_name_e" : "WALL_E",
     "roof_name"   : "ROOF",
+    "window_name_1" : "WINDOW_S1",
+    "window_name_2" : "WINDOW_S2"
 }
 
 ## 小野さん作成ファイル
@@ -27,7 +28,6 @@ name_dict = {
 #     "wall_name_e" : "BLOCK1:ZONE1_WALL_E",
 #     "roof_name"   : "BLOCK1:ZONE1_ROOF_1_0_0",
 # }
-
 
 ## AS140のファイル
 # filename = "./docs/EnergyPlus-Std140TestSuites-InputFiles-v8.2/Case600_BESTEST.csv"
@@ -60,74 +60,95 @@ data.index.name = "data_hour"
 
 
 # %%
+#--------------------------------
 # for Case 600
+#--------------------------------
 
-# 年間の暖房負荷 [MWh/年]
-# 1 Wh = 3600 J
-anual_heating_load = np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"] ) /3600 /1000000
-print(f"年間暖房負荷 MWh {anual_heating_load}")
+df_results = pd.DataFrame()
 
-# 年間の冷房負荷 [MWh/年]
-anual_cooling_load = np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "] ) /3600 /1000000
-print(f"年間冷房負荷 MWh {anual_cooling_load}")
+df_results["case600"] = pd.Series({
 
-# 最大暖房負荷 [kW]
-maximum_heating_load = np.max( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"] ) /3600 /1000
-print(f"最大暖房負荷 kW {maximum_heating_load}")
+    "anual_heating_load" : np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"] ) /3600 /1000000,  # 年間の暖房負荷 [MWh/年]   1 Wh = 3600 J
+    "anual_cooling_load" : np.sum( data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "] ) /3600 /1000000,  # 年間の冷房負荷 [MWh/年]
+    "maximum_heating_load" : np.max( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"] ) /3600 /1000,  # 最大暖房負荷 [kW]
+    "maximum_cooling_load" : np.max( data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "] ) /3600 /1000,  # 最大冷房負荷 [kW]
+    "solar_radiation_N" : np.sum( data[ name_dict["wall_name_n"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000,  # 年間積算日射量（全天） [kWh/m2]
+    "solar_radiation_E" : np.sum( data[ name_dict["wall_name_e"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000,  # 年間積算日射量（全天） [kWh/m2]
+    "solar_radiation_W" : np.sum( data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000,  # 年間積算日射量（全天） [kWh/m2]
+    "solar_radiation_S" : np.sum( data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000,  # 年間積算日射量（全天） [kWh/m2]
+    "solar_radiation_H" : np.sum( data[ name_dict["roof_name"]   + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000,  # 年間積算日射量（全天） [kWh/m2]
+    "solar_transitted"  : ( np.sum( data[ name_dict["window_name_1"] + ":Surface Window Transmitted Solar Radiation Rate [W](Hourly)"]) + \
+                        np.sum( data[ name_dict["window_name_2"] + ":Surface Window Transmitted Solar Radiation Rate [W](Hourly)"]) ) /1000 / 12,   # 窓面透過日射量 [kWh/m2]
+    "transmissivity_coefficient": 0
+})
 
-# 最大冷房負荷 [kW]
-maximum_cooling_load = np.max( data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "] ) /3600 /1000
-print(f"最大冷房負荷 kW {maximum_cooling_load}")
+# 窓の日射透過係数
+df_results["case600"]["transmissivity_coefficient"] = df_results["case600"]["solar_transitted"] / df_results["case600"]["solar_radiation_S"]
 
-# 年間積算日射量（全天） [kWh/m2]
-solar_radiation_N = np.sum( data[ name_dict["wall_name_n"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000
-solar_radiation_E = np.sum( data[ name_dict["wall_name_e"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000
-solar_radiation_W = np.sum( data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000
-solar_radiation_S = np.sum( data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000
-solar_radiation_H = np.sum( data[ name_dict["roof_name"]   + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]) /1000
+# 曇天日3/5の南面日射量 [Wh/m2]
+df = pd.DataFrame()
+tmp = {}
+for hh in range(0,24):
+    tmp["solar_radiation_March_5_south_"+str(hh)] = data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"][hh]
+df["case600"] = pd.Series(tmp)
+df_results = df_results.append(df)
 
-print(f"年間積算日射量（全天）北 kWh/m2 {solar_radiation_N}")
-print(f"年間積算日射量（全天）東 kWh/m2 {solar_radiation_E}")
-print(f"年間積算日射量（全天）西 kWh/m2 {solar_radiation_W}")
-print(f"年間積算日射量（全天）南 kWh/m2 {solar_radiation_S}")
-print(f"年間積算日射量（全天）水平 kWh/m2 {solar_radiation_H}")
-
-# 曇天日3/5の南面・西面日射量 [Wh/m2]
-print("--- 3/5 南面 ---")
-print(data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"])
-print("--- 3/5 西面 ---")
-print(data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"])
+# 曇天日3/5の西面日射量 [Wh/m2]
+df = pd.DataFrame()
+tmp = {}
+for hh in range(0,24):
+    tmp["solar_radiation_March_5_west_"+str(hh)] = data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/3/5"][hh]
+df["case600"] = pd.Series(tmp)
+df_results = df_results.append(df)
 
 # 晴天日7/27の南面・西面日射量 [Wh/m2]
-print("--- 7/27 南面 ---")
-print(data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"])
-print("--- 7/27 西面 ---")
-print(data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"])
+df = pd.DataFrame()
+tmp = {}
+for hh in range(0,24):
+    tmp["solar_radiation_July_27_south_"+str(hh)] = data[ name_dict["wall_name_s"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"][hh]
+df["case600"] = pd.Series(tmp)
+df_results = df_results.append(df)
+
+# 曇天日7/27の西面日射量 [Wh/m2]
+df = pd.DataFrame()
+tmp = {}
+for hh in range(0,24):
+    tmp["solar_radiation_July_27_west_"+str(hh)] = data[ name_dict["wall_name_w"] + ":Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"]["2021/7/27"][hh]
+df["case600"] = pd.Series(tmp)
+df_results = df_results.append(df)
+
 
 # 代表日1/4の冷暖房負荷
-hourly_heatload_winter = ( \
-    data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"]["2021/1/4"] - \
-    data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "]["2021/1/4"] ) /3600 /1000
+df = pd.DataFrame()
+tmp = {}
+for hh in range(0,24):
+    tmp["hourly_heatload_winter_"+str(hh)] = ( data[ name_dict["zone_name"] + ":Zone Air System Sensible Heating Energy [J](Hourly)"]["2021/1/4"][hh] - \
+        data[ name_dict["zone_name"] + ":Zone Air System Sensible Cooling Energy [J](Hourly) "]["2021/1/4"][hh] ) /3600 /1000
+df["case600"] = pd.Series(tmp)
+df_results = df_results.append(df)
 
-print("--- 1/4 冷暖房負荷 ---")
-print(hourly_heatload_winter)
-
-
-# 自然室温
-maximum_room_air_temperature = np.max( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-print(f"自然室温 最大値 ℃ {maximum_room_air_temperature}")
-
-minimum_room_air_temperature = np.min( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-print(f"自然室温 最小値 ℃ {minimum_room_air_temperature}")
-
-average_room_air_temperature = np.mean( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-print(f"自然室温 平均値 ℃ {average_room_air_temperature}")
+df_results.to_csv("集計データ.csv")
 
 
-# 代表日1/4の自然室温
-hourly_room_air_temperature = ( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021/1/4"] )
-print("--- 1/4 自然室温 ---")
-print(hourly_room_air_temperature)
+#--------------------------------
+# for Case 600FF
+#--------------------------------
+
+# # 自然室温
+# maximum_room_air_temperature = np.max( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+# print(f"自然室温 最大値 ℃ {maximum_room_air_temperature}")
+
+# minimum_room_air_temperature = np.min( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+# print(f"自然室温 最小値 ℃ {minimum_room_air_temperature}")
+
+# average_room_air_temperature = np.mean( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+# print(f"自然室温 平均値 ℃ {average_room_air_temperature}")
+
+
+# # 代表日1/4の自然室温
+# hourly_room_air_temperature = ( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021/1/4"] )
+# print("--- 1/4 自然室温 ---")
+# print(hourly_room_air_temperature)
 
 
 
@@ -151,6 +172,7 @@ print(hourly_room_air_temperature)
 # "ROOF:Surface Outside Face Sunlit Area [m2](Hourly)"
 # "ROOF:Surface Outside Face Sunlit Fraction [](Hourly)"
 # "ROOF:Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"
+
 # "WINDOW_S1:Surface Outside Face Sunlit Area [m2](Hourly)"
 # "WINDOW_S1:Surface Outside Face Sunlit Fraction [](Hourly)"
 # "WINDOW_S1:Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"
@@ -160,6 +182,7 @@ print(hourly_room_air_temperature)
 # "WINDOW_S1:Surface Window Transmitted Solar Radiation Energy [J](Hourly)"
 # "WINDOW_S1:Surface Window Transmitted Beam Solar Radiation Energy [J](Hourly)"
 # "WINDOW_S1:Surface Window Transmitted Diffuse Solar Radiation Energy [J](Hourly)"
+
 # "WINDOW_S2:Surface Outside Face Sunlit Area [m2](Hourly)"
 # "WINDOW_S2:Surface Outside Face Sunlit Fraction [](Hourly)"
 # "WINDOW_S2:Surface Outside Face Incident Solar Radiation Rate per Area [W/m2](Hourly)"

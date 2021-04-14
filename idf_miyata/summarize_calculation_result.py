@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case600"
+CASENAME = "Case630"
 
 
 file_list = {
@@ -24,10 +24,42 @@ file_list = {
         }
     },
 
+    "Case610": {
+        "memo": "宮田作成ファイル Case610",
+        "case_ID" : "610",
+        "filename": "./idf_miyata/case610.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
     "Case620": {
         "memo": "宮田作成ファイル Case620",
         "case_ID" : "620",
         "filename": "./idf_miyata/case620.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_E1",
+            "window_name_2" : "WINDOW_W1"
+        }
+    },
+
+    "Case630": {
+        "memo": "宮田作成ファイル Case630",
+        "case_ID" : "630",
+        "filename": "./idf_miyata/case630.csv",
         "name_dict" : {
             "zone_name"   : "ZONE1",
             "wall_name_s" : "WALL_S",
@@ -60,6 +92,22 @@ file_list = {
         "memo": "AS140公式ファイル Case620",
         "case_ID" : "620",
         "filename": "./idf_miyata/Case620_AS140.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE ONE",
+            "wall_name_s" : "ZONE SURFACE SOUTH",
+            "wall_name_n" : "ZONE SURFACE NORTH",
+            "wall_name_w" : "ZONE SURFACE WEST",
+            "wall_name_e" : "ZONE SURFACE EAST",
+            "roof_name"   : "ZONE SURFACE ROOF",
+            "window_name_1" : "ZONE SUBSURFACE 1 EAST WINDOW",
+            "window_name_2" : "ZONE SUBSURFACE 2 WEST WINDOW"
+        }
+    },
+
+    "Case630_AS140": {
+        "memo": "AS140公式ファイル Case630",
+        "case_ID" : "630",
+        "filename": "./idf_miyata/Case630_AS140.csv",
         "name_dict" : {
             "zone_name"   : "ZONE ONE",
             "wall_name_s" : "ZONE SURFACE SOUTH",
@@ -182,7 +230,7 @@ df_results = df_results.append(df)
 # for Case 620
 #--------------------------------
 
-if file_list[CASENAME]["case_ID"] == "620":
+if file_list[CASENAME]["case_ID"] == "620" or file_list[CASENAME]["case_ID"] == "630":
 
     # 年間積算透過日射量（全天、庇なし） 西面
     df = pd.DataFrame()

@@ -47,7 +47,7 @@ SurfaceConvectionAlgorithm:Outside,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    2;                       !- Number of Timesteps per Hour ★
+    4;                       !- Number of Timesteps per Hour ★
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========

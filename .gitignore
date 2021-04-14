@@ -1,6 +1,7 @@
 backup/*
 Reference/*
 .Rproj.user
+<<<<<<< HEAD
 idf_miyata/*.audit
 idf_miyata/*.bnd
 idf_miyata/*.dxf
@@ -13,3 +14,6 @@ idf_miyata/*.rdd
 idf_miyata/*.rvaudit
 idf_miyata/*.shd
 idf_miyata/*.svg
+=======
+DesignBuilder/.Rhistory
+>>>>>>> 6b966192241f0cad876a259036bab8b467336c57

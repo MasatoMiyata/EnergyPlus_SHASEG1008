@@ -564,6 +564,9 @@ WindowMaterial:Glazingクラスの作成方法は https://bigladdersoftware.com/
 Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。 +
 Schedule:Day:Hourlyクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
 
+これらのフィールドには、1日24時間の各時間帯の値が格納されます。 +
+（時間フィールド1は 00:00:01 AM から 1:00:00 AM、時間フィールド2は 1:00:01 AM から 2:00:00 AM）
+
 .Schedule:Day:Hourly　すきま風
 ----
 Schedule:Day:Hourly,
@@ -1086,9 +1089,3 @@ ZoneHVAC:EquipmentConnections,
 ====== Zone Return Air Node or NodeList Name
 * 還気に関するノード名称を入力します。
 
-
-==== Output:Variable
-
-===== Surface Outside Face Incident Solar Radiation Rate per Area
-
-https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2[<bigladder>, role="external", window="_blank"]

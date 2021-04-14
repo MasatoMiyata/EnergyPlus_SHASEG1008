@@ -482,11 +482,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_zonehvacequipmentconnections">2.1.15.6. ZoneHVAC:EquipmentConnections</a></li>
 </ul>
 </li>
-<li><a href="#_outputvariable">2.1.16. Output:Variable</a>
-<ul class="sectlevel4">
-<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.1.16.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
 </ul>
 </li>
+<li><a href="#_case610">2.2. Case610</a>
+<ul class="sectlevel3">
+<li><a href="#_shadingzonedetailed">2.2.1. Shading:Zone:Detailed</a>
+<ul class="sectlevel4">
+<li><a href="#_base_surface_name">2.2.1.1. Base Surface Name</a></li>
+<li><a href="#_transmittance_schedule_name">2.2.1.2. Transmittance Schedule Name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_outputvariable">2.3. Output:Variable</a>
+<ul class="sectlevel3">
+<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.3.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
 </ul>
 </li>
 </ul>
@@ -559,6 +569,11 @@ Buildingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/d
     ,                        !- Maximum Number of Warmup Days
     6;                       !- Minimum Number of Warmup Days</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>メモ
+Terrain　と　Solar Distribution　と　Maximum Number of Warmup Days　が異なる。
+定義を調べる。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1134,6 +1149,10 @@ WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoft
 <div class="paragraph">
 <p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。<br>
 Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
+<div class="paragraph">
+<p>これらのフィールドには、1日24時間の各時間帯の値が格納されます。<br>
+（時間フィールド1は 00:00:01 AM から 1:00:00 AM、時間フィールド2は 1:00:01 AM から 2:00:00 AM）</p>
 </div>
 <div class="listingblock">
 <div class="title">Schedule:Day:Hourly　すきま風</div>
@@ -1911,10 +1930,72 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_case610"><a class="link" href="#_case610">2.2. Case610</a></h3>
+<div class="paragraph">
+<p>水平庇の設置</p>
+</div>
 <div class="sect3">
-<h4 id="_outputvariable"><a class="link" href="#_outputvariable">2.1.16. Output:Variable</a></h4>
+<h4 id="_shadingzonedetailed"><a class="link" href="#_shadingzonedetailed">2.2.1. Shading:Zone:Detailed</a></h4>
+<div class="paragraph">
+<p>Shading:Zone:Detailedクラスは、庇に関するパラメータを記述します。<br>
+Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#shadingzonedetailed-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
+<div class="paragraph">
+<p>このオブジェクトは、ベースサーフェスから外側に突き出たオーバーハング、ウィング、フィンなどの取り付けられた「サブサーフェス」を表すために使用されます。この分類は便宜上のものであり、実際には、このタイプのデバイスは、取り付けられている表面だけでなく、隣接する表面にも影を落とすことがある。例えば、フィンはその親となる壁や隣接する壁に影を落とすことがある。</p>
+</div>
+<div class="paragraph">
+<p>なお、ゾーンサーフェスは他のゾーンサーフェスに影を落とすことができます。しかし、EnergyPlusはこのような "セルフシャドウイング "を自動的にチェックし、適切な計算を行うので、例えばL字型の建物の一方の壁が他方の壁に影を落とすような効果を心配する必要はありません。</p>
+</div>
+<div class="paragraph">
+<p>貼り付けられた（または切り離された）陰影面とは異なり、建築物の表面は、それが向いている半球にしか影を落とすことができません。つまり、例えば上向きの屋根は下向きの影を落とすことはありません（したがって、オーバーハングによる影の影響を考慮して、大きめの屋根を指定しても効果はありません）。内部の表面は、いかなる種類の影も落としません。</p>
+</div>
+<div class="listingblock">
+<div class="title">Shading:Zone:Detailed</div>
+<div class="content">
+<pre>Shading:Zone:Detailed,
+    OverHang,                !- Name
+    Wall_S,                  !- Base Surface Name
+    ,                        !- Transmittance Schedule Name
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    2.7,                     !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -1,                      !- Vertex 2 Y-coordinate {m}
+    2.7,                     !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    -1,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}</pre>
+</div>
+</div>
 <div class="sect4">
-<h5 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.1.16.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h5>
+<h5 id="_base_surface_name"><a class="link" href="#_base_surface_name">2.2.1.1. Base Surface Name</a></h5>
+<div class="paragraph">
+<p>これは、この庇等が設置されている面の名前です。この面は、壁（または屋根）であるとし、窓やドアは指定できない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_transmittance_schedule_name"><a class="link" href="#_transmittance_schedule_name">2.2.1.2. Transmittance Schedule Name</a></h5>
+<div class="paragraph">
+<p>遮光面の日射透過率を0.0から1.0までの範囲で設定したスケジュールの名前です。
+このフィールドに空白を入力すると、透過率の値はデフォルトで0.0になり、遮光面は常に不透明になります。
+このスケジューリングは、夏よりも冬の方が透過率が高い落葉樹など、季節による透過率の変化を考慮して使用することができます。
+また、時間帯による透過率の変化を利用することもできます。
+例えば、可動式のオーニングの場合、オーニングが設置されているときには透過率が1.0より小さい値となり、
+オーニングが格納されているときには1.0となります。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.3. Output:Variable</a></h3>
+<div class="sect3">
+<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.3.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </div>
@@ -1923,10 +2004,9 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-23 10:21:34 +0900
+Last updated 2021-04-14 18:18:43 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

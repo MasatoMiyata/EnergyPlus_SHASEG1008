@@ -35,3 +35,14 @@ SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテス�
 === Case600
 
 include::case600.adoc[]
+
+=== Case610
+
+include::case610.adoc[]
+
+
+=== Output:Variable
+
+==== Surface Outside Face Incident Solar Radiation Rate per Area
+
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2[<bigladder>, role="external", window="_blank"]

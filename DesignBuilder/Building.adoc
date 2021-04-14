@@ -91,5 +91,12 @@ FullInteriorAndExteriorは、ゾーンが面で完全に閉じられているこ
 Reflectionの使用については計算時間やエラーについての注意書きがあることから、特別な利用目的の場合を除いて推奨していないように見える。また、AS140ではShading devices自体の特性（反射率等）を指定していないため、おそらくこのような反射計算を行うことは想定していない。 +
 以上より、実際に近い精緻な計算を行うという観点に立てば、FullInteriorAndExteriorを用いることが適当と考えられるが、現実の多くのシチュエーションでFullExteriorを用いるとすれば、FullExteriorで計算することも適当ではないかと思われる。
 
+Table 2に両者で計算した結果を示す。Case600については大きな差はないことが分かる。
 
-
+.Difference in heating/cooling load between solar distribution options
+[options="header"]
+|===============================================================
+|窓モデル|暖房積算 [MWh]|冷房積算 [MWh]|暖房ピーク [kW]|冷房ピーク [kW]
+|FullExterior|4.2329| 7.2764| 3.7777| 6.9069
+|FullInteriorAndExterior|4.2356|7.2554|3.7778|6.8969
+|===============================================================

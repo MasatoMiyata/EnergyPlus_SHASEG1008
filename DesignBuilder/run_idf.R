@@ -35,6 +35,20 @@ path_idf <- here::here(paste0("Case",case_name,".idf"))
 
 idf <- read_idf(path = path_idf, idd = NULL)
 
+
+tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_1"]]
+dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+dt[3,6] <- 1002
+idf$update(dt)
+
+tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_2"]]
+dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+dt[3,6] <- 1002
+idf$update(dt)
+
+idf$save(path_idf,"overwrite" = TRUE)
+
+
 #####################################
 # Run simulations
 #####################################

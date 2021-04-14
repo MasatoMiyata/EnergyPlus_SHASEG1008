@@ -1,6 +1,6 @@
 == Windowの入力方法についての解説
 
-https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materials-for-glass-windows-and-doors[Input Output Manual]
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materials-for-glass-windows-and-doors[Input Output Reference]
 
 https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#window-calculation-module[Engineering Reference]
 

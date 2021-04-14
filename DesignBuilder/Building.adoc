@@ -1,6 +1,6 @@
-Building objectの入力についての解説
+== Building objectの入力についての解説
 
-https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building[リンク]
+https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building[Input Output Reference]
 
 === Field: Building Name
 建物名称は出力の利便性のために定義します。

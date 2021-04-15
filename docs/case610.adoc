@@ -1,6 +1,6 @@
 // Case 610
 
-水平庇の設置
+南面に水平庇を設置します。
 
 ==== Shading:Zone:Detailed
 
@@ -37,7 +37,6 @@ Shading:Zone:Detailed,
 ===== Base Surface Name
 
 これは、この庇等が設置されている面の名前です。この面は、壁（または屋根）であるとし、窓やドアは指定できない。
-
 
 ===== Transmittance Schedule Name
 

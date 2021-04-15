@@ -12,9 +12,7 @@
 ファン発熱による影響は考慮しない。 +
 
 
-==== HVAC system
-
-===== ZoneControl:Thermostat
+==== ZoneControl:Thermostat
 
 解説は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat[<bigladder>, role="external", window="_blank"]。
 
@@ -28,7 +26,7 @@ ZoneControl:Thermostat,
     Cooling Setpoints;                !- Control 1 Name
 ----
 
-====== Control 1 Object Type
+===== Control 1 Object Type
 
 * コントロールタイプの種類を次の4つの選択肢から選択します。
 
@@ -40,7 +38,7 @@ ZoneControl:Thermostat,
 今回は、ThermostatSetpoint:SingleCooling　を選択します。
 
 
-===== ThermostatSetpoint:SingleCooling
+==== ThermostatSetpoint:SingleCooling
 
 解説は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling[<bigladder>, role="external", window="_blank"]。
 
@@ -52,7 +50,7 @@ ThermostatSetpoint:SingleCooling,
 ----
 
 
-===== Schedule:Day:Hourly
+==== Schedule:Day:Hourly
 
 室温制御方法について、Case 600は 4 であったが、Case650では 2 に変更する。
 そして、冷房設定温度について、夜間に空調が動かないように設定温度を 99度　に変更する。

@@ -1,7 +1,7 @@
 :lang: ja
 :doctype: book
 :toc: left
-:toclevels: 4
+:toclevels: 3
 :toc-title: EnergyPlus SHASE-G1008:2016
 :sectnums:
 :sectnumlevels: 4
@@ -28,6 +28,7 @@ NOTE: SHASE-G1008:2016は http://www.shasej.org/tosho/report.html[空気調和�
 TIP: EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html[bigladder, role="external", window="_blank"] を参照してください。
 
 
+<<<
 == 熱負荷シミュレーション
 
 SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」を実行します。
@@ -36,17 +37,25 @@ SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテス�
 
 include::case600.adoc[]
 
+<<<
 === Case610
 
 include::case610.adoc[]
 
+<<<
 === Case650
 
 include::case650.adoc[]
 
-
+<<<
 === Output:Variable
 
 ==== Surface Outside Face Incident Solar Radiation Rate per Area
 
 https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2[<bigladder>, role="external", window="_blank"]
+
+<<<
+=== 地盤境界条件の入力方法
+
+include::groundTemperature.adoc[]
+

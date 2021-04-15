@@ -557,9 +557,7 @@ WindowMaterial:Glazingクラスの作成方法は https://bigladdersoftware.com/
 ----
 
 
-==== Schedule
-
-===== Schedule:Day:Hourly
+==== Schedule:Day:Hourly
 
 Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。 +
 Schedule:Day:Hourlyクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
@@ -691,7 +689,7 @@ Schedule:Day:Hourly,
     4;                       !- Hour 24
 ----
 
-===== Schedule:Week:Daily
+==== Schedule:Week:Daily
 
 Schedule:Week:Dailyクラスでは、曜日別のスケジュールの設定を行います。 +
 Schedule:Week:Dailyクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleweekdaily[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
@@ -769,7 +767,7 @@ Schedule:Week:Daily,
 ----
 
 
-===== Schedule:Year
+==== Schedule:Year
 
 Schedule:Yearクラスでは、年間スケジュールの設定を行います。 +
 Schedule:Yearクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleyear[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
@@ -869,10 +867,7 @@ OtherEquipment,
 ----
 
 
-==== HVAC system
-
-
-===== ZoneControl:Thermostat
+==== ZoneControl:Thermostat
 
 ZoneControl:Thermostatクラスは、ゾーンを指定された温度に制御するために使用されます。 +
 ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。
@@ -887,13 +882,13 @@ ZoneControl:Thermostat,
     Heating Cooling Setpoints;        !- Control 1 Name
 ----
 
-====== Name
+===== Name
 * 任意の名称を入力します。
 
-====== Zone or ZoneList Name
+===== Zone or ZoneList Name
 * 対象とするゾーンもしくはゾーンリストの名称を入力します。
 
-====== Control Type Schedule Name
+===== Control Type Schedule Name
 
 * 別途定義した制御スケジュール名を入力します。 制御スケジュールには、シミュレーション中に使用される制御タイプ番号を指定します。有効な制御タイプ番号は次のとおりです。
 ** 0 - 無制御（指定なし、またはデフォルト）
@@ -904,7 +899,7 @@ ZoneControl:Thermostat,
 
 * 例えば、ZoneControl:Thermostatから参照されるスケジュールが、特定の時間帯に制御タイプが4である場合、その時間帯に「不感帯のある室温設定値（暖房と冷房）」制御が使用されることを示しています。
 
-====== Control 1 Object Type
+===== Control 1 Object Type
 
 * コントロールタイプの種類を次の4つの選択肢から選択します。
 ** ThermostatSetpoint:SingleHeating　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating[<bigladder>, role="external", window="_blank"]
@@ -915,13 +910,13 @@ ZoneControl:Thermostat,
 Case 600 では　ThermostatSetpoint:DualSetpoint　を選択します。
 
 
-====== Control 1 Name
+===== Control 1 Name
 
 * 別途定義したコントロールタイプの名称を入力します。
 
 
 
-===== ThermostatSetpoint:DualSetpoint
+==== ThermostatSetpoint:DualSetpoint
 
 .ThermostatSetpoint:DualSetpoint　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint[<bigladder>, role="external", window="_blank"]
 ----
@@ -931,17 +926,17 @@ ThermostatSetpoint:DualSetpoint,
     Cooling Setpoints;          !- Cooling Setpoint Temperature Schedule Name
 ----
 
-====== Name
+===== Name
 * 任意の名称を入力します。
 
-====== Heating Setpoint Temperature Schedule Name
+===== Heating Setpoint Temperature Schedule Name
 * 暖房運転時設定温度のスケジュール名称を入力します。
 
-====== Cooling Setpoint Temperature Schedule Name
+===== Cooling Setpoint Temperature Schedule Name
 * 冷房運転時設定温度のスケジュール名称を入力します。
 
 
-===== ZoneHVAC:IdealLoadsAirSystem
+==== ZoneHVAC:IdealLoadsAirSystem
 
 ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができます。
 ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用されます。
@@ -979,40 +974,40 @@ ZoneHVAC:IdealLoadsAirSystem,
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 ----
 
-====== Name
+===== Name
 * 任意の名称を入力します。
 * この名称は　ZoneHVAC:EquipmentList から参照されます。
 
-====== Zone Supply Air Node Name
+===== Zone Supply Air Node Name
 * 給気ノードの名称を入力します。これは、本コンポーネントがサービスを提供するゾーンのゾーン給気ノードの1つと同じでなければなりません。
 
-====== Maximum Heating Supply Air Temperature {C}
+===== Maximum Heating Supply Air Temperature {C}
 * 給気温度の最大値を入力します。
 
-====== Minimum Cooling Supply Air Temperature {C}
+===== Minimum Cooling Supply Air Temperature {C}
 * 給気温度の最小値を入力します。
 
-====== Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+===== Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
 * 給気湿度の最大値を入力します。
 
-====== Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+===== Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
 * 給気湿度の最小値を入力します。選択肢は以下の4つです。
 
-====== Dehumidification Control Type
+===== Dehumidification Control Type
 * 除湿の制御方式を選択します。選択肢は以下の4つです。
 ** ConstantSensibleHeatRatio
 ** Humidistat
 ** None
 ** ConstantSupplyHumidityRatio
 
-====== Humidification Control Type
+===== Humidification Control Type
 * 加湿の制御方式を選択します。選択肢は以下の3つです。
 ** None
 ** Humidistat
 ** ConstantSupplyHumidityRatio
 
 
-===== ZoneHVAC:EquipmentList
+==== ZoneHVAC:EquipmentList
 
 このクラスには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
 リストの各項目には、4つのフィールドが関連付けられています。
@@ -1032,17 +1027,17 @@ ZoneHVAC:EquipmentList,
     ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name
 ----
 
-====== Zone Equipment 1 Object Type
+===== Zone Equipment 1 Object Type
 * ゾーンに設置されたHVAC機器の名称（ZoneHVAC:IdealLoadsAirSystem）を指定します。
 
-====== Zone Equipment 1 Cooling Sequence
+===== Zone Equipment 1 Cooling Sequence
 * ゾーンサーモスタットが冷房を要求する際の、ゾーン機器のシミュレーション順序を指定します。
 
-====== Zone Equipment 1 Heating or No-Load Sequence
+===== Zone Equipment 1 Heating or No-Load Sequence
 * ゾーンサーモスタットが暖房を要求した場合、もしくは負荷がない場合のゾーン機器のシミュレーション順序を指定します。
 
 
-===== NodeList
+==== NodeList
 
 .NodeList　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist[<bigladder>, role="external", window="_blank"]
 ----
@@ -1052,7 +1047,7 @@ NodeList,
 ----
 
 
-===== ZoneHVAC:EquipmentConnections
+==== ZoneHVAC:EquipmentConnections
 
 ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
 他のステートメントと同様に、このクラスの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
@@ -1074,21 +1069,21 @@ ZoneHVAC:EquipmentConnections,
     NODE_3;                  !- Zone Return Air Node or NodeList Name
 ----
 
-====== Zone Name（required）
+===== Zone Name（required）
 * ゾーン名称を入力します。
 
-====== Zone Conditioning Equipment List Name（required）
+===== Zone Conditioning Equipment List Name（required）
 * 「ZoneHVAC:EquipmentList」で定義した名称を入力します。
 
-====== Zone Air Inlet Node or NodeList Name
+===== Zone Air Inlet Node or NodeList Name
 * 給気に関するノード名称を入力します。
 
-====== Zone Air Exhaust Node or NodeList Name
+===== Zone Air Exhaust Node or NodeList Name
 * 排気に関するノード名称を入力します。
 
-====== Zone Air Node Name（required）
+===== Zone Air Node Name（required）
 * ゾーン空気に関するノード名称を入力します。
 
-====== Zone Return Air Node or NodeList Name
+===== Zone Return Air Node or NodeList Name
 * 還気に関するノード名称を入力します。
 

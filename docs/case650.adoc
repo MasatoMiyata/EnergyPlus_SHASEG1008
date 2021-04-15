@@ -2,16 +2,15 @@
 
 基準ケース Case600 から暖房運転をなしとし、以下のように夜間換気を行う条件で熱負荷シミュレーションを行う。 
 
-冷房 18:00～07:00 停止
-    07:00～18:00 温度が 27℃より高ければ運転 
-暖房 常時停止 換気 18:00～07:00 
-換気ファン運転 07:00～18:00 
-換気ファン停止 
+冷房 18:00～07:00 停止 +
+    07:00～18:00 温度が 27℃より高ければ運転  +
+暖房 常時停止 換気 18:00～07:00 +
+換気ファン運転 07:00～18:00  +
+換気ファン停止 +
 
-換気ファン風量は、Case600 で規定したすきま風とは別に、1703.16 m3 /h を与える。
-ファン発熱による影響は考慮しない。
-プログラムにおいて標高による密度補正を自動的に行わない場合、表 5.1.10 を 参照して換気風量を調整する。
-他の条件は Case600 と同様とする。
+換気ファン風量は、Case600 で規定したすきま風とは別に、1703.16 m3 /h を与える。 +
+ファン発熱による影響は考慮しない。 +
+
 
 ==== HVAC system
 
@@ -53,49 +52,10 @@ ThermostatSetpoint:SingleCooling,
 ----
 
 
-==== Schedule
-
-===== Schedule:Year
-
-Case 600 から変更なし。
-
-.Schedule:Year　室温制御方法
-----
-Schedule:Year,
-    Zone Control Type Sched, !- Name
-    Control Type,            !- Schedule Type Limits Name
-    Control Type All Weeks,  !- Schedule:Week Name 1
-    1,                       !- Start Month 1
-    1,                       !- Start Day 1
-    12,                      !- End Month 1
-    31;                      !- End Day 1
-----
-
-===== Schedule:Week:Daily
-
-Case 600 から変更なし。
-
-.Schedule:Week:Daily　室温制御方法
-----
-Schedule:Week:Daily,
-    Control Type All Weeks,  !- Name
-    Control Type All Days,   !- Sunday Schedule:Day Name
-    Control Type All Days,   !- Monday Schedule:Day Name
-    Control Type All Days,   !- Tuesday Schedule:Day Name
-    Control Type All Days,   !- Wednesday Schedule:Day Name
-    Control Type All Days,   !- Thursday Schedule:Day Name
-    Control Type All Days,   !- Friday Schedule:Day Name
-    Control Type All Days,   !- Saturday Schedule:Day Name
-    Control Type All Days,   !- Holiday Schedule:Day Name
-    Control Type All Days,   !- SummerDesignDay Schedule:Day Name
-    Control Type All Days,   !- WinterDesignDay Schedule:Day Name
-    Control Type All Days,   !- CustomDay1 Schedule:Day Name
-    Control Type All Days;   !- CustomDay2 Schedule:Day Name
-----
-
 ===== Schedule:Day:Hourly
 
-室温制御方法について、Case 600は 4 であったが、Case650では 2 に変更。
+室温制御方法について、Case 600は 4 であったが、Case650では 2 に変更する。
+そして、冷房設定温度について、夜間に空調が動かないように設定温度を 99度　に変更する。
 
 .Schedule:Day:Hourly　室温制御方法
 ----
@@ -128,8 +88,6 @@ Schedule:Day:Hourly,
     2;                       !- Hour 24
 ----
 
-冷房設定温度について、夜間に空調が動かないように設定温度を 99度　に変更。
-
 .Schedule:Day:Hourly　冷房設定温度
 ----
 Schedule:Day:Hourly,
@@ -160,6 +118,40 @@ Schedule:Day:Hourly,
     99.,                     !- Hour 23
     99.;                     !- Hour 24
 ----
+
+もしくは、以下のように 制御スケジュールを 0 とすれば、無制御（非空調）となる。
+この場合は、室温設定値を変更する必要はない。
+
+.Schedule:Day:Hourly　室温制御方法
+----
+Schedule:Day:Hourly,
+    Control Type All Days,   !- Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    2,                       !- Hour 8
+    2,                       !- Hour 9
+    2,                       !- Hour 10
+    2,                       !- Hour 11
+    2,                       !- Hour 12
+    2,                       !- Hour 13
+    2,                       !- Hour 14
+    2,                       !- Hour 15
+    2,                       !- Hour 16
+    2,                       !- Hour 17
+    2,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+----
+
 
 ==== ZoneInfiltration:DesignFlowRate
 

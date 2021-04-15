@@ -912,6 +912,9 @@ ZoneControl:Thermostat,
 ** ThermostatSetpoint:SingleHeatingOrCooling　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling[<bigladder>, role="external", window="_blank"]
 ** ThermostatSetpoint:DualSetpoint　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint[<bigladder>, role="external", window="_blank"]
 
+Case 600 では　ThermostatSetpoint:DualSetpoint　を選択します。
+
+
 ====== Control 1 Name
 
 * 別途定義したコントロールタイプの名称を入力します。

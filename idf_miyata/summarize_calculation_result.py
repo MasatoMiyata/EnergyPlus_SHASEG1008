@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case640_AS140"
+CASENAME = "Case650"
 
 
 file_list = {
@@ -88,6 +88,22 @@ file_list = {
         }
     },
 
+    "Case650": {
+        "memo": "宮田作成ファイル Case650",
+        "case_ID" : "650",
+        "filename": "./idf_miyata/case650.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
     "Case600_AS140": {
         "memo": "AS140公式ファイル Case600",
         "case_ID" : "600",
@@ -152,6 +168,22 @@ file_list = {
         }
     },
 
+    "Case650_AS140": {
+        "memo": "AS140公式ファイル Case650",
+        "case_ID" : "650",
+        "filename": "./idf_miyata/Case650_AS140.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE ONE",
+            "wall_name_s" : "ZONE SURFACE SOUTH",
+            "wall_name_n" : "ZONE SURFACE NORTH",
+            "wall_name_w" : "ZONE SURFACE WEST",
+            "wall_name_e" : "ZONE SURFACE EAST",
+            "roof_name"   : "ZONE SURFACE ROOF",
+            "window_name_1" : "ZONE SUBSURFACE 1",
+            "window_name_2" : "ZONE SUBSURFACE 2"
+        }
+    },
+    
     "Case600_Ono": {
         "memo": "小野さん作成ファイル Case600",
         "case_ID" : "600",

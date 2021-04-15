@@ -40,6 +40,10 @@ include::case600.adoc[]
 
 include::case610.adoc[]
 
+=== Case650
+
+include::case650.adoc[]
+
 
 === Output:Variable
 

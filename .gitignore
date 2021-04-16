@@ -15,3 +15,24 @@ idf_miyata/*.shd
 idf_miyata/*.svg
 idf_miyata/archive/*
 
+DesignBuilder/*postprocessed.csv
+DesignBuilder/Case*.csv
+DesignBuilder/*Meter.csv
+DesignBuilder/*Table.csv
+DesignBuilder/*Zsz.csv
+DesignBuilder/*.audit
+DesignBuilder/*.bnd
+DesignBuilder/*.dxf
+DesignBuilder/*.eio
+DesignBuilder/*.err
+DesignBuilder/*.eso
+DesignBuilder/*.mdd
+DesignBuilder/*.mtd
+DesignBuilder/*.rdd
+DesignBuilder/*.rvaudit
+DesignBuilder/*.shd
+DesignBuilder/*.end
+DesignBuilder/*.mtr
+DesignBuilder/*.htm
+DesignBuilder/*.sql
+DesignBuilder/*.Rproj

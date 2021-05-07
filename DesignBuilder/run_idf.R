@@ -27,108 +27,113 @@ ver <- max(avail_eplus())
 # parse IDD
 #idd <- use_idd(ver, download = "auto")
 
+
+run_EnergyPlus <- function (path_idf,path_epw,case_name){
+
+  idf <- read_idf(path = path_idf, idd = NULL)
+
+  #tmp <- idf$Building
+  #dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+  #dt[6,6] <- "FullInteriorAndExterior"
+  #idf$update(dt)
+
+  #tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_1"]]
+  #dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+  #dt[3,6] <- 1002
+  #idf$update(dt)
+
+  #tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_2"]]
+  #dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
+  #dt[3,6] <- 1002
+  #idf$update(dt)
+
+  #idf$save(path_idf,"overwrite" = TRUE)
+
+
+  #####################################
+  # Run simulations
+  #####################################
+
+  job <- idf$run(path_epw, wait = TRUE)
+  job <- idf$last_job()
+  stopifnot(!is.null(job))
+
+  key_values <- job$report_data_dict()$key_value
+  names <- job$report_data_dict()$name
+  N <- length(names)
+
+  window_area <- 12 # floor area of seminar room from E+
+
+  ta <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Mean Air Temperature")[,6])
+  qh <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Heating Rate")[,6])
+  qc <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Cooling Rate")[,6])
+  ri <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Windows Total Transmitted Solar Radiation Rate")[,6])
+  rh <- unlist(job$report_data("BLOCK1:ZONE1_ROOF" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+  rn <- unlist(job$report_data("BLOCK1:ZONE1_WALL_N" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+  re <- unlist(job$report_data("BLOCK1:ZONE1_WALL_E" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+  rs <- unlist(job$report_data("BLOCK1:ZONE1_WALL_S" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+  rw <- unlist(job$report_data("BLOCK1:ZONE1_WALL_W" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
+
+  # annual heating/cooling load
+  qh_sum <- sum(qh)/1000/1000
+  qc_sum <- sum(qc)/1000/1000
+
+  # peak heating/cooling load
+  qh_peak <- max(qh)/1000
+  qc_peak <- max(qc)/1000
+
+  # free-float temperature
+  ta_max <- max(ta)
+  ta_min <- min(ta)
+  ta_ave <- mean(ta)
+
+  # annual incident total
+  rn_sum <- sum(rn)/1000
+  re_sum <- sum(re)/1000
+  rw_sum <- sum(rw)/1000
+  rs_sum <- sum(rs)/1000
+  rh_sum <- sum(rh)/1000
+  ri_sum <- sum(ri)/window_area/1000
+
+  # hourly solar incident
+  date0 <- "2021-01-01"
+  date1 <- "2021-03-05"
+  Nday <- as.integer(difftime(date1,date0,units="days"))
+  inds <- Nday*24 + 1
+  inde <- Nday*24 + 24
+  rs0305 <- rs[inds:inde]
+  rw0305 <- rw[inds:inde]
+
+  date1 <- "2021-07-27"
+  Nday <- as.integer(difftime(date1,date0,units="days"))
+  inds <- Nday*24 + 1
+  inde <- Nday*24 + 24
+  rs0727 <- rs[inds:inde]
+  rw0727 <- rw[inds:inde]
+
+  # hourly heating/cooling load
+  date1 <- "2021-01-04"
+  Nday <- as.integer(difftime(date1,date0,units="days"))
+  inds <- Nday*24 + 1
+  inde <- Nday*24 + 24
+  q0104 <- (qh[inds:inde] - qc[inds:inde])/1000
+  ta0104 <- ta[inds:inde]
+
+  tmp <- c(qh_sum,qc_sum,qh_peak,qc_peak,rn_sum,re_sum,rw_sum,rs_sum,rh_sum,ri_sum,ta_max,ta_min,ta_ave,numeric(11))
+
+  output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104,ta0104=ta0104)
+
+  fname <- paste0("Case",case_name,"_postprocessed.csv")
+  write.csv(as.matrix(output),fname)
+
+}
+
 your_tool <- "DesignBuilder"
 case_name <- "600"
-
 path_epw <- here::here("DRYCOLDTMY.epw")
 path_idf <- here::here(paste0("Case",case_name,".idf"))
 
-idf <- read_idf(path = path_idf, idd = NULL)
-
-tmp <- idf$Building
-dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
-dt[6,6] <- "FullInteriorAndExterior"
-idf$update(dt)
-
-tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_1"]]
-dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
-dt[3,6] <- 1002
-idf$update(dt)
-
-tmp <- idf$"FenestrationSurface:Detailed"[["Block1:Zone1_Wall_S_Win_2"]]
-dt <- data.table::rbindlist(c(list(tmp$to_table()), lapply(tmp$ref_to_object(), function (x) x$to_table())))
-dt[3,6] <- 1002
-idf$update(dt)
-
-idf$save(path_idf,"overwrite" = TRUE)
-
-
-#####################################
-# Run simulations
-#####################################
-
-job <- idf$run(path_epw, wait = TRUE)
-job <- idf$last_job()
-stopifnot(!is.null(job))
-
-key_values <- job$report_data_dict()$key_value
-names <- job$report_data_dict()$name
-N <- length(names)
-
-window_area <- 12 # floor area of seminar room from E+
-
-ta <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Mean Air Temperature")[,6])
-qh <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Heating Rate")[,6])
-qc <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Air System Sensible Cooling Rate")[,6])
-ri <- unlist(job$report_data("BLOCK1:ZONE1" ,"Zone Windows Total Transmitted Solar Radiation Rate")[,6])
-rh <- unlist(job$report_data("BLOCK1:ZONE1_ROOF" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
-rn <- unlist(job$report_data("BLOCK1:ZONE1_WALL_N" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
-re <- unlist(job$report_data("BLOCK1:ZONE1_WALL_E" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
-rs <- unlist(job$report_data("BLOCK1:ZONE1_WALL_S" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
-rw <- unlist(job$report_data("BLOCK1:ZONE1_WALL_W" ,"Surface Outside Face Incident Solar Radiation Rate per Area")[,6])
-
-# annual heating/cooling load
-qh_sum <- sum(qh)/1000/1000
-qc_sum <- sum(qc)/1000/1000
-
-# peak heating/cooling load
-qh_peak <- max(qh)/1000
-qc_peak <- max(qc)/1000
-
-# free-float temperature
-ta_max <- max(ta)
-ta_min <- min(ta)
-ta_ave <- mean(ta)
-
-# annual incident total
-rn_sum <- sum(rn)/1000
-re_sum <- sum(re)/1000
-rw_sum <- sum(rw)/1000
-rs_sum <- sum(rs)/1000
-rh_sum <- sum(rh)/1000
-ri_sum <- sum(ri)/window_area/1000
-
-# hourly solar incident
-date0 <- "2021-01-01"
-date1 <- "2021-03-05"
-Nday <- as.integer(difftime(date1,date0,units="days"))
-inds <- Nday*24 + 1
-inde <- Nday*24 + 24
-rs0305 <- rs[inds:inde]
-rw0305 <- rw[inds:inde]
-
-date1 <- "2021-07-27"
-Nday <- as.integer(difftime(date1,date0,units="days"))
-inds <- Nday*24 + 1
-inde <- Nday*24 + 24
-rs0727 <- rs[inds:inde]
-rw0727 <- rw[inds:inde]
-
-# hourly heating/cooling load
-date1 <- "2021-01-04"
-Nday <- as.integer(difftime(date1,date0,units="days"))
-inds <- Nday*24 + 1
-inde <- Nday*24 + 24
-q0104 <- (qh[inds:inde] - qc[inds:inde])/1000
-ta0104 <- ta[inds:inde]
-
-tmp <- c(qh_sum,qc_sum,qh_peak,qc_peak,rn_sum,re_sum,rw_sum,rs_sum,rh_sum,ri_sum,ta_max,ta_min,ta_ave,numeric(11))
-
-output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104,ta0104=ta0104)
-
-fname <- paste0("Case",case_name,"_postprocessed.csv")
-write.csv(as.matrix(output),fname)
-
+run_EnergyPlus(path_idf,path_epw,case_name)
 
 #####################################
 # Compare results
@@ -150,8 +155,8 @@ if (length(grep("FF",case_name)) == 0){
     labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh/kWh]") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
-  #fname <- paste0("./figures/Case",case_name,"_annual_peal_load.png")
-  #ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
+  fname <- paste0("./figures/Case",case_name,"_annual_peal_load.png")
+  ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
 }
 
 if (length(grep("FF",case_name)) == 1 || case_name == "960"){
@@ -165,8 +170,8 @@ if (length(grep("FF",case_name)) == 1 || case_name == "960"){
     labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Zone temperature [degC]") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
-  #fname <- paste0("./figures/Case",case_name,"_temperature_stat.png")
-  #ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
+  fname <- paste0("./figures/Case",case_name,"_temperature_stat.png")
+  ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
 }
 
 if (case_name == "600"){
@@ -184,8 +189,8 @@ if (case_name == "600"){
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
   p
-  #fname <- paste0("./figures/Case",case_name,"_annual_incident.png")
-  #ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
+  fname <- paste0("./figures/Case",case_name,"_annual_incident.png")
+  ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
 }
 
 

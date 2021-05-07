@@ -36,3 +36,6 @@ DesignBuilder/*.mtr
 DesignBuilder/*.htm
 DesignBuilder/*.sql
 DesignBuilder/*.Rproj
+DesignBuilder/Case600_2.idf
+.gitignore
+DesignBuilder/Case600.skp

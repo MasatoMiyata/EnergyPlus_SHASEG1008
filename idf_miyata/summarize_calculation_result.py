@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case650"
+CASENAME = "Case950"
 
 
 file_list = {
@@ -91,7 +91,103 @@ file_list = {
     "Case650": {
         "memo": "宮田作成ファイル Case650",
         "case_ID" : "650",
-        "filename": "./idf_miyata/case650.csv",
+        "filename": "./idf_miyata/case650_v2.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case900": {
+        "memo": "宮田作成ファイル Case900",
+        "case_ID" : "900",
+        "filename": "./idf_miyata/case900.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case910": {
+        "memo": "宮田作成ファイル Case910",
+        "case_ID" : "910",
+        "filename": "./idf_miyata/case910.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case920": {
+        "memo": "宮田作成ファイル Case920",
+        "case_ID" : "920",
+        "filename": "./idf_miyata/case920.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_E1",
+            "window_name_2" : "WINDOW_W1"
+        }
+    },
+
+    "Case930": {
+        "memo": "宮田作成ファイル Case930",
+        "case_ID" : "930",
+        "filename": "./idf_miyata/case930.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_E1",
+            "window_name_2" : "WINDOW_W1"
+        }
+    },
+
+    "Case940": {
+        "memo": "宮田作成ファイル Case940",
+        "case_ID" : "640",
+        "filename": "./idf_miyata/case940.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case950": {
+        "memo": "宮田作成ファイル Case950",
+        "case_ID" : "950",
+        "filename": "./idf_miyata/case950.csv",
         "name_dict" : {
             "zone_name"   : "ZONE1",
             "wall_name_s" : "WALL_S",

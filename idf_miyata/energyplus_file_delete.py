@@ -6,7 +6,7 @@ path = "./idf_miyata"
 files = os.listdir(path)
 files_file = [f for f in files if os.path.isfile(os.path.join(path, f))]
 
-# ファイルの削除
+# 不要なファイルの削除
 for filename in files_file:
 
     for extension in [".audit", ".bnd", "dxf", "eio", "err", "eso", "mdd", "mtd", "rdd", "rvaudit", "shd", "svg"]:

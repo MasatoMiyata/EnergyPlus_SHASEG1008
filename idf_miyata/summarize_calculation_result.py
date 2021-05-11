@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case650FF_AS140"
+CASENAME = "Case900_J1_2"
 
 file_list = {
 
@@ -139,6 +139,38 @@ file_list = {
         "memo": "宮田作成ファイル Case900FF",
         "case_ID" : "900FF",
         "filename": "./idf_miyata/case900FF.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case900_J1_1": {
+        "memo": "宮田作成ファイル Case900_J1_1",
+        "case_ID" : "Case900_J1_1",
+        "filename": "./idf_miyata/case900_J1_1.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case900_J1_2": {
+        "memo": "宮田作成ファイル Case900_J1_2",
+        "case_ID" : "Case900_J1_2",
+        "filename": "./idf_miyata/case900_J1_2.csv",
         "name_dict" : {
             "zone_name"   : "ZONE1",
             "wall_name_s" : "WALL_S",

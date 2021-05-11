@@ -48,6 +48,12 @@ include::case610.adoc[]
 include::case650.adoc[]
 
 <<<
+=== Case900
+
+include::case900.adoc[]
+
+
+<<<
 === Output:Variable
 
 ==== Surface Outside Face Incident Solar Radiation Rate per Area

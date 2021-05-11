@@ -546,6 +546,20 @@
 
   Output:Variable,*,Zone Air System Sensible Cooling Energy,Hourly;
 
+  Output:Variable,*,Surface Outside Face Incident Solar Radiation Rate per Area,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Solar Radiation Rate,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Beam Solar Radiation Rate,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Diffuse Solar Radiation Rate,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Solar Radiation Energy,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Beam Solar Radiation Energy,Hourly;
+
+  Output:Variable,*,Surface Window Transmitted Diffuse Solar Radiation Energy,Hourly;
+
 !report variable,,Zone/Sys Sensible Heating Rate,hourly;
 !report variable,,Zone/Sys Sensible Cooling Rate,hourly;
 !report variable,,Zone/Sys Air Temp,hourly;
@@ -558,4 +572,3 @@
   Output:Surfaces:Drawing,DXF;
 
   Output:Constructions,Constructions;
-

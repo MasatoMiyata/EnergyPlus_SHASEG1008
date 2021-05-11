@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case950"
-
+CASENAME = "Case650FF_AS140"
 
 file_list = {
 
@@ -104,10 +103,42 @@ file_list = {
         }
     },
 
+    "Case650FF": {
+        "memo": "宮田作成ファイル Case650FF",
+        "case_ID" : "650FF",
+        "filename": "./idf_miyata/case650FF.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
     "Case900": {
         "memo": "宮田作成ファイル Case900",
         "case_ID" : "900",
         "filename": "./idf_miyata/case900.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case900FF": {
+        "memo": "宮田作成ファイル Case900FF",
+        "case_ID" : "900FF",
+        "filename": "./idf_miyata/case900FF.csv",
         "name_dict" : {
             "zone_name"   : "ZONE1",
             "wall_name_s" : "WALL_S",
@@ -200,6 +231,22 @@ file_list = {
         }
     },
 
+    "Case950FF": {
+        "memo": "宮田作成ファイル Case950FF",
+        "case_ID" : "950FF",
+        "filename": "./idf_miyata/case950FF.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
     "Case600_AS140": {
         "memo": "AS140公式ファイル Case600",
         "case_ID" : "600",
@@ -280,6 +327,22 @@ file_list = {
         }
     },
     
+    "Case650FF_AS140": {
+        "memo": "AS140公式ファイル Case650FF",
+        "case_ID" : "650FF",
+        "filename": "./idf_miyata/Case650FF_AS140.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE ONE",
+            "wall_name_s" : "ZONE SURFACE SOUTH",
+            "wall_name_n" : "ZONE SURFACE NORTH",
+            "wall_name_w" : "ZONE SURFACE WEST",
+            "wall_name_e" : "ZONE SURFACE EAST",
+            "roof_name"   : "ZONE SURFACE ROOF",
+            "window_name_1" : "ZONE SUBSURFACE 1",
+            "window_name_2" : "ZONE SUBSURFACE 2"
+        }
+    },
+
     "Case600_Ono": {
         "memo": "小野さん作成ファイル Case600",
         "case_ID" : "600",
@@ -401,28 +464,59 @@ if file_list[CASENAME]["case_ID"] == "620" or file_list[CASENAME]["case_ID"] == 
 
 
 #--------------------------------
-# for Case 600FF
+# for Case 600FF, 900FF etc 自然室温ケース
 #--------------------------------
 
-# # 自然室温
-# maximum_room_air_temperature = np.max( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-# print(f"自然室温 最大値 ℃ {maximum_room_air_temperature}")
+if "FF" in file_list[CASENAME]["case_ID"]:
 
-# minimum_room_air_temperature = np.min( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-# print(f"自然室温 最小値 ℃ {minimum_room_air_temperature}")
+    # 自然室温の最大・最小・平均
+    df = pd.DataFrame()
+    tmp = {}
+    tmp["maximum_free_float_temperature"] = np.max( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+    tmp["minimum_free_float_temperature"] = np.min( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+    tmp["average_free_float_temperature"] = np.mean( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+    df[CASENAME] = pd.Series(tmp)
+    df_results = df_results.append(df)
 
-# average_room_air_temperature = np.mean( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"] )
-# print(f"自然室温 平均値 ℃ {average_room_air_temperature}")
+    # 代表日1/4と7/27の自然室温
+    df = pd.DataFrame()
+    tmp = {}
+    for hh in range(0,24):
+        tmp["free_float_temperature_Jan04_"+str(hh)] = ( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021/1/4"][hh] )
+    for hh in range(0,24):
+        tmp["free_float_temperature_Jul27_"+str(hh)] = ( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021/7/27"][hh] )
+    df[CASENAME] = pd.Series(tmp)
+    df_results = df_results.append(df)
 
 
-# # 代表日1/4の自然室温
-# hourly_room_air_temperature = ( data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021/1/4"] )
-# print("--- 1/4 自然室温 ---")
-# print(hourly_room_air_temperature)
+# 室温の頻度分布
+if file_list[CASENAME]["case_ID"] == "900FF":
 
+    # 室温の範囲
+    temperature_range = np.arange(-50,99)
+    # 結果格納用変数
+    temperature_distribution = np.zeros(len(temperature_range))
+
+    for templerature in data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]:
+        
+        for i in range(len(temperature_range)):
+            if temperature_range[i] > templerature:
+                temperature_distribution[i] += 1
+                break
+
+    # 追加
+    df = pd.DataFrame()
+    tmp = {}
+    for i in range(len(temperature_range)):
+        tmp["room_air_temperature_distribution_"+str(temperature_range[i])] = ( temperature_distribution[i] )
+    df[CASENAME] = pd.Series(tmp)
+    df_results = df_results.append(df)
 
 
 df_results.to_csv("集計結果_"+ CASENAME + ".csv")
+
+
+
 
 # %%
 

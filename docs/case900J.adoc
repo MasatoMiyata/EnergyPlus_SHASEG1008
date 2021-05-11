@@ -15,6 +15,8 @@ Construction,
 
 === Case900-J1-2
 
+==== Material, Construction
+
 空気層の指定方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materialairgap[<bigladder>, role="external", window="_blank"] をご覧下さい。
 
 .Material:AirGap　外壁
@@ -178,3 +180,53 @@ Construction,
     GYPSUMBOARD-10mm,        !- Layer 8
     ASBESTOS-12mm;           !- Layer 9
 ----
+
+=== Case900-J2
+
+==== Schedule
+
+Case 900-J1-2 をベースに　夜間18~8時　の空調を停止する。
+
+.Schedule:Day:Hourly
+----
+Schedule:Day:Hourly,
+    Control Type All Days,   !- Name
+    Control Type,            !- Schedule Type Limits Name
+    0,                       !- Hour 1  0:00:01〜1:00:00
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0,                       !- Hour 8
+    4,                       !- Hour 9
+    4,                       !- Hour 10
+    4,                       !- Hour 11
+    4,                       !- Hour 12
+    4,                       !- Hour 13
+    4,                       !- Hour 14
+    4,                       !- Hour 15
+    4,                       !- Hour 16
+    4,                       !- Hour 17
+    4,                       !- Hour 18  17:00:01〜18:00:00
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+----
+
+=== Case900-J3
+
+==== WindowMaterial:Blind
+
+ブラインドの追加を行います。 +
+ブラインドの入力方法は　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialblind[<bigladder>, role="external", window="_blank"] をご覧下さい。
+
+このオブジェクトは、平らで等間隔のスラットからなる窓用ブラインドの特性を指定します。完全な拡散板としてモデル化されているウィンドウシェードとは異なり、ウィンドウブラインドには、スラットの角度と日射の入射角に強く依存する日射および可視光線の透過・反射特性があります。一般的な窓用ブラインドの特性を含むWindowMaterial:BlindのEnergyPlusリファレンスデータセットがあります。
+
+ブラインドは、窓の内側（「室内ブラインド」）、窓の外側（「室外ブラインド」）、または2枚のガラスの間（「ガラス間ブラインド」）に設置することができます。ブラインドが設置されているとき、ブラインドは仕切りを含めて窓のガラス部分をすべて覆うと仮定しますが、窓枠がある場合はそれは覆いません。ブラインドの平面はグレージングと平行であると仮定します。ブラインドが格納されているときは、窓を一切覆わないものとします。ブラインドのサポートストリング、テープ、ロッドによる太陽熱の影響は無視します。スラットの曲率は無視されます。
+
+

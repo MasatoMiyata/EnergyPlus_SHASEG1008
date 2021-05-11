@@ -512,6 +512,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_case900_j3">2.8. Case900-J3</a>
 <ul class="sectlevel3">
 <li><a href="#_windowmaterialblind">2.8.1. WindowMaterial:Blind</a></li>
+<li><a href="#_windowshadingcontrol">2.8.2. WindowShadingControl</a></li>
 </ul>
 </li>
 <li><a href="#_outputvariable">2.9. Output:Variable</a>
@@ -2638,7 +2639,215 @@ Construction,
 <div class="paragraph">
 <p>ブラインドは、窓の内側（「室内ブラインド」）、窓の外側（「室外ブラインド」）、または2枚のガラスの間（「ガラス間ブラインド」）に設置することができます。ブラインドが設置されているとき、ブラインドは仕切りを含めて窓のガラス部分をすべて覆うと仮定しますが、窓枠がある場合はそれは覆いません。ブラインドの平面はグレージングと平行であると仮定します。ブラインドが格納されているときは、窓を一切覆わないものとします。ブラインドのサポートストリング、テープ、ロッドによる太陽熱の影響は無視します。スラットの曲率は無視されます。</p>
 </div>
+<div class="listingblock">
+<div class="title">WindowMaterial:Blind</div>
+<div class="content">
+<pre>WindowMaterial:Blind,
+    Blind,                   !- Name
+    Horizontal,              !- Slat Orientation
+    0.0246,                  !- Slat Width {m}
+    0.0215,                  !- Slat Separation {m}
+    0.00013,                 !- Slat Thickness {m}
+    3,                       !- Slat Angle {deg}
+    200,                     !- Slat Conductivity {W/m-K}
+    0,                       !- Slat Beam Solar Transmittance
+    0.788,                   !- Front Side Slat Beam Solar Reflectance
+    0.788,                   !- Back Side Slat Beam Solar Reflectance
+    0,                       !- Slat Diffuse Solar Transmittance
+    0.788,                   !- Front Side Slat Diffuse Solar Reflectance
+    0.788,                   !- Back Side Slat Diffuse Solar Reflectance
+    0,                       !- Slat Beam Visible Transmittance
+    0.873,                   !- Front Side Slat Beam Visible Reflectance
+    0.873,                   !- Back Side Slat Beam Visible Reflectance
+    0,                       !- Slat Diffuse Visible Transmittance
+    0.873,                   !- Front Side Slat Diffuse Visible Reflectance
+    0.873,                   !- Back Side Slat Diffuse Visible Reflectance
+    0,                       !- Slat Infrared Hemispherical Transmittance
+    0.9,                     !- Front Side Slat Infrared Hemispherical Emissivity
+    0.9,                     !- Back Side Slat Infrared Hemispherical Emissivity
+    0.15,                    !- Blind to Glass Distance {m}
+    0.033,                   !- Blind Top Opening Multiplier
+    0.033,                   !- Blind Bottom Opening Multiplier
+    0.033,                   !- Blind Left Side Opening Multiplier
+    0.033,                   !- Blind Right Side Opening Multiplier
+    3,                      !- Minimum Slat Angle {deg}
+    165;                     !- Maximum Slat Angle {deg}</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_slat_angle"><a class="link" href="#_slat_angle">2.8.1.1. Slat Angle</a></h5>
+<div class="paragraph">
+<p>グレージングの外側の法線とスラットの外側の法線の間の角度（度）で、外側の法線がスラットの前面から離れたところを指している。図 6 を参照してください。</p>
+</div>
+<div class="paragraph">
+<p>ブラインドの WindowShadingControl に Type of Slat Angle Control for Blinds = FixedSlatAngle がある場合、スラットの角度は "Slat Angle" に固定されます。</p>
+</div>
+<div class="paragraph">
+<p>Type of Slat Angle Control for Blinds = BlockBeamSolarの場合は、プログラムが自動的にスラットの角度を調整し、太陽光線を遮断します。この場合、「スラット角度」の値は、ブラインドが設置されていて、ブラインドに日射が入射していない場合にのみ使用されます。</p>
+</div>
+<div class="paragraph">
+<p>ブラインドのスラット角制御のタイプ＝ScheduledSlatAngleの場合、スラット角は可変である。この場合、「スラットアングル」は適用されず、フィールドは空白にしてください。</p>
+</div>
+<div class="paragraph">
+<p>Type of Slat Angle Control for Blinds = FixedSlatAngleで、「スラット角度」がスラット幅、スラット間隔、スラット厚みで許容される最小値よりも小さいか、最大値よりも大きい場合、スラット角度は対応する最小値または最大値にリセットされ、警告が発行されます。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_windowshadingcontrol"><a class="link" href="#_windowshadingcontrol">2.8.2. WindowShadingControl</a></h4>
+<div class="paragraph">
+<p>ブラインド制御方法を入力します。<br>
+入力方法は　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#windowpropertyshadingcontrol" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
+</div>
+<div class="listingblock">
+<div class="title">WindowShadingControl</div>
+<div class="content">
+<pre>WindowShadingControl,
+    Shading Control 1,         !- Name
+    Zone1,                   !- Zone Name
+    1,                       !- Shading Control Sequence Number
+    InteriorBlind,           !- Shading Type
+    ,                        !- Construction with Shading Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
+    ,                        !- Setpoint {W/m2, W or deg C}
+    No,                      !- Shading Control Is Scheduled
+    No,                      !- Glare Control Is Active
+    Blind,                   !- Shading Device Material Name
+    FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
+    ,                        !- Slat Angle Schedule Name
+    ,                        !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Daylighting Control Object Name
+    Group,                   !- Multiple Surface Control Type
+    Window_S1;               !- Fenestration Surface 1 Name</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">WindowShadingControl</div>
+<div class="content">
+<pre>WindowShadingControl,
+    Shading Control 2,         !- Name
+    Zone1,                   !- Zone Name
+    1,                       !- Shading Control Sequence Number
+    InteriorBlind,           !- Shading Type
+    ,                        !- Construction with Shading Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
+    ,                        !- Setpoint {W/m2, W or deg C}
+    No,                      !- Shading Control Is Scheduled
+    No,                      !- Glare Control Is Active
+    Blind,                   !- Shading Device Material Name
+    FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
+    ,                        !- Slat Angle Schedule Name
+    ,                        !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Daylighting Control Object Name
+    Group,                   !- Multiple Surface Control Type
+    Window_S2;               !- Fenestration Surface 1 Name</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shading_control_sequence_number"><a class="link" href="#_shading_control_sequence_number">2.8.2.1. Shading Control Sequence Number</a></h5>
+<div class="paragraph">
+<p>複数の WindowShadingControl オブジェクトが同じゾーンで使用されている場合、ウィンドウ シェードを展開する順序をこのフィールドで設定することができます。最初の WindowShadingControl は 1 とし、後続の WindowShadingControl は 2、3 などとします。これは通常、Multiple Surface Control TypeフィールドがGroupに設定されている場合に、ウィンドウのグループを特定の順序で制御するために使用されます。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shading_type"><a class="link" href="#_shading_type">2.8.2.2. Shading Type</a></h5>
+<div class="paragraph">
+<p>遮光装置の種類です。選択肢は以下の通りです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>InteriorShade: 拡散するシェードがウィンドウの内側にあります。(シェーディングされたConstructionでは、シェーディング レイヤーがWindowMaterial:Shadeである必要があります)。</p>
+</li>
+<li>
+<p>ExteriorShade: 拡散するシェードがウィンドウの外側にあります。(シェーディングされたコンストラクションでは、シェーディングレイヤーはWindowMaterial:Shadeである必要があります。)</p>
+</li>
+<li>
+<p>BetweenGlassShade: 拡散シェードは2つのガラス層の間にあります。(シェーディングされたコンストラクションでは、シェーディング層はWindowMaterial:Shadeでなければならない) このシェードタイプは、二重ガラスと三重ガラスにのみ許可されています。トリプルガラスの場合、シェードは2つの内側のガラス層の間になければなりません。</p>
+</li>
+<li>
+<p>ExteriorScreen: 窓の外側に設置された防虫スクリーン。(Shaded Constructionでは、遮光層はWindowMaterial:Screenでなければなりません。)</p>
+</li>
+<li>
+<p>InteriorBlind: ベネチアンブラインドのようなスラットタイプの遮光装置が窓の内側にある。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない)</p>
+</li>
+<li>
+<p>ExteriorBlind: スラットタイプの遮光装置が窓の外側にあります。(遮光構造の場合、遮光層はWindowMaterial:Blindでなければならない)</p>
+</li>
+<li>
+<p>BetweenGlassBlind: スラットタイプの遮光装置が2つのガラス層の間にある場合。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない) この遮光タイプは、ペアガラスとトリプルガラスにのみ使用できます。トリプルガラスの場合、ブラインドは2つの内側のガラス層の間になければなりません。</p>
+</li>
+<li>
+<p>SwitchableGlazing: 窓ガラスを暗くするなど、ガラスの特性を変えることで遮光を行います。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_construction_with_shading_name"><a class="link" href="#_construction_with_shading_name">2.8.2.3. Construction with Shading Name</a></h5>
+<div class="paragraph">
+<p>シェーディングが行われているウィンドウのコンストラクションの名前です。シェーディングデバイスのプロパティは、そのコンストラクションで参照されるシェーディングマテリアルによって与えられます（参照：Construction, WindowMaterial:Shade, WindowMaterial:Screen and WindowMaterial:Blind）。Shading Type = SwitchableGlazingの場合、これは完全にスイッチされた（最も暗い）状態のウィンドウに対応するコンストラクションの名前です。</p>
+</div>
+<div class="paragraph">
+<p>シェーディングタイプ＝BetweenGlassShade、BetweenGlassBlind、またはSwitchableGlazingの場合は、「シェーディングを持つコンストラクションの名前」を指定することが必要です。その他の遮光タイプの場合は、代わりに「遮光装置の材料名」を指定することができます（以下参照）。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shading_control_type"><a class="link" href="#_shading_control_type">2.8.2.4. Shading Control Type</a></h5>
+<div class="paragraph">
+<p>遮光装置の制御方法を指定するもので、遮光装置を「オン」にするか「オフ」にするかを決定するものである。ブラインド、スクリーン、シェードの場合、装置が「オン」のときは、窓の枠を除くすべての部分を覆うものとし、装置が「オフ」のときは、窓を一切覆わないものとする（「オン」でも「オフ」でも、遮光装置は窓がある壁を一切覆わないものとする）。</p>
+</div>
+<div class="paragraph">
+<p>スイッチ可能なグレージングの場合、「オン」はグレージングが完全にスイッチされた状態であることを意味し、「オフ」はスイッチされていない状態であることを意味します。例えば、エレクトロクロミックグレージングの場合、「オン」はグレージングが最も暗い状態であることを意味し、「オフ」は最も明るい状態であることを意味します。</p>
+</div>
+<div class="paragraph">
+<p>シェーディングコントロールタイプの選択肢は以下の通りです。SetPointが適用される場合、その単位は括弧内に示されています。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AlwaysOn: シェーディングは常にオンです。</p>
+</li>
+<li>
+<p>AlwaysOff: シェーディングは常にオフです。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_type_of_slat_angle_control_for_blinds"><a class="link" href="#_type_of_slat_angle_control_for_blinds">2.8.2.5. Type of Slat Angle Control for Blinds</a></h5>
+<div class="paragraph">
+<p>Shading Type = InteriorBlind、ExteriorBlind、BetweenGlassBlindにのみ適用されます。スラットの角度をどのように制御するかを指定します。選択肢は、FixedSlatAngle、ScheduledSlatAngle、BlockBeamSolarです。</p>
+</div>
+<div class="paragraph">
+<p>FixedSlatAngle（デフォルト）の場合、スラットの角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に固定されます。</p>
+</div>
+<div class="paragraph">
+<p>ScheduledSlatAngleの場合、スラットの角度は、後述の「スラット角度のスケジュール名」で指定されたスケジュールに従って変化する。</p>
+</div>
+<div class="paragraph">
+<p>BlockBeamSolarの場合、タイムステップごとにスラットの角度が設定され、ビームソーラーの放射が遮断されます。窓にビームソーラーがない場合、スラット角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に設定されます。BlockBeamSolarオプションは、ビームソーラーが窓に入射するのを防ぎ、ビームが作業面に当たると不要なグレアが発生する可能性があるが、同時に昼光のための最適に近い間接放射を可能にする。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_multiple_surface_control_type"><a class="link" href="#_multiple_surface_control_type">2.8.2.6. Multiple Surface Control Type</a></h5>
+<div class="paragraph">
+<p>フィールドには2つのオプションがあります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sequential: 次のリストに記載されている窓ガラスを、指定された順序で個別に制御する。</p>
+</li>
+<li>
+<p>Group: フェネトレーションサーフェスのリスト全体を同時に制御し、グレアコントロールが必要な場合は、ウィンドウシェードのグループ全体を同時に展開します。</p>
+</li>
+</ul>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect2">

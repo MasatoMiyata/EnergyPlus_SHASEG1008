@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case900_J2"
+CASENAME = "Case900_J3"
 
 file_list = {
 
@@ -187,6 +187,22 @@ file_list = {
         "memo": "宮田作成ファイル Case900_J2",
         "case_ID" : "Case900_J2",
         "filename": "./idf_miyata/case900_J2.csv",
+        "name_dict" : {
+            "zone_name"   : "ZONE1",
+            "wall_name_s" : "WALL_S",
+            "wall_name_n" : "WALL_N",
+            "wall_name_w" : "WALL_W",
+            "wall_name_e" : "WALL_E",
+            "roof_name"   : "ROOF",
+            "window_name_1" : "WINDOW_S1",
+            "window_name_2" : "WINDOW_S2"
+        }
+    },
+
+    "Case900_J3": {
+        "memo": "宮田作成ファイル Case900_J3",
+        "case_ID" : "Case900_J3",
+        "filename": "./idf_miyata/case900_J3.csv",
         "name_dict" : {
             "zone_name"   : "ZONE1",
             "wall_name_s" : "WALL_S",

@@ -52,6 +52,7 @@ include::case650.adoc[]
 
 include::case900.adoc[]
 
+include::case900J.adoc[]
 
 <<<
 === Output:Variable

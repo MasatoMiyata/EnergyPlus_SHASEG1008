@@ -88,7 +88,7 @@ link:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-cal
 
 AS140のTable 5-7で指定されている入射角特性は２枚のガラスを合わせた窓システムとしての特性であることから、本スタンダードではWindowMaterial:Glazingで使用するようなガラス１枚の入射角特性を指定することは想定していないと考えられる。
 
-よって、法線入射時の特性値のみを用いて、それぞれで計算した結果を比較する。また、小野が当初用いていたAGC特性を用いた結果も併記する。
+よって、法線入射時の特性値のみを用いて、それぞれで計算した結果を比較する（サンプルコードを末尾に記載）。また、小野が当初用いていたAGC特性を用いた結果も併記する。
 
 .Difference in heating/cooling load between window models
 [options="header"]
@@ -100,3 +100,61 @@ AS140のTable 5-7で指定されている入射角特性は２枚のガラスを
 |===============================================================
 
 表のように無視できない程度の差があることが分かる。悩ましいが、やはり、WindowMaterial:Glazingを使うべきなのかもしれない。
+
+==== サンプルコード
+===== WindowMaterial:SimpleGlazingSystem
+
+```
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
+
+WindowMaterial:SimpleGlazingSystem,
+    10002,                   !- Name
+    3,                       !- U-Factor {W/m2-K}
+    0.789;                   !- Solar Heat Gain Coefficient
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    1003,                    !- Name
+    10002;                   !- Outside Layer
+
+```
+
+===== WindowMaterial:Glazing
+```
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
+
+WindowMaterial:Glazing,
+    10001,                   !- Name
+    SpectralAverage,         !- Optical Data Type
+    ,                        !- Window Glass Spectral Data Set Name
+    0.003175,                !- Thickness {m}
+    0.86156,                 !- Solar Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Solar Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Solar Reflectance at Normal Incidence
+    0.86156,                 !- Visible Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Visible Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Visible Reflectance at Normal Incidence
+    0,                       !- Infrared Transmittance at Normal Incidence
+    0.84,                    !- Front Side Infrared Hemispherical Emissivity
+    0.84,                    !- Back Side Infrared Hemispherical Emissivity
+    1.06,                    !- Conductivity {W/m-K}
+    1;                       !- Dirt Correction Factor for Solar and Visible Transmittance
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GAS ===========
+
+WindowMaterial:Gas,
+    1002,                    !- Name
+    Air,                     !- Gas Type
+    0.013;                   !- Thickness {m}
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    1002,                    !- Name
+    10001,                   !- Outside Layer
+    1002,                    !- Layer 2
+    10001;                   !- Layer 3
+```
+

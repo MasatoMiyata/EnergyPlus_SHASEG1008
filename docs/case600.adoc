@@ -43,7 +43,7 @@ Site:Locationクラスの作成方法は https://bigladdersoftware.com/epx/docs/
     1609.00;                 !- Elevation {m}
 ----
 
-【作業メモ】 + 
+【作業メモ】 +
 気象データファイルと緯度・経度の桁が違う・・・。標高も違う。
 
 
@@ -71,6 +71,33 @@ RunPeriod,
     No;                      !- Treat Weather as Actual
 ----
 
+==== ShadowCalculation
+
+ShadowCalculationの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#shadowcalculation[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
+
+.ShadowCalculation
+----
+ShadowCalculation,
+    PolygonClipping,         !- Shading Calculation Method
+    Periodic,                !- Shading Calculation Update Frequency Method
+    1;                       !- Shading Calculation Update Frequency
+----
+
+===== Shading Calculation Update Frequency Method
+
+このフィールドは、シミュレーション中の計算時間に関して、ソーラーモデル、シェーディングモデル、デイライトモデルの計算方法を制御するために使用します。キーワードPeriodicを使用すると、デフォルトで最速の方法が選択されます。より詳細で遅い方法は、キーワードTimestepを使って選択できます。動的なフェネストレーションやシェーディングサーフェスのモデリングには、必ず Timestep 方式を使用してください。
+
+===== Shading Calculation Update Frequency
+
+この数値フィールドでは、フィールド内の数値を各期間の日数として、シャドウイングの計算が定期的に行われます。
+このフィールドは、前のフィールドでデフォルトの「Periodic」が使用されている場合にのみ使用されます。
+このフィールドを使用すると、シェーディングデバイスの変更に合わせてシャドーイング計算を同期させることができます。
+各期間にデフォルトの20日を使用することは、太陽位置角の著しい変化の間の平均的な日数です。
+これらのシャドウイングの計算には、太陽の角度、位置、時間の方程式の（期間中の）「平均」も使用されます。
+
+【作業メモ】 +
+Shading Calculation Update Frequencyは計算結果に与える影響が大きい。
+デフォルトは20日であるが、より細かい1日とする。
 
 ==== Site:GroundReflectance
 

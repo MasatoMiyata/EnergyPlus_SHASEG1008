@@ -455,25 +455,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_building">2.1.1. Building</a></li>
 <li><a href="#_sitelocation">2.1.2. Site:Location</a></li>
 <li><a href="#_runperiod">2.1.3. RunPeriod</a></li>
-<li><a href="#_sitegroundreflectance">2.1.4. Site:GroundReflectance</a></li>
-<li><a href="#_sitegroundtemperaturebuildingsurface">2.1.5. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_zone">2.1.6. Zone</a></li>
-<li><a href="#_globalgeometryrules">2.1.7. GlobalGeometryRules</a></li>
-<li><a href="#_buildingsurfacedetailed">2.1.8. BuildingSurface:Detailed</a></li>
-<li><a href="#_fenestrationsurfacedetailed">2.1.9. FenestrationSurface:Detailed</a></li>
-<li><a href="#_material_construction">2.1.10. Material, Construction</a></li>
-<li><a href="#_windowmaterialglazing">2.1.11. WindowMaterial:Glazing</a></li>
-<li><a href="#_scheduledayhourly">2.1.12. Schedule:Day:Hourly</a></li>
-<li><a href="#_scheduleweekdaily">2.1.13. Schedule:Week:Daily</a></li>
-<li><a href="#_scheduleyear">2.1.14. Schedule:Year</a></li>
-<li><a href="#_zoneinfiltrationdesignflowrate">2.1.15. ZoneInfiltration:DesignFlowRate</a></li>
-<li><a href="#_otherequipment">2.1.16. OtherEquipment</a></li>
-<li><a href="#_zonecontrolthermostat">2.1.17. ZoneControl:Thermostat</a></li>
-<li><a href="#_thermostatsetpointdualsetpoint">2.1.18. ThermostatSetpoint:DualSetpoint</a></li>
-<li><a href="#_zonehvacidealloadsairsystem">2.1.19. ZoneHVAC:IdealLoadsAirSystem</a></li>
-<li><a href="#_zonehvacequipmentlist">2.1.20. ZoneHVAC:EquipmentList</a></li>
-<li><a href="#_nodelist">2.1.21. NodeList</a></li>
-<li><a href="#_zonehvacequipmentconnections">2.1.22. ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_shadowcalculation">2.1.4. ShadowCalculation</a></li>
+<li><a href="#_sitegroundreflectance">2.1.5. Site:GroundReflectance</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface">2.1.6. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_zone">2.1.7. Zone</a></li>
+<li><a href="#_globalgeometryrules">2.1.8. GlobalGeometryRules</a></li>
+<li><a href="#_buildingsurfacedetailed">2.1.9. BuildingSurface:Detailed</a></li>
+<li><a href="#_fenestrationsurfacedetailed">2.1.10. FenestrationSurface:Detailed</a></li>
+<li><a href="#_material_construction">2.1.11. Material, Construction</a></li>
+<li><a href="#_windowmaterialglazing">2.1.12. WindowMaterial:Glazing</a></li>
+<li><a href="#_scheduledayhourly">2.1.13. Schedule:Day:Hourly</a></li>
+<li><a href="#_scheduleweekdaily">2.1.14. Schedule:Week:Daily</a></li>
+<li><a href="#_scheduleyear">2.1.15. Schedule:Year</a></li>
+<li><a href="#_zoneinfiltrationdesignflowrate">2.1.16. ZoneInfiltration:DesignFlowRate</a></li>
+<li><a href="#_otherequipment">2.1.17. OtherEquipment</a></li>
+<li><a href="#_zonecontrolthermostat">2.1.18. ZoneControl:Thermostat</a></li>
+<li><a href="#_thermostatsetpointdualsetpoint">2.1.19. ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_zonehvacidealloadsairsystem">2.1.20. ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_zonehvacequipmentlist">2.1.21. ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_nodelist">2.1.22. NodeList</a></li>
+<li><a href="#_zonehvacequipmentconnections">2.1.23. ZoneHVAC:EquipmentConnections</a></li>
 </ul>
 </li>
 <li><a href="#_case610">2.2. Case610</a>
@@ -662,7 +663,43 @@ RunPeriodクラスの作成方法は <a href="https://bigladdersoftware.com/epx/
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.1.4. Site:GroundReflectance</a></h4>
+<h4 id="_shadowcalculation"><a class="link" href="#_shadowcalculation">2.1.4. ShadowCalculation</a></h4>
+<div class="paragraph">
+<p>ShadowCalculationの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#shadowcalculation" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+</div>
+<div class="listingblock">
+<div class="title">ShadowCalculation</div>
+<div class="content">
+<pre>ShadowCalculation,
+    PolygonClipping,         !- Shading Calculation Method
+    Periodic,                !- Shading Calculation Update Frequency Method
+    1;                       !- Shading Calculation Update Frequency</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shading_calculation_update_frequency_method"><a class="link" href="#_shading_calculation_update_frequency_method">2.1.4.1. Shading Calculation Update Frequency Method</a></h5>
+<div class="paragraph">
+<p>このフィールドは、シミュレーション中の計算時間に関して、ソーラーモデル、シェーディングモデル、デイライトモデルの計算方法を制御するために使用します。キーワードPeriodicを使用すると、デフォルトで最速の方法が選択されます。より詳細で遅い方法は、キーワードTimestepを使って選択できます。動的なフェネストレーションやシェーディングサーフェスのモデリングには、必ず Timestep 方式を使用してください。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_shading_calculation_update_frequency"><a class="link" href="#_shading_calculation_update_frequency">2.1.4.2. Shading Calculation Update Frequency</a></h5>
+<div class="paragraph">
+<p>この数値フィールドでは、フィールド内の数値を各期間の日数として、シャドウイングの計算が定期的に行われます。
+このフィールドは、前のフィールドでデフォルトの「Periodic」が使用されている場合にのみ使用されます。
+このフィールドを使用すると、シェーディングデバイスの変更に合わせてシャドーイング計算を同期させることができます。
+各期間にデフォルトの20日を使用することは、太陽位置角の著しい変化の間の平均的な日数です。
+これらのシャドウイングの計算には、太陽の角度、位置、時間の方程式の（期間中の）「平均」も使用されます。</p>
+</div>
+<div class="paragraph">
+<p>【作業メモ】<br>
+Shading Calculation Update Frequencyは計算結果に与える影響が大きい。
+デフォルトは20日であるが、より細かい1日とする。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.1.5. Site:GroundReflectance</a></h4>
 <div class="paragraph">
 <p>Site:GroundReflectanceクラスは、地物反射率に関するパラメータを記述します。<br>
 Site:GroundReflectanceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundreflectance" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -687,7 +724,7 @@ Site:GroundReflectanceクラスの作成方法は <a href="https://bigladdersoft
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.1.5. Site:GroundTemperature:BuildingSurface</a></h4>
+<h4 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.1.6. Site:GroundTemperature:BuildingSurface</a></h4>
 <div class="paragraph">
 <p>Site:GroundTemperature:BuildingSurfaceクラスでは、地中の温度を入力します。<br>
 Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -712,7 +749,7 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone"><a class="link" href="#_zone">2.1.6. Zone</a></h4>
+<h4 id="_zone"><a class="link" href="#_zone">2.1.7. Zone</a></h4>
 <div class="paragraph">
 <p>Zoneクラスは、ゾーンに関するパラメータを記述します。</p>
 </div>
@@ -733,7 +770,7 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 </div>
 </div>
 <div class="sect3">
-<h4 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.1.7. GlobalGeometryRules</a></h4>
+<h4 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.1.8. GlobalGeometryRules</a></h4>
 <div class="paragraph">
 <p>GlobalGeometryRulesクラスは、座標に関する設定を記述します。<br>
 作成方法は
@@ -753,7 +790,7 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 </div>
 </div>
 <div class="sect3">
-<h4 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.1.8. BuildingSurface:Detailed</a></h4>
+<h4 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.1.9. BuildingSurface:Detailed</a></h4>
 <div class="paragraph">
 <p>BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。<br>
 BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -931,7 +968,7 @@ BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladderso
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.1.9. FenestrationSurface:Detailed</a></h4>
+<h4 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.1.10. FenestrationSurface:Detailed</a></h4>
 <div class="paragraph">
 <p>FenestrationSurface:Detailedクラスは、窓構成に関するパラメータを記述します。<br>
 FenestrationSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -992,7 +1029,7 @@ FenestrationSurface:Detailedクラスの作成方法は <a href="https://bigladd
 </div>
 </div>
 <div class="sect3">
-<h4 id="_material_construction"><a class="link" href="#_material_construction">2.1.10. Material, Construction</a></h4>
+<h4 id="_material_construction"><a class="link" href="#_material_construction">2.1.11. Material, Construction</a></h4>
 <div class="paragraph">
 <p>Materialクラスで建材の熱物性値を定義し、Constructionクラスで建材構成を記述します。<br>
 Materialクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
@@ -1135,7 +1172,7 @@ Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.1.11. WindowMaterial:Glazing</a></h4>
+<h4 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.1.12. WindowMaterial:Glazing</a></h4>
 <div class="paragraph">
 <p>WindowMaterial:Glazingクラスでガラスの熱物性値を定義し、Constructionクラスで窓構成を記述します。<br>
 WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1177,7 +1214,7 @@ WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoft
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.1.12. Schedule:Day:Hourly</a></h4>
+<h4 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.1.13. Schedule:Day:Hourly</a></h4>
 <div class="paragraph">
 <p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。<br>
 Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1316,7 +1353,7 @@ Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftwar
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.1.13. Schedule:Week:Daily</a></h4>
+<h4 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.1.14. Schedule:Week:Daily</a></h4>
 <div class="paragraph">
 <p>Schedule:Week:Dailyクラスでは、曜日別のスケジュールの設定を行います。<br>
 Schedule:Week:Dailyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1399,7 +1436,7 @@ Schedule:Week:Dailyクラスの作成方法は <a href="https://bigladdersoftwar
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.1.14. Schedule:Year</a></h4>
+<h4 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.1.15. Schedule:Year</a></h4>
 <div class="paragraph">
 <p>Schedule:Yearクラスでは、年間スケジュールの設定を行います。<br>
 Schedule:Yearクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1458,7 +1495,7 @@ Schedule:Yearクラスの作成方法は <a href="https://bigladdersoftware.com/
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.1.15. ZoneInfiltration:DesignFlowRate</a></h4>
+<h4 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.1.16. ZoneInfiltration:DesignFlowRate</a></h4>
 <div class="paragraph">
 <p>ZoneInfiltration:DesignFlowRateクラスでは、すきま風の設定を行います。<br>
 ZoneInfiltration:DesignFlowRateクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1483,7 +1520,7 @@ ZoneInfiltration:DesignFlowRateクラスの作成方法は <a href="https://bigl
 </div>
 </div>
 <div class="sect3">
-<h4 id="_otherequipment"><a class="link" href="#_otherequipment">2.1.16. OtherEquipment</a></h4>
+<h4 id="_otherequipment"><a class="link" href="#_otherequipment">2.1.17. OtherEquipment</a></h4>
 <div class="paragraph">
 <p>OtherEquipmentクラスでは、内部発熱の設定を行います。<br>
 OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
@@ -1509,7 +1546,7 @@ OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.1.17. ZoneControl:Thermostat</a></h4>
+<h4 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.1.18. ZoneControl:Thermostat</a></h4>
 <div class="paragraph">
 <p>ZoneControl:Thermostatクラスは、ゾーンを指定された温度に制御するために使用されます。<br>
 ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。</p>
@@ -1526,7 +1563,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_name"><a class="link" href="#_name">2.1.17.1. Name</a></h5>
+<h5 id="_name"><a class="link" href="#_name">2.1.18.1. Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1536,7 +1573,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.1.17.2. Zone or ZoneList Name</a></h5>
+<h5 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.1.18.2. Zone or ZoneList Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1546,7 +1583,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.1.17.3. Control Type Schedule Name</a></h5>
+<h5 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.1.18.3. Control Type Schedule Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1578,7 +1615,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.1.17.4. Control 1 Object Type</a></h5>
+<h5 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.1.18.4. Control 1 Object Type</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1607,7 +1644,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_control_1_name"><a class="link" href="#_control_1_name">2.1.17.5. Control 1 Name</a></h5>
+<h5 id="_control_1_name"><a class="link" href="#_control_1_name">2.1.18.5. Control 1 Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1618,7 +1655,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect3">
-<h4 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.1.18. ThermostatSetpoint:DualSetpoint</a></h4>
+<h4 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.1.19. ThermostatSetpoint:DualSetpoint</a></h4>
 <div class="listingblock">
 <div class="title">ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -1629,7 +1666,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_name_2"><a class="link" href="#_name_2">2.1.18.1. Name</a></h5>
+<h5 id="_name_2"><a class="link" href="#_name_2">2.1.19.1. Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1639,7 +1676,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.1.18.2. Heating Setpoint Temperature Schedule Name</a></h5>
+<h5 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.1.19.2. Heating Setpoint Temperature Schedule Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1649,7 +1686,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.1.18.3. Cooling Setpoint Temperature Schedule Name</a></h5>
+<h5 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.1.19.3. Cooling Setpoint Temperature Schedule Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1660,7 +1697,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.1.19. ZoneHVAC:IdealLoadsAirSystem</a></h4>
+<h4 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.1.20. ZoneHVAC:IdealLoadsAirSystem</a></h4>
 <div class="paragraph">
 <p>ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができます。
 ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用されます。
@@ -1700,7 +1737,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_name_3"><a class="link" href="#_name_3">2.1.19.1. Name</a></h5>
+<h5 id="_name_3"><a class="link" href="#_name_3">2.1.20.1. Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1713,7 +1750,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.1.19.2. Zone Supply Air Node Name</a></h5>
+<h5 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.1.20.2. Zone Supply Air Node Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1723,7 +1760,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_maximum_heating_supply_air_temperature_c"><a class="link" href="#_maximum_heating_supply_air_temperature_c">2.1.19.3. Maximum Heating Supply Air Temperature {C}</a></h5>
+<h5 id="_maximum_heating_supply_air_temperature_c"><a class="link" href="#_maximum_heating_supply_air_temperature_c">2.1.20.3. Maximum Heating Supply Air Temperature {C}</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1733,7 +1770,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_minimum_cooling_supply_air_temperature_c"><a class="link" href="#_minimum_cooling_supply_air_temperature_c">2.1.19.4. Minimum Cooling Supply Air Temperature {C}</a></h5>
+<h5 id="_minimum_cooling_supply_air_temperature_c"><a class="link" href="#_minimum_cooling_supply_air_temperature_c">2.1.20.4. Minimum Cooling Supply Air Temperature {C}</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1743,7 +1780,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.1.19.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
+<h5 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.1.20.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1753,7 +1790,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.1.19.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
+<h5 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.1.20.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1763,7 +1800,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.1.19.7. Dehumidification Control Type</a></h5>
+<h5 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.1.20.7. Dehumidification Control Type</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1789,7 +1826,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect4">
-<h5 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.1.19.8. Humidification Control Type</a></h5>
+<h5 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.1.20.8. Humidification Control Type</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1813,7 +1850,7 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.1.20. ZoneHVAC:EquipmentList</a></h4>
+<h4 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.1.21. ZoneHVAC:EquipmentList</a></h4>
 <div class="paragraph">
 <p>このクラスには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
 リストの各項目には、4つのフィールドが関連付けられています。
@@ -1835,7 +1872,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.1.20.1. Zone Equipment 1 Object Type</a></h5>
+<h5 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.1.21.1. Zone Equipment 1 Object Type</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1845,7 +1882,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.1.20.2. Zone Equipment 1 Cooling Sequence</a></h5>
+<h5 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.1.21.2. Zone Equipment 1 Cooling Sequence</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1855,7 +1892,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.1.20.3. Zone Equipment 1 Heating or No-Load Sequence</a></h5>
+<h5 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.1.21.3. Zone Equipment 1 Heating or No-Load Sequence</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1866,7 +1903,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect3">
-<h4 id="_nodelist"><a class="link" href="#_nodelist">2.1.21. NodeList</a></h4>
+<h4 id="_nodelist"><a class="link" href="#_nodelist">2.1.22. NodeList</a></h4>
 <div class="listingblock">
 <div class="title">NodeList　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
 <div class="content">
@@ -1877,7 +1914,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.1.22. ZoneHVAC:EquipmentConnections</a></h4>
+<h4 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.1.23. ZoneHVAC:EquipmentConnections</a></h4>
 <div class="paragraph">
 <p>ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
 他のステートメントと同様に、このクラスの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
@@ -1901,7 +1938,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.1.22.1. Zone Name（required）</a></h5>
+<h5 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.1.23.1. Zone Name（required）</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1911,7 +1948,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.1.22.2. Zone Conditioning Equipment List Name（required）</a></h5>
+<h5 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.1.23.2. Zone Conditioning Equipment List Name（required）</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1921,7 +1958,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.1.22.3. Zone Air Inlet Node or NodeList Name</a></h5>
+<h5 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.1.23.3. Zone Air Inlet Node or NodeList Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1931,7 +1968,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.1.22.4. Zone Air Exhaust Node or NodeList Name</a></h5>
+<h5 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.1.23.4. Zone Air Exhaust Node or NodeList Name</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1941,7 +1978,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.1.22.5. Zone Air Node Name（required）</a></h5>
+<h5 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.1.23.5. Zone Air Node Name（required）</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1951,7 +1988,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.1.22.6. Zone Return Air Node or NodeList Name</a></h5>
+<h5 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.1.23.6. Zone Return Air Node or NodeList Name</a></h5>
 <div class="ulist">
 <ul>
 <li>

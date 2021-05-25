@@ -38,5 +38,5 @@ https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulati
 
 ちなみに床断熱材の熱物性値についてもそこそこのインパクトがあった。本来であればAS140本文で厳密に指定しておくべきではないかと考えられる。
 
-
+窓ガラスの反射率の入力方法については不明点が残っている。AS140では直接的に反射率の値を指定していない。Ono modelでは屈折率をもとにフレネルの式から算出した。
 

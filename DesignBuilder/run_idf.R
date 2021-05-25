@@ -129,7 +129,7 @@ run_EnergyPlus <- function (path_idf,path_epw,case_name){
 }
 
 your_tool <- "DesignBuilder"
-case_name <- "600"
+case_name <- "960"
 path_epw <- here::here("DRYCOLDTMY.epw")
 path_idf <- here::here(paste0("Case",case_name,".idf"))
 
@@ -140,6 +140,11 @@ run_EnergyPlus(path_idf,path_epw,case_name)
 #####################################
 
 load("trial_data.Rdata")
+tmp <- read.csv(paste0("Case",case_name,"_postprocessed.csv"))
+qh_sum <- tmp[1,2]
+qc_sum <- tmp[2,2]
+qh_peak <- tmp[3,2]
+qc_peak <- tmp[4,2]
 
 color_table <- c(rep("darkgray",11),"salmon")
 
@@ -152,11 +157,11 @@ if (length(grep("FF",case_name)) == 0){
   
   p <- ggplot(tmp, aes(x=reorder(tool,seq(1,nrow(tmp))), y=value, fill=reorder(tool,seq(1,nrow(tmp))))) + 
     geom_col() + facet_wrap(~variable,nrow=1,ncol=(ncol(A)-1)) +
-    labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh/kWh]") + 
+    labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh or kWh]") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
-  fname <- paste0("./figures/Case",case_name,"_annual_peal_load.png")
-  ggplot2::ggsave(fname,p, width=40, height=10, units = "cm", dpi=400)
+  fname <- paste0("./figures/Case",case_name,"_annual_peak_load.png")
+  ggplot2::ggsave(fname,p, width=25, height=10, units = "cm", dpi=400)
 }
 
 if (length(grep("FF",case_name)) == 1 || case_name == "960"){

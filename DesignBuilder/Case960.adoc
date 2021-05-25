@@ -18,7 +18,7 @@ Material,
     0.6;                     !- Visible Absorptance
 
 Construction,
-    AS14O internal wall, !- Name
+    AS14O internal wall,          !- Name
     AS14O internal wall material; !- Outside Layer
 ```
 
@@ -35,7 +35,7 @@ Zone,
     1,                       !- Type
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
-    129.6,                    !- Volume {m3}
+    129.6,                   !- Volume {m3}
     48,                      !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
@@ -62,14 +62,14 @@ Zone1（バックゾーン）の壁構成は南面を除きCase600と同一で�
 
 ```
 BuildingSurface:Detailed,
-    Block1:Zone1_Partition,     !- Name
+    Block1:Zone1_Partition,  !- Name
     Wall,                    !- Surface Type
     AS14O internal wall,     !- Construction Name
     Block1:Zone1,            !- Zone Name
-    Surface,                !- Outside Boundary Condition
-    Block1:Zone2_Partition, !- Outside Boundary Condition Object
-    NoSun,              !- Sun Exposure
-    NoWind,             !- Wind Exposure
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone2_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
     0,                       !- Vertex 1 X-coordinate {m}
@@ -101,10 +101,10 @@ BuildingSurface:Detailed,
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
     8,                       !- Vertex 1 X-coordinate {m}
-    -2,                       !- Vertex 1 Y-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
     0,                       !- Vertex 1 Z-coordinate {m}
     0,                       !- Vertex 2 X-coordinate {m}
-    -2,                       !- Vertex 2 Y-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
     0,                       !- Vertex 2 Z-coordinate {m}
     0,                       !- Vertex 3 X-coordinate {m}
     0,                       !- Vertex 3 Y-coordinate {m}
@@ -126,10 +126,10 @@ BuildingSurface:Detailed,
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
     0,                       !- Vertex 1 X-coordinate {m}
-    -2,                       !- Vertex 1 Y-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
     2.7,                     !- Vertex 1 Z-coordinate {m}
     8,                       !- Vertex 2 X-coordinate {m}
-    -2,                       !- Vertex 2 Y-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
     2.7,                     !- Vertex 2 Z-coordinate {m}
     8,                       !- Vertex 3 X-coordinate {m}
     0,                       !- Vertex 3 Y-coordinate {m}
@@ -177,10 +177,10 @@ BuildingSurface:Detailed,
     0,                       !- Vertex 1 Y-coordinate {m}
     0,                       !- Vertex 1 Z-coordinate {m}
     0,                       !- Vertex 2 X-coordinate {m}
-    -2,                       !- Vertex 2 Y-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
     0,                       !- Vertex 2 Z-coordinate {m}
     0,                       !- Vertex 3 X-coordinate {m}
-    -2,                       !- Vertex 3 Y-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
     2.7,                     !- Vertex 3 Z-coordinate {m}
     0,                       !- Vertex 4 X-coordinate {m}
     0,                       !- Vertex 4 Y-coordinate {m}
@@ -198,27 +198,27 @@ BuildingSurface:Detailed,
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
     0,                       !- Vertex 1 X-coordinate {m}
-    -2,                       !- Vertex 1 Y-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
     0,                       !- Vertex 1 Z-coordinate {m}
     8,                       !- Vertex 2 X-coordinate {m}
-    -2,                       !- Vertex 2 Y-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
     0,                       !- Vertex 2 Z-coordinate {m}
     8,                       !- Vertex 3 X-coordinate {m}
-    -2,                       !- Vertex 3 Y-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
     2.7,                     !- Vertex 3 Z-coordinate {m}
     0,                       !- Vertex 4 X-coordinate {m}
-    -2,                       !- Vertex 4 Y-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
-    Block1:Zone2_Partition,     !- Name
+    Block1:Zone2_Partition,  !- Name
     Wall,                    !- Surface Type
     AS14O internal wall,     !- Construction Name
     Block1:Zone2,            !- Zone Name
-    Surface,                !- Outside Boundary Condition
-    Block1:Zone1_Partition, !- Outside Boundary Condition Object
-    NoSun,              !- Sun Exposure
-    NoWind,             !- Wind Exposure
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone1_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
     8,                       !- Vertex 1 X-coordinate {m}

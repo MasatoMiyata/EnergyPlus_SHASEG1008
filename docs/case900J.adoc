@@ -235,17 +235,17 @@ Schedule:Day:Hourly,
 WindowMaterial:Blind,
     Blind,                   !- Name
     Horizontal,              !- Slat Orientation
-    0.0246,                  !- Slat Width {m}
-    0.0215,                  !- Slat Separation {m}
+    0.025,                   !- Slat Width {m}
+    0.0225,                  !- Slat Separation {m}
     0.00013,                 !- Slat Thickness {m}
     3,                       !- Slat Angle {deg}
     200,                     !- Slat Conductivity {W/m-K}
     0,                       !- Slat Beam Solar Transmittance
-    0.788,                   !- Front Side Slat Beam Solar Reflectance
-    0.788,                   !- Back Side Slat Beam Solar Reflectance
+    0.66,                    !- Front Side Slat Beam Solar Reflectance
+    0.66,                    !- Back Side Slat Beam Solar Reflectance
     0,                       !- Slat Diffuse Solar Transmittance
-    0.788,                   !- Front Side Slat Diffuse Solar Reflectance
-    0.788,                   !- Back Side Slat Diffuse Solar Reflectance
+    0.66,                    !- Front Side Slat Diffuse Solar Reflectance
+    0.66,                    !- Back Side Slat Diffuse Solar Reflectance
     0,                       !- Slat Beam Visible Transmittance
     0.873,                   !- Front Side Slat Beam Visible Reflectance
     0.873,                   !- Back Side Slat Beam Visible Reflectance
@@ -260,7 +260,7 @@ WindowMaterial:Blind,
     0.033,                   !- Blind Bottom Opening Multiplier
     0.033,                   !- Blind Left Side Opening Multiplier
     0.033,                   !- Blind Right Side Opening Multiplier
-    3,                      !- Minimum Slat Angle {deg}
+    3,                       !- Minimum Slat Angle {deg}
     165;                     !- Maximum Slat Angle {deg}
 ----
 

@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case900FF"
+CASENAME = "Case900_J3"
 
 file_list = {
 

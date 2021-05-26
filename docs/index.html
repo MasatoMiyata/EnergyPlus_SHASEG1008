@@ -495,42 +495,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_material_construction_2">2.4.1. Material, Construction</a></li>
 </ul>
 </li>
-<li><a href="#_case900_j1_1">2.5. Case900-J1-1</a>
+<li><a href="#_case900ff">2.5. Case900FF</a></li>
+<li><a href="#_case900_j1_1">2.6. Case900-J1-1</a>
 <ul class="sectlevel3">
-<li><a href="#_material_construction_3">2.5.1. Material, Construction</a></li>
+<li><a href="#_material_construction_3">2.6.1. Material, Construction</a></li>
 </ul>
 </li>
-<li><a href="#_case900_j1_2">2.6. Case900-J1-2</a>
+<li><a href="#_case900_j1_2">2.7. Case900-J1-2</a>
 <ul class="sectlevel3">
-<li><a href="#_material_construction_4">2.6.1. Material, Construction</a></li>
+<li><a href="#_material_construction_4">2.7.1. Material, Construction</a></li>
 </ul>
 </li>
-<li><a href="#_case900_j2">2.7. Case900-J2</a>
+<li><a href="#_case900_j2">2.8. Case900-J2</a>
 <ul class="sectlevel3">
-<li><a href="#_schedule">2.7.1. Schedule</a></li>
+<li><a href="#_schedule">2.8.1. Schedule</a></li>
 </ul>
 </li>
-<li><a href="#_case900_j3">2.8. Case900-J3</a>
+<li><a href="#_case900_j3">2.9. Case900-J3</a>
 <ul class="sectlevel3">
-<li><a href="#_windowmaterialblind">2.8.1. WindowMaterial:Blind</a></li>
-<li><a href="#_windowshadingcontrol">2.8.2. WindowShadingControl</a></li>
+<li><a href="#_windowmaterialblind">2.9.1. WindowMaterial:Blind</a></li>
+<li><a href="#_windowshadingcontrol">2.9.2. WindowShadingControl</a></li>
 </ul>
 </li>
-<li><a href="#_outputvariable">2.9. Output:Variable</a>
+<li><a href="#_outputvariable">2.10. Output:Variable</a>
 <ul class="sectlevel3">
-<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.9.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
+<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.10.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
 </ul>
 </li>
-<li><a href="#_地盤境界条件の入力方法">2.10. 地盤境界条件の入力方法</a>
+<li><a href="#_地盤境界条件の入力方法">2.11. 地盤境界条件の入力方法</a>
 <ul class="sectlevel3">
-<li><a href="#_sitegroundtemperaturebuildingsurface_2">2.10.1. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_sitegroundtemperatureshallow">2.10.2. Site:GroundTemperature:Shallow</a></li>
-<li><a href="#_sitegroundtemperaturedeep">2.10.3. Site:GroundTemperature:Deep</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedfinitedifference">2.10.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></li>
-<li><a href="#_sitegroundtemperaturefcfactormethod">2.10.5. Site:GroundTemperature:FCfactorMethod</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.10.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedxing">2.10.7. Site:GroundTemperature:Undisturbed:Xing</a></li>
-<li><a href="#_groundheatexchangersurface">2.10.8. GroundHeatExchanger:Surface</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface_2">2.11.1. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_sitegroundtemperatureshallow">2.11.2. Site:GroundTemperature:Shallow</a></li>
+<li><a href="#_sitegroundtemperaturedeep">2.11.3. Site:GroundTemperature:Deep</a></li>
+<li><a href="#_sitegroundtemperatureundisturbedfinitedifference">2.11.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></li>
+<li><a href="#_sitegroundtemperaturefcfactormethod">2.11.5. Site:GroundTemperature:FCfactorMethod</a></li>
+<li><a href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.11.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></li>
+<li><a href="#_sitegroundtemperatureundisturbedxing">2.11.7. Site:GroundTemperature:Undisturbed:Xing</a></li>
+<li><a href="#_groundheatexchangersurface">2.11.8. GroundHeatExchanger:Surface</a></li>
 </ul>
 </li>
 </ul>
@@ -2432,9 +2433,18 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j1_1"><a class="link" href="#_case900_j1_1">2.5. Case900-J1-1</a></h3>
+<h3 id="_case900ff"><a class="link" href="#_case900ff">2.5. Case900FF</a></h3>
+<div class="paragraph">
+<p>自然室温の集計について、ASHRAE Standard 140 6.2.1.7.1 では、次のように記されている。</p>
+</div>
+<div class="paragraph">
+<p>Informative Note: For example, the zone air temperature T bin defined by 20°C is 20°C &#8656; T &lt; 21°C; similarly, the bin defined by –2°C is –2°C &#8656; T &lt; –1°C.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case900_j1_1"><a class="link" href="#_case900_j1_1">2.6. Case900-J1-1</a></h3>
 <div class="sect3">
-<h4 id="_material_construction_3"><a class="link" href="#_material_construction_3">2.5.1. Material, Construction</a></h4>
+<h4 id="_material_construction_3"><a class="link" href="#_material_construction_3">2.6.1. Material, Construction</a></h4>
 <div class="listingblock">
 <div class="title">Material 外壁</div>
 <div class="content">
@@ -2448,9 +2458,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j1_2"><a class="link" href="#_case900_j1_2">2.6. Case900-J1-2</a></h3>
+<h3 id="_case900_j1_2"><a class="link" href="#_case900_j1_2">2.7. Case900-J1-2</a></h3>
 <div class="sect3">
-<h4 id="_material_construction_4"><a class="link" href="#_material_construction_4">2.6.1. Material, Construction</a></h4>
+<h4 id="_material_construction_4"><a class="link" href="#_material_construction_4">2.7.1. Material, Construction</a></h4>
 <div class="paragraph">
 <p>空気層の指定方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materialairgap" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
 </div>
@@ -2622,9 +2632,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j2"><a class="link" href="#_case900_j2">2.7. Case900-J2</a></h3>
+<h3 id="_case900_j2"><a class="link" href="#_case900_j2">2.8. Case900-J2</a></h3>
 <div class="sect3">
-<h4 id="_schedule"><a class="link" href="#_schedule">2.7.1. Schedule</a></h4>
+<h4 id="_schedule"><a class="link" href="#_schedule">2.8.1. Schedule</a></h4>
 <div class="paragraph">
 <p>Case 900-J1-2 をベースに　夜間18~8時　の空調を停止する。</p>
 </div>
@@ -2663,9 +2673,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j3"><a class="link" href="#_case900_j3">2.8. Case900-J3</a></h3>
+<h3 id="_case900_j3"><a class="link" href="#_case900_j3">2.9. Case900-J3</a></h3>
 <div class="sect3">
-<h4 id="_windowmaterialblind"><a class="link" href="#_windowmaterialblind">2.8.1. WindowMaterial:Blind</a></h4>
+<h4 id="_windowmaterialblind"><a class="link" href="#_windowmaterialblind">2.9.1. WindowMaterial:Blind</a></h4>
 <div class="paragraph">
 <p>ブラインドの追加を行います。<br>
 ブラインドの入力方法は　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialblind" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
@@ -2712,7 +2722,7 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_slat_angle"><a class="link" href="#_slat_angle">2.8.1.1. Slat Angle</a></h5>
+<h5 id="_slat_angle"><a class="link" href="#_slat_angle">2.9.1.1. Slat Angle</a></h5>
 <div class="paragraph">
 <p>グレージングの外側の法線とスラットの外側の法線の間の角度（度）で、外側の法線がスラットの前面から離れたところを指している。図 6 を参照してください。</p>
 </div>
@@ -2731,7 +2741,7 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_windowshadingcontrol"><a class="link" href="#_windowshadingcontrol">2.8.2. WindowShadingControl</a></h4>
+<h4 id="_windowshadingcontrol"><a class="link" href="#_windowshadingcontrol">2.9.2. WindowShadingControl</a></h4>
 <div class="paragraph">
 <p>ブラインド制御方法を入力します。<br>
 入力方法は　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#windowpropertyshadingcontrol" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
@@ -2783,13 +2793,13 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_control_sequence_number"><a class="link" href="#_shading_control_sequence_number">2.8.2.1. Shading Control Sequence Number</a></h5>
+<h5 id="_shading_control_sequence_number"><a class="link" href="#_shading_control_sequence_number">2.9.2.1. Shading Control Sequence Number</a></h5>
 <div class="paragraph">
 <p>複数の WindowShadingControl オブジェクトが同じゾーンで使用されている場合、ウィンドウ シェードを展開する順序をこのフィールドで設定することができます。最初の WindowShadingControl は 1 とし、後続の WindowShadingControl は 2、3 などとします。これは通常、Multiple Surface Control TypeフィールドがGroupに設定されている場合に、ウィンドウのグループを特定の順序で制御するために使用されます。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_type"><a class="link" href="#_shading_type">2.8.2.2. Shading Type</a></h5>
+<h5 id="_shading_type"><a class="link" href="#_shading_type">2.9.2.2. Shading Type</a></h5>
 <div class="paragraph">
 <p>遮光装置の種類です。選択肢は以下の通りです。</p>
 </div>
@@ -2823,7 +2833,7 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_construction_with_shading_name"><a class="link" href="#_construction_with_shading_name">2.8.2.3. Construction with Shading Name</a></h5>
+<h5 id="_construction_with_shading_name"><a class="link" href="#_construction_with_shading_name">2.9.2.3. Construction with Shading Name</a></h5>
 <div class="paragraph">
 <p>シェーディングが行われているウィンドウのコンストラクションの名前です。シェーディングデバイスのプロパティは、そのコンストラクションで参照されるシェーディングマテリアルによって与えられます（参照：Construction, WindowMaterial:Shade, WindowMaterial:Screen and WindowMaterial:Blind）。Shading Type = SwitchableGlazingの場合、これは完全にスイッチされた（最も暗い）状態のウィンドウに対応するコンストラクションの名前です。</p>
 </div>
@@ -2832,7 +2842,7 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_control_type"><a class="link" href="#_shading_control_type">2.8.2.4. Shading Control Type</a></h5>
+<h5 id="_shading_control_type"><a class="link" href="#_shading_control_type">2.9.2.4. Shading Control Type</a></h5>
 <div class="paragraph">
 <p>遮光装置の制御方法を指定するもので、遮光装置を「オン」にするか「オフ」にするかを決定するものである。ブラインド、スクリーン、シェードの場合、装置が「オン」のときは、窓の枠を除くすべての部分を覆うものとし、装置が「オフ」のときは、窓を一切覆わないものとする（「オン」でも「オフ」でも、遮光装置は窓がある壁を一切覆わないものとする）。</p>
 </div>
@@ -2854,7 +2864,7 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_type_of_slat_angle_control_for_blinds"><a class="link" href="#_type_of_slat_angle_control_for_blinds">2.8.2.5. Type of Slat Angle Control for Blinds</a></h5>
+<h5 id="_type_of_slat_angle_control_for_blinds"><a class="link" href="#_type_of_slat_angle_control_for_blinds">2.9.2.5. Type of Slat Angle Control for Blinds</a></h5>
 <div class="paragraph">
 <p>Shading Type = InteriorBlind、ExteriorBlind、BetweenGlassBlindにのみ適用されます。スラットの角度をどのように制御するかを指定します。選択肢は、FixedSlatAngle、ScheduledSlatAngle、BlockBeamSolarです。</p>
 </div>
@@ -2869,7 +2879,7 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_multiple_surface_control_type"><a class="link" href="#_multiple_surface_control_type">2.8.2.6. Multiple Surface Control Type</a></h5>
+<h5 id="_multiple_surface_control_type"><a class="link" href="#_multiple_surface_control_type">2.9.2.6. Multiple Surface Control Type</a></h5>
 <div class="paragraph">
 <p>フィールドには2つのオプションがあります。</p>
 </div>
@@ -2888,9 +2898,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.9. Output:Variable</a></h3>
+<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.10. Output:Variable</a></h3>
 <div class="sect3">
-<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.9.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
+<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.10.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </div>
@@ -2898,9 +2908,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_地盤境界条件の入力方法"><a class="link" href="#_地盤境界条件の入力方法">2.10. 地盤境界条件の入力方法</a></h3>
+<h3 id="_地盤境界条件の入力方法"><a class="link" href="#_地盤境界条件の入力方法">2.11. 地盤境界条件の入力方法</a></h3>
 <div class="sect3">
-<h4 id="_sitegroundtemperaturebuildingsurface_2"><a class="link" href="#_sitegroundtemperaturebuildingsurface_2">2.10.1. Site:GroundTemperature:BuildingSurface</a></h4>
+<h4 id="_sitegroundtemperaturebuildingsurface_2"><a class="link" href="#_sitegroundtemperaturebuildingsurface_2">2.11.1. Site:GroundTemperature:BuildingSurface</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface">リンク</a></p>
 </div>
@@ -2924,7 +2934,7 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.10.2. Site:GroundTemperature:Shallow</a></h4>
+<h4 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.11.2. Site:GroundTemperature:Shallow</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureshallow">リンク</a></p>
 </div>
@@ -2943,7 +2953,7 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.10.3. Site:GroundTemperature:Deep</a></h4>
+<h4 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.11.3. Site:GroundTemperature:Deep</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturedeep">リンク</a></p>
 </div>
@@ -2962,7 +2972,7 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.10.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h4>
+<h4 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.11.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedfinitedifference">リンク</a></p>
 </div>
@@ -2974,7 +2984,7 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.10.5. Site:GroundTemperature:FCfactorMethod</a></h4>
+<h4 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.11.5. Site:GroundTemperature:FCfactorMethod</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod">リンク</a></p>
 </div>
@@ -2988,19 +2998,19 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.10.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h4>
+<h4 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.11.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h4>
 <div class="paragraph">
 <p>Kusuda, T. と P.R. Achenbach　による回帰式</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.10.7. Site:GroundTemperature:Undisturbed:Xing</a></h4>
+<h4 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.11.7. Site:GroundTemperature:Undisturbed:Xing</a></h4>
 <div class="paragraph">
 <p>Xing　による回帰式</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.10.8. GroundHeatExchanger:Surface</a></h4>
+<h4 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.11.8. GroundHeatExchanger:Surface</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#groundheatexchangersurface">リンク</a></p>
 </div>
@@ -3021,7 +3031,7 @@ Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブ�
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-11 15:17:29 +0900
+Last updated 2021-05-26 16:25:33 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

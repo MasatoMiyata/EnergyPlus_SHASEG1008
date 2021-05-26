@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # ケース名の入力
-CASENAME = "Case900_J3"
+CASENAME = "Case900FF"
 
 file_list = {
 
@@ -552,11 +552,10 @@ if "FF" in file_list[CASENAME]["case_ID"]:
     df[CASENAME] = pd.Series(tmp)
     df_results = df_results.append(df)
 
-
-# 室温の頻度分布
+# 室温の頻度分布（ bin 20 は 20 <= T < 21）
 if file_list[CASENAME]["case_ID"] == "900FF":
 
-    # 室温の範囲
+    # 室温の範囲 [-50, -49, ..., 98]
     temperature_range = np.arange(-50,99)
     # 結果格納用変数
     temperature_distribution = np.zeros(len(temperature_range))
@@ -564,7 +563,7 @@ if file_list[CASENAME]["case_ID"] == "900FF":
     for templerature in data[ name_dict["zone_name"] + ":Zone Mean Air Temperature [C](Hourly)"]:
         
         for i in range(len(temperature_range)):
-            if temperature_range[i] > templerature:
+            if temperature_range[i]+1 > templerature:
                 temperature_distribution[i] += 1
                 break
 

@@ -83,3 +83,11 @@ Construction,
     FIBERGLASS-1007mm,       !- Outside Layer
     TIMBERFLOORING-80mm;     !- Layer 2
 ----
+
+
+=== Case900FF
+
+自然室温の集計について、ASHRAE Standard 140 6.2.1.7.1 では、次のように記されている。
+
+
+Informative Note: For example, the zone air temperature T bin defined by 20°C is 20°C <= T < 21°C; similarly, the bin defined by –2°C is –2°C <= T < –1°C.

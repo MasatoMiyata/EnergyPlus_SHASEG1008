@@ -1,0 +1,326 @@
+== Case960の実施
+
+Case900の入力ファイルを基にCase960の入力ファイルを作成する。
+
+=== Material, Construction
+基本的にバックゾーンはCase600、サンゾーンはCase900と同一である。唯一の違いは両ゾーン間の内壁であり、以下のように定義する。
+
+```
+Material,
+    AS14O internal wall material, !- Name
+    Rough,                   !- Roughness
+    0.200,                   !- Thickness {m}
+    0.510,                   !- Conductivity {W/m-K}
+    1400,                    !- Density {kg/m3}
+    1000,                    !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.6,                     !- Solar Absorptance
+    0.6;                     !- Visible Absorptance
+
+Construction,
+    AS14O internal wall,          !- Name
+    AS14O internal wall material; !- Outside Layer
+```
+
+=== Zone
+以下のように2つのゾーンを定義する。Zone1がバックゾーン、Zone2がサンゾーンである。
+
+```
+Zone,
+    Block1:Zone1,            !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,                       !- X Origin {m}
+    0,                       !- Y Origin {m}
+    0,                       !- Z Origin {m}
+    1,                       !- Type
+    1,                       !- Multiplier
+    ,                        !- Ceiling Height {m}
+    129.6,                   !- Volume {m3}
+    48,                      !- Floor Area {m2}
+    TARP,                    !- Zone Inside Convection Algorithm
+    ,                        !- Zone Outside Convection Algorithm
+    Yes;                     !- Part of Total Floor Area
+
+Zone,
+    Block1:Zone2,            !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,                       !- X Origin {m}
+    0,                       !- Y Origin {m}
+    0,                       !- Z Origin {m}
+    1,                       !- Type
+    1,                       !- Multiplier
+    ,                        !- Ceiling Height {m}
+    43.2,                    !- Volume {m3}
+    16,                      !- Floor Area {m2}
+    TARP,                    !- Zone Inside Convection Algorithm
+    ,                        !- Zone Outside Convection Algorithm
+    Yes;                     !- Part of Total Floor Area
+```
+
+=== Building surface
+Zone1（バックゾーン）の壁構成は南面を除きCase600と同一である。南面はサンゾーンとの間の内壁となるため、以下のように定義する。
+
+```
+BuildingSurface:Detailed,
+    Block1:Zone1_Partition,  !- Name
+    Wall,                    !- Surface Type
+    AS14O internal wall,     !- Construction Name
+    Block1:Zone1,            !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone2_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+```
+
+Zone2は奥行きが2mであること、北面がバックゾーンとの間の内壁であることを除いてCase900と同一である。各面を以下のように定義する。
+
+```
+BuildingSurface:Detailed,
+    Block1:Zone2_Floor,      !- Name
+    Floor,                   !- Surface Type
+    AS14O external floor high,    !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Ground,                  !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+! Block 1, Zone 1, Roof - 48.000 m2, Surface Area: 48.000m2
+BuildingSurface:Detailed,
+    Block1:Zone2_Roof,       !- Name
+    Roof,                    !- Surface Type
+    AS14O Roof,              !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    2.7,                     !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    2.7,                     !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_E,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    -2,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    -2,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_W,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_S,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Partition,  !- Name
+    Wall,                    !- Surface Type
+    AS14O internal wall,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone1_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+!-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
+
+FenestrationSurface:Detailed,
+    Block1:Zone2_Wall_S_Win_1,  !- Name
+    Window,                  !- Surface Type
+    1002,                    !- Construction Name
+    Block1:Zone2_Wall_S,     !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.5,                     !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0.5,                     !- Vertex 1 Z-coordinate {m}
+    3.5,                     !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0.5,                     !- Vertex 2 Z-coordinate {m}
+    3.5,                     !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.5,                     !- Vertex 3 Z-coordinate {m}
+    0.5,                     !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    Block1:Zone2_Wall_S_Win_2,  !- Name
+    Window,                  !- Surface Type
+    1002,                    !- Construction Name
+    Block1:Zone2_Wall_S,     !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.5,                     !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0.5,                     !- Vertex 1 Z-coordinate {m}
+    7.5,                     !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0.5,                     !- Vertex 2 Z-coordinate {m}
+    7.5,                     !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.5,                     !- Vertex 3 Z-coordinate {m}
+    4.5,                     !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+```
+
+=== Infiltration
+以下のように定義する。いずれも0.5回/hである。
+
+```
+ZoneInfiltration:DesignFlowRate,
+    Block1:Zone1 Infiltration,  !- Name
+    Block1:Zone1,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    Block1:Zone2 Infiltration,  !- Name
+    Block1:Zone2,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.006,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+```
+
+=== 計算結果
+Figure 1に計算結果を示す。他のツールと比べてほぼ同等の結果が得られている。
+
+.Case960の計算結果
+image::figures/Case960_annual_peak_load.png[]
+
+

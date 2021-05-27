@@ -129,7 +129,7 @@ run_EnergyPlus <- function (path_idf,path_epw,case_name){
 }
 
 your_tool <- "DesignBuilder"
-case_name <- "960"
+case_name <- "900"
 path_epw <- here::here("DRYCOLDTMY.epw")
 path_idf <- here::here(paste0("Case",case_name,".idf"))
 
@@ -157,7 +157,7 @@ if (length(grep("FF",case_name)) == 0){
   
   p <- ggplot(tmp, aes(x=reorder(tool,seq(1,nrow(tmp))), y=value, fill=reorder(tool,seq(1,nrow(tmp))))) + 
     geom_col() + facet_wrap(~variable,nrow=1,ncol=(ncol(A)-1)) +
-    labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh or kWh]") + 
+    labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh or kW]") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
   fname <- paste0("./figures/Case",case_name,"_annual_peak_load.png")
@@ -226,6 +226,31 @@ if (case_name == "600"){
 # Aqc_peak <- matrix(as.numeric(unlist(results[131:165,2:12])),nrow=length(case_numbers),ncol=length(tool_names))
 # colnames(Aqc_peak) <- tool_names
 # rownames(Aqc_peak) <- case_numbers
+# 
+# case_name_J <- c("900-J1-1","900-J1-2","900-J2","900-J3")
+# tmp <- matrix(as.numeric(unlist(results[171:174,2:4])),nrow=4,ncol=3)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqh_sum <- rbind(Aqh_sum,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[171:174,8:10])),nrow=4,ncol=3)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqc_sum <- rbind(Aqc_sum,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[179:182,2:4])),nrow=4,ncol=3)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqh_peak <- rbind(Aqh_peak,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[179:182,8:10])),nrow=4,ncol=3)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqc_peak <- rbind(Aqc_peak,tmp)
 # 
 # Ata_max <- matrix(as.numeric(unlist(results[202:206,2:12])),nrow=5,ncol=length(tool_names))
 # colnames(Ata_max) <- tool_names

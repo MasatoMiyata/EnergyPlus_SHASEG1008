@@ -6,7 +6,6 @@
 #####################################
 # load the packages
 library(eplusr)
-library(openxlsx)
 library(ggplot2)
 library(reshape)
 
@@ -128,8 +127,8 @@ run_EnergyPlus <- function (path_idf,path_epw,case_name){
 
 }
 
-your_tool <- "DesignBuilder"
-case_name <- "900"
+your_tool <- "EnergyPlus-o"
+case_name <- "900-J3"
 path_epw <- here::here("DRYCOLDTMY.epw")
 path_idf <- here::here(paste0("Case",case_name,".idf"))
 
@@ -140,13 +139,15 @@ run_EnergyPlus(path_idf,path_epw,case_name)
 #####################################
 
 load("trial_data.Rdata")
+
+# case_name <- "900"
 tmp <- read.csv(paste0("Case",case_name,"_postprocessed.csv"))
 qh_sum <- tmp[1,2]
 qc_sum <- tmp[2,2]
 qh_peak <- tmp[3,2]
 qc_peak <- tmp[4,2]
 
-color_table <- c(rep("darkgray",11),"salmon")
+color_table <- c(rep("darkgray",11),"cornflowerblue","salmon")
 
 if (length(grep("FF",case_name)) == 0){
   A <- data.frame(tool=c(colnames(Aqh_sum),your_tool),"Annual_heating.MWh"=c(unlist(Aqh_sum[case_name,]),qh_sum))
@@ -206,6 +207,122 @@ if (case_name == "600"){
 # Load trial results
 #####################################
 
+# library(readxl)
+# fname <- "/Users/eikichiono/Documents/04_Association/SHASE/ECP/EnergyPlus_SHASEG1008/EnergyPlus_SHASEG1008/idf_miyata/SHASEG1008_EnergyPlus-m_結果まとめ.xls"
+# results = read_excel(fname, sheet = 2)
+# 
+# tool_names <- unlist(results[14,2:13])
+# case_numbers <- unlist(results[17:51,1])
+# 
+# Aqh_sum <- matrix(as.numeric(unlist(results[17:51,2:13])),nrow=length(case_numbers),ncol=length(tool_names))
+# colnames(Aqh_sum) <- tool_names
+# rownames(Aqh_sum) <- case_numbers
+# 
+# Aqc_sum <- matrix(as.numeric(unlist(results[57:91,2:13])),nrow=length(case_numbers),ncol=length(tool_names))
+# colnames(Aqc_sum) <- tool_names
+# rownames(Aqc_sum) <- case_numbers
+# 
+# Aqh_peak <- matrix(as.numeric(unlist(results[100:134,2:13])),nrow=length(case_numbers),ncol=length(tool_names))
+# colnames(Aqh_peak) <- tool_names
+# rownames(Aqh_peak) <- case_numbers
+# 
+# Aqc_peak <- matrix(as.numeric(unlist(results[145:179,2:13])),nrow=length(case_numbers),ncol=length(tool_names))
+# colnames(Aqc_peak) <- tool_names
+# rownames(Aqc_peak) <- case_numbers
+# 
+# case_name_J <- c("900-J1-1","900-J1-2","900-J2","900-J3")
+# tmp <- matrix(as.numeric(unlist(results[188:191,2:5])),nrow=4,ncol=4)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqh_sum <- rbind(Aqh_sum,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[188:191,8:11])),nrow=4,ncol=4)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqc_sum <- rbind(Aqc_sum,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[197:200,2:5])),nrow=4,ncol=4)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqh_peak <- rbind(Aqh_peak,tmp)
+# 
+# tmp <- matrix(as.numeric(unlist(results[197:200,8:11])),nrow=4,ncol=4)
+# tmp <- cbind(matrix(numeric(4*8),nrow=4),tmp)
+# colnames(tmp) <- tool_names
+# rownames(tmp) <- case_name_J
+# Aqc_peak <- rbind(Aqc_peak,tmp)
+# 
+# Ata_max <- matrix(as.numeric(unlist(results[225:229,2:13])),nrow=5,ncol=length(tool_names))
+# colnames(Ata_max) <- tool_names
+# rownames(Ata_max) <- unlist(results[225:229,1])
+# 
+# Ata_min <- matrix(as.numeric(unlist(results[234:238,2:13])),nrow=5,ncol=length(tool_names))
+# colnames(Ata_min) <- tool_names
+# rownames(Ata_min) <- unlist(results[225:229,1])
+# 
+# Ata_ave <- matrix(as.numeric(unlist(results[243:247,2:13])),nrow=5,ncol=length(tool_names))
+# colnames(Ata_ave) <- tool_names
+# rownames(Ata_ave) <- unlist(results[225:229,1])
+# 
+# Ar_sum <- matrix(as.numeric(unlist(results[265:269,2:13])),nrow=5,ncol=length(tool_names))
+# colnames(Ar_sum) <- tool_names
+# rownames(Ar_sum) <- unlist(results[265:269,1])
+# 
+# Ari_sum <- matrix(as.numeric(unlist(rbind(results[284:285,2:13],results[304:305,2:13]))),nrow=4,ncol=length(tool_names))
+# colnames(Ari_sum) <- tool_names
+# rownames(Ari_sum) <- c(unlist(results[284:285,1]),unlist(results[304:305,1]))
+# 
+# Ars0305 <- matrix(as.numeric(unlist(results[320:343,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ars0305) <- tool_names
+# rownames(Ars0305) <- 1:24
+# 
+# Arw0305 <- matrix(as.numeric(unlist(results[360:383,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Arw0305) <- tool_names
+# rownames(Arw0305) <- 1:24
+# 
+# Ars0727 <- matrix(as.numeric(unlist(results[400:423,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ars0727) <- tool_names
+# rownames(Ars0727) <- 1:24
+# 
+# Arw0727 <- matrix(as.numeric(unlist(results[440:463,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Arw0727) <- tool_names
+# rownames(Arw0727) <- 1:24
+# 
+# Ata0104_600FF <- matrix(as.numeric(unlist(results[479:502,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ata0104_600FF) <- tool_names
+# rownames(Ata0104_600FF) <- 1:24
+# 
+# Ata0104_900FF <- matrix(as.numeric(unlist(results[519:542,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ata0104_900FF) <- tool_names
+# rownames(Ata0104_900FF) <- 1:24
+# 
+# Ata0727_650FF <- matrix(as.numeric(unlist(results[559:582,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ata0727_650FF) <- tool_names
+# rownames(Ata0727_650FF) <- 1:24
+# 
+# Ata0727_950FF <- matrix(as.numeric(unlist(results[599:622,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Ata0727_950FF) <- tool_names
+# rownames(Ata0727_950FF) <- 1:24
+# 
+# Aq0104_600 <- matrix(as.numeric(unlist(results[639:662,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Aq0104_600) <- tool_names
+# rownames(Aq0104_600) <- 1:24
+# 
+# Aq0104_900 <- matrix(as.numeric(unlist(results[679:702,2:13])),nrow=24,ncol=length(tool_names))
+# colnames(Aq0104_900) <- tool_names
+# rownames(Aq0104_900) <- 1:24
+# 
+# Atbin <- matrix(as.numeric(unlist(results[720:868,2:13])),nrow=149,ncol=length(tool_names))
+# colnames(Atbin) <- tool_names
+# rownames(Atbin) <- unlist(results[720:868,1])
+# 
+# save.image("trial_data.Rdata")
+
+
+# library(openxlsx)
 # results <- read.xlsx("Appendix C 熱負荷単室・複数室テスト用入力ファイル_DB.xlsx", sheet="計算結果入力シート")
 # 
 # tool_names <- results[8,2:12]
@@ -317,10 +434,6 @@ if (case_name == "600"){
 # rownames(Atbin) <- results[600:748,1]
 # 
 # save.image("trial_data.Rdata")
-
-
-
-
 
 
 

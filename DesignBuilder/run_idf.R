@@ -128,7 +128,7 @@ run_EnergyPlus <- function (path_idf,path_epw,case_name){
 }
 
 your_tool <- "EnergyPlus-o"
-case_name <- "900-J3"
+case_name <- "900-J1-2"
 path_epw <- here::here("DRYCOLDTMY.epw")
 path_idf <- here::here(paste0("Case",case_name,".idf"))
 

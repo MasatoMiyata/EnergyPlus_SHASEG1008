@@ -448,94 +448,55 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">EnergyPlus SHASE-G1008:2016</div>
 <ul class="sectlevel1">
 <li><a href="#_はじめに">1. はじめに</a></li>
-<li><a href="#_熱負荷シミュレーション">2. 熱負荷シミュレーション</a>
+<li><a href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a>
 <ul class="sectlevel2">
-<li><a href="#_case600">2.1. Case600</a>
-<ul class="sectlevel3">
-<li><a href="#_building">2.1.1. Building</a></li>
-<li><a href="#_sitelocation">2.1.2. Site:Location</a></li>
-<li><a href="#_runperiod">2.1.3. RunPeriod</a></li>
-<li><a href="#_shadowcalculation">2.1.4. ShadowCalculation</a></li>
-<li><a href="#_sitegroundreflectance">2.1.5. Site:GroundReflectance</a></li>
-<li><a href="#_sitegroundtemperaturebuildingsurface">2.1.6. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_zone">2.1.7. Zone</a></li>
-<li><a href="#_globalgeometryrules">2.1.8. GlobalGeometryRules</a></li>
-<li><a href="#_buildingsurfacedetailed">2.1.9. BuildingSurface:Detailed</a></li>
-<li><a href="#_fenestrationsurfacedetailed">2.1.10. FenestrationSurface:Detailed</a></li>
-<li><a href="#_material_construction">2.1.11. Material, Construction</a></li>
-<li><a href="#_windowmaterialglazing">2.1.12. WindowMaterial:Glazing</a></li>
-<li><a href="#_scheduledayhourly">2.1.13. Schedule:Day:Hourly</a></li>
-<li><a href="#_scheduleweekdaily">2.1.14. Schedule:Week:Daily</a></li>
-<li><a href="#_scheduleyear">2.1.15. Schedule:Year</a></li>
-<li><a href="#_zoneinfiltrationdesignflowrate">2.1.16. ZoneInfiltration:DesignFlowRate</a></li>
-<li><a href="#_otherequipment">2.1.17. OtherEquipment</a></li>
-<li><a href="#_zonecontrolthermostat">2.1.18. ZoneControl:Thermostat</a></li>
-<li><a href="#_thermostatsetpointdualsetpoint">2.1.19. ThermostatSetpoint:DualSetpoint</a></li>
-<li><a href="#_zonehvacidealloadsairsystem">2.1.20. ZoneHVAC:IdealLoadsAirSystem</a></li>
-<li><a href="#_zonehvacequipmentlist">2.1.21. ZoneHVAC:EquipmentList</a></li>
-<li><a href="#_nodelist">2.1.22. NodeList</a></li>
-<li><a href="#_zonehvacequipmentconnections">2.1.23. ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_building">2.1. Building</a></li>
+<li><a href="#_sitelocation">2.2. Site:Location</a></li>
+<li><a href="#_runperiod">2.3. RunPeriod</a></li>
+<li><a href="#_shadowcalculation">2.4. ShadowCalculation</a></li>
+<li><a href="#_sitegroundreflectance">2.5. Site:GroundReflectance</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface">2.6. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_zone">2.7. Zone</a></li>
+<li><a href="#_globalgeometryrules">2.8. GlobalGeometryRules</a></li>
+<li><a href="#_buildingsurfacedetailed">2.9. BuildingSurface:Detailed</a></li>
+<li><a href="#_fenestrationsurfacedetailed">2.10. FenestrationSurface:Detailed</a></li>
+<li><a href="#_material_construction">2.11. Material, Construction</a></li>
+<li><a href="#_windowmaterialglazing">2.12. WindowMaterial:Glazing</a></li>
+<li><a href="#_windowmaterialsimpleglazingsystem">2.13. WindowMaterial:SimpleGlazingSystem</a></li>
+<li><a href="#_scheduledayhourly">2.14. Schedule:Day:Hourly</a></li>
+<li><a href="#_scheduleweekdaily">2.15. Schedule:Week:Daily</a></li>
+<li><a href="#_scheduleyear">2.16. Schedule:Year</a></li>
+<li><a href="#_zoneinfiltrationdesignflowrate">2.17. ZoneInfiltration:DesignFlowRate</a></li>
+<li><a href="#_otherequipment">2.18. OtherEquipment</a></li>
+<li><a href="#_zonecontrolthermostat">2.19. ZoneControl:Thermostat</a></li>
+<li><a href="#_thermostatsetpointdualsetpoint">2.20. ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_zonehvacidealloadsairsystem">2.21. ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_zonehvacequipmentlist">2.22. ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_nodelist">2.23. NodeList</a></li>
+<li><a href="#_zonehvacequipmentconnections">2.24. ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_outputvariable">2.25. Output:Variable</a></li>
 </ul>
 </li>
-<li><a href="#_case610">2.2. Case610</a>
-<ul class="sectlevel3">
-<li><a href="#_shadingzonedetailed">2.2.1. Shading:Zone:Detailed</a></li>
+<li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a>
+<ul class="sectlevel2">
+<li><a href="#_case_600">3.1. Case 600</a></li>
+<li><a href="#_case610">3.2. Case610</a></li>
+<li><a href="#_case650">3.3. Case650</a></li>
+<li><a href="#_case900">3.4. Case900</a></li>
+<li><a href="#_case900ff">3.5. Case900FF</a></li>
+<li><a href="#_case960">3.6. Case960</a></li>
+<li><a href="#_case900_j1_1">3.7. Case900-J1-1</a></li>
+<li><a href="#_case900_j1_2">3.8. Case900-J1-2</a></li>
+<li><a href="#_case900_j2">3.9. Case900-J2</a></li>
+<li><a href="#_case900_j3">3.10. Case900-J3</a></li>
 </ul>
 </li>
-<li><a href="#_case650">2.3. Case650</a>
-<ul class="sectlevel3">
-<li><a href="#_zonecontrolthermostat_2">2.3.1. ZoneControl:Thermostat</a></li>
-<li><a href="#_thermostatsetpointsinglecooling">2.3.2. ThermostatSetpoint:SingleCooling</a></li>
-<li><a href="#_scheduledayhourly_2">2.3.3. Schedule:Day:Hourly</a></li>
-<li><a href="#_zoneinfiltrationdesignflowrate_2">2.3.4. ZoneInfiltration:DesignFlowRate</a></li>
-</ul>
-</li>
-<li><a href="#_case900">2.4. Case900</a>
-<ul class="sectlevel3">
-<li><a href="#_material_construction_2">2.4.1. Material, Construction</a></li>
-</ul>
-</li>
-<li><a href="#_case900ff">2.5. Case900FF</a></li>
-<li><a href="#_case900_j1_1">2.6. Case900-J1-1</a>
-<ul class="sectlevel3">
-<li><a href="#_material_construction_3">2.6.1. Material, Construction</a></li>
-</ul>
-</li>
-<li><a href="#_case900_j1_2">2.7. Case900-J1-2</a>
-<ul class="sectlevel3">
-<li><a href="#_material_construction_4">2.7.1. Material, Construction</a></li>
-</ul>
-</li>
-<li><a href="#_case900_j2">2.8. Case900-J2</a>
-<ul class="sectlevel3">
-<li><a href="#_schedule">2.8.1. Schedule</a></li>
-</ul>
-</li>
-<li><a href="#_case900_j3">2.9. Case900-J3</a>
-<ul class="sectlevel3">
-<li><a href="#_windowmaterialblind">2.9.1. WindowMaterial:Blind</a></li>
-<li><a href="#_windowshadingcontrol">2.9.2. WindowShadingControl</a></li>
-</ul>
-</li>
-<li><a href="#_outputvariable">2.10. Output:Variable</a>
-<ul class="sectlevel3">
-<li><a href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.10.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></li>
-</ul>
-</li>
-<li><a href="#_地盤境界条件の入力方法">2.11. 地盤境界条件の入力方法</a>
-<ul class="sectlevel3">
-<li><a href="#_sitegroundtemperaturebuildingsurface_2">2.11.1. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_sitegroundtemperatureshallow">2.11.2. Site:GroundTemperature:Shallow</a></li>
-<li><a href="#_sitegroundtemperaturedeep">2.11.3. Site:GroundTemperature:Deep</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedfinitedifference">2.11.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></li>
-<li><a href="#_sitegroundtemperaturefcfactormethod">2.11.5. Site:GroundTemperature:FCfactorMethod</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.11.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></li>
-<li><a href="#_sitegroundtemperatureundisturbedxing">2.11.7. Site:GroundTemperature:Undisturbed:Xing</a></li>
-<li><a href="#_groundheatexchangersurface">2.11.8. GroundHeatExchanger:Surface</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a></li>
+<li><a href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a></li>
+<li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a></li>
+<li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
+<li><a href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></li>
+<li><a href="#_空調全体テスト">9. 空調（全体）テスト</a></li>
 </ul>
 </div>
 </div>
@@ -544,8 +505,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_はじめに"><a class="link" href="#_はじめに">1. はじめに</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SHASE-G1008:2016「建物エネルギーシミュレーションツールの評価手法に関するガイドライン」をEnergyPlusに対して適用する方法を解説します。<br>
-EnergyPlusはVer.9.4を使用しています。EnergyPlusのインストール方法や使用方法については省略します。</p>
+<p>SHASE-G1008:2016「建物エネルギーシミュレーションツールの評価手法に関するガイドライン」をEnergyPlusに対して適用する方法を解説する。<br>
+EnergyPlusはVer.9.4を使用する。EnergyPlusのインストール方法や使用方法については省略する。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -566,7 +527,8 @@ SHASE-G1008:2016は <a href="http://www.shasej.org/tosho/report.html">空気調�
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html" class="external" target="_blank" rel="noopener">bigladder</a> を参照してください。
+EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html" class="external" target="_blank" rel="noopener">bigladder</a> を参照してください。<br>
+Design Builderの使い方は <a href="./DesignBuilder.html">こちら</a>を参照してください。
 </td>
 </tr>
 </table>
@@ -575,22 +537,19 @@ EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_熱負荷シミュレーション"><a class="link" href="#_熱負荷シミュレーション">2. 熱負荷シミュレーション</a></h2>
+<h2 id="_熱負荷単室基本テストのモデル作成"><a class="link" href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」を実行します。</p>
+<p>SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」で使用する基本建物モデルを作成する。</p>
 </div>
 <div class="sect2">
-<h3 id="_case600"><a class="link" href="#_case600">2.1. Case600</a></h3>
+<h3 id="_building"><a class="link" href="#_building">2.1. Building</a></h3>
 <div class="paragraph">
-<p>基本となる建物モデルを作成します。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">Buildingクラスの作成方法</a></p>
 </div>
-<div class="sect3">
-<h4 id="_building"><a class="link" href="#_building">2.1.1. Building</a></h4>
 <div class="paragraph">
-<p>Buildingクラスは、シミュレーション実行時に使用されるパラメータを記述します。<br>
-Buildingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#building" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
-このクラスの入力内容と、Site:WeatherStation や Site:HeightVariationのいくつかのエントリ（特にTerrainフィールド）の内容は整合が取れていなければいけません。</p>
+<p>Buildingクラスは、シミュレーション実行時に使用されるパラメータを記述する。<br>
+このクラスの入力内容と、Site:WeatherStation や Site:HeightVariation のいくつかのエントリ（特にTerrainフィールド）の内容は整合が取れている必要がある。</p>
 </div>
 <div class="listingblock">
 <div class="title">Building</div>
@@ -606,19 +565,261 @@ Buildingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/d
     6;                       !- Minimum Number of Warmup Days</pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_name"><a class="link" href="#_name">2.1.1. Name</a></h4>
 <div class="paragraph">
-<p>メモ
-Terrain　と　Solar Distribution　と　Maximum Number of Warmup Days　が異なる。
-定義を調べる。</p>
+<p>建物名称を任意に入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sitelocation"><a class="link" href="#_sitelocation">2.1.2. Site:Location</a></h4>
+<h4 id="_north_axis"><a class="link" href="#_north_axis">2.1.2. North Axis</a></h4>
 <div class="paragraph">
-<p>Site:Locationクラスは、建物の位置に関するパラメータを記述します。位置は1つしか指定できません。<br>
-Site:Locationクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
-気象データファイルに位置情報が存在する場合は、IDFに記された位置情報データよりも優先されます。
-したがって、年間シミュレーションの場合、Locationを入力する必要はありません。</p>
+<p>建物の方位が真北から時計回りに何度回転しているかを指定する。
+ただし、<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#globalgeometryrules">GlobalGeometryRules</a>で
+「Relative」以外の座標系が使用されている場合、この入力値は無視される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_terrain"><a class="link" href="#_terrain">2.1.3. Terrain</a></h4>
+<div class="paragraph">
+<p>この地形（Terrain）の入力は、建物の高さと同様に、風がどのように建物に当たるかに影響を与える。<br>
+このフィールドの有効な値を次の表に示す。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. Values for “Terrain”</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Terrain Type Value</th>
+<th class="tableblock halign-left valign-top">Terrain Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flat, Open Country</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suburbs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rough, Wooded Country, Suburbs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">City</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Towns, city outskirts, center of large cities</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ocean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ocean, Bayou flat country</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Urban</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Urban, Industrial, Forest</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>この入力によって外表面の対流熱伝達率の計算に用いる風速の計算式のパラメータが変化する。<br>
+建物近傍の風速の計算方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/outside-surface-heat-balance.html#local-wind-speed-calculation">Local Wind Speed Calculation</a> を参照。</p>
+</div>
+<div class="sect4">
+<h5 id="_補足terrainの選択について"><a class="link" href="#_補足terrainの選択について">2.1.3.1. （補足）Terrainの選択について</a></h5>
+<div class="paragraph">
+<p>ASHRAE Standard 140 の本文中にサイトの場所的特徴に関する記載はないが、Normative Annex A1: Weather dataのTable A1-1に、使用する気象データを測定した気象ステーションの場所として「Flat, unobstructed」という記述がある。唯一の情報であるこの記述を正とすれば、Terrainの入力は「Country（Flat, Open Country）」が適当と考えられる。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_warmup_convergence"><a class="link" href="#_warmup_convergence">2.1.4. Warmup Convergence</a></h4>
+<div class="paragraph">
+<p>次の2つのフィールドは、助走運転の最小日数と最大日数とともに、EnergyPlusが各ステップで収束する条件を定義する 。
+計算開始時に室温は23<sup>o</sup>Cに、相対湿度は屋外相対湿度に初期化される。
+EnergyPlusでは、計算開始日の計算を、助走運転の最大日数に達するか収束条件が満たされるまで、繰り返し実行する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_loads_convergence_tolerance_value"><a class="link" href="#_loads_convergence_tolerance_value">2.1.5. Loads Convergence Tolerance Value</a></h4>
+<div class="paragraph">
+<p>この負荷許容値[W]は助走運転における収束条件の1つであり、ピークゾーンの冷暖房負荷の前回計算からの変化量に対して適用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_temperature_convergence_tolerance_value"><a class="link" href="#_temperature_convergence_tolerance_value">2.1.6. Temperature Convergence Tolerance Value</a></h4>
+<div class="paragraph">
+<p>この温度許容値[<sup>o</sup>C]は助走運転における収束条件の1つであり、ゾーン温度の冷暖房負荷の前回計算からの変化量に対して適用される。<br>
+負荷または温度許容値のいずれかが満たされると、Simultaneous heat balance/HVAC solution の収束に達する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solar_distribution"><a class="link" href="#_solar_distribution">2.1.7. Solar Distribution</a></h4>
+<div class="paragraph">
+<p>EnergyPlusが直達日射と外表面からの反射をどのように扱うかを定義する。次の5つの選択肢がある。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MinimalShadowing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>窓とドアを除いて、外部の影は考慮しない。ゾーンに入る全ての直達日射は床に当たると想定され、床の日射吸収率に応じて吸収される。床で反射されたものはすべて、反射拡散日射に追加される。これは、全ての内表面に均一に分布していると仮定される。 ゾーンに床が存在しない場合、直達日射は吸収率に応じて全ての内表面で吸収される。次に、表面熱流として扱われる吸収された日射を考慮して、各表面とゾーン空気の熱収支が計算される。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>FullExterior, FullExteriorWithReflections</p>
+<div class="ulist">
+<ul>
+<li>
+<p>全てのゾーンのDetached shading, wings, overhangs, and exterior surfacesによって引き起こされる外表面のShadow patternsが計算される。MinimalShadowingと同様に、窓やドアによる影も計算される。ゾーンに入る直達日射は、MinimalShadowing の場合と同様に扱われる。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>FullInteriorAndExterior, FullInteriorAndExteriorWithReflections</p>
+<div class="ulist">
+<ul>
+<li>
+<p>FullExteriorと同じだが、全ての透過直達日射が床に当たると仮定する代わりに、太陽の光線を外部から投影することにより、床、壁、窓などゾーンの各表面に当たる直達日射量を計算する。外部の日陰面や窓のShading devicesも考慮する。<br>
+このオプションを用いる場合、そのゾーンが完全に面によって閉じられており、かつConvex（つまり内側に凹んだような形状はNG）である必要がある。<br>
+FullInteriorAndExteriorを使用する場合、プログラムは（ゾーン内の他のウィンドウから）窓の内側に当たる直達日射が窓によって吸収される量、ゾーンに反射する量及び外側に透過する量も計算する。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_補足solar_distributionの選択について"><a class="link" href="#_補足solar_distributionの選択について">2.1.7.1. （補足）Solar distributionの選択について</a></h5>
+<div class="paragraph">
+<p>ASHRAE Standard 140 に日射計算方法についての指定はないため、Shading devicesを考慮できるFullExterior以下のオプションであれば問題ないと考えられる。<br>
+上記の説明からすると、ほとんどの場合は FullExterior を使用することが推奨されているように読み取れる。<br>
+FullInteriorAndExteriorは、ゾーンが面で完全に閉じられていることと、Convexであることという大きな形状の制約がある。
+物理的な壁を定義せずにゾーンを区切りたいケースは現実には多くあるが、その場合はこのオプションを使用できないと思われる。<br>
+Reflectionの使用については計算時間やエラーについての注意書きがあることから、特別な利用目的の場合を除いて推奨していないように見える。
+また、ASHRAE Standard 140ではShading devices自体の特性（反射率等）を指定していないため、おそらくこのような反射計算を行うことは想定していない。<br>
+以上より、実際に近い精緻な計算を行うという観点に立てば、FullInteriorAndExteriorを用いることが適当と考えられるが、
+現実の多くのシチュエーションでFullExteriorを用いるとすれば、FullExteriorで計算することも適当ではないかと思われる。</p>
+</div>
+<div class="paragraph">
+<p>以下にFullExteriorとFullInteriorAndExteriorで計算した結果を示す。Case600については大きな差はないことが分かる。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. Difference in heating/cooling load between solar distribution options</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">窓モデル</th>
+<th class="tableblock halign-left valign-top">暖房積算 [MWh]</th>
+<th class="tableblock halign-left valign-top">冷房積算 [MWh]</th>
+<th class="tableblock halign-left valign-top">暖房ピーク [kW]</th>
+<th class="tableblock halign-left valign-top">冷房ピーク [kW]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FullExterior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2329</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.2764</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7777</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.9069</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FullInteriorAndExterior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2356</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.2554</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7778</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.8969</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_diffuse_radiation"><a class="link" href="#_diffuse_radiation">2.1.7.2. Diffuse Radiation</a></h5>
+<div class="paragraph">
+<p>外部及び内部の窓を透過する拡散日射は、透過する窓とゾーン内の他の全ての熱伝達面との間の近似的な形態係数に従って分配される。
+ゾーン内の全ての表面で反射されるこの拡散日射は、室内で反射される直達日射と照明からの短波とともに、ゾーン内の全ての熱伝達面に均一に（面積及び吸収率に基づいて）再分配される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_reflection_calculations"><a class="link" href="#_reflection_calculations">2.1.7.3. Reflection calculations</a></h5>
+<div class="paragraph">
+<p>注：反射計算の使用には、非常に時間がかかる場合がある。またエラーが発生しやすい。</p>
+</div>
+<div class="paragraph">
+<p>このオプションを使用すると、外表面から反射されて建物に当たる直達・拡散日射を計算する。これらの反射面は、次の3つのカテゴリーに分類される。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Shadowing surfaces</p>
+<div class="ulist">
+<ul>
+<li>
+<p>これはオブジェクトで定義するShading devicesである。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Exterior building surfaces</p>
+<div class="ulist">
+<ul>
+<li>
+<p>建物の1つのセクションが日射を別のセクションに反射する。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The ground surface</p>
+<div class="ulist">
+<ul>
+<li>
+<p>反射オプションが使用されていない場合でも、地面からの反射は計算されるが、その場合は地面は遮られていないと見なされる。つまり、建物自体または隣接する建物などの障害物による地面の影は無視される。+
+反射オプションが使用されている場合、建物自体または隣接する建物による影が考慮されるが、その代わりに"View factor to ground"の入力は使用されない。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_maximum_number_of_warmup_days"><a class="link" href="#_maximum_number_of_warmup_days">2.1.8. Maximum Number of Warmup Days</a></h4>
+<div class="paragraph">
+<p>収束するまでにシミュレーションで使用される可能性のある助走日数を最大値を入力する。通常、デフォルトである25で十分である。ただし、一部の複雑な建物（複雑な構造）ではさらに日数がかかる場合がある。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_minimum_number_of_warmup_days"><a class="link" href="#_minimum_number_of_warmup_days">2.1.9. Minimum Number of Warmup Days</a></h4>
+<div class="paragraph">
+<p>EnergyPlusが収束したかどうかをチェックし、シミュレーションを開始できるようになるまでの助走日数の最小値を入力する。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sitelocation"><a class="link" href="#_sitelocation">2.2. Site:Location</a></h3>
+<div class="paragraph">
+<p>Site:Locationクラスは、建物の位置に関するパラメータを記述する。位置は1つしか指定できない。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html" class="external" target="_blank" rel="noopener">Site:Locationクラスの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>気象データファイルに位置情報が存在する場合は、IDFに記された位置情報データよりも優先される。
+したがって、年間シミュレーションの場合、Locationを入力する必要はない。</p>
 </div>
 <div class="listingblock">
 <div class="title">Site:Location</div>
@@ -632,15 +833,17 @@ Site:Locationクラスの作成方法は <a href="https://bigladdersoftware.com/
 </div>
 </div>
 <div class="paragraph">
-<p>【作業メモ】<br>
-気象データファイルと緯度・経度の桁が違う・・・。標高も違う。</p>
+<p>【補足】
+気象データファイルと緯度・経度の桁が異なる。標高も違う。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_runperiod"><a class="link" href="#_runperiod">2.1.3. RunPeriod</a></h4>
+<div class="sect2">
+<h3 id="_runperiod"><a class="link" href="#_runperiod">2.3. RunPeriod</a></h3>
 <div class="paragraph">
-<p>RunPeriodクラスでは、計算期間の設定を行います。<br>
-RunPeriodクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>RunPeriodクラスでは、計算期間の設定を行う。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#runperiod" class="external" target="_blank" rel="noopener">RunPeriodクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">RunPeriod</div>
@@ -663,10 +866,13 @@ RunPeriodクラスの作成方法は <a href="https://bigladdersoftware.com/epx/
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_shadowcalculation"><a class="link" href="#_shadowcalculation">2.1.4. ShadowCalculation</a></h4>
+<div class="sect2">
+<h3 id="_shadowcalculation"><a class="link" href="#_shadowcalculation">2.4. ShadowCalculation</a></h3>
 <div class="paragraph">
-<p>ShadowCalculationの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#shadowcalculation" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>ShadowCalculationでは、日陰の計算方法に関する設定を行う。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#shadowcalculation" class="external" target="_blank" rel="noopener">ShadowCalculationクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">ShadowCalculation</div>
@@ -677,33 +883,38 @@ RunPeriodクラスの作成方法は <a href="https://bigladdersoftware.com/epx/
     1;                       !- Shading Calculation Update Frequency</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_shading_calculation_update_frequency_method"><a class="link" href="#_shading_calculation_update_frequency_method">2.1.4.1. Shading Calculation Update Frequency Method</a></h5>
+<div class="sect3">
+<h4 id="_shading_calculation_update_frequency_method"><a class="link" href="#_shading_calculation_update_frequency_method">2.4.1. Shading Calculation Update Frequency Method</a></h4>
 <div class="paragraph">
-<p>このフィールドは、シミュレーション中の計算時間に関して、ソーラーモデル、シェーディングモデル、デイライトモデルの計算方法を制御するために使用します。キーワードPeriodicを使用すると、デフォルトで最速の方法が選択されます。より詳細で遅い方法は、キーワードTimestepを使って選択できます。動的なフェネストレーションやシェーディングサーフェスのモデリングには、必ず Timestep 方式を使用してください。</p>
+<p>このフィールドは、シミュレーション中の計算時間に関して、ソーラーモデル、シェーディングモデル、デイライトモデルの計算方法を制御するために使用する。
+キーワードPeriodicを使用すると、デフォルトで最速の方法が選択される。
+より詳細で遅い方法は、キーワードTimestepを使って選択できる。
+動的なフェネストレーションやシェーディングサーフェスのモデリングには必ず Timestep 方式を使用する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_shading_calculation_update_frequency"><a class="link" href="#_shading_calculation_update_frequency">2.1.4.2. Shading Calculation Update Frequency</a></h5>
+<div class="sect3">
+<h4 id="_shading_calculation_update_frequency"><a class="link" href="#_shading_calculation_update_frequency">2.4.2. Shading Calculation Update Frequency</a></h4>
 <div class="paragraph">
-<p>この数値フィールドでは、フィールド内の数値を各期間の日数として、シャドウイングの計算が定期的に行われます。
-このフィールドは、前のフィールドでデフォルトの「Periodic」が使用されている場合にのみ使用されます。
-このフィールドを使用すると、シェーディングデバイスの変更に合わせてシャドーイング計算を同期させることができます。
-各期間にデフォルトの20日を使用することは、太陽位置角の著しい変化の間の平均的な日数です。
-これらのシャドウイングの計算には、太陽の角度、位置、時間の方程式の（期間中の）「平均」も使用されます。</p>
+<p>このフィールドに入力された日数毎に、日陰の計算が実行される。
+このフィールドは、前のフィールドでデフォルトの「Periodic」が使用されている場合にのみ使用される。
+このフィールドを使用すると、シェーディングデバイスの変更に合わせてシャドーイング計算を同期させることができる。
+デフォルトは20日であり、これは太陽位置角の著しく変化しない平均的な日数である。
+これらの日陰計算には、太陽の角度、位置、時間の方程式の（期間中の）「平均」も使用される。</p>
 </div>
 <div class="paragraph">
-<p>【作業メモ】<br>
+<p>【補足】<br>
 Shading Calculation Update Frequencyは計算結果に与える影響が大きい。
 デフォルトは20日であるが、より細かい1日とする。</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.1.5. Site:GroundReflectance</a></h4>
+<div class="sect2">
+<h3 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.5. Site:GroundReflectance</a></h3>
 <div class="paragraph">
-<p>Site:GroundReflectanceクラスは、地物反射率に関するパラメータを記述します。<br>
-Site:GroundReflectanceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundreflectance" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Site:GroundReflectanceクラスでは、地物反射率に関するパラメータを記述する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundreflectance" class="external" target="_blank" rel="noopener">Site:GroundReflectanceクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Site:GroundReflectance　</div>
@@ -724,11 +935,13 @@ Site:GroundReflectanceクラスの作成方法は <a href="https://bigladdersoft
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.1.6. Site:GroundTemperature:BuildingSurface</a></h4>
+<div class="sect2">
+<h3 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.6. Site:GroundTemperature:BuildingSurface</a></h3>
 <div class="paragraph">
-<p>Site:GroundTemperature:BuildingSurfaceクラスでは、地中の温度を入力します。<br>
-Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Site:GroundTemperature:BuildingSurfaceクラスでは、地中の温度を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface" class="external" target="_blank" rel="noopener">Site:GroundTemperature:BuildingSurfaceクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Site:GroundTemperature:BuildingSurface　</div>
@@ -748,11 +961,120 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
     10;                      !- December Ground Temperature {C}</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>地面の温度は、地面の熱伝導モデルに使用される。
+地面温度オブジェクトは1つだけ指定することができ、Outside Boundary Condition = Ground とされたサーフェスにおける外側の温度として使用される。
+地面と接触するサーフェスがない場合は、このオブジェクトはオプションとなる。</p>
+</div>
+<div class="paragraph">
+<p>個々のサーフェスの外側温度を個別に指定する場合は、OtherSideCoefficients オブジェクトを使用する。
+このオブジェクトを使用すれば、いくつもの異なる温度を指定することができる。</p>
+</div>
+<div class="paragraph">
+<p>注意：気象データコンバータによって計算された「乱されていない（undisturbed）」地面温度は、建物の熱損失計算（building losses）には使用すべきではない。
+Site:GroundTemperature:Shallow　及び　Site:GroundTemperature:Deepオブジェクトを使用するのが適切である。
+この理由は（建物の熱損失に対して）、これらの値は空調された建物の下にある地盤に対しては極端すぎるからである。
+最良の結果を得るためには、スラブまたは地下室プログラムを使用して、月平均地中温度を計算すること（「Ground Heat Transfer」のセクションを参照）。
+これは、住宅や非常に小さな建物では特に重要である。</p>
+</div>
+<div class="paragraph">
+<p>これらの地中温度プリプロセッサを使用しない場合、米国の一般的な商業ビルでは、平均的な室内空間温度よりも2℃低い値が妥当なデフォルト値となる。
+適切な地中温度の決定に関する詳細は、EnergyPlusの解説書「Auxiliary Programs」に記載されている。</p>
 </div>
 <div class="sect3">
-<h4 id="_zone"><a class="link" href="#_zone">2.1.7. Zone</a></h4>
+<h4 id="_補足その他の地盤温度の設定方法"><a class="link" href="#_補足その他の地盤温度の設定方法">2.6.1. （補足）その他の地盤温度の設定方法</a></h4>
 <div class="paragraph">
-<p>Zoneクラスは、ゾーンに関するパラメータを記述します。</p>
+<p>EnergyPlusでは複数の地盤温度設定方法が用意されている。
+ここでは、今回使用する　Site:GroundTemperature:BuildingSurface　以外の設定方法について概説する。</p>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.6.1.1. Site:GroundTemperature:Shallow</a></h5>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureshallow">bigladder解説</a></p>
+</div>
+<div class="paragraph">
+<p>Site:GroundTemperature:Shallowは、Surface Ground Heat Exchanger（例：GroundHeatExchanger:Surface　オブジェクト）で使用される。
+浅い地中温度は1つだけ指定することができる。</p>
+</div>
+<div class="paragraph">
+<p>通年の気象データファイルに含まれている地中温度は、「典型的な」条件の「乱されていない」土壌に対して計算された0.5mの深さの温度であり、このフィールドの値に使用するのに適している可能性がある。
+このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できる。このような場合、「名前」の入力フィールドは必要ない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.6.1.2. Site:GroundTemperature:Deep</a></h5>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturedeep">bigladder解説</a></p>
+</div>
+<div class="paragraph">
+<p>Site:GroundTemperature:Deepは、Pond Ground Heat Exchangerオブジェクト（例：GroundHeatExchanger:Pond オブジェクト）で使用される。
+深い地中温度は1つだけ指定することができる。</p>
+</div>
+<div class="paragraph">
+<p>通年の気象データファイルに含まれる地中温度は、「典型的な」条件の「乱されていない」土壌に対して計算される4mの深さの温度であり、このフィールドの値に使用するのに適している可能性がある。
+このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できる。このような場合、「名前」の入力フィールドは必要ない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.6.1.3. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h5>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedfinitedifference">bigladder解説</a></p>
+</div>
+<div class="paragraph">
+<p>Site:GroundTemperature:Undisturbed:FiniteDifferenceは、「乱されていない」地中温度を必要とする全てのオブジェクトで使用できる。
+このオブジェクトは、気象データファイルを使用して表面の境界条件を取得する1次元有限差分熱伝達モデルを使用する。
+このモデルは、初期化時に、年間の地中温度プロファイルが定常的な周期性に達するまで、年間シミュレーションが実行される。
+安定した周期的な挙動に達すると、残りのシミュレーション期間中に地中温度を取得するために計算結果が格納される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.6.1.4. Site:GroundTemperature:FCfactorMethod</a></h5>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod">bigladder解説</a></p>
+</div>
+<div class="paragraph">
+<p>Site:GroundTemperature:FCfactorMethodは、詳細な建材構成が不明な場合の基準適合計算をする際に、
+C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construction:FfactorGroundFloor）で定義された地下の壁またはスラブまたは地下の床で使用される。
+この地表温度オブジェクトは1つだけ含めることができる。
+このオブジェクトの月別地中温度は、月別外気温度を3ヶ月遅らせたものに近い。
+ユーザーがIDFファイルにこのオブジェクトを入力しない場合、気象データファイルから0.5mの月別地中温度が利用可能であれば、それがデフォルトになる。
+このオブジェクトを入力すると、F-factor及びC-factorの使用において、気象データファイルから地上温度が上書きされる。
+どちらも利用できない場合は、エラーとなる。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.6.1.5. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h5>
+<div class="paragraph">
+<p>Kusuda, T. と P.R. Achenbach　による回帰式</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.6.1.6. Site:GroundTemperature:Undisturbed:Xing</a></h5>
+<div class="paragraph">
+<p>Xing　による回帰式</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.6.1.7. GroundHeatExchanger:Surface</a></h5>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#groundheatexchangersurface">bigladder解説</a></p>
+</div>
+<div class="paragraph">
+<p>表面熱交換器モデルは、水式の表面地中熱交換器をシミュレーションするためのものである。
+これには、融雪用のパイプを埋め込んだ舗装面や、ハイブリッド地中熱源ヒートポンプシステムからの排熱が含まれる。</p>
+</div>
+<div class="paragraph">
+<p>熱交換器は地面と連動している場合とそうでない場合がある。後者の場合、底面は風にさらされるがソーラーゲインは得られない。
+このタイプの熱交換器は、凝縮器ループの供給側に接続することを目的としているが、あらゆるタイプのプラントループに使用することができる。
+表面熱交換器は、凝縮器ループの唯一の熱交換器として指定することができ、他の凝縮器ループ熱交換器（冷却塔、地表熱交換器など）と並列に接続することもできる。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zone"><a class="link" href="#_zone">2.7. Zone</a></h3>
+<div class="paragraph">
+<p>Zoneクラスは、ゾーンに関するパラメータを記述する。</p>
 </div>
 <div class="listingblock">
 <div class="title">Zone　</div>
@@ -770,12 +1092,13 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.1.8. GlobalGeometryRules</a></h4>
+<div class="sect2">
+<h3 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.8. GlobalGeometryRules</a></h3>
 <div class="paragraph">
-<p>GlobalGeometryRulesクラスは、座標に関する設定を記述します。<br>
-作成方法は
-<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#globalgeometryrules" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
+<p>GlobalGeometryRulesクラスでは、座標に関する設定を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#globalgeometryrules" class="external" target="_blank" rel="noopener">GlobalGeometryRulesクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">GlobalGeometryRules</div>
@@ -787,17 +1110,16 @@ Site:GroundTemperature:BuildingSurfaceクラスの作成方法は <a href="https
 </div>
 </div>
 <div class="paragraph">
-<p>上のように設定すると、座標は「左上」から始まり「反時計回り」に指定しなければなりません。<br></p>
+<p>上のように設定すると、座標は「左上」から始まり「反時計回り」に指定することになる。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.1.9. BuildingSurface:Detailed</a></h4>
+<div class="sect2">
+<h3 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.9. BuildingSurface:Detailed</a></h3>
 <div class="paragraph">
-<p>BuildingSurface:Detailedクラスは、外壁構成に関するパラメータを記述します。<br>
-BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>BuildingSurface:Detailedクラスでは、外壁構成に関するパラメータを記述する。</p>
 </div>
 <div class="paragraph">
-<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#buildingsurfacedetailed" class="external" target="_blank" rel="noopener">BuildingSurface:Detailedクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">BuildingSurface:Detailed　床</div>
@@ -968,11 +1290,13 @@ BuildingSurface:Detailedクラスの作成方法は <a href="https://bigladderso
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.1.10. FenestrationSurface:Detailed</a></h4>
+<div class="sect2">
+<h3 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.10. FenestrationSurface:Detailed</a></h3>
 <div class="paragraph">
-<p>FenestrationSurface:Detailedクラスは、窓構成に関するパラメータを記述します。<br>
-FenestrationSurface:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>FenestrationSurface:Detailedクラスでは、窓構成に関するパラメータを入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed" class="external" target="_blank" rel="noopener">FenestrationSurface:Detailedクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">BuildingSurface:Detailed　窓（南1）</div>
@@ -1029,12 +1353,16 @@ FenestrationSurface:Detailedクラスの作成方法は <a href="https://bigladd
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_material_construction"><a class="link" href="#_material_construction">2.1.11. Material, Construction</a></h4>
+<div class="sect2">
+<h3 id="_material_construction"><a class="link" href="#_material_construction">2.11. Material, Construction</a></h3>
 <div class="paragraph">
-<p>Materialクラスで建材の熱物性値を定義し、Constructionクラスで建材構成を記述します。<br>
-Materialクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
-Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Materialクラスでは建材の熱物性値を定義し、Constructionクラスで建材構成を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">Materialクラスの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">Constructionクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Material　外壁</div>
@@ -1110,7 +1438,7 @@ Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/e
 </div>
 </div>
 <div class="paragraph">
-<p>【作業メモ】<br>
+<p>【補足】<br>
 断熱材（FIBERGLASS-1003mm）について、密度と比熱はプログラムが許容する最小値とすることとされている。
 比熱の最小値は　100 J/kg-K　と記載があったが、密度については記載が見つからなかった。<br>
 参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#field-specific-heat">比熱の最小値</a></p>
@@ -1172,11 +1500,13 @@ Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/e
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.1.12. WindowMaterial:Glazing</a></h4>
+<div class="sect2">
+<h3 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.12. WindowMaterial:Glazing</a></h3>
 <div class="paragraph">
-<p>WindowMaterial:Glazingクラスでガラスの熱物性値を定義し、Constructionクラスで窓構成を記述します。<br>
-WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>WindowMaterial:Glazingクラスでは、ガラスの熱物性値を定義して、Constructionクラスで窓構成を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialglazing" class="external" target="_blank" rel="noopener">WindowMaterial:Glazingクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">WindowMaterial:Glazing</div>
@@ -1213,15 +1543,325 @@ WindowMaterial:Glazingクラスの作成方法は <a href="https://bigladdersoft
     GlassType1;              !- Layer 3</pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_name_2"><a class="link" href="#_name_2">2.12.1. Name</a></h4>
+<div class="paragraph">
+<p>ガラスレイヤーの名称である。Window construtionのレイヤー入力時に使用される。</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.1.13. Schedule:Day:Hourly</a></h4>
+<h4 id="_optical_data_type"><a class="link" href="#_optical_data_type">2.12.2. Optical Data Type</a></h4>
 <div class="paragraph">
-<p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールの設定を行います。<br>
-Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>このフィールドの有効な値は、SpectralAverage、Spectral、SpectralAndAngle、及び、BSDF である。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SpectralAverage</p>
+<div class="ulist">
+<ul>
+<li>
+<p>太陽光の透過率と反射率に入力した値は太陽光スペクトル全体で平均化されていると見なされ、可視透過率と反射率に入力した値は太陽光スペクトル全体で平均化され、人間の目の反応によって重み付けされていると見なされる。
+さまざまな種類のガラスのスペクトル平均特性を含むEnergyPlusのリファレンスデータセットがある。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Spectral</p>
+<div class="ulist">
+<ul>
+<li>
+<p>次のフィールドに、WindowGlassSpectralDataオブジェクトで定義されたスペクトルデータセットの名前を入力する必要がある。
+この場合、以下のフィールドの太陽光と可視光の透過率と反射率の値は空白にする必要がある。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SpectralAndAngle</p>
+<div class="ulist">
+<ul>
+<li>
+<p>最後の3つのフィールドに、2つの独立変数を持つ曲線またはテーブルオブジェクトで定義されたスペクトル及び角度データセットの名前を入力する必要がある。
+この場合、Window Glassスペクトルデータセット名は空白である必要があり、以下のフィールドの太陽光及び可視光の透過率と反射率の値は空白である必要がある。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>BSDF</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Construction：ComplexFenestrationStateオブジェクトを使用してWindow constructioのレイヤーを定義する必要がある。
+Construction：ComplexFenestrationStateオブジェクトには、ComplexFenestrationレイヤーの光学プロパティを含むBSDFファイルへの参照が含まれている。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_window_glass_spectral_data_set_name"><a class="link" href="#_window_glass_spectral_data_set_name">2.12.3. Window Glass Spectral Data Set Name</a></h4>
+<div class="paragraph">
+<p>Optical Data Type = Spectralの場合、WindowGlassSpectralDataオブジェクトで定義されたスペクトルデータセットの名前を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_thickness"><a class="link" href="#_thickness">2.12.4. Thickness</a></h4>
+<div class="paragraph">
+<p>ガラスの厚さ [m]を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solar_transmittance_at_normal_incidence"><a class="link" href="#_solar_transmittance_at_normal_incidence">2.12.5. Solar Transmittance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化された法線面での透過率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_front_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_front_side_solar_reflectance_at_normal_incidence">2.12.6. Front Side Solar Reflectance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化された法線面・前面の反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_back_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_back_side_solar_reflectance_at_normal_incidence">2.12.7. Back Side Solar Reflectance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化された法線面・背面の反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_visible_transmittance_at_normal_incidence"><a class="link" href="#_visible_transmittance_at_normal_incidence">2.12.8. Visible Transmittance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面での可視光透過率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_front_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_front_side_visible_reflectance_at_normal_incidence">2.12.9. Front Side Visible Reflectance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面・前面の可視光反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_back_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_back_side_visible_reflectance_at_normal_incidence">2.12.10. Back Side Visible Reflectance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面・背面の可視光反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrared_transmittance_at_normal_incidence"><a class="link" href="#_infrared_transmittance_at_normal_incidence">2.12.11. Infrared Transmittance at Normal Incidence</a></h4>
+<div class="paragraph">
+<p>法線面での長波長透過率を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_front_side_infrared_hemispherical_emissivity"><a class="link" href="#_front_side_infrared_hemispherical_emissivity">2.12.12. Front Side Infrared Hemispherical Emissivity</a></h4>
+<div class="paragraph">
+<p>前面の放射率を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_back_side_infrared_hemispherical_emissivity"><a class="link" href="#_back_side_infrared_hemispherical_emissivity">2.12.13. Back Side Infrared Hemispherical Emissivity</a></h4>
+<div class="paragraph">
+<p>背面の放射率を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conductivity"><a class="link" href="#_conductivity">2.12.14. Conductivity</a></h4>
+<div class="paragraph">
+<p>熱伝導率 [W/mK]を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dirt_correction_factor_for_solar_and_visible_transmittance"><a class="link" href="#_dirt_correction_factor_for_solar_and_visible_transmittance">2.12.15. Dirt Correction Factor for Solar and Visible Transmittance</a></h4>
+<div class="paragraph">
+<p>ガラスの汚れの影響を補正する係数を入力する。材料が外部の窓またはガラスドアの外側のガラス層として使用されている場合、プログラムは「法線面での太陽透過率」及び「法線面での可視光透過率」のフィールドにこの係数を掛ける。
+材料が内側のガラス層として使用されている場合（二層ガラスなど）では、内側のガラス層はきれいであると想定されているため、汚れ補正係数は適用されない。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_solar_diffusing"><a class="link" href="#_solar_diffusing">2.12.16. Solar Diffusing</a></h4>
+<div class="paragraph">
+<p>No（デフォルト）及びYesの値を取る。
+Noの場合、ガラスは透明であり、ガラスに入射する直達日射は拡散成分のない直達放射として透過する。
+Yesの場合、ガラスは半透明で、ガラスに入射する直達日射は直達成分のない半球拡散放射として透過する。
+このオプションは、外部窓の最も内側のレイヤーでのみ使用する必要がある。</p>
 </div>
 <div class="paragraph">
-<p>これらのフィールドには、1日24時間の各時間帯の値が格納されます。<br>
+<p>Buildingオブジェクトで、Solar Distribution = FullInteriorAndExteriorの場合、外部窓のガラスにSolar Diffusing = Yesを使用すると、その窓からの室内における日射分配が変化する。
+その結果、透明な窓を透過して特定の内表面に吸収される直達日射は、半透明の窓によって拡散され、より多くの内表面に拡散される。これにより、ゾーン内の冷暖房負荷の時間依存性が変わる可能性がある。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_windowmaterialsimpleglazingsystem"><a class="link" href="#_windowmaterialsimpleglazingsystem">2.13. WindowMaterial:SimpleGlazingSystem</a></h3>
+<div class="paragraph">
+<p>この入力オブジェクトは、個々のレイヤーではなく窓システム全体を記述するという点で、他のWindowMaterialオブジェクトとは異なる。</p>
+</div>
+<div class="paragraph">
+<p>このオブジェクトは、窓の各層に関する情報が非常に限られている場合、または特定のパフォーマンスレベルを対象としている場合に使用される。
+このオブジェクトは、単純な性能指標を、より完全な窓システムモデルに変換する。
+性能指標は、UファクターとSHGC、及びオプションで可視光透過率を入力する。これらの値は、グレージングのみの窓（フレームなし）、または、フレームを含む平均窓性能のいずれかを表すためにユーザーが選択できる。
+プログラム内で、モデルはフレームのない同等の窓ガラス層を生成する。</p>
+</div>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#simple-window-model">Simple Window Model</a></p>
+</div>
+<div class="paragraph">
+<p>ユーザーが定義した法線面の透過率、反射率に基づいてガラスの入射角特性を計算するモデルを用いている。</p>
+</div>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#calculation-of-angular-properties">Engineering Manual</a></p>
+</div>
+<div class="sect3">
+<h4 id="_補足窓の入力方法について"><a class="link" href="#_補足窓の入力方法について">2.13.1. （補足）窓の入力方法について</a></h4>
+<div class="paragraph">
+<p>窓システムの入力方法には、次の2つがある。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>レイヤー1つ1つの特性を定義していく方法（WindowMaterial:Glazing）</p>
+</li>
+<li>
+<p>窓システム全体の特性を一括して定義する方法（WindowMaterial:SimpleGlazingSystem）</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materials-for-glass-windows-and-doors">Input Output Reference</a><br>
+参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#window-calculation-module">Engineering Reference</a></p>
+</div>
+<div class="paragraph">
+<p>後者は近似的な方法のため基本的には前者が推奨されているが、通常はガラス1枚ずつの特性までメーカから取り寄せることはしないため、実務上は後者の方が用いやすいと言える。</p>
+</div>
+<div class="paragraph">
+<p>前者を用いる場合、細かな入力を行えるというメリットがあるが、ASHRAE Standard 140では法線入射時の反射率が指定されておらず（<a href="https://www.shimadzu.co.jp/products/opt/guide4/02.html">フレネルの式</a>を用いると0.04336）、
+また単板ガラスとしての入射角特性も指定されていない。
+後者を用いる場合、U値とSHGCという窓システムを代表する特性のみを指定すれば良いというメリットがある一方、細かな入射角特性等は指定できない。</p>
+</div>
+<div class="paragraph">
+<p>ASHRAE Standard 140:2017のTable 5-7で指定されている入射角特性は２枚のガラスを合わせた窓システムとしての特性であることから、
+本Standardでは、WindowMaterial:Glazingで使用するようなガラス１枚の入射角特性を指定することは想定していないと考えられる。</p>
+</div>
+<div class="paragraph">
+<p>よって、法線入射時の特性値のみを用いて、それぞれで計算した結果を比較する（サンプルコードを末尾に記載）。参考として、Design Builderで選択可能なAGC特性を用いた結果も併記する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. Difference in heating/cooling load between window models</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">窓モデル</th>
+<th class="tableblock halign-left valign-top">暖房積算 [MWh]</th>
+<th class="tableblock halign-left valign-top">冷房積算 [MWh]</th>
+<th class="tableblock halign-left valign-top">暖房ピーク [kW]</th>
+<th class="tableblock halign-left valign-top">冷房ピーク [kW]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WindowMaterial:SimpleGlazingSystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2887</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.1843</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.8261</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.8529</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WindowMaterial:Glazing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2329</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.2764</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7777</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.9069</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WindowMaterial:Glazing with AGC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2563</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.9803</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7777</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.7026</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>表に示すように無視できない程度の差があることが分かる。</p>
+</div>
+<div class="listingblock">
+<div class="title">WindowMaterial:SimpleGlazingSystem</div>
+<div class="content">
+<pre class="highlight"><code>!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
+
+WindowMaterial:SimpleGlazingSystem,
+    10002,                   !- Name
+    3,                       !- U-Factor {W/m2-K}
+    0.789;                   !- Solar Heat Gain Coefficient
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    1003,                    !- Name
+    10002;                   !- Outside Layer</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">WindowMaterial:Glazing</div>
+<div class="content">
+<pre class="highlight"><code>!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
+
+WindowMaterial:Glazing,
+    10001,                   !- Name
+    SpectralAverage,         !- Optical Data Type
+    ,                        !- Window Glass Spectral Data Set Name
+    0.003175,                !- Thickness {m}
+    0.86156,                 !- Solar Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Solar Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Solar Reflectance at Normal Incidence
+    0.86156,                 !- Visible Transmittance at Normal Incidence
+    0.04336,                 !- Front Side Visible Reflectance at Normal Incidence
+    0.04336,                 !- Back Side Visible Reflectance at Normal Incidence
+    0,                       !- Infrared Transmittance at Normal Incidence
+    0.84,                    !- Front Side Infrared Hemispherical Emissivity
+    0.84,                    !- Back Side Infrared Hemispherical Emissivity
+    1.06,                    !- Conductivity {W/m-K}
+    1;                       !- Dirt Correction Factor for Solar and Visible Transmittance
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GAS ===========
+
+WindowMaterial:Gas,
+    1002,                    !- Name
+    Air,                     !- Gas Type
+    0.013;                   !- Thickness {m}
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    1002,                    !- Name
+    10001,                   !- Outside Layer
+    1002,                    !- Layer 2
+    10001;                   !- Layer 3</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.14. Schedule:Day:Hourly</a></h3>
+<div class="paragraph">
+<p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールを入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduledayhourly" class="external" target="_blank" rel="noopener">Schedule:Day:Hourlyクラスの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>これらのフィールドには、1日24時間の各時間帯の値が格納される。<br>
 （時間フィールド1は 00:00:01 AM から 1:00:00 AM、時間フィールド2は 1:00:01 AM から 2:00:00 AM）</p>
 </div>
 <div class="listingblock">
@@ -1353,11 +1993,13 @@ Schedule:Day:Hourlyクラスの作成方法は <a href="https://bigladdersoftwar
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.1.14. Schedule:Week:Daily</a></h4>
+<div class="sect2">
+<h3 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.15. Schedule:Week:Daily</a></h3>
 <div class="paragraph">
-<p>Schedule:Week:Dailyクラスでは、曜日別のスケジュールの設定を行います。<br>
-Schedule:Week:Dailyクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Schedule:Week:Dailyクラスでは、曜日別のスケジュールを入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleweekdaily" class="external" target="_blank" rel="noopener">Schedule:Week:Dailyクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Schedule:Week:Daily　すきま風　</div>
@@ -1436,11 +2078,13 @@ Schedule:Week:Dailyクラスの作成方法は <a href="https://bigladdersoftwar
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.1.15. Schedule:Year</a></h4>
+<div class="sect2">
+<h3 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.16. Schedule:Year</a></h3>
 <div class="paragraph">
-<p>Schedule:Yearクラスでは、年間スケジュールの設定を行います。<br>
-Schedule:Yearクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Schedule:Yearクラスでは、年間スケジュールを入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduleyear" class="external" target="_blank" rel="noopener">Schedule:Yearクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Schedule:Year　すきま風　</div>
@@ -1495,11 +2139,13 @@ Schedule:Yearクラスの作成方法は <a href="https://bigladdersoftware.com/
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.1.16. ZoneInfiltration:DesignFlowRate</a></h4>
+<div class="sect2">
+<h3 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.17. ZoneInfiltration:DesignFlowRate</a></h3>
 <div class="paragraph">
-<p>ZoneInfiltration:DesignFlowRateクラスでは、すきま風の設定を行います。<br>
-ZoneInfiltration:DesignFlowRateクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>ZoneInfiltration:DesignFlowRateクラスでは、すきま風に関する設定を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-airflow.html#zoneinfiltrationdesignflowrate" class="external" target="_blank" rel="noopener">ZoneInfiltration:DesignFlowRateクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">すきま風　</div>
@@ -1520,11 +2166,13 @@ ZoneInfiltration:DesignFlowRateクラスの作成方法は <a href="https://bigl
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_otherequipment"><a class="link" href="#_otherequipment">2.1.17. OtherEquipment</a></h4>
+<div class="sect2">
+<h3 id="_otherequipment"><a class="link" href="#_otherequipment">2.18. OtherEquipment</a></h3>
 <div class="paragraph">
-<p>OtherEquipmentクラスでは、内部発熱の設定を行います。<br>
-OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>OtherEquipmentクラスでは、内部発熱に関する設定を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-internal-gains-people-lights-other.html#otherequipment" class="external" target="_blank" rel="noopener">OtherEquipmentクラスの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">OtherEquipment</div>
@@ -1546,11 +2194,13 @@ OtherEquipmentクラスの作成方法は <a href="https://bigladdersoftware.com
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.1.18. ZoneControl:Thermostat</a></h4>
+<div class="sect2">
+<h3 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.19. ZoneControl:Thermostat</a></h3>
 <div class="paragraph">
-<p>ZoneControl:Thermostatクラスは、ゾーンを指定された温度に制御するために使用されます。<br>
-ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照します。</p>
+<p>ZoneControl:Thermostatクラスでは、ゾーンを指定された温度に制御する方法について入力する。</p>
+</div>
+<div class="paragraph">
+<p>ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブジェクトを参照し、これらは1つ以上の設定値スケジュールを参照する。</p>
 </div>
 <div class="listingblock">
 <div class="title">ZoneControl:Thermostat　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
@@ -1563,32 +2213,23 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
     Heating Cooling Setpoints;        !- Control 1 Name</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_name"><a class="link" href="#_name">2.1.18.1. Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>任意の名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_name_3"><a class="link" href="#_name_3">2.19.1. Name</a></h4>
+<div class="paragraph">
+<p>任意の名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.1.18.2. Zone or ZoneList Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>対象とするゾーンもしくはゾーンリストの名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.19.2. Zone or ZoneList Name</a></h4>
+<div class="paragraph">
+<p>対象とするゾーンもしくはゾーンリストの名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.1.18.3. Control Type Schedule Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>別途定義した制御スケジュール名を入力します。 制御スケジュールには、シミュレーション中に使用される制御タイプ番号を指定します。有効な制御タイプ番号は次のとおりです。</p>
+<div class="sect3">
+<h4 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.19.3. Control Type Schedule Name</a></h4>
+<div class="paragraph">
+<p>別途定義した制御スケジュール名を入力する。 制御スケジュールには、シミュレーション中に使用される制御タイプ番号を指定する。有効な制御タイプ番号は次のとおりである。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1608,19 +2249,15 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>例えば、ZoneControl:Thermostatから参照されるスケジュールが、特定の時間帯に制御タイプが4である場合、その時間帯に「不感帯のある室温設定値（暖房と冷房）」制御が使用されることを示しています。</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>例えば、ZoneControl:Thermostatから参照されるスケジュールが、特定の時間帯に制御タイプが4である場合、その時間帯に「不感帯のある室温設定値（暖房と冷房）」制御が使用されることを示している。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.1.18.4. Control 1 Object Type</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>コントロールタイプの種類を次の4つの選択肢から選択します。</p>
+<div class="sect3">
+<h4 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.19.4. Control 1 Object Type</a></h4>
+<div class="paragraph">
+<p>コントロールタイプの種類を次の4つの選択肢から選択する。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1637,28 +2274,24 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
-<p>Case 600 では　ThermostatSetpoint:DualSetpoint　を選択します。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_control_1_name"><a class="link" href="#_control_1_name">2.1.18.5. Control 1 Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>別途定義したコントロールタイプの名称を入力します。</p>
-</li>
-</ul>
-</div>
+<p>Case 600 では　ThermostatSetpoint:DualSetpoint　を選択する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.1.19. ThermostatSetpoint:DualSetpoint</a></h4>
+<h4 id="_control_1_name"><a class="link" href="#_control_1_name">2.19.5. Control 1 Name</a></h4>
+<div class="paragraph">
+<p>別途定義したコントロールタイプの名称を入力する。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.20. ThermostatSetpoint:DualSetpoint</a></h3>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">ThermostatSetpoint:DualSetpointの作成方法</a></p>
+</div>
 <div class="listingblock">
-<div class="title">ThermostatSetpoint:DualSetpoint　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ThermostatSetpoint:DualSetpoint　[&lt;bigladder&gt;, role="external", window="_blank"]</div>
 <div class="content">
 <pre>ThermostatSetpoint:DualSetpoint,
     Heating Cooling Setpoints,  !- Name
@@ -1666,46 +2299,37 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
     Cooling Setpoints;          !- Cooling Setpoint Temperature Schedule Name</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_name_2"><a class="link" href="#_name_2">2.1.19.1. Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>任意の名称を入力します。</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.1.19.2. Heating Setpoint Temperature Schedule Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>暖房運転時設定温度のスケジュール名称を入力します。</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.1.19.3. Cooling Setpoint Temperature Schedule Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>冷房運転時設定温度のスケジュール名称を入力します。</p>
-</li>
-</ul>
-</div>
+<div class="sect3">
+<h4 id="_name_4"><a class="link" href="#_name_4">2.20.1. Name</a></h4>
+<div class="paragraph">
+<p>任意の名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.1.20. ZoneHVAC:IdealLoadsAirSystem</a></h4>
+<h4 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.20.2. Heating Setpoint Temperature Schedule Name</a></h4>
 <div class="paragraph">
-<p>ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができます。
-ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用されます。
-設定が必要なのは、ゾーン制御、ゾーン機器構成、および理想的な負荷システムコンポーネントだけです。</p>
+<p>暖房運転時設定温度のスケジュール名称を入力する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.20.3. Cooling Setpoint Temperature Schedule Name</a></h4>
+<div class="paragraph">
+<p>冷房運転時設定温度のスケジュール名称を入力する。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.21. ZoneHVAC:IdealLoadsAirSystem</a></h3>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">ZoneHVAC:IdealLoadsAirSystemの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができる。
+ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用される。
+設定が必要なのは、ゾーン制御、ゾーン機器構成、及び理想的な負荷システムコンポーネントだけである。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:IdealLoadsAirSystem　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:IdealLoadsAirSystem</div>
 <div class="content">
 <pre>ZoneHVAC:IdealLoadsAirSystem,
     Zone1Air,                !- Name
@@ -1737,75 +2361,47 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_name_3"><a class="link" href="#_name_3">2.1.20.1. Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>任意の名称を入力します。</p>
-</li>
-<li>
-<p>この名称は　ZoneHVAC:EquipmentList から参照されます。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_name_5"><a class="link" href="#_name_5">2.21.1. Name</a></h4>
+<div class="paragraph">
+<p>任意の名称を入力する。この名称は　ZoneHVAC:EquipmentList から参照される。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.1.20.2. Zone Supply Air Node Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気ノードの名称を入力します。これは、本コンポーネントがサービスを提供するゾーンのゾーン給気ノードの1つと同じでなければなりません。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.21.2. Zone Supply Air Node Name</a></h4>
+<div class="paragraph">
+<p>給気ノードの名称を入力する。これは、本コンポーネントがサービスを提供するゾーンのゾーン給気ノードの1つと同じでなければならない。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_maximum_heating_supply_air_temperature_c"><a class="link" href="#_maximum_heating_supply_air_temperature_c">2.1.20.3. Maximum Heating Supply Air Temperature {C}</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気温度の最大値を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_maximum_heating_supply_air_temperature_oc"><a class="link" href="#_maximum_heating_supply_air_temperature_oc">2.21.3. Maximum Heating Supply Air Temperature {<sup>o</sup>C}</a></h4>
+<div class="paragraph">
+<p>給気温度の最大値を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_minimum_cooling_supply_air_temperature_c"><a class="link" href="#_minimum_cooling_supply_air_temperature_c">2.1.20.4. Minimum Cooling Supply Air Temperature {C}</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気温度の最小値を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_minimum_cooling_supply_air_temperature_oc"><a class="link" href="#_minimum_cooling_supply_air_temperature_oc">2.21.4. Minimum Cooling Supply Air Temperature {<sup>o</sup>C}</a></h4>
+<div class="paragraph">
+<p>給気温度の最小値を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.1.20.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気湿度の最大値を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.21.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
+<div class="paragraph">
+<p>給気湿度の最大値を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.1.20.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気湿度の最小値を入力します。選択肢は以下の4つです。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.21.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
+<div class="paragraph">
+<p>給気湿度の最小値を入力する。選択肢は以下の4つである。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.1.20.7. Dehumidification Control Type</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>除湿の制御方式を選択します。選択肢は以下の4つです。</p>
+<div class="sect3">
+<h4 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.21.7. Dehumidification Control Type</a></h4>
+<div class="paragraph">
+<p>除湿の制御方式を選択する。選択肢は以下の4つである。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1822,16 +2418,12 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
+<div class="sect3">
+<h4 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.21.8. Humidification Control Type</a></h4>
+<div class="paragraph">
+<p>加湿の制御方式を選択する。選択肢は以下の3つである。</p>
 </div>
-<div class="sect4">
-<h5 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.1.20.8. Humidification Control Type</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>加湿の制御方式を選択します。選択肢は以下の3つです。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1845,21 +2437,21 @@ ZoneControl:Thermostatは、制御スケジュールと1つ以上の制御オブ
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.1.21. ZoneHVAC:EquipmentList</a></h4>
+<div class="sect2">
+<h3 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.22. ZoneHVAC:EquipmentList</a></h3>
 <div class="paragraph">
-<p>このクラスには、ゾーンにサービスを提供するすべてのHVAC機器を登録し、それぞれの起動の優先順位を定義します。
-リストの各項目には、4つのフィールドが関連付けられています。
-Object TypeとNameは、特定の機器オブジェクトを識別します。
-Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器があるゾーンのシミュレーションの順番を指定します。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">ZoneHVAC:EquipmentListの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>このクラスには、ゾーンにサービスを提供する全てのHVAC機器を登録し、それぞれの起動の優先順位を定義する。
+リストの各項目には、4つのフィールドが関連付けられている。
+Object TypeとNameは、特定の機器オブジェクトを識別する。
+Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器があるゾーンのシミュレーションの順番を指定する。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:EquipmentList　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:EquipmentList</div>
 <div class="content">
 <pre>ZoneHVAC:EquipmentList,
     Zone1Equipment,          !- Name
@@ -1872,41 +2464,32 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
     ;                        !- Zone Equipment 1 Sequential Heating Fraction Schedule Name</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.1.21.1. Zone Equipment 1 Object Type</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>ゾーンに設置されたHVAC機器の名称（ZoneHVAC:IdealLoadsAirSystem）を指定します。</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.1.21.2. Zone Equipment 1 Cooling Sequence</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>ゾーンサーモスタットが冷房を要求する際の、ゾーン機器のシミュレーション順序を指定します。</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.1.21.3. Zone Equipment 1 Heating or No-Load Sequence</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>ゾーンサーモスタットが暖房を要求した場合、もしくは負荷がない場合のゾーン機器のシミュレーション順序を指定します。</p>
-</li>
-</ul>
-</div>
+<div class="sect3">
+<h4 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.22.1. Zone Equipment 1 Object Type</a></h4>
+<div class="paragraph">
+<p>ゾーンに設置されたHVAC機器の名称（ZoneHVAC:IdealLoadsAirSystem）を指定する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_nodelist"><a class="link" href="#_nodelist">2.1.22. NodeList</a></h4>
+<h4 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.22.2. Zone Equipment 1 Cooling Sequence</a></h4>
+<div class="paragraph">
+<p>ゾーンサーモスタットが冷房を要求する際の、ゾーン機器のシミュレーション順序を指定する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.22.3. Zone Equipment 1 Heating or No-Load Sequence</a></h4>
+<div class="paragraph">
+<p>ゾーンサーモスタットが暖房を要求した場合、もしくは負荷がない場合のゾーン機器のシミュレーション順序を指定する。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nodelist"><a class="link" href="#_nodelist">2.23. NodeList</a></h3>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">NodeListの作成方法</a></p>
+</div>
 <div class="listingblock">
-<div class="title">NodeList　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">NodeList　[&lt;bigladder&gt;, role="external", window="_blank"]</div>
 <div class="content">
 <pre>NodeList,
     Zone1Inlets,             !- Name
@@ -1914,20 +2497,23 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.1.23. ZoneHVAC:EquipmentConnections</a></h4>
+<div class="sect2">
+<h3 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.24. ZoneHVAC:EquipmentConnections</a></h3>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">ZoneHVAC:EquipmentConnectionsの作成方法</a></p>
+</div>
 <div class="paragraph">
 <p>ZoneHVAC:EquipmentConnectionsステートメントは、HVACの観点から各サーマルゾーンの詳細を定義する。
-他のステートメントと同様に、このクラスの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクします。
+他のステートメントと同様に、このクラスの最初の2つの項目は、キーワードと識別名で、ゾーンをその幾何学的入力、内部利得など、入力のHVACセクションの他のステートメントにリンクする。
 次の3つの項目は、以下に詳述するリスト（機器、吸気ノード、排気ノード）の名前である。
 ゾーンからの排気ノードがない場合、このフィールドは空白になることに注意してください。
-また、エアインレットノードがない場合、このフィールドは空白になります。
-最後に、ゾーン-HVACの記述を完成させるために、2つのノード名が必要です。
+また、エアインレットノードがない場合、このフィールドは空白になりる。
+最後に、ゾーン-HVACの記述を完成させるために、2つのノード名が必要である。
 1つ目のノードは、空気のヒートバランスを実行するゾーンのメイン空気ノードである。
 もう1つのノードは、ゾーンからの戻り空気の経路である。</p>
 </div>
 <div class="listingblock">
-<div class="title">ZoneHVAC:EquipmentConnections　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></div>
+<div class="title">ZoneHVAC:EquipmentConnections</div>
 <div class="content">
 <pre>ZoneHVAC:EquipmentConnections,
     Zone1,                   !- Zone Name
@@ -1938,88 +2524,262 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
     NODE_3;                  !- Zone Return Air Node or NodeList Name</pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.1.23.1. Zone Name（required）</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>ゾーン名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.24.1. Zone Name（required）</a></h4>
+<div class="paragraph">
+<p>ゾーン名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.1.23.2. Zone Conditioning Equipment List Name（required）</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>「ZoneHVAC:EquipmentList」で定義した名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.24.2. Zone Conditioning Equipment List Name（required）</a></h4>
+<div class="paragraph">
+<p>「ZoneHVAC:EquipmentList」で定義した名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.1.23.3. Zone Air Inlet Node or NodeList Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>給気に関するノード名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.24.3. Zone Air Inlet Node or NodeList Name</a></h4>
+<div class="paragraph">
+<p>給気に関するノード名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.1.23.4. Zone Air Exhaust Node or NodeList Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>排気に関するノード名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.24.4. Zone Air Exhaust Node or NodeList Name</a></h4>
+<div class="paragraph">
+<p>排気に関するノード名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.1.23.5. Zone Air Node Name（required）</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>ゾーン空気に関するノード名称を入力します。</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.24.5. Zone Air Node Name（required）</a></h4>
+<div class="paragraph">
+<p>ゾーン空気に関するノード名称を入力する。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.1.23.6. Zone Return Air Node or NodeList Name</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>還気に関するノード名称を入力します。</p>
-</li>
-</ul>
-</div>
-<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.24.6. Zone Return Air Node or NodeList Name</a></h4>
+<div class="paragraph">
+<p>還気に関するノード名称を入力する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case610"><a class="link" href="#_case610">2.2. Case610</a></h3>
+<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.25. Output:Variable</a></h3>
+<div class="sect3">
+<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.25.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
 <div class="paragraph">
-<p>南面に水平庇を設置します。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_熱負荷単室基本テスト"><a class="link" href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_case_600"><a class="link" href="#_case_600">3.1. Case 600</a></h3>
+<div class="paragraph">
+<p>Case600について、2人のユーザが作成したIDFファイルを比較し、計算結果の差に影響を与えている入力パラメータを特定した。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 4. 2つのモデルの主な違い</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Item</th>
+<th class="tableblock halign-left valign-top">model-1</th>
+<th class="tableblock halign-left valign-top">model-2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terrain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suburbs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solar Distribution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FullInteriorAndExterior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FullExterior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reflectance of glazing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.07846</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.04336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shading Calculation Update Frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Properties of floor insulation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 kg/m<sup>3</sup>, 100 J/kgK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 kg/m<sup>3</sup>, 200 J/kgK</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>model-2の入力についてTable 1の違いを解消して計算を行ったところ、Table 2に示す通り、model-1及びAS140 modelとほぼ同様の結果が得られることを確認した。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 5. オリジナル（Case600 ono）とTable 1の違いを解消した修正版(Case600 ono_rev)のOno modelの計算結果の比較</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Item</th>
+<th class="tableblock halign-left valign-top">Unit</th>
+<th class="tableblock halign-left valign-top">Case600 model-2</th>
+<th class="tableblock halign-left valign-top">Case600 model-2 rev</th>
+<th class="tableblock halign-left valign-top">Case600 model-1</th>
+<th class="tableblock halign-left valign-top">Case600 AS140</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間の暖房負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.388</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.387</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.388</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間の冷房負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.980</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.745</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.745</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.747</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最大暖房負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.778</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.752</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.752</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.752</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最大冷房負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.703</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.569</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.569</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.570</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算日射量（全天）北</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">431</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">432</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">432</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">432</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算日射量（全天）東</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1179</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1179</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1179</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1179</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算日射量（全天）西</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1040</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1041</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1041</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1041</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算日射量（全天）南</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1547</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1545</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1545</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1545</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算日射量（全天）水平</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1842</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1840</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1840</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1840</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間積算透過日射量（全天、庇なし）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">981</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">980</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">980</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">980</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">窓の日射透過係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.634</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.635</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.635</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.635</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>段階的に修正して計算を行った結果、日射量の違いにはShading Calculation Update Frequencyが影響していたことが分かった。
+デフォルトは20日であるが、プログラムのテストを行うという主旨からすれば、より細かい1日が適切と考えられる。</p>
+</div>
+<div class="paragraph">
+<p>この入力の詳細については以下のリンクを参照。<br>
+<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-simulation-parameters.html#shadowcalculation">ShadowCalculation</a></p>
+</div>
+<div class="paragraph">
+<p>なお、床断熱材の熱物性値についてもそこそこのインパクトがあった。本来であればAS140本文で厳密に指定しておくべきではないかと考えられる。</p>
+</div>
+<div class="paragraph">
+<p>窓ガラスの反射率の入力方法については不明点が残っている。AS140では直接的に反射率の値を指定していない。model-2 では屈折率をもとにフレネルの式から算出した。</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_case610"><a class="link" href="#_case610">3.2. Case610</a></h3>
+<div class="paragraph">
+<p>南面に水平庇を設置する。</p>
 </div>
 <div class="sect3">
-<h4 id="_shadingzonedetailed"><a class="link" href="#_shadingzonedetailed">2.2.1. Shading:Zone:Detailed</a></h4>
+<h4 id="_shadingzonedetailed"><a class="link" href="#_shadingzonedetailed">3.2.1. Shading:Zone:Detailed</a></h4>
 <div class="paragraph">
-<p>Shading:Zone:Detailedクラスは、庇に関するパラメータを記述します。<br>
-Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#shadingzonedetailed-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>Shading:Zone:Detailedクラスは、庇に関するパラメータを記述する。</p>
 </div>
 <div class="paragraph">
-<p>このオブジェクトは、ベースサーフェスから外側に突き出たオーバーハング、ウィング、フィンなどの取り付けられた「サブサーフェス」を表すために使用されます。この分類は便宜上のものであり、実際には、このタイプのデバイスは、取り付けられている表面だけでなく、隣接する表面にも影を落とすことがある。例えば、フィンはその親となる壁や隣接する壁に影を落とすことがある。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#shadingzonedetailed-000" class="external" target="_blank" rel="noopener">Shading:Zone:Detailedクラスの作成方法</a></p>
 </div>
 <div class="paragraph">
-<p>なお、ゾーンサーフェスは他のゾーンサーフェスに影を落とすことができます。しかし、EnergyPlusはこのような "セルフシャドウイング "を自動的にチェックし、適切な計算を行うので、例えばL字型の建物の一方の壁が他方の壁に影を落とすような効果を心配する必要はありません。</p>
+<p>このオブジェクトは、ベースサーフェスから外側に突き出たオーバーハング、ウィング、フィンなどの取り付けられた「サブサーフェス」を表すために使用される。
+この分類は便宜上のものであり、実際には、このタイプのデバイスは取り付けられている表面だけでなく、隣接する表面にも影を落とすことがある。
+例えば、フィンはその親となる壁や隣接する壁に影を落とすことがある。</p>
 </div>
 <div class="paragraph">
-<p>貼り付けられた（または切り離された）陰影面とは異なり、建築物の表面は、それが向いている半球にしか影を落とすことができません。つまり、例えば上向きの屋根は下向きの影を落とすことはありません（したがって、オーバーハングによる影の影響を考慮して、大きめの屋根を指定しても効果はありません）。内部の表面は、いかなる種類の影も落としません。</p>
+<p>なお、ゾーンサーフェスは他のゾーンサーフェスに影を落とすことができる。
+EnergyPlusはこのような "セルフシャドウイング "を自動的にチェックし、適切な計算を行うため、
+例えばL字型の建物の一方の壁が他方の壁に影を落とすような効果を心配する必要はありません。</p>
+</div>
+<div class="paragraph">
+<p>貼り付けられた（または切り離された）陰影面とは異なり、建築物の表面はそれが向いている半球にしか影を落とすことができません。
+つまり、例えば上向きの屋根は下向きの影を落とすことはありません
+（したがって、オーバーハングによる影の影響を考慮して、大きめの屋根を指定しても効果はありません）。
+内部の表面は、いかなる種類の影も落としません。</p>
 </div>
 <div class="listingblock">
 <div class="title">Shading:Zone:Detailed</div>
@@ -2044,29 +2804,31 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 </div>
 </div>
 <div class="sect4">
-<h5 id="_base_surface_name"><a class="link" href="#_base_surface_name">2.2.1.1. Base Surface Name</a></h5>
+<h5 id="_base_surface_name"><a class="link" href="#_base_surface_name">3.2.1.1. Base Surface Name</a></h5>
 <div class="paragraph">
-<p>これは、この庇等が設置されている面の名前です。この面は、壁（または屋根）であるとし、窓やドアは指定できない。</p>
+<p>この庇等が設置されている面の名前を入力する。この面は、壁（または屋根）であるとし、窓やドアは指定できない。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_transmittance_schedule_name"><a class="link" href="#_transmittance_schedule_name">2.2.1.2. Transmittance Schedule Name</a></h5>
+<h5 id="_transmittance_schedule_name"><a class="link" href="#_transmittance_schedule_name">3.2.1.2. Transmittance Schedule Name</a></h5>
 <div class="paragraph">
-<p>遮光面の日射透過率を0.0から1.0までの範囲で設定したスケジュールの名前です。
-このフィールドに空白を入力すると、透過率の値はデフォルトで0.0になり、遮光面は常に不透明になります。
-このスケジューリングは、夏よりも冬の方が透過率が高い落葉樹など、季節による透過率の変化を考慮して使用することができます。
-また、時間帯による透過率の変化を利用することもできます。
+<p>遮光面の日射透過率を0.0から1.0までの範囲で設定したスケジュールの名前を入力する。</p>
+</div>
+<div class="paragraph">
+<p>このフィールドに空白を入力すると、透過率の値はデフォルトで0.0になり、遮光面は常に不透明になる。
+このスケジューリングは、夏よりも冬の方が透過率が高い落葉樹など、季節による透過率の変化を考慮する際に使用できる。
+また、時間帯による透過率の変化を利用することもできる。
 例えば、可動式のオーニングの場合、オーニングが設置されているときには透過率が1.0より小さい値となり、
-オーニングが格納されているときには1.0となります。</p>
+オーニングが格納されているときには1.0となる。</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case650"><a class="link" href="#_case650">2.3. Case650</a></h3>
+<h3 id="_case650"><a class="link" href="#_case650">3.3. Case650</a></h3>
 <div class="paragraph">
-<p>基準ケース Case600 から暖房運転をなしとし、以下のように夜間換気を行う条件で熱負荷シミュレーションを行う。</p>
+<p>基準ケース Case600 から暖房運転を無効とし、次のように夜間換気を行う条件で熱負荷シミュレーションを行う。</p>
 </div>
 <div class="paragraph">
 <p>冷房 18:00～07:00 停止<br>
@@ -2080,9 +2842,9 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 ファン発熱による影響は考慮しない。<br></p>
 </div>
 <div class="sect3">
-<h4 id="_zonecontrolthermostat_2"><a class="link" href="#_zonecontrolthermostat_2">2.3.1. ZoneControl:Thermostat</a></h4>
+<h4 id="_zonecontrolthermostat_2"><a class="link" href="#_zonecontrolthermostat_2">3.3.1. ZoneControl:Thermostat</a></h4>
 <div class="paragraph">
-<p>解説は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a>。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat" class="external" target="_blank" rel="noopener">ZoneControl:Thermostatの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">ZoneControl:Thermostat　</div>
@@ -2096,11 +2858,10 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 </div>
 </div>
 <div class="sect4">
-<h5 id="_control_1_object_type_2"><a class="link" href="#_control_1_object_type_2">2.3.1.1. Control 1 Object Type</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>コントロールタイプの種類を次の4つの選択肢から選択します。</p>
+<h5 id="_control_1_object_type_2"><a class="link" href="#_control_1_object_type_2">3.3.1.1. Control 1 Object Type</a></h5>
+<div class="paragraph">
+<p>コントロールタイプの種類を次の4つの選択肢から選択する。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2117,18 +2878,15 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>今回は、ThermostatSetpoint:SingleCooling　を選択します。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_thermostatsetpointsinglecooling"><a class="link" href="#_thermostatsetpointsinglecooling">2.3.2. ThermostatSetpoint:SingleCooling</a></h4>
+<h4 id="_thermostatsetpointsinglecooling"><a class="link" href="#_thermostatsetpointsinglecooling">3.3.2. ThermostatSetpoint:SingleCooling</a></h4>
 <div class="paragraph">
-<p>解説は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a>。</p>
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling" class="external" target="_blank" rel="noopener">ThermostatSetpoint:SingleCoolingの作成方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">ThermostatSetpoint:SingleCooling</div>
@@ -2140,7 +2898,7 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scheduledayhourly_2"><a class="link" href="#_scheduledayhourly_2">2.3.3. Schedule:Day:Hourly</a></h4>
+<h4 id="_scheduledayhourly_2"><a class="link" href="#_scheduledayhourly_2">3.3.3. Schedule:Day:Hourly</a></h4>
 <div class="paragraph">
 <p>室温制御方法について、Case 600は 4 であったが、Case650では 2 に変更する。
 そして、冷房設定温度について、夜間に空調が動かないように設定温度を 99度　に変更する。</p>
@@ -2246,7 +3004,7 @@ Shading:Zone:Detailedクラスの作成方法は <a href="https://bigladdersoftw
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zoneinfiltrationdesignflowrate_2"><a class="link" href="#_zoneinfiltrationdesignflowrate_2">2.3.4. ZoneInfiltration:DesignFlowRate</a></h4>
+<h4 id="_zoneinfiltrationdesignflowrate_2"><a class="link" href="#_zoneinfiltrationdesignflowrate_2">3.3.4. ZoneInfiltration:DesignFlowRate</a></h4>
 <div class="paragraph">
 <p>Design Flow Rateを、すきま風（ 0.018 m3/s ）と換気風量（ 0.4731 m3/s ）の合計値 0.4911 に変更する。
 Schedule Name を Sch 2 に変更する。</p>
@@ -2343,16 +3101,14 @@ Schedule Name を Sch 2 に変更する。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900"><a class="link" href="#_case900">2.4. Case900</a></h3>
+<h3 id="_case900"><a class="link" href="#_case900">3.4. Case900</a></h3>
 <div class="paragraph">
 <p>基準ケース Case600 シリーズ から 壁体の熱容量を変更する。</p>
 </div>
 <div class="sect3">
-<h4 id="_material_construction_2"><a class="link" href="#_material_construction_2">2.4.1. Material, Construction</a></h4>
+<h4 id="_material_construction_2"><a class="link" href="#_material_construction_2">3.4.1. Material, Construction</a></h4>
 <div class="paragraph">
-<p>Materialクラスで建材の熱物性値を定義し、Constructionクラスで建材構成を記述します。<br>
-Materialクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br>
-Constructionクラスの作成方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#construction-000" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。<br></p>
+<p>次のように変更する。</p>
 </div>
 <div class="listingblock">
 <div class="title">Material, Construction　外壁</div>
@@ -2433,18 +3189,362 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900ff"><a class="link" href="#_case900ff">2.5. Case900FF</a></h3>
+<h3 id="_case900ff"><a class="link" href="#_case900ff">3.5. Case900FF</a></h3>
 <div class="paragraph">
-<p>自然室温の集計について、ASHRAE Standard 140 6.2.1.7.1 では、次のように記されている。</p>
+<p>自然室温の集計について、ASHRAE Standard 140:2017 6.2.1.7.1 では、次のように記されている。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Informative Note:
+For example, the zone air temperature T bin defined by 20°C is 20°C &lt;= T &lt; 21°C;
+similarly, the bin defined by –2°C is –2°C &lt;= T &lt; –1°C.</pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_case960"><a class="link" href="#_case960">3.6. Case960</a></h3>
+<div class="paragraph">
+<p>Case900の入力ファイルを基にCase960の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_material_construction_3"><a class="link" href="#_material_construction_3">3.6.1. Material, Construction</a></h4>
+<div class="paragraph">
+<p>基本的にバックゾーンはCase600、サンゾーンはCase900と同一である。唯一の違いは両ゾーン間の内壁であり、以下のように定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Material,
+    AS14O internal wall material, !- Name
+    Rough,                   !- Roughness
+    0.200,                   !- Thickness {m}
+    0.510,                   !- Conductivity {W/m-K}
+    1400,                    !- Density {kg/m3}
+    1000,                    !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.6,                     !- Solar Absorptance
+    0.6;                     !- Visible Absorptance
+
+Construction,
+    AS14O internal wall,          !- Name
+    AS14O internal wall material; !- Outside Layer</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_zone_2"><a class="link" href="#_zone_2">3.6.2. Zone</a></h4>
+<div class="paragraph">
+<p>以下のように2つのゾーンを定義する。Zone1がバックゾーン、Zone2がサンゾーンである。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Zone,
+    Block1:Zone1,            !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,                       !- X Origin {m}
+    0,                       !- Y Origin {m}
+    0,                       !- Z Origin {m}
+    1,                       !- Type
+    1,                       !- Multiplier
+    ,                        !- Ceiling Height {m}
+    129.6,                   !- Volume {m3}
+    48,                      !- Floor Area {m2}
+    TARP,                    !- Zone Inside Convection Algorithm
+    ,                        !- Zone Outside Convection Algorithm
+    Yes;                     !- Part of Total Floor Area
+
+Zone,
+    Block1:Zone2,            !- Name
+    0,                       !- Direction of Relative North {deg}
+    0,                       !- X Origin {m}
+    0,                       !- Y Origin {m}
+    0,                       !- Z Origin {m}
+    1,                       !- Type
+    1,                       !- Multiplier
+    ,                        !- Ceiling Height {m}
+    43.2,                    !- Volume {m3}
+    16,                      !- Floor Area {m2}
+    TARP,                    !- Zone Inside Convection Algorithm
+    ,                        !- Zone Outside Convection Algorithm
+    Yes;                     !- Part of Total Floor Area</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_building_surface"><a class="link" href="#_building_surface">3.6.3. Building surface</a></h4>
+<div class="paragraph">
+<p>Zone1（バックゾーン）の壁構成は南面を除きCase600と同一である。南面はサンゾーンとの間の内壁となるため、以下のように定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>BuildingSurface:Detailed,
+    Block1:Zone1_Partition,  !- Name
+    Wall,                    !- Surface Type
+    AS14O internal wall,     !- Construction Name
+    Block1:Zone1,            !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone2_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Informative Note: For example, the zone air temperature T bin defined by 20°C is 20°C &#8656; T &lt; 21°C; similarly, the bin defined by –2°C is –2°C &#8656; T &lt; –1°C.</p>
+<p>Zone2は奥行きが2mであること、北面がバックゾーンとの間の内壁であることを除いてCase900と同一である。各面を以下のように定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>BuildingSurface:Detailed,
+    Block1:Zone2_Floor,      !- Name
+    Floor,                   !- Surface Type
+    AS14O external floor high,    !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Ground,                  !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    0,                       !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    0;                       !- Vertex 4 Z-coordinate {m}
+
+! Block 1, Zone 1, Roof - 48.000 m2, Surface Area: 48.000m2
+BuildingSurface:Detailed,
+    Block1:Zone2_Roof,       !- Name
+    Roof,                    !- Surface Type
+    AS14O Roof,              !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    2.7,                     !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    2.7,                     !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_E,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    -2,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    -2,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_W,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Wall_S,     !- Name
+    Wall,                    !- Surface Type
+    AS14O external wall high,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0,                       !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    8,                       !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    8,                       !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Block1:Zone2_Partition,  !- Name
+    Wall,                    !- Surface Type
+    AS14O internal wall,     !- Construction Name
+    Block1:Zone2,            !- Zone Name
+    Surface,                 !- Outside Boundary Condition
+    Block1:Zone1_Partition,  !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Z-coordinate {m}
+    0,                       !- Vertex 2 X-coordinate {m}
+    0,                       !- Vertex 2 Y-coordinate {m}
+    0,                       !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    0,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    8,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+!-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
+
+FenestrationSurface:Detailed,
+    Block1:Zone2_Wall_S_Win_1,  !- Name
+    Window,                  !- Surface Type
+    1002,                    !- Construction Name
+    Block1:Zone2_Wall_S,     !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.5,                     !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0.5,                     !- Vertex 1 Z-coordinate {m}
+    3.5,                     !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0.5,                     !- Vertex 2 Z-coordinate {m}
+    3.5,                     !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.5,                     !- Vertex 3 Z-coordinate {m}
+    0.5,                     !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    Block1:Zone2_Wall_S_Win_2,  !- Name
+    Window,                  !- Surface Type
+    1002,                    !- Construction Name
+    Block1:Zone2_Wall_S,     !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    AutoCalculate,           !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.5,                     !- Vertex 1 X-coordinate {m}
+    -2,                      !- Vertex 1 Y-coordinate {m}
+    0.5,                     !- Vertex 1 Z-coordinate {m}
+    7.5,                     !- Vertex 2 X-coordinate {m}
+    -2,                      !- Vertex 2 Y-coordinate {m}
+    0.5,                     !- Vertex 2 Z-coordinate {m}
+    7.5,                     !- Vertex 3 X-coordinate {m}
+    -2,                      !- Vertex 3 Y-coordinate {m}
+    2.5,                     !- Vertex 3 Z-coordinate {m}
+    4.5,                     !- Vertex 4 X-coordinate {m}
+    -2,                      !- Vertex 4 Y-coordinate {m}
+    2.5;                     !- Vertex 4 Z-coordinate {m}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infiltration"><a class="link" href="#_infiltration">3.6.4. Infiltration</a></h4>
+<div class="paragraph">
+<p>以下のように定義する。いずれも0.5回/hである。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ZoneInfiltration:DesignFlowRate,
+    Block1:Zone1 Infiltration,  !- Name
+    Block1:Zone1,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    Block1:Zone2 Infiltration,  !- Name
+    Block1:Zone2,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.006,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j1_1"><a class="link" href="#_case900_j1_1">2.6. Case900-J1-1</a></h3>
+<h3 id="_case900_j1_1"><a class="link" href="#_case900_j1_1">3.7. Case900-J1-1</a></h3>
 <div class="sect3">
-<h4 id="_material_construction_3"><a class="link" href="#_material_construction_3">2.6.1. Material, Construction</a></h4>
+<h4 id="_material_construction_4"><a class="link" href="#_material_construction_4">3.7.1. Material, Construction</a></h4>
 <div class="listingblock">
 <div class="title">Material 外壁</div>
 <div class="content">
@@ -2458,11 +3558,11 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j1_2"><a class="link" href="#_case900_j1_2">2.7. Case900-J1-2</a></h3>
+<h3 id="_case900_j1_2"><a class="link" href="#_case900_j1_2">3.8. Case900-J1-2</a></h3>
 <div class="sect3">
-<h4 id="_material_construction_4"><a class="link" href="#_material_construction_4">2.7.1. Material, Construction</a></h4>
+<h4 id="_material_construction_5"><a class="link" href="#_material_construction_5">3.8.1. Material, Construction</a></h4>
 <div class="paragraph">
-<p>空気層の指定方法は <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materialairgap" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#materialairgap" class="external" target="_blank" rel="noopener">空気層の指定方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">Material:AirGap　外壁</div>
@@ -2632,9 +3732,9 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j2"><a class="link" href="#_case900_j2">2.8. Case900-J2</a></h3>
+<h3 id="_case900_j2"><a class="link" href="#_case900_j2">3.9. Case900-J2</a></h3>
 <div class="sect3">
-<h4 id="_schedule"><a class="link" href="#_schedule">2.8.1. Schedule</a></h4>
+<h4 id="_schedule"><a class="link" href="#_schedule">3.9.1. Schedule</a></h4>
 <div class="paragraph">
 <p>Case 900-J1-2 をベースに　夜間18~8時　の空調を停止する。</p>
 </div>
@@ -2673,18 +3773,27 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900_j3"><a class="link" href="#_case900_j3">2.9. Case900-J3</a></h3>
+<h3 id="_case900_j3"><a class="link" href="#_case900_j3">3.10. Case900-J3</a></h3>
 <div class="sect3">
-<h4 id="_windowmaterialblind"><a class="link" href="#_windowmaterialblind">2.9.1. WindowMaterial:Blind</a></h4>
+<h4 id="_windowmaterialblind"><a class="link" href="#_windowmaterialblind">3.10.1. WindowMaterial:Blind</a></h4>
 <div class="paragraph">
-<p>ブラインドの追加を行います。<br>
-ブラインドの入力方法は　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialblind" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
+<p>ブラインドの追加を行う。</p>
 </div>
 <div class="paragraph">
-<p>このオブジェクトは、平らで等間隔のスラットからなる窓用ブラインドの特性を指定します。完全な拡散板としてモデル化されているウィンドウシェードとは異なり、ウィンドウブラインドには、スラットの角度と日射の入射角に強く依存する日射および可視光線の透過・反射特性があります。一般的な窓用ブラインドの特性を含むWindowMaterial:BlindのEnergyPlusリファレンスデータセットがあります。</p>
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#windowmaterialblind" class="external" target="_blank" rel="noopener">ブラインドの入力方法</a></p>
 </div>
 <div class="paragraph">
-<p>ブラインドは、窓の内側（「室内ブラインド」）、窓の外側（「室外ブラインド」）、または2枚のガラスの間（「ガラス間ブラインド」）に設置することができます。ブラインドが設置されているとき、ブラインドは仕切りを含めて窓のガラス部分をすべて覆うと仮定しますが、窓枠がある場合はそれは覆いません。ブラインドの平面はグレージングと平行であると仮定します。ブラインドが格納されているときは、窓を一切覆わないものとします。ブラインドのサポートストリング、テープ、ロッドによる太陽熱の影響は無視します。スラットの曲率は無視されます。</p>
+<p>このオブジェクトは、平らで等間隔のスラットからなる窓用ブラインドの特性を指定する。
+完全な拡散板としてモデル化されているウィンドウシェードとは異なり、
+ウィンドウブラインドにはスラットの角度と日射の入射角に強く依存する日射および可視光線の透過・反射特性がある。
+一般的な窓用ブラインドの特性を含むWindowMaterial:BlindのEnergyPlusリファレンスデータセットがある。</p>
+</div>
+<div class="paragraph">
+<p>ブラインドは、窓の内側（「室内ブラインド」）、窓の外側（「室外ブラインド」）、または2枚のガラスの間（「ガラス間ブラインド」）に設置することができる。<br>
+ブラインドが設置されているとき、ブラインドは仕切りを含めて窓のガラス部分をすべて覆うと仮定するが、窓枠がある場合はそれは覆わない。<br>
+ブラインドの平面はグレージングと平行であると仮定する。<br>
+ブラインドが格納されているときは、窓を一切覆わないものとする。<br>
+ブラインドのサポートストリング、テープ、ロッドによる太陽熱の影響は無視する。スラットの曲率は無視される。<br></p>
 </div>
 <div class="listingblock">
 <div class="title">WindowMaterial:Blind</div>
@@ -2722,29 +3831,27 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_slat_angle"><a class="link" href="#_slat_angle">2.9.1.1. Slat Angle</a></h5>
+<h5 id="_slat_angle"><a class="link" href="#_slat_angle">3.10.1.1. Slat Angle</a></h5>
 <div class="paragraph">
-<p>グレージングの外側の法線とスラットの外側の法線の間の角度（度）で、外側の法線がスラットの前面から離れたところを指している。図 6 を参照してください。</p>
-</div>
-<div class="paragraph">
-<p>ブラインドの WindowShadingControl に Type of Slat Angle Control for Blinds = FixedSlatAngle がある場合、スラットの角度は "Slat Angle" に固定されます。</p>
-</div>
-<div class="paragraph">
-<p>Type of Slat Angle Control for Blinds = BlockBeamSolarの場合は、プログラムが自動的にスラットの角度を調整し、太陽光線を遮断します。この場合、「スラット角度」の値は、ブラインドが設置されていて、ブラインドに日射が入射していない場合にのみ使用されます。</p>
-</div>
-<div class="paragraph">
-<p>ブラインドのスラット角制御のタイプ＝ScheduledSlatAngleの場合、スラット角は可変である。この場合、「スラットアングル」は適用されず、フィールドは空白にしてください。</p>
-</div>
-<div class="paragraph">
-<p>Type of Slat Angle Control for Blinds = FixedSlatAngleで、「スラット角度」がスラット幅、スラット間隔、スラット厚みで許容される最小値よりも小さいか、最大値よりも大きい場合、スラット角度は対応する最小値または最大値にリセットされ、警告が発行されます。</p>
+<p>グレージングの外側の法線とスラットの外側の法線の間の角度（度）で、外側の法線がスラットの前面から離れたところを指している。
+ブラインドの WindowShadingControl に Type of Slat Angle Control for Blinds = FixedSlatAngle がある場合、スラットの角度は "Slat Angle" に固定される。<br>
+Type of Slat Angle Control for Blinds = BlockBeamSolarの場合は、プログラムが自動的にスラットの角度を調整し、太陽光線を遮断する。
+この場合、「スラット角度」の値は、ブラインドが設置されていてブラインドに日射が入射していない場合にのみ使用される。<br>
+ブラインドのスラット角制御のタイプ＝ScheduledSlatAngleの場合、スラット角は可変である。
+この場合、「スラットアングル」は適用されず、フィールドは空白にする。<br>
+Type of Slat Angle Control for Blinds = FixedSlatAngleとした場合において、
+「スラット角度」がスラット幅、スラット間隔、スラット厚みで許容される最小値よりも小さいか、最大値よりも大きい場合は、
+スラット角度は対応する最小値または最大値にリセットされ、警告が出される。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_windowshadingcontrol"><a class="link" href="#_windowshadingcontrol">2.9.2. WindowShadingControl</a></h4>
+<h4 id="_windowshadingcontrol"><a class="link" href="#_windowshadingcontrol">3.10.2. WindowShadingControl</a></h4>
 <div class="paragraph">
-<p>ブラインド制御方法を入力します。<br>
-入力方法は　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#windowpropertyshadingcontrol" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a> をご覧下さい。</p>
+<p>ブラインド制御方法を入力する。</p>
+</div>
+<div class="paragraph">
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#windowpropertyshadingcontrol" class="external" target="_blank" rel="noopener">ブラインド制御方法の入力方法</a></p>
 </div>
 <div class="listingblock">
 <div class="title">WindowShadingControl</div>
@@ -2793,245 +3900,207 @@ Construction,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_control_sequence_number"><a class="link" href="#_shading_control_sequence_number">2.9.2.1. Shading Control Sequence Number</a></h5>
+<h5 id="_shading_control_sequence_number"><a class="link" href="#_shading_control_sequence_number">3.10.2.1. Shading Control Sequence Number</a></h5>
 <div class="paragraph">
-<p>複数の WindowShadingControl オブジェクトが同じゾーンで使用されている場合、ウィンドウ シェードを展開する順序をこのフィールドで設定することができます。最初の WindowShadingControl は 1 とし、後続の WindowShadingControl は 2、3 などとします。これは通常、Multiple Surface Control TypeフィールドがGroupに設定されている場合に、ウィンドウのグループを特定の順序で制御するために使用されます。</p>
+<p>複数の WindowShadingControl オブジェクトが同じゾーンで使用されている場合、
+ウィンドウシェードを展開する順序をこのフィールドで設定することができる。
+最初の WindowShadingControl は 1 とし、後続の WindowShadingControl は 2、3 などとする。
+これは通常、Multiple Surface Control TypeフィールドがGroupに設定されている場合に、
+ウィンドウのグループを特定の順序で制御するために使用される。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_type"><a class="link" href="#_shading_type">2.9.2.2. Shading Type</a></h5>
+<h5 id="_shading_type"><a class="link" href="#_shading_type">3.10.2.2. Shading Type</a></h5>
 <div class="paragraph">
-<p>遮光装置の種類です。選択肢は以下の通りです。</p>
+<p>遮光装置の種類であり、選択肢は以下の通りである。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>InteriorShade: 拡散するシェードがウィンドウの内側にあります。(シェーディングされたConstructionでは、シェーディング レイヤーがWindowMaterial:Shadeである必要があります)。</p>
+<p>InteriorShade</p>
+<div class="ulist">
+<ul>
+<li>
+<p>拡散するシェードがウィンドウの内側にある(シェーディングされたConstructionでは、シェーディング レイヤーがWindowMaterial:Shadeである必要があります)。</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>ExteriorShade: 拡散するシェードがウィンドウの外側にあります。(シェーディングされたコンストラクションでは、シェーディングレイヤーはWindowMaterial:Shadeである必要があります。)</p>
+<p>ExteriorShade</p>
+<div class="ulist">
+<ul>
+<li>
+<p>拡散するシェードがウィンドウの外側にある、(シェーディングされたコンストラクションでは、シェーディングレイヤーはWindowMaterial:Shadeである必要がある。)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>BetweenGlassShade: 拡散シェードは2つのガラス層の間にあります。(シェーディングされたコンストラクションでは、シェーディング層はWindowMaterial:Shadeでなければならない) このシェードタイプは、二重ガラスと三重ガラスにのみ許可されています。トリプルガラスの場合、シェードは2つの内側のガラス層の間になければなりません。</p>
+<p>BetweenGlassShade</p>
+<div class="ulist">
+<ul>
+<li>
+<p>拡散シェードは2つのガラス層の間にある。(シェーディングされたコンストラクションでは、シェーディング層はWindowMaterial:Shadeでなければならない) このシェードタイプは、二重ガラスと三重ガラスにのみ許可されています。トリプルガラスの場合、シェードは2つの内側のガラス層の間になければなりません。</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>ExteriorScreen: 窓の外側に設置された防虫スクリーン。(Shaded Constructionでは、遮光層はWindowMaterial:Screenでなければなりません。)</p>
+<p>ExteriorScreen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>窓の外側に設置された防虫スクリーン。(Shaded Constructionでは、遮光層はWindowMaterial:Screenでなければなりません。)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>InteriorBlind: ベネチアンブラインドのようなスラットタイプの遮光装置が窓の内側にある。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない)</p>
+<p>InteriorBlind</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ベネチアンブラインドのようなスラットタイプの遮光装置が窓の内側にある。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>ExteriorBlind: スラットタイプの遮光装置が窓の外側にあります。(遮光構造の場合、遮光層はWindowMaterial:Blindでなければならない)</p>
+<p>ExteriorBlind</p>
+<div class="ulist">
+<ul>
+<li>
+<p>スラットタイプの遮光装置が窓の外側にある。(遮光構造の場合、遮光層はWindowMaterial:Blindでなければならない)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>BetweenGlassBlind: スラットタイプの遮光装置が2つのガラス層の間にある場合。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない) この遮光タイプは、ペアガラスとトリプルガラスにのみ使用できます。トリプルガラスの場合、ブラインドは2つの内側のガラス層の間になければなりません。</p>
+<p>BetweenGlassBlind</p>
+<div class="ulist">
+<ul>
+<li>
+<p>スラットタイプの遮光装置が2つのガラス層の間にある場合。(遮光構造では、遮光層はWindowMaterial:Blindでなければならない) この遮光タイプは、ペアガラスとトリプルガラスにのみ使用できる。トリプルガラスの場合、ブラインドは2つの内側のガラス層の間になければならない。</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>SwitchableGlazing: 窓ガラスを暗くするなど、ガラスの特性を変えることで遮光を行います。</p>
+<p>SwitchableGlazing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>窓ガラスを暗くするなど、ガラスの特性を変えることで遮光を行う。</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_construction_with_shading_name"><a class="link" href="#_construction_with_shading_name">2.9.2.3. Construction with Shading Name</a></h5>
+<h5 id="_construction_with_shading_name"><a class="link" href="#_construction_with_shading_name">3.10.2.3. Construction with Shading Name</a></h5>
 <div class="paragraph">
-<p>シェーディングが行われているウィンドウのコンストラクションの名前です。シェーディングデバイスのプロパティは、そのコンストラクションで参照されるシェーディングマテリアルによって与えられます（参照：Construction, WindowMaterial:Shade, WindowMaterial:Screen and WindowMaterial:Blind）。Shading Type = SwitchableGlazingの場合、これは完全にスイッチされた（最も暗い）状態のウィンドウに対応するコンストラクションの名前です。</p>
+<p>シェーディングが行われているウィンドウのコンストラクションの名前を入力する。
+シェーディングデバイスのプロパティは、そのコンストラクションで参照されるシェーディングマテリアルによって与えられる。</p>
 </div>
 <div class="paragraph">
-<p>シェーディングタイプ＝BetweenGlassShade、BetweenGlassBlind、またはSwitchableGlazingの場合は、「シェーディングを持つコンストラクションの名前」を指定することが必要です。その他の遮光タイプの場合は、代わりに「遮光装置の材料名」を指定することができます（以下参照）。</p>
+<p>Shading Type = SwitchableGlazingの場合、これは完全にスイッチされた（最も暗い）状態のウィンドウに対応するコンストラクションの名前となる。<br>
+Shading Type = BetweenGlassShade、BetweenGlassBlind、またはSwitchableGlazingの場合は、「シェーディングを持つコンストラクションの名前」を指定することが必要となる。その他の遮光タイプの場合は、代わりに「遮光装置の材料名」を指定することができる。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_shading_control_type"><a class="link" href="#_shading_control_type">2.9.2.4. Shading Control Type</a></h5>
+<h5 id="_shading_control_type"><a class="link" href="#_shading_control_type">3.10.2.4. Shading Control Type</a></h5>
 <div class="paragraph">
-<p>遮光装置の制御方法を指定するもので、遮光装置を「オン」にするか「オフ」にするかを決定するものである。ブラインド、スクリーン、シェードの場合、装置が「オン」のときは、窓の枠を除くすべての部分を覆うものとし、装置が「オフ」のときは、窓を一切覆わないものとする（「オン」でも「オフ」でも、遮光装置は窓がある壁を一切覆わないものとする）。</p>
+<p>遮光装置の制御方法を指定するもので、遮光装置を「オン」にするか「オフ」にするかを決定するものである。
+ブラインド、スクリーン、シェードの場合、装置が「オン」のときは、窓の枠を除くすべての部分を覆うものとし、
+装置が「オフ」のときは、窓を一切覆わないものとする（「オン」でも「オフ」でも、遮光装置は窓がある壁を一切覆わないものとする）。</p>
 </div>
 <div class="paragraph">
-<p>スイッチ可能なグレージングの場合、「オン」はグレージングが完全にスイッチされた状態であることを意味し、「オフ」はスイッチされていない状態であることを意味します。例えば、エレクトロクロミックグレージングの場合、「オン」はグレージングが最も暗い状態であることを意味し、「オフ」は最も明るい状態であることを意味します。</p>
+<p>スイッチ可能なグレージングの場合、「オン」はグレージングが完全にスイッチされた状態であることを意味し、
+「オフ」はスイッチされていない状態であることを意味する。
+例えば、エレクトロクロミックグレージングの場合、「オン」はグレージングが最も暗い状態であることを意味し、「オフ」は最も明るい状態であることを意味する。</p>
 </div>
 <div class="paragraph">
-<p>シェーディングコントロールタイプの選択肢は以下の通りです。SetPointが適用される場合、その単位は括弧内に示されています。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>AlwaysOn: シェーディングは常にオンです。</p>
-</li>
-<li>
-<p>AlwaysOff: シェーディングは常にオフです。</p>
-</li>
-</ul>
+<p>シェーディングコントロールタイプの選択肢は以下の通りである。
+* AlwaysOn: シェーディングは常にオンです。
+* AlwaysOff: シェーディングは常にオフです。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_type_of_slat_angle_control_for_blinds"><a class="link" href="#_type_of_slat_angle_control_for_blinds">2.9.2.5. Type of Slat Angle Control for Blinds</a></h5>
+<h5 id="_type_of_slat_angle_control_for_blinds"><a class="link" href="#_type_of_slat_angle_control_for_blinds">3.10.2.5. Type of Slat Angle Control for Blinds</a></h5>
 <div class="paragraph">
-<p>Shading Type = InteriorBlind、ExteriorBlind、BetweenGlassBlindにのみ適用されます。スラットの角度をどのように制御するかを指定します。選択肢は、FixedSlatAngle、ScheduledSlatAngle、BlockBeamSolarです。</p>
+<p>Shading Type = InteriorBlind、ExteriorBlind、BetweenGlassBlindにのみ適用される。
+スラットの角度をどのように制御するかを指定する。
+選択肢は、FixedSlatAngle、ScheduledSlatAngle、BlockBeamSolarである。</p>
 </div>
 <div class="paragraph">
-<p>FixedSlatAngle（デフォルト）の場合、スラットの角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に固定されます。</p>
+<p>FixedSlatAngle（デフォルト）の場合、スラットの角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に固定される。</p>
 </div>
 <div class="paragraph">
 <p>ScheduledSlatAngleの場合、スラットの角度は、後述の「スラット角度のスケジュール名」で指定されたスケジュールに従って変化する。</p>
 </div>
 <div class="paragraph">
-<p>BlockBeamSolarの場合、タイムステップごとにスラットの角度が設定され、ビームソーラーの放射が遮断されます。窓にビームソーラーがない場合、スラット角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に設定されます。BlockBeamSolarオプションは、ビームソーラーが窓に入射するのを防ぎ、ビームが作業面に当たると不要なグレアが発生する可能性があるが、同時に昼光のための最適に近い間接放射を可能にする。</p>
+<p>BlockBeamSolarの場合、タイムステップごとにスラットの角度が設定され、ビームソーラーの放射が遮断されます。
+窓にビームソーラーがない場合、スラット角度は、Name of Construction with Shadingで指定されたコンストラクションに含まれる、
+またはMaterial Name of Shading Deviceで指定されたWindowMaterial:Blindに入力された値に設定される。
+BlockBeamSolarオプションは、ビームソーラーが窓に入射するのを防ぎ、ビームが作業面に当たると不要なグレアが発生する可能性があるが、
+同時に昼光のための最適に近い間接放射を可能にする。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_multiple_surface_control_type"><a class="link" href="#_multiple_surface_control_type">2.9.2.6. Multiple Surface Control Type</a></h5>
+<h5 id="_multiple_surface_control_type"><a class="link" href="#_multiple_surface_control_type">3.10.2.6. Multiple Surface Control Type</a></h5>
 <div class="paragraph">
-<p>フィールドには2つのオプションがあります。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Sequential: 次のリストに記載されている窓ガラスを、指定された順序で個別に制御する。</p>
-</li>
-<li>
-<p>Group: フェネトレーションサーフェスのリスト全体を同時に制御し、グレアコントロールが必要な場合は、ウィンドウシェードのグループ全体を同時に展開します。</p>
-</li>
-</ul>
-</div>
-<div style="page-break-after: always;"></div>
+<p>フィールドには2つのオプションがある。
+* Sequential: 次のリストに記載されている窓ガラスを、指定された順序で個別に制御する。
+* Group: フェネトレーションサーフェスのリスト全体を同時に制御し、グレアコントロールが必要な場合は、ウィンドウシェードのグループ全体を同時に展開する。</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.10. Output:Variable</a></h3>
-<div class="sect3">
-<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.10.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_地盤境界条件の入力方法"><a class="link" href="#_地盤境界条件の入力方法">2.11. 地盤境界条件の入力方法</a></h3>
-<div class="sect3">
-<h4 id="_sitegroundtemperaturebuildingsurface_2"><a class="link" href="#_sitegroundtemperaturebuildingsurface_2">2.11.1. Site:GroundTemperature:BuildingSurface</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>地面の温度は、地面の熱伝導モデルに使用されます。
-地面温度オブジェクトは1つだけ指定することができ、Outside Boundary Condition = Ground とされたサーフェスにおける外側の温度として使用されます。
-地面と接触するサーフェスがない場合は、このオブジェクトはオプションとなります。</p>
-</div>
-<div class="paragraph">
-<p>個々のサーフェスの外側温度を個別に指定する場合は、OtherSideCoefficients オブジェクトを使用します。
-このオブジェクトを使用すれば、いくつもの異なる温度を指定することができます。</p>
-</div>
-<div class="paragraph">
-<p>注意：気象データコンバータによって計算された「乱されていない（undisturbed）」地面温度は、建物の熱損失計算（building losses）には使用すべきではありません。
-Site:GroundTemperature:Shallow　および　Site:GroundTemperature:Deepオブジェクトを使用するのが適切です。
-この理由は（建物の熱損失に対して）、これらの値は空調された建物の下にある地盤に対しては極端すぎるからです。
-最良の結果を得るためには、本書に記載されているスラブまたは地下室プログラムを使用して、月平均地中温度を計算してください（「Ground Heat Transfer」のセクションを参照）。
-これは、住宅や非常に小さな建物では特に重要です。
-これらの地中温度プリプロセッサを使用しない場合、米国の一般的な商業ビルでは、平均的な室内空間温度よりも2℃低い値が妥当なデフォルト値となります。
-適切な地中温度の決定に関する詳細は、「Auxiliary Programs」ドキュメントに記載されています。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.11.2. Site:GroundTemperature:Shallow</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureshallow">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>Site:GroundTemperature:Shallowは、Surface Ground Heat Exchanger（例：GroundHeatExchanger:Surface　オブジェクト）で使用されます。
-浅い地中温度は1つだけ指定することができます。</p>
-</div>
-<div class="paragraph">
-<p>通年の気象データファイルに含まれている地中温度は、これらのフィールドの値に使用するのに適しているかもしれないことに注意してください。
-つまり、「典型的な」条件の「乱されていない」土壌に対して計算された0.5mの深さの温度です。
-しかし、建物の位置の気象条件に基づいて、他の変化を考慮したい場合もあります。</p>
-</div>
-<div class="paragraph">
-<p>このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できます。
-このような場合、「名前」の入力フィールドは必要ありません。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.11.3. Site:GroundTemperature:Deep</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturedeep">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>Site:GroundTemperature:Deepは、Pond Ground Heat Exchangerオブジェクト（例：GroundHeatExchanger:Pond オブジェクト）で使用されます。
-深い地中温度は1つだけ指定することができます。</p>
-</div>
-<div class="paragraph">
-<p>通年の気象データファイルに含まれる地中温度は、これらのフィールドの値に使用するのに適しているかもしれないことに注意してください。
-つまり、「典型的な」条件の「乱されていない」土壌に対して計算される4mの深さの温度です。
-しかし、建物の位置の気象条件に基づいて、他の変化を考慮したい場合もあります。</p>
-</div>
-<div class="paragraph">
-<p>このオブジェクトは、「乱されていない」地面の温度を必要とするオブジェクトに使用できます。
-このような場合、「名前」の入力フィールドは必要ありません。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.11.4. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedfinitedifference">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>Site:GroundTemperature:Undisturbed:FiniteDifferenceは、「乱されていない」地中温度を必要とするすべてのオブジェクトで使用できます。
-このオブジェクトは、気象データファイルを使用して表面の境界条件を取得する1次元有限差分熱伝達モデルを使用します。
-このモデルは、初期化時に、年間の地中温度プロファイルが定常的な周期性に達するまで、年間シミュレーションが実行されます。
-安定した周期的な挙動に達すると、残りのシミュレーション期間中に地中温度を取得するためにキャッシュされます。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.11.5. Site:GroundTemperature:FCfactorMethod</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>Site:GroundTemperature:FCfactorMethodは、詳細な建材構成が不明な場合のコードコンプライアンス計算のために、C-factor（Construction:CfactorUndergroundWall）およびF-factor（Construction:FfactorGroundFloor）メソッドで定義された地下の壁またはスラブまたは地下の床でのみ使用されます。
-この地表温度オブジェクトは1つだけ含めることができます。
-このオブジェクトの月別地中温度は、月別外気温度を3ヶ月遅らせたものに近いです。
-ユーザーがIDFファイルにこのオブジェクトを入力しない場合、気象データファイルから0.5mの月別地中温度が利用可能であれば、それがデフォルトになります。
-このオブジェクトを入力すると、FおよびCファクターの使用において、ウェザーファイルからの地上温度が上書きされます。
-どちらも利用できない場合は、エラーになります。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.11.6. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h4>
-<div class="paragraph">
-<p>Kusuda, T. と P.R. Achenbach　による回帰式</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.11.7. Site:GroundTemperature:Undisturbed:Xing</a></h4>
-<div class="paragraph">
-<p>Xing　による回帰式</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.11.8. GroundHeatExchanger:Surface</a></h4>
-<div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#groundheatexchangersurface">リンク</a></p>
-</div>
-<div class="paragraph">
-<p>表面熱交換器モデルは、水式の表面地中熱交換器をシミュレーションするためのものです。
-これには、融雪用のパイプを埋め込んだ舗装面や、ハイブリッド地中熱源ヒートポンプシステムからの排熱が含まれます。</p>
-</div>
-<div class="paragraph">
-<p>熱交換器は地面と連動している場合とそうでない場合があります。後者の場合、底面は風にさらされますが、ソーラーゲインは得られません。
-このタイプの熱交換器は、凝縮器ループの供給側に接続することを目的としていますが、あらゆるタイプのプラントループに使用することができます。
-表面熱交換器は、凝縮器ループの唯一の熱交換器として指定することもできるし（図1）、
-図2のように他の凝縮器ループ熱交換器（冷却塔、地表熱交換器など）と並列に接続することもできる。</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_熱負荷単室詳細テストa"><a class="link" href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_熱負荷単室詳細テストb"><a class="link" href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_熱負荷複数室テスト"><a class="link" href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_熱負荷建物全体テスト"><a class="link" href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_空調システムテストのモデル作成"><a class="link" href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_空調全体テスト"><a class="link" href="#_空調全体テスト">9. 空調（全体）テスト</a></h2>
+<div class="sectionbody">
+
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-26 16:25:33 +0900
+Last updated 2021-06-18 18:12:53 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

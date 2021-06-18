@@ -1,6 +1,8 @@
 // Case 650
 
-基準ケース Case600 から暖房運転をなしとし、以下のように夜間換気を行う条件で熱負荷シミュレーションを行う。 
+=== Case650
+
+基準ケース Case600 から暖房運転を無効とし、次のように夜間換気を行う条件で熱負荷シミュレーションを行う。 
 
 冷房 18:00～07:00 停止 +
     07:00～18:00 温度が 27℃より高ければ運転  +
@@ -11,10 +13,9 @@
 換気ファン風量は、Case600 で規定したすきま風とは別に、1703.16 m3 /h を与える。 +
 ファン発熱による影響は考慮しない。 +
 
-
 ==== ZoneControl:Thermostat
 
-解説は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat[<bigladder>, role="external", window="_blank"]。
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#zonecontrolthermostat[ZoneControl:Thermostatの作成方法, role="external", window="_blank"]
 
 .ZoneControl:Thermostat　
 ----
@@ -28,19 +29,18 @@ ZoneControl:Thermostat,
 
 ===== Control 1 Object Type
 
-* コントロールタイプの種類を次の4つの選択肢から選択します。
+コントロールタイプの種類を次の4つの選択肢から選択する。
 
-** ThermostatSetpoint:SingleHeating　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating[<bigladder>, role="external", window="_blank"]
-** ThermostatSetpoint:SingleCooling　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling[<bigladder>, role="external", window="_blank"]
-** ThermostatSetpoint:SingleHeatingOrCooling　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling[<bigladder>, role="external", window="_blank"]
-** ThermostatSetpoint:DualSetpoint　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint[<bigladder>, role="external", window="_blank"]
+* ThermostatSetpoint:SingleHeating　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheating[<bigladder>, role="external", window="_blank"]
+* ThermostatSetpoint:SingleCooling　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling[<bigladder>, role="external", window="_blank"]
+* ThermostatSetpoint:SingleHeatingOrCooling　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsingleheatingorcooling[<bigladder>, role="external", window="_blank"]
+* ThermostatSetpoint:DualSetpoint　https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint[<bigladder>, role="external", window="_blank"]
 
 今回は、ThermostatSetpoint:SingleCooling　を選択します。
 
-
 ==== ThermostatSetpoint:SingleCooling
 
-解説は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling[<bigladder>, role="external", window="_blank"]。
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointsinglecooling[ThermostatSetpoint:SingleCoolingの作成方法, role="external", window="_blank"]
 
 .ThermostatSetpoint:SingleCooling
 ----
@@ -48,7 +48,6 @@ ThermostatSetpoint:SingleCooling,
     Cooling Setpoints,       !- Name
     Cooling Setpoints;       !- Setpoint Temperature Schedule Name
 ----
-
 
 ==== Schedule:Day:Hourly
 

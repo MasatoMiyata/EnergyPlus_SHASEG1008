@@ -1,14 +1,13 @@
 // Case 900シリーズ
 
+=== Case900
+
 基準ケース Case600 シリーズ から 壁体の熱容量を変更する。
 
 
 ==== Material, Construction
 
-Materialクラスで建材の熱物性値を定義し、Constructionクラスで建材構成を記述します。 +
-Materialクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#material[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
-Constructionクラスの作成方法は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-surface-construction-elements.html#construction-000[<bigladder>, role="external", window="_blank"] をご覧下さい。 +
-
+次のように変更する。
 
 .Material, Construction　外壁
 ----
@@ -87,7 +86,10 @@ Construction,
 
 === Case900FF
 
-自然室温の集計について、ASHRAE Standard 140 6.2.1.7.1 では、次のように記されている。
+自然室温の集計について、ASHRAE Standard 140:2017 6.2.1.7.1 では、次のように記されている。
 
-
-Informative Note: For example, the zone air temperature T bin defined by 20°C is 20°C <= T < 21°C; similarly, the bin defined by –2°C is –2°C <= T < –1°C.
+----
+Informative Note: 
+For example, the zone air temperature T bin defined by 20°C is 20°C <= T < 21°C;
+similarly, the bin defined by –2°C is –2°C <= T < –1°C.
+----

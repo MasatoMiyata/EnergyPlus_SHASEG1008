@@ -1,7 +1,7 @@
 :lang: ja
 :doctype: book
 :toc: left
-:toclevels: 3
+:toclevels: 2
 :toc-title: EnergyPlus SHASE-G1008:2016
 :sectnums:
 :sectnumlevels: 4
@@ -19,50 +19,57 @@
 
 == はじめに
 
-SHASE-G1008:2016「建物エネルギーシミュレーションツールの評価手法に関するガイドライン」をEnergyPlusに対して適用する方法を解説します。 +
-EnergyPlusはVer.9.4を使用しています。EnergyPlusのインストール方法や使用方法については省略します。
-
+SHASE-G1008:2016「建物エネルギーシミュレーションツールの評価手法に関するガイドライン」をEnergyPlusに対して適用する方法を解説する。 +
+EnergyPlusはVer.9.4を使用する。EnergyPlusのインストール方法や使用方法については省略する。
 
 NOTE: SHASE-G1008:2016は http://www.shasej.org/tosho/report.html[空気調和・衛生工学会] にて購入できます。
 
-TIP: EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html[bigladder, role="external", window="_blank"] を参照してください。
-
+TIP: EnergyPlusの入力ファイル（IDFファイル）の作成方法の詳細は https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/index.html[bigladder, role="external", window="_blank"] を参照してください。 +
+Design Builderの使い方は link:./DesignBuilder.html[こちら]を参照してください。
 
 <<<
-== 熱負荷シミュレーション
+== 熱負荷(単室)基本テストのモデル作成
 
-SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」を実行します。
+SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテスト」で使用する基本建物モデルを作成する。
 
-=== Case600
+include::model_for_loadcalc.adoc[]
 
+
+== 熱負荷(単室)基本テスト
+
+// Case 600
 include::case600.adoc[]
 
 <<<
-=== Case610
-
+// Case 610
 include::case610.adoc[]
 
 <<<
-=== Case650
-
+// Case650
 include::case650.adoc[]
 
 <<<
-=== Case900
-
+// Case900, 900FF
 include::case900.adoc[]
 
+<<<
+// Case960
+include::case960.adoc[]
+
+<<<
+// Case 900J シリーズ
 include::case900J.adoc[]
 
-<<<
-=== Output:Variable
 
-==== Surface Outside Face Incident Solar Radiation Rate per Area
+== 熱負荷（単室）詳細テストA
 
-https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2[<bigladder>, role="external", window="_blank"]
+== 熱負荷（単室）詳細テストB
 
-<<<
-=== 地盤境界条件の入力方法
+== 熱負荷（複数室）テスト
 
-include::groundTemperature.adoc[]
+== 熱負荷（建物全体）テスト
+
+== 空調システムテストのモデル作成
+
+== 空調（全体）テスト
 

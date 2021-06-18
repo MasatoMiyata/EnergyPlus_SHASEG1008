@@ -1,8 +1,10 @@
-== Case960の実施
+// Case 960
+
+=== Case960
 
 Case900の入力ファイルを基にCase960の入力ファイルを作成する。
 
-=== Material, Construction
+==== Material, Construction
 基本的にバックゾーンはCase600、サンゾーンはCase900と同一である。唯一の違いは両ゾーン間の内壁であり、以下のように定義する。
 
 ```
@@ -22,7 +24,7 @@ Construction,
     AS14O internal wall material; !- Outside Layer
 ```
 
-=== Zone
+==== Zone
 以下のように2つのゾーンを定義する。Zone1がバックゾーン、Zone2がサンゾーンである。
 
 ```
@@ -57,7 +59,7 @@ Zone,
     Yes;                     !- Part of Total Floor Area
 ```
 
-=== Building surface
+==== Building surface
 Zone1（バックゾーン）の壁構成は南面を除きCase600と同一である。南面はサンゾーンとの間の内壁となるため、以下のように定義する。
 
 ```
@@ -284,7 +286,7 @@ FenestrationSurface:Detailed,
 
 ```
 
-=== Infiltration
+==== Infiltration
 以下のように定義する。いずれも0.5回/hである。
 
 ```
@@ -316,11 +318,3 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 ```
-
-=== 計算結果
-Figure 1に計算結果を示す。他のツールと比べてほぼ同等の結果が得られている。
-
-.Case960の計算結果
-image::figures/Case960_annual_peak_load.png[]
-
-

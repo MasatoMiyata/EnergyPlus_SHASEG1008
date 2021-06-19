@@ -452,29 +452,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_building">2.1. Building</a></li>
 <li><a href="#_sitelocation">2.2. Site:Location</a></li>
-<li><a href="#_runperiod">2.3. RunPeriod</a></li>
-<li><a href="#_shadowcalculation">2.4. ShadowCalculation</a></li>
-<li><a href="#_sitegroundreflectance">2.5. Site:GroundReflectance</a></li>
-<li><a href="#_sitegroundtemperaturebuildingsurface">2.6. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_zone">2.7. Zone</a></li>
-<li><a href="#_globalgeometryrules">2.8. GlobalGeometryRules</a></li>
-<li><a href="#_buildingsurfacedetailed">2.9. BuildingSurface:Detailed</a></li>
-<li><a href="#_fenestrationsurfacedetailed">2.10. FenestrationSurface:Detailed</a></li>
-<li><a href="#_material_construction">2.11. Material, Construction</a></li>
-<li><a href="#_windowmaterialglazing">2.12. WindowMaterial:Glazing</a></li>
-<li><a href="#_windowmaterialsimpleglazingsystem">2.13. WindowMaterial:SimpleGlazingSystem</a></li>
-<li><a href="#_scheduledayhourly">2.14. Schedule:Day:Hourly</a></li>
-<li><a href="#_scheduleweekdaily">2.15. Schedule:Week:Daily</a></li>
-<li><a href="#_scheduleyear">2.16. Schedule:Year</a></li>
-<li><a href="#_zoneinfiltrationdesignflowrate">2.17. ZoneInfiltration:DesignFlowRate</a></li>
-<li><a href="#_otherequipment">2.18. OtherEquipment</a></li>
-<li><a href="#_zonecontrolthermostat">2.19. ZoneControl:Thermostat</a></li>
-<li><a href="#_thermostatsetpointdualsetpoint">2.20. ThermostatSetpoint:DualSetpoint</a></li>
-<li><a href="#_zonehvacidealloadsairsystem">2.21. ZoneHVAC:IdealLoadsAirSystem</a></li>
-<li><a href="#_zonehvacequipmentlist">2.22. ZoneHVAC:EquipmentList</a></li>
-<li><a href="#_nodelist">2.23. NodeList</a></li>
-<li><a href="#_zonehvacequipmentconnections">2.24. ZoneHVAC:EquipmentConnections</a></li>
-<li><a href="#_outputvariable">2.25. Output:Variable</a></li>
+<li><a href="#_timestep">2.3. Timestep</a></li>
+<li><a href="#_runperiod">2.4. RunPeriod</a></li>
+<li><a href="#_shadowcalculation">2.5. ShadowCalculation</a></li>
+<li><a href="#_sitegroundreflectance">2.6. Site:GroundReflectance</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface">2.7. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_zone">2.8. Zone</a></li>
+<li><a href="#_globalgeometryrules">2.9. GlobalGeometryRules</a></li>
+<li><a href="#_buildingsurfacedetailed">2.10. BuildingSurface:Detailed</a></li>
+<li><a href="#_fenestrationsurfacedetailed">2.11. FenestrationSurface:Detailed</a></li>
+<li><a href="#_material_construction">2.12. Material, Construction</a></li>
+<li><a href="#_windowmaterialglazing">2.13. WindowMaterial:Glazing</a></li>
+<li><a href="#_windowmaterialsimpleglazingsystem">2.14. WindowMaterial:SimpleGlazingSystem</a></li>
+<li><a href="#_scheduledayhourly">2.15. Schedule:Day:Hourly</a></li>
+<li><a href="#_scheduleweekdaily">2.16. Schedule:Week:Daily</a></li>
+<li><a href="#_scheduleyear">2.17. Schedule:Year</a></li>
+<li><a href="#_zoneinfiltrationdesignflowrate">2.18. ZoneInfiltration:DesignFlowRate</a></li>
+<li><a href="#_otherequipment">2.19. OtherEquipment</a></li>
+<li><a href="#_zonecontrolthermostat">2.20. ZoneControl:Thermostat</a></li>
+<li><a href="#_thermostatsetpointdualsetpoint">2.21. ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_zonehvacidealloadsairsystem">2.22. ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_zonehvacequipmentlist">2.23. ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_nodelist">2.24. NodeList</a></li>
+<li><a href="#_zonehvacequipmentconnections">2.25. ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_outputvariable">2.26. Output:Variable</a></li>
 </ul>
 </li>
 <li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a>
@@ -838,7 +839,23 @@ Reflectionの使用については計算時間やエラーについての注意�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_runperiod"><a class="link" href="#_runperiod">2.3. RunPeriod</a></h3>
+<h3 id="_timestep"><a class="link" href="#_timestep">2.3. Timestep</a></h3>
+<div class="paragraph">
+<p>計算時間間隔を設定する。</p>
+</div>
+<div class="paragraph">
+<p>60を入力した数値で除した値が計算時間間隔（分）になる。今回は4を入力したため、60/4=15分間隔の計算を行う。</p>
+</div>
+<div class="listingblock">
+<div class="title">Timestep</div>
+<div class="content">
+<pre>Timestep,
+    4;                       !- Number of Timesteps per Hour</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_runperiod"><a class="link" href="#_runperiod">2.4. RunPeriod</a></h3>
 <div class="paragraph">
 <p>RunPeriodクラスでは、計算期間の設定を行う。</p>
 </div>
@@ -867,7 +884,7 @@ Reflectionの使用については計算時間やエラーについての注意�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_shadowcalculation"><a class="link" href="#_shadowcalculation">2.4. ShadowCalculation</a></h3>
+<h3 id="_shadowcalculation"><a class="link" href="#_shadowcalculation">2.5. ShadowCalculation</a></h3>
 <div class="paragraph">
 <p>ShadowCalculationでは、日陰の計算方法に関する設定を行う。</p>
 </div>
@@ -884,7 +901,7 @@ Reflectionの使用については計算時間やエラーについての注意�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_shading_calculation_update_frequency_method"><a class="link" href="#_shading_calculation_update_frequency_method">2.4.1. Shading Calculation Update Frequency Method</a></h4>
+<h4 id="_shading_calculation_update_frequency_method"><a class="link" href="#_shading_calculation_update_frequency_method">2.5.1. Shading Calculation Update Frequency Method</a></h4>
 <div class="paragraph">
 <p>このフィールドは、シミュレーション中の計算時間に関して、ソーラーモデル、シェーディングモデル、デイライトモデルの計算方法を制御するために使用する。
 キーワードPeriodicを使用すると、デフォルトで最速の方法が選択される。
@@ -893,7 +910,7 @@ Reflectionの使用については計算時間やエラーについての注意�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_shading_calculation_update_frequency"><a class="link" href="#_shading_calculation_update_frequency">2.4.2. Shading Calculation Update Frequency</a></h4>
+<h4 id="_shading_calculation_update_frequency"><a class="link" href="#_shading_calculation_update_frequency">2.5.2. Shading Calculation Update Frequency</a></h4>
 <div class="paragraph">
 <p>このフィールドに入力された日数毎に、日陰の計算が実行される。
 このフィールドは、前のフィールドでデフォルトの「Periodic」が使用されている場合にのみ使用される。
@@ -909,7 +926,7 @@ Shading Calculation Update Frequencyは計算結果に与える影響が大き�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.5. Site:GroundReflectance</a></h3>
+<h3 id="_sitegroundreflectance"><a class="link" href="#_sitegroundreflectance">2.6. Site:GroundReflectance</a></h3>
 <div class="paragraph">
 <p>Site:GroundReflectanceクラスでは、地物反射率に関するパラメータを記述する。</p>
 </div>
@@ -936,7 +953,7 @@ Shading Calculation Update Frequencyは計算結果に与える影響が大き�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.6. Site:GroundTemperature:BuildingSurface</a></h3>
+<h3 id="_sitegroundtemperaturebuildingsurface"><a class="link" href="#_sitegroundtemperaturebuildingsurface">2.7. Site:GroundTemperature:BuildingSurface</a></h3>
 <div class="paragraph">
 <p>Site:GroundTemperature:BuildingSurfaceクラスでは、地中の温度を入力する。</p>
 </div>
@@ -982,13 +999,13 @@ Site:GroundTemperature:Shallow　及び　Site:GroundTemperature:Deepオブジ�
 適切な地中温度の決定に関する詳細は、EnergyPlusの解説書「Auxiliary Programs」に記載されている。</p>
 </div>
 <div class="sect3">
-<h4 id="_補足その他の地盤温度の設定方法"><a class="link" href="#_補足その他の地盤温度の設定方法">2.6.1. （補足）その他の地盤温度の設定方法</a></h4>
+<h4 id="_補足その他の地盤温度の設定方法"><a class="link" href="#_補足その他の地盤温度の設定方法">2.7.1. （補足）その他の地盤温度の設定方法</a></h4>
 <div class="paragraph">
 <p>EnergyPlusでは複数の地盤温度設定方法が用意されている。
 ここでは、今回使用する　Site:GroundTemperature:BuildingSurface　以外の設定方法について概説する。</p>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.6.1.1. Site:GroundTemperature:Shallow</a></h5>
+<h5 id="_sitegroundtemperatureshallow"><a class="link" href="#_sitegroundtemperatureshallow">2.7.1.1. Site:GroundTemperature:Shallow</a></h5>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureshallow">bigladder解説</a></p>
 </div>
@@ -1002,7 +1019,7 @@ Site:GroundTemperature:Shallow　及び　Site:GroundTemperature:Deepオブジ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.6.1.2. Site:GroundTemperature:Deep</a></h5>
+<h5 id="_sitegroundtemperaturedeep"><a class="link" href="#_sitegroundtemperaturedeep">2.7.1.2. Site:GroundTemperature:Deep</a></h5>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturedeep">bigladder解説</a></p>
 </div>
@@ -1016,7 +1033,7 @@ Site:GroundTemperature:Shallow　及び　Site:GroundTemperature:Deepオブジ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.6.1.3. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h5>
+<h5 id="_sitegroundtemperatureundisturbedfinitedifference"><a class="link" href="#_sitegroundtemperatureundisturbedfinitedifference">2.7.1.3. Site:GroundTemperature:Undisturbed:FiniteDifference</a></h5>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedfinitedifference">bigladder解説</a></p>
 </div>
@@ -1028,7 +1045,7 @@ Site:GroundTemperature:Shallow　及び　Site:GroundTemperature:Deepオブジ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.6.1.4. Site:GroundTemperature:FCfactorMethod</a></h5>
+<h5 id="_sitegroundtemperaturefcfactormethod"><a class="link" href="#_sitegroundtemperaturefcfactormethod">2.7.1.4. Site:GroundTemperature:FCfactorMethod</a></h5>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod">bigladder解説</a></p>
 </div>
@@ -1043,19 +1060,19 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.6.1.5. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h5>
+<h5 id="_sitegroundtemperatureundisturbedkusudaachenbach"><a class="link" href="#_sitegroundtemperatureundisturbedkusudaachenbach">2.7.1.5. Site:GroundTemperature:Undisturbed:KusudaAchenbach</a></h5>
 <div class="paragraph">
 <p>Kusuda, T. と P.R. Achenbach　による回帰式</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.6.1.6. Site:GroundTemperature:Undisturbed:Xing</a></h5>
+<h5 id="_sitegroundtemperatureundisturbedxing"><a class="link" href="#_sitegroundtemperatureundisturbedxing">2.7.1.6. Site:GroundTemperature:Undisturbed:Xing</a></h5>
 <div class="paragraph">
 <p>Xing　による回帰式</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.6.1.7. GroundHeatExchanger:Surface</a></h5>
+<h5 id="_groundheatexchangersurface"><a class="link" href="#_groundheatexchangersurface">2.7.1.7. GroundHeatExchanger:Surface</a></h5>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#groundheatexchangersurface">bigladder解説</a></p>
 </div>
@@ -1072,7 +1089,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zone"><a class="link" href="#_zone">2.7. Zone</a></h3>
+<h3 id="_zone"><a class="link" href="#_zone">2.8. Zone</a></h3>
 <div class="paragraph">
 <p>Zoneクラスは、ゾーンに関するパラメータを記述する。</p>
 </div>
@@ -1093,7 +1110,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.8. GlobalGeometryRules</a></h3>
+<h3 id="_globalgeometryrules"><a class="link" href="#_globalgeometryrules">2.9. GlobalGeometryRules</a></h3>
 <div class="paragraph">
 <p>GlobalGeometryRulesクラスでは、座標に関する設定を入力する。</p>
 </div>
@@ -1114,7 +1131,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.9. BuildingSurface:Detailed</a></h3>
+<h3 id="_buildingsurfacedetailed"><a class="link" href="#_buildingsurfacedetailed">2.10. BuildingSurface:Detailed</a></h3>
 <div class="paragraph">
 <p>BuildingSurface:Detailedクラスでは、外壁構成に関するパラメータを記述する。</p>
 </div>
@@ -1291,7 +1308,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.10. FenestrationSurface:Detailed</a></h3>
+<h3 id="_fenestrationsurfacedetailed"><a class="link" href="#_fenestrationsurfacedetailed">2.11. FenestrationSurface:Detailed</a></h3>
 <div class="paragraph">
 <p>FenestrationSurface:Detailedクラスでは、窓構成に関するパラメータを入力する。</p>
 </div>
@@ -1354,7 +1371,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_material_construction"><a class="link" href="#_material_construction">2.11. Material, Construction</a></h3>
+<h3 id="_material_construction"><a class="link" href="#_material_construction">2.12. Material, Construction</a></h3>
 <div class="paragraph">
 <p>Materialクラスでは建材の熱物性値を定義し、Constructionクラスで建材構成を入力する。</p>
 </div>
@@ -1501,7 +1518,7 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.12. WindowMaterial:Glazing</a></h3>
+<h3 id="_windowmaterialglazing"><a class="link" href="#_windowmaterialglazing">2.13. WindowMaterial:Glazing</a></h3>
 <div class="paragraph">
 <p>WindowMaterial:Glazingクラスでは、ガラスの熱物性値を定義して、Constructionクラスで窓構成を入力する。</p>
 </div>
@@ -1544,13 +1561,13 @@ C-factor法（Construction:CfactorUndergroundWall）及びF-factor法（Construc
 </div>
 </div>
 <div class="sect3">
-<h4 id="_name_2"><a class="link" href="#_name_2">2.12.1. Name</a></h4>
+<h4 id="_name_2"><a class="link" href="#_name_2">2.13.1. Name</a></h4>
 <div class="paragraph">
 <p>ガラスレイヤーの名称である。Window construtionのレイヤー入力時に使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_optical_data_type"><a class="link" href="#_optical_data_type">2.12.2. Optical Data Type</a></h4>
+<h4 id="_optical_data_type"><a class="link" href="#_optical_data_type">2.13.2. Optical Data Type</a></h4>
 <div class="paragraph">
 <p>このフィールドの有効な値は、SpectralAverage、Spectral、SpectralAndAngle、及び、BSDF である。</p>
 </div>
@@ -1604,86 +1621,86 @@ Construction：ComplexFenestrationStateオブジェクトには、ComplexFenestr
 </div>
 </div>
 <div class="sect3">
-<h4 id="_window_glass_spectral_data_set_name"><a class="link" href="#_window_glass_spectral_data_set_name">2.12.3. Window Glass Spectral Data Set Name</a></h4>
+<h4 id="_window_glass_spectral_data_set_name"><a class="link" href="#_window_glass_spectral_data_set_name">2.13.3. Window Glass Spectral Data Set Name</a></h4>
 <div class="paragraph">
 <p>Optical Data Type = Spectralの場合、WindowGlassSpectralDataオブジェクトで定義されたスペクトルデータセットの名前を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_thickness"><a class="link" href="#_thickness">2.12.4. Thickness</a></h4>
+<h4 id="_thickness"><a class="link" href="#_thickness">2.13.4. Thickness</a></h4>
 <div class="paragraph">
 <p>ガラスの厚さ [m]を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_transmittance_at_normal_incidence"><a class="link" href="#_solar_transmittance_at_normal_incidence">2.12.5. Solar Transmittance at Normal Incidence</a></h4>
+<h4 id="_solar_transmittance_at_normal_incidence"><a class="link" href="#_solar_transmittance_at_normal_incidence">2.13.5. Solar Transmittance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化された法線面での透過率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_front_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_front_side_solar_reflectance_at_normal_incidence">2.12.6. Front Side Solar Reflectance at Normal Incidence</a></h4>
+<h4 id="_front_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_front_side_solar_reflectance_at_normal_incidence">2.13.6. Front Side Solar Reflectance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化された法線面・前面の反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_back_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_back_side_solar_reflectance_at_normal_incidence">2.12.7. Back Side Solar Reflectance at Normal Incidence</a></h4>
+<h4 id="_back_side_solar_reflectance_at_normal_incidence"><a class="link" href="#_back_side_solar_reflectance_at_normal_incidence">2.13.7. Back Side Solar Reflectance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化された法線面・背面の反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_visible_transmittance_at_normal_incidence"><a class="link" href="#_visible_transmittance_at_normal_incidence">2.12.8. Visible Transmittance at Normal Incidence</a></h4>
+<h4 id="_visible_transmittance_at_normal_incidence"><a class="link" href="#_visible_transmittance_at_normal_incidence">2.13.8. Visible Transmittance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面での可視光透過率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_front_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_front_side_visible_reflectance_at_normal_incidence">2.12.9. Front Side Visible Reflectance at Normal Incidence</a></h4>
+<h4 id="_front_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_front_side_visible_reflectance_at_normal_incidence">2.13.9. Front Side Visible Reflectance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面・前面の可視光反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_back_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_back_side_visible_reflectance_at_normal_incidence">2.12.10. Back Side Visible Reflectance at Normal Incidence</a></h4>
+<h4 id="_back_side_visible_reflectance_at_normal_incidence"><a class="link" href="#_back_side_visible_reflectance_at_normal_incidence">2.13.10. Back Side Visible Reflectance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>太陽スペクトル全体で平均化され、人間の目の反応によって重み付けされた法線面・背面の可視光反射率を入力する。Optical Data Type = SpectralAverageの場合にのみ使用される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_infrared_transmittance_at_normal_incidence"><a class="link" href="#_infrared_transmittance_at_normal_incidence">2.12.11. Infrared Transmittance at Normal Incidence</a></h4>
+<h4 id="_infrared_transmittance_at_normal_incidence"><a class="link" href="#_infrared_transmittance_at_normal_incidence">2.13.11. Infrared Transmittance at Normal Incidence</a></h4>
 <div class="paragraph">
 <p>法線面での長波長透過率を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_front_side_infrared_hemispherical_emissivity"><a class="link" href="#_front_side_infrared_hemispherical_emissivity">2.12.12. Front Side Infrared Hemispherical Emissivity</a></h4>
+<h4 id="_front_side_infrared_hemispherical_emissivity"><a class="link" href="#_front_side_infrared_hemispherical_emissivity">2.13.12. Front Side Infrared Hemispherical Emissivity</a></h4>
 <div class="paragraph">
 <p>前面の放射率を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_back_side_infrared_hemispherical_emissivity"><a class="link" href="#_back_side_infrared_hemispherical_emissivity">2.12.13. Back Side Infrared Hemispherical Emissivity</a></h4>
+<h4 id="_back_side_infrared_hemispherical_emissivity"><a class="link" href="#_back_side_infrared_hemispherical_emissivity">2.13.13. Back Side Infrared Hemispherical Emissivity</a></h4>
 <div class="paragraph">
 <p>背面の放射率を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conductivity"><a class="link" href="#_conductivity">2.12.14. Conductivity</a></h4>
+<h4 id="_conductivity"><a class="link" href="#_conductivity">2.13.14. Conductivity</a></h4>
 <div class="paragraph">
 <p>熱伝導率 [W/mK]を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dirt_correction_factor_for_solar_and_visible_transmittance"><a class="link" href="#_dirt_correction_factor_for_solar_and_visible_transmittance">2.12.15. Dirt Correction Factor for Solar and Visible Transmittance</a></h4>
+<h4 id="_dirt_correction_factor_for_solar_and_visible_transmittance"><a class="link" href="#_dirt_correction_factor_for_solar_and_visible_transmittance">2.13.15. Dirt Correction Factor for Solar and Visible Transmittance</a></h4>
 <div class="paragraph">
 <p>ガラスの汚れの影響を補正する係数を入力する。材料が外部の窓またはガラスドアの外側のガラス層として使用されている場合、プログラムは「法線面での太陽透過率」及び「法線面での可視光透過率」のフィールドにこの係数を掛ける。
 材料が内側のガラス層として使用されている場合（二層ガラスなど）では、内側のガラス層はきれいであると想定されているため、汚れ補正係数は適用されない。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_solar_diffusing"><a class="link" href="#_solar_diffusing">2.12.16. Solar Diffusing</a></h4>
+<h4 id="_solar_diffusing"><a class="link" href="#_solar_diffusing">2.13.16. Solar Diffusing</a></h4>
 <div class="paragraph">
 <p>No（デフォルト）及びYesの値を取る。
 Noの場合、ガラスは透明であり、ガラスに入射する直達日射は拡散成分のない直達放射として透過する。
@@ -1697,7 +1714,7 @@ Yesの場合、ガラスは半透明で、ガラスに入射する直達日射�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_windowmaterialsimpleglazingsystem"><a class="link" href="#_windowmaterialsimpleglazingsystem">2.13. WindowMaterial:SimpleGlazingSystem</a></h3>
+<h3 id="_windowmaterialsimpleglazingsystem"><a class="link" href="#_windowmaterialsimpleglazingsystem">2.14. WindowMaterial:SimpleGlazingSystem</a></h3>
 <div class="paragraph">
 <p>この入力オブジェクトは、個々のレイヤーではなく窓システム全体を記述するという点で、他のWindowMaterialオブジェクトとは異なる。</p>
 </div>
@@ -1717,7 +1734,7 @@ Yesの場合、ガラスは半透明で、ガラスに入射する直達日射�
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/window-calculation-module.html#calculation-of-angular-properties">Engineering Manual</a></p>
 </div>
 <div class="sect3">
-<h4 id="_補足窓の入力方法について"><a class="link" href="#_補足窓の入力方法について">2.13.1. （補足）窓の入力方法について</a></h4>
+<h4 id="_補足窓の入力方法について"><a class="link" href="#_補足窓の入力方法について">2.14.1. （補足）窓の入力方法について</a></h4>
 <div class="paragraph">
 <p>窓システムの入力方法には、次の2つがある。</p>
 </div>
@@ -1853,7 +1870,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.14. Schedule:Day:Hourly</a></h3>
+<h3 id="_scheduledayhourly"><a class="link" href="#_scheduledayhourly">2.15. Schedule:Day:Hourly</a></h3>
 <div class="paragraph">
 <p>Schedule:Day:Hourlyクラスでは、時刻別のスケジュールを入力する。</p>
 </div>
@@ -1994,7 +2011,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.15. Schedule:Week:Daily</a></h3>
+<h3 id="_scheduleweekdaily"><a class="link" href="#_scheduleweekdaily">2.16. Schedule:Week:Daily</a></h3>
 <div class="paragraph">
 <p>Schedule:Week:Dailyクラスでは、曜日別のスケジュールを入力する。</p>
 </div>
@@ -2079,7 +2096,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.16. Schedule:Year</a></h3>
+<h3 id="_scheduleyear"><a class="link" href="#_scheduleyear">2.17. Schedule:Year</a></h3>
 <div class="paragraph">
 <p>Schedule:Yearクラスでは、年間スケジュールを入力する。</p>
 </div>
@@ -2140,7 +2157,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.17. ZoneInfiltration:DesignFlowRate</a></h3>
+<h3 id="_zoneinfiltrationdesignflowrate"><a class="link" href="#_zoneinfiltrationdesignflowrate">2.18. ZoneInfiltration:DesignFlowRate</a></h3>
 <div class="paragraph">
 <p>ZoneInfiltration:DesignFlowRateクラスでは、すきま風に関する設定を入力する。</p>
 </div>
@@ -2167,7 +2184,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_otherequipment"><a class="link" href="#_otherequipment">2.18. OtherEquipment</a></h3>
+<h3 id="_otherequipment"><a class="link" href="#_otherequipment">2.19. OtherEquipment</a></h3>
 <div class="paragraph">
 <p>OtherEquipmentクラスでは、内部発熱に関する設定を入力する。</p>
 </div>
@@ -2195,7 +2212,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.19. ZoneControl:Thermostat</a></h3>
+<h3 id="_zonecontrolthermostat"><a class="link" href="#_zonecontrolthermostat">2.20. ZoneControl:Thermostat</a></h3>
 <div class="paragraph">
 <p>ZoneControl:Thermostatクラスでは、ゾーンを指定された温度に制御する方法について入力する。</p>
 </div>
@@ -2214,19 +2231,19 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_name_3"><a class="link" href="#_name_3">2.19.1. Name</a></h4>
+<h4 id="_name_3"><a class="link" href="#_name_3">2.20.1. Name</a></h4>
 <div class="paragraph">
 <p>任意の名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.19.2. Zone or ZoneList Name</a></h4>
+<h4 id="_zone_or_zonelist_name"><a class="link" href="#_zone_or_zonelist_name">2.20.2. Zone or ZoneList Name</a></h4>
 <div class="paragraph">
 <p>対象とするゾーンもしくはゾーンリストの名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.19.3. Control Type Schedule Name</a></h4>
+<h4 id="_control_type_schedule_name"><a class="link" href="#_control_type_schedule_name">2.20.3. Control Type Schedule Name</a></h4>
 <div class="paragraph">
 <p>別途定義した制御スケジュール名を入力する。 制御スケジュールには、シミュレーション中に使用される制御タイプ番号を指定する。有効な制御タイプ番号は次のとおりである。</p>
 </div>
@@ -2254,7 +2271,7 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.19.4. Control 1 Object Type</a></h4>
+<h4 id="_control_1_object_type"><a class="link" href="#_control_1_object_type">2.20.4. Control 1 Object Type</a></h4>
 <div class="paragraph">
 <p>コントロールタイプの種類を次の4つの選択肢から選択する。</p>
 </div>
@@ -2279,14 +2296,14 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_control_1_name"><a class="link" href="#_control_1_name">2.19.5. Control 1 Name</a></h4>
+<h4 id="_control_1_name"><a class="link" href="#_control_1_name">2.20.5. Control 1 Name</a></h4>
 <div class="paragraph">
 <p>別途定義したコントロールタイプの名称を入力する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.20. ThermostatSetpoint:DualSetpoint</a></h3>
+<h3 id="_thermostatsetpointdualsetpoint"><a class="link" href="#_thermostatsetpointdualsetpoint">2.21. ThermostatSetpoint:DualSetpoint</a></h3>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-controls-thermostats.html#thermostatsetpointdualsetpoint" class="external" target="_blank" rel="noopener">ThermostatSetpoint:DualSetpointの作成方法</a></p>
 </div>
@@ -2300,26 +2317,26 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_name_4"><a class="link" href="#_name_4">2.20.1. Name</a></h4>
+<h4 id="_name_4"><a class="link" href="#_name_4">2.21.1. Name</a></h4>
 <div class="paragraph">
 <p>任意の名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.20.2. Heating Setpoint Temperature Schedule Name</a></h4>
+<h4 id="_heating_setpoint_temperature_schedule_name"><a class="link" href="#_heating_setpoint_temperature_schedule_name">2.21.2. Heating Setpoint Temperature Schedule Name</a></h4>
 <div class="paragraph">
 <p>暖房運転時設定温度のスケジュール名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.20.3. Cooling Setpoint Temperature Schedule Name</a></h4>
+<h4 id="_cooling_setpoint_temperature_schedule_name"><a class="link" href="#_cooling_setpoint_temperature_schedule_name">2.21.3. Cooling Setpoint Temperature Schedule Name</a></h4>
 <div class="paragraph">
 <p>冷房運転時設定温度のスケジュール名称を入力する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.21. ZoneHVAC:IdealLoadsAirSystem</a></h3>
+<h3 id="_zonehvacidealloadsairsystem"><a class="link" href="#_zonehvacidealloadsairsystem">2.22. ZoneHVAC:IdealLoadsAirSystem</a></h3>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem" class="external" target="_blank" rel="noopener">ZoneHVAC:IdealLoadsAirSystemの作成方法</a></p>
 </div>
@@ -2362,43 +2379,43 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_name_5"><a class="link" href="#_name_5">2.21.1. Name</a></h4>
+<h4 id="_name_5"><a class="link" href="#_name_5">2.22.1. Name</a></h4>
 <div class="paragraph">
 <p>任意の名称を入力する。この名称は　ZoneHVAC:EquipmentList から参照される。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.21.2. Zone Supply Air Node Name</a></h4>
+<h4 id="_zone_supply_air_node_name"><a class="link" href="#_zone_supply_air_node_name">2.22.2. Zone Supply Air Node Name</a></h4>
 <div class="paragraph">
 <p>給気ノードの名称を入力する。これは、本コンポーネントがサービスを提供するゾーンのゾーン給気ノードの1つと同じでなければならない。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_maximum_heating_supply_air_temperature_oc"><a class="link" href="#_maximum_heating_supply_air_temperature_oc">2.21.3. Maximum Heating Supply Air Temperature {<sup>o</sup>C}</a></h4>
+<h4 id="_maximum_heating_supply_air_temperature_oc"><a class="link" href="#_maximum_heating_supply_air_temperature_oc">2.22.3. Maximum Heating Supply Air Temperature {<sup>o</sup>C}</a></h4>
 <div class="paragraph">
 <p>給気温度の最大値を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_minimum_cooling_supply_air_temperature_oc"><a class="link" href="#_minimum_cooling_supply_air_temperature_oc">2.21.4. Minimum Cooling Supply Air Temperature {<sup>o</sup>C}</a></h4>
+<h4 id="_minimum_cooling_supply_air_temperature_oc"><a class="link" href="#_minimum_cooling_supply_air_temperature_oc">2.22.4. Minimum Cooling Supply Air Temperature {<sup>o</sup>C}</a></h4>
 <div class="paragraph">
 <p>給気温度の最小値を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.21.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
+<h4 id="_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_maximum_heating_supply_air_humidity_ratio_kgwaterkgdryair">2.22.5. Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
 <div class="paragraph">
 <p>給気湿度の最大値を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.21.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
+<h4 id="_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair"><a class="link" href="#_minimum_cooling_supply_air_humidity_ratio_kgwaterkgdryair">2.22.6. Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}</a></h4>
 <div class="paragraph">
 <p>給気湿度の最小値を入力する。選択肢は以下の4つである。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.21.7. Dehumidification Control Type</a></h4>
+<h4 id="_dehumidification_control_type"><a class="link" href="#_dehumidification_control_type">2.22.7. Dehumidification Control Type</a></h4>
 <div class="paragraph">
 <p>除湿の制御方式を選択する。選択肢は以下の4つである。</p>
 </div>
@@ -2420,7 +2437,7 @@ Construction,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.21.8. Humidification Control Type</a></h4>
+<h4 id="_humidification_control_type"><a class="link" href="#_humidification_control_type">2.22.8. Humidification Control Type</a></h4>
 <div class="paragraph">
 <p>加湿の制御方式を選択する。選択肢は以下の3つである。</p>
 </div>
@@ -2440,7 +2457,7 @@ Construction,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.22. ZoneHVAC:EquipmentList</a></h3>
+<h3 id="_zonehvacequipmentlist"><a class="link" href="#_zonehvacequipmentlist">2.23. ZoneHVAC:EquipmentList</a></h3>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentlist" class="external" target="_blank" rel="noopener">ZoneHVAC:EquipmentListの作成方法</a></p>
 </div>
@@ -2465,26 +2482,26 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.22.1. Zone Equipment 1 Object Type</a></h4>
+<h4 id="_zone_equipment_1_object_type"><a class="link" href="#_zone_equipment_1_object_type">2.23.1. Zone Equipment 1 Object Type</a></h4>
 <div class="paragraph">
 <p>ゾーンに設置されたHVAC機器の名称（ZoneHVAC:IdealLoadsAirSystem）を指定する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.22.2. Zone Equipment 1 Cooling Sequence</a></h4>
+<h4 id="_zone_equipment_1_cooling_sequence"><a class="link" href="#_zone_equipment_1_cooling_sequence">2.23.2. Zone Equipment 1 Cooling Sequence</a></h4>
 <div class="paragraph">
 <p>ゾーンサーモスタットが冷房を要求する際の、ゾーン機器のシミュレーション順序を指定する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.22.3. Zone Equipment 1 Heating or No-Load Sequence</a></h4>
+<h4 id="_zone_equipment_1_heating_or_no_load_sequence"><a class="link" href="#_zone_equipment_1_heating_or_no_load_sequence">2.23.3. Zone Equipment 1 Heating or No-Load Sequence</a></h4>
 <div class="paragraph">
 <p>ゾーンサーモスタットが暖房を要求した場合、もしくは負荷がない場合のゾーン機器のシミュレーション順序を指定する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nodelist"><a class="link" href="#_nodelist">2.23. NodeList</a></h3>
+<h3 id="_nodelist"><a class="link" href="#_nodelist">2.24. NodeList</a></h3>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-node-branch-management.html#nodelist" class="external" target="_blank" rel="noopener">NodeListの作成方法</a></p>
 </div>
@@ -2498,7 +2515,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect2">
-<h3 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.24. ZoneHVAC:EquipmentConnections</a></h3>
+<h3 id="_zonehvacequipmentconnections"><a class="link" href="#_zonehvacequipmentconnections">2.25. ZoneHVAC:EquipmentConnections</a></h3>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-equipment.html#zonehvacequipmentconnections" class="external" target="_blank" rel="noopener">ZoneHVAC:EquipmentConnectionsの作成方法</a></p>
 </div>
@@ -2525,46 +2542,46 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.24.1. Zone Name（required）</a></h4>
+<h4 id="_zone_namerequired"><a class="link" href="#_zone_namerequired">2.25.1. Zone Name（required）</a></h4>
 <div class="paragraph">
 <p>ゾーン名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.24.2. Zone Conditioning Equipment List Name（required）</a></h4>
+<h4 id="_zone_conditioning_equipment_list_namerequired"><a class="link" href="#_zone_conditioning_equipment_list_namerequired">2.25.2. Zone Conditioning Equipment List Name（required）</a></h4>
 <div class="paragraph">
 <p>「ZoneHVAC:EquipmentList」で定義した名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.24.3. Zone Air Inlet Node or NodeList Name</a></h4>
+<h4 id="_zone_air_inlet_node_or_nodelist_name"><a class="link" href="#_zone_air_inlet_node_or_nodelist_name">2.25.3. Zone Air Inlet Node or NodeList Name</a></h4>
 <div class="paragraph">
 <p>給気に関するノード名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.24.4. Zone Air Exhaust Node or NodeList Name</a></h4>
+<h4 id="_zone_air_exhaust_node_or_nodelist_name"><a class="link" href="#_zone_air_exhaust_node_or_nodelist_name">2.25.4. Zone Air Exhaust Node or NodeList Name</a></h4>
 <div class="paragraph">
 <p>排気に関するノード名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.24.5. Zone Air Node Name（required）</a></h4>
+<h4 id="_zone_air_node_namerequired"><a class="link" href="#_zone_air_node_namerequired">2.25.5. Zone Air Node Name（required）</a></h4>
 <div class="paragraph">
 <p>ゾーン空気に関するノード名称を入力する。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.24.6. Zone Return Air Node or NodeList Name</a></h4>
+<h4 id="_zone_return_air_node_or_nodelist_name"><a class="link" href="#_zone_return_air_node_or_nodelist_name">2.25.6. Zone Return Air Node or NodeList Name</a></h4>
 <div class="paragraph">
 <p>還気に関するノード名称を入力する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.25. Output:Variable</a></h3>
+<h3 id="_outputvariable"><a class="link" href="#_outputvariable">2.26. Output:Variable</a></h3>
 <div class="sect3">
-<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.25.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
+<h4 id="_surface_outside_face_incident_solar_radiation_rate_per_area"><a class="link" href="#_surface_outside_face_incident_solar_radiation_rate_per_area">2.26.1. Surface Outside Face Incident Solar Radiation Rate per Area</a></h4>
 <div class="paragraph">
 <p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#surface-outside-face-incident-solar-radiation-rate-per-area-wm2" class="external" target="_blank" rel="noopener">&lt;bigladder&gt;</a></p>
 </div>
@@ -2626,7 +2643,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 <p>model-2の入力についてTable 1の違いを解消して計算を行ったところ、Table 2に示す通り、model-1及びAS140 modelとほぼ同様の結果が得られることを確認した。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. オリジナル（Case600 ono）とTable 1の違いを解消した修正版(Case600 ono_rev)のOno modelの計算結果の比較</caption>
+<caption class="title">表 5. 入力方法が異なるモデルによる計算結果の比較</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">

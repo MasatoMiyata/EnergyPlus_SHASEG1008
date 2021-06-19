@@ -17,7 +17,7 @@ Case600について、2人のユーザが作成したIDFファイルを比較し
 
 model-2の入力についてTable 1の違いを解消して計算を行ったところ、Table 2に示す通り、model-1及びAS140 modelとほぼ同様の結果が得られることを確認した。
 
-.オリジナル（Case600 ono）とTable 1の違いを解消した修正版(Case600 ono_rev)のOno modelの計算結果の比較
+.入力方法が異なるモデルによる計算結果の比較
 [options="header"]
 |====================================================
 |Item	|Unit	|Case600 model-2| Case600 model-2 rev|Case600 model-1|Case600 AS140

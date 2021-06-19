@@ -455,7 +455,7 @@ Construction,
 Material,
     CONCRATE-60mm,           !- Name
     Rough,                   !- Roughness
-    0.6000,                  !- Thickness {m}
+    0.0600,                  !- Thickness {m}
     1.600,                   !- Conductivity {W/m-K}
     2300.00,                 !- Density {kg/m3}
     870.00,                  !- Specific Heat {J/kg-K}

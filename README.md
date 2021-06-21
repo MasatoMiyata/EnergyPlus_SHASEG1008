@@ -1,6 +1,7 @@
 # EnergyPlus <- SHASE G-1008:2016
 
 空気調和・衛生工学会によるSHASE-G:1008に基づき、EnergyPlusを使って計算した際のメモです。
+https://masatomiyata.github.io/EnergyPlus_SHASEG1008/
 
 EnergyPlus は Ver.9.4.0 を使います。
 

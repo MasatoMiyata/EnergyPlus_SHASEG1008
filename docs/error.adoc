@@ -1,7 +1,5 @@
 // Error
 
-:sectnums:
-
 === EnergyPlusにおけるErrorの取り扱い
 
 ==== Errorの重大さによる分類

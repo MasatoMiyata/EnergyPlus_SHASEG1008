@@ -39,6 +39,65 @@ Case900-J2の計算結果をFigure 4に示す。両モデルに若干の差が�
 .Case900-J2の計算結果
 image::figures/Case900-J2_annual_peak_load.png[]
 
+上記のコンクリート厚さの修正を行った後も特に暖房ピークの差は大きいままであったため、原因を追究した。Miyata modelとOno modelでは、下記の通り間欠空調のスケジュール指定の方法が異なっていた。
+
+* Miyata modelのスケジュール指定（Thermostatの制御スケジュールで指定）
+```
+Schedule:Day:Hourly,
+    Control Type All Days,   !- Name
+    Control Type,            !- Schedule Type Limits Name
+    0,                       !- Hour 1  0:00:01〜1:00:00
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0,                       !- Hour 8
+    4,                       !- Hour 9
+    4,                       !- Hour 10
+    4,                       !- Hour 11
+    4,                       !- Hour 12
+    4,                       !- Hour 13
+    4,                       !- Hour 14
+    4,                       !- Hour 15
+    4,                       !- Hour 16
+    4,                       !- Hour 17
+    4,                       !- Hour 18  17:00:01〜18:00:00
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+```
+
+* Ono modelのスケジュール指定（空調システムの運転スケジュールで指定）
+```
+Schedule:Compact,
+    Block1:Zone1 Cooling Availability Sch,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until:  8:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 18:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0;                       !- Field 8
+```
+
+普通に考えれば、どちらの指定方法でも同じ結果になると想像すると思うが、この違いが結果に重大な影響を及ぼすことが判明した。link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#group----design-objects[Input Output Reference: Group – Design Objects]を確認すると下記のような衝撃的な事実が記載されていた。
+```
+Other than zone thermostat setpoints, the sizing calculations generally know nothing about the system control inputs such as setpoints and availability schedules. The user must coordinate sizing inputs with the actual simulation control inputs.
+```
+つまり、Thermostatの設定を除き、空調システムの運転スケジュール等はAuto sizingの計算には反映されないのである。従って、Miyata modelでは間欠空調の条件でSizingが行われていたのに対し、Ono modelでは24時間空調の条件でSizingされていたため、Ono modelの方が容量が小さくなり、結果として年間計算におけるピーク負荷が小さくなっていたのである。細かな話ではあるが、非常に重要なポイントであるため、EnergyPlusを使用する際にはこの点に十分注意しておく必要がある（本来であればもっと大々的にマニュアルに明示しておくべきでは？）。
+
+なお、AS140およびSHASEガイドラインでは、「空調システムの装置容量の制約はない」と規定しているため、本来的にはAuto sizingを行わず、十分大きな容量を指定しておくべきである。Ono modelの装置容量を1000kWとして再計算した結果を下図に示す。結果、暖房ピーク以外はほぼ一致し、暖房ピークはOno modelの方が大きくなった。Miyata modelにおいても装置容量の制約が影響していると考えられる。
+
+.Ono model修正後のCase900-J2の計算結果
+image::figures/Case900-J2_annual_peak_load_rev.png[]
+
 === Case900-J3
 Case900-J3の計算結果をFigure 5に示す。両モデルに大きな差がある。EnergyPlus-oではスラット角の入力を誤っていると考えられる。
 

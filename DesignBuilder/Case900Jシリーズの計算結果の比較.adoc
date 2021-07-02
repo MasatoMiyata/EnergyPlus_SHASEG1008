@@ -88,9 +88,9 @@ Schedule:Compact,
 ```
 
 普通に考えれば、どちらの指定方法でも同じ結果になると想像すると思うが、この違いが結果に重大な影響を及ぼすことが判明した。link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#group----design-objects[Input Output Reference: Group – Design Objects]を確認すると下記のような衝撃的な事実が記載されていた。
-```
-Other than zone thermostat setpoints, the sizing calculations generally know nothing about the system control inputs such as setpoints and availability schedules. The user must coordinate sizing inputs with the actual simulation control inputs.
-```
+
+`_Other than zone thermostat setpoints, the sizing calculations generally know nothing about the system control inputs such as setpoints and availability schedules. The user must coordinate sizing inputs with the actual simulation control inputs._`
+
 つまり、Thermostatの設定を除き、空調システムの運転スケジュール等はAuto sizingの計算には反映されないのである。従って、Miyata modelでは間欠空調の条件でSizingが行われていたのに対し、Ono modelでは24時間空調の条件でSizingされていたため、Ono modelの方が容量が小さくなり、結果として年間計算におけるピーク負荷が小さくなっていたのである。細かな話ではあるが、非常に重要なポイントであるため、EnergyPlusを使用する際にはこの点に十分注意しておく必要がある（本来であればもっと大々的にマニュアルに明示しておくべきでは？）。
 
 なお、AS140およびSHASEガイドラインでは、「空調システムの装置容量の制約はない」と規定しているため、本来的にはAuto sizingを行わず、十分大きな容量を指定しておくべきである。Ono modelの装置容量を1000kWとして再計算した結果を下図に示す。結果、暖房ピーク以外はほぼ一致し、暖房ピークはOno modelの方が大きくなった。Miyata modelにおいても装置容量の制約が影響していると考えられる。

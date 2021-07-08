@@ -1,4 +1,4 @@
-== DesignBuilderを用いた全体システムモデルの作成（JE100）
+== DesignBuilderを用いた全体システムモデルの作成（JE100:CAVシステム）
 
 DesignBuilder（以下、DB）を用いて全体システムテストモデル（JE100：CAVシステム）を作成する。DBのバージョンは6.1.8.021である。
 

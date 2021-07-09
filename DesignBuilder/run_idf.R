@@ -27,7 +27,7 @@ ver <- max(avail_eplus())
 #idd <- use_idd(ver, download = "auto")
 
 
-run_EnergyPlus <- function (path_idf,path_epw,case_name){
+run_EnergyPlus <- function (path_wd,path_idf,path_epw,case_name){
 
   idf <- read_idf(path = path_idf, idd = NULL)
 
@@ -122,26 +122,27 @@ run_EnergyPlus <- function (path_idf,path_epw,case_name){
 
   output <- data.frame(sum_peak=tmp,rs0305=rs0305,rw0305=rw0305,rs0727=rs0727,rw0727=rw0727,q0104=q0104,ta0104=ta0104)
 
-  fname <- paste0("Case",case_name,"_postprocessed.csv")
+  fname <- paste0(path_wd,"Case",case_name,"_postprocessed.csv")
   write.csv(as.matrix(output),fname)
 
 }
 
+path_wd <- "/Users/eikichiono/Documents/04_Association/SHASE/ECP/EnergyPlus_SHASEG1008/EnergyPlus_SHASEG1008/DesignBuilder/"
 your_tool <- "EnergyPlus-o"
-case_name <- "900-J1-2"
-path_epw <- here::here("DRYCOLDTMY.epw")
-path_idf <- here::here(paste0("Case",case_name,".idf"))
+case_name <- "900-J2"
+path_epw <- paste0(path_wd,"DRYCOLDTMY.epw")
+path_idf <- paste0(path_wd,"Case",case_name,".idf")
 
-run_EnergyPlus(path_idf,path_epw,case_name)
+run_EnergyPlus(path_wd,path_idf,path_epw,case_name)
 
 #####################################
 # Compare results
 #####################################
 
-load("trial_data.Rdata")
+load(paste0(path_wd,"trial_data.Rdata"))
 
 # case_name <- "900"
-tmp <- read.csv(paste0("Case",case_name,"_postprocessed.csv"))
+tmp <- read.csv(paste0(path_wd,"Case",case_name,"_postprocessed.csv"))
 qh_sum <- tmp[1,2]
 qc_sum <- tmp[2,2]
 qh_peak <- tmp[3,2]
@@ -161,7 +162,7 @@ if (length(grep("FF",case_name)) == 0){
     labs(title=paste0("Case",case_name), x="Simulation tools" ,y="Heating/cooling load [MWh or kW]") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+ scale_fill_manual(values = color_table) +
     theme(legend.position = 'none')
-  fname <- paste0("./figures/Case",case_name,"_annual_peak_load.png")
+  fname <- paste0(path_wd,"figures/Case",case_name,"_annual_peak_load.png")
   ggplot2::ggsave(fname,p, width=25, height=10, units = "cm", dpi=400)
 }
 
@@ -208,7 +209,8 @@ if (case_name == "600"){
 #####################################
 
 # library(readxl)
-# fname <- "/Users/eikichiono/Documents/04_Association/SHASE/ECP/EnergyPlus_SHASEG1008/EnergyPlus_SHASEG1008/idf_miyata/SHASEG1008_EnergyPlus-m_結果まとめ.xls"
+# 
+# fname <- "/Users/eikichiono/Documents/04_Association/SHASE/ECP/EnergyPlus_SHASEG1008/EnergyPlus_SHASEG1008/results/SHASEG1008_EnergyPlus-miyata_結果まとめ.xls"
 # results = read_excel(fname, sheet = 2)
 # 
 # tool_names <- unlist(results[14,2:13])

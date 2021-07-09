@@ -21,7 +21,7 @@ Version,
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
 
 Building,
-    Case600,                 !- Name
+    Case MZN,                !- Name
     0.0,                     !- North Axis {deg}
     Country,                 !- Terrain　★
     3.9999999E-02,           !- Loads Convergence Tolerance Value {W}

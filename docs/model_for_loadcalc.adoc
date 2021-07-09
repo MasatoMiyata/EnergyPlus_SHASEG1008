@@ -337,6 +337,8 @@ Xing　による回帰式
 
 Zoneクラスは、ゾーンに関するパラメータを記述する。
 
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html[Zoneクラスの作成方法, role="external", window="_blank"]
+
 .Zone　
 ----
 Zone,

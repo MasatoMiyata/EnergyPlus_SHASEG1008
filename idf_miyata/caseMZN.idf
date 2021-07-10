@@ -468,16 +468,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     0;                       !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneA_GroundFloor_0_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_GroundFloor_0_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone A, Roof - 48.000 m2, Surface Area: 48.000m2
@@ -505,16 +505,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneA_Roof_1_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_Roof_1_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone A, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
@@ -542,16 +542,16 @@ BuildingSurface:Detailed,
     8,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneA_Wall_3_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_Wall_3_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone A, Wall - 21.600 m2 - 270.0°, Surface Area: 21.600m2
@@ -579,16 +579,16 @@ BuildingSurface:Detailed,
     8,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneA_Wall_4_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_Wall_4_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone A, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
@@ -616,16 +616,16 @@ BuildingSurface:Detailed,
     0,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneA_Wall_5_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_Wall_5_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone B, Ground floor - 48.000 m2 (Ground), Surface Area: 48.000m2
@@ -653,16 +653,16 @@ BuildingSurface:Detailed,
     8,                       !- Vertex 4 Y-coordinate {m}
     0;                       !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneB_GroundFloor_0_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_GroundFloor_0_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone B, Roof - 48.000 m2, Surface Area: 48.000m2
@@ -690,16 +690,16 @@ BuildingSurface:Detailed,
     8,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneB_Roof_1_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_Roof_1_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
     
 ! Block 1, Zone B, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
@@ -727,16 +727,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneB_Wall_3_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_Wall_3_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone B, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
@@ -764,16 +764,16 @@ BuildingSurface:Detailed,
     0,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneB_Wall_5_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_Wall_5_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone C, Ground floor - 48.000 m2 (Ground), Surface Area: 48.000m2
@@ -801,16 +801,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     0;                       !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneC_GroundFloor_0_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_GroundFloor_0_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone C, Roof - 48.000 m2, Surface Area: 48.000m2
@@ -838,16 +838,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneC_Roof_1_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K! }
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_Roof_1_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K! }
 
 
 ! Block 1, Zone C, Wall - 21.600 m2 - 90.0°, Surface Area: 21.600m2
@@ -875,16 +875,16 @@ BuildingSurface:Detailed,
     0,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneC_Wall_2_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_Wall_2_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone C, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
@@ -912,16 +912,16 @@ BuildingSurface:Detailed,
     8,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneC_Wall_3_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_Wall_3_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone C, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
@@ -949,16 +949,16 @@ BuildingSurface:Detailed,
     0,            !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
-! SurfaceProperty:ConvectionCoefficients,
-!     Block1:ZoneC_Wall_5_0_0,  !- Surface Name
-!     Outside,                 !- Convection Coefficient 1 Location
-!     Value,                   !- Convection Coefficient 1 Type
-!     30.4872,                  !- Convection Coefficient 1 {W/m2-K}
-!     ,                        !- Convection Coefficient 1 Schedule Name
-!     ,                        !- Convection Coefficient 1 User Curve Name
-!     Inside,                  !- Convection Coefficient 2 Location
-!     Value,                   !- Convection Coefficient 2 Type
-!     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_Wall_5_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 ! Block 1, Zone A, Partition - 21.600 m2 (Block 1, Zone 3), Surface Area: 21.6
@@ -986,6 +986,17 @@ BuildingSurface:Detailed,
     0,              !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneA_Partition_2_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
+
 
 ! Block 1, Zone A, Partition - 21.600 m2 (Block 1, Zone 3), Surface Area: 21.6 <Other side>
 BuildingSurface:Detailed,
@@ -1012,6 +1023,17 @@ BuildingSurface:Detailed,
     8,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_Partition_4_0_10000,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
+
 ! Block 1, Zone B, Partition - 21.600 m2 (Block 1, Zone 1), Surface Area: 21.6
 BuildingSurface:Detailed,
     Block1:ZoneB_Partition_2_0_0,  !- Name
@@ -1037,6 +1059,16 @@ BuildingSurface:Detailed,
     0,              !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneB_Partition_2_0_0,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 ! Block 1, Zone B, Partition - 21.600 m2 (Block 1, Zone 1), Surface Area: 21.6 <Other side>
 BuildingSurface:Detailed,
@@ -1062,6 +1094,17 @@ BuildingSurface:Detailed,
     12,           !- Vertex 4 X-coordinate {m}
     8,              !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
+
+SurfaceProperty:ConvectionCoefficients,
+    Block1:ZoneC_Partition_4_0_10001,  !- Surface Name
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    25.38,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    3.18;                    !- Convection Coefficient 2 {W/m2-K}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========

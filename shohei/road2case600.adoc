@@ -1,3 +1,10 @@
+:toc: left
+:toclevels: 2
+:toc-title: road2case600-EnergyPlus
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+
 == はじめに
 EnergyPlus初心者がAS140-2017のCase600を計算できるようになるまでのメモです
 

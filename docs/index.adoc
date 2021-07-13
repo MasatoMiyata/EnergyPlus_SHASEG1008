@@ -34,7 +34,7 @@ SHASE-G1008:2016 第5章「熱負荷シミュレーションツールのテス�
 
 include::model_for_loadcalc.adoc[]
 
-
+<<<
 == 熱負荷(単室)基本テスト
 
 // Case 600
@@ -65,7 +65,12 @@ include::case900J.adoc[]
 
 == 熱負荷（単室）詳細テストB
 
+<<<
 == 熱負荷（複数室）テスト
+
+// Case MZN 
+include::caseMZN.adoc[]
+
 
 == 熱負荷（建物全体）テスト
 

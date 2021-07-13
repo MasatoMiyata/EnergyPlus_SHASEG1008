@@ -5,11 +5,12 @@
 :sectnumlevels: 4
 :sectlinks:
 
-== はじめに
+
+= はじめに
 EnergyPlus初心者がAS140-2017のCase600を計算できるようになるまでのメモです
 
 
-== EnergyPlusとは
+= EnergyPlusとは
 原文はlink:https://energyplus.net/[こちら]を参照。 +
 EnergyPlus™は、建物全体のエネルギーシミュレーションプログラムで、建物内の冷暖房、換気、照明、コンセント負荷などのエネルギー消費と水使用の両方をモデル化する。主な特徴は以下。
 
@@ -24,16 +25,16 @@ EnergyPlus™は、建物全体のエネルギーシミュレーションプロ�
 * 他のエンジンとの連成シミュレーションのためのFunctional Mockup Interface (FMI)のインポートおよびエクスポート
 * 標準的なサマリーレポートおよび詳細レポートに加え、年間から毎時までの時間分解能を選択できるユーザー定義のレポート
 
-== IDFファイルについて
+= IDFファイルについて
 入力データファイル（input data file, idf）は、EnergyPlusが建物シミュレーションの作成に使用する主要ファイル。そのため、適切にidfファイルを作成することが肝要である。原文はlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/what-s-different-about-energyplus-input.html#general-input-rules[こちら]を参照。
 
-=== 実行時の処理
+== 実行時の処理
 * 各モジュールは通常、最初に呼び出されたときにすべての入力を取得する。
 * 入力データファイルに順番は必要ない。
 * 特定のシミュレーションで必要とされないデータは処理されない。
 * SO DesignDayは、Design Day（DesignとDayの間に1つのスペース）やDesign Day（DesignとDayの間に2つのスペース）と同じではない。しかし、アルファ・オブジェクト（文字列を指す？）は大文字と小文字を区別しないので、DesignDayは'designday'や'SizingPeriod:DesignDay'と同じになる。
 
-=== 入力ルール
+== 入力ルール
 * 入力に用いられる追加のファイルは特定のオブジェクト（Schedule:Fileオブジェクトなど）から参照される。
 * 入力データは順番に関係なく、EnergyPlusのシミュレーションモジュールが必要に応じてデータを取得し、ソートする。さらに、EnergyPlusはすべてを動的に割り当てるため、ゾーンやサーフェスなどの数に制限はない。
 * 入力オブジェクトの最初の行には、コンマまたはセミコロンを入れなければならない（MUST）。
@@ -47,7 +48,7 @@ EnergyPlus™は、建物全体のエネルギーシミュレーションプロ�
 
 image::figures/fig1.png[]
 
-=== 出力
+== 出力
 * サマリーレベルまたは詳細（変数）レベルのいずれかが出力される。
 * サマリーレポートはサイジング結果だけでなく、多くの入力に対して存在する。
 * より詳細な変数レベルのレポートは、より適切な表示のためには後処理が必要。

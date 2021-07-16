@@ -2,7 +2,17 @@
 
 === Case MZN
 
+Case MZN のモデルを作成する。
+
 ==== ScheduleTypeLimits
+
+スケジュールで規定する値の諸元（上限、下限、データ型）などを検証するためのデータを入力する。
+
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-schedules.html#scheduletypelimits[ScheduleTypeLimitsクラスの作成方法, role="external", window="_blank"]
+
+ScheduleTypeLimitseは、スケジュールの一部を検証するために使用できる。
+例えば、Hourly day schedulesは、最小/最大（入力されている場合）、およびデータ型（連続または離散）により検証される。
+一方、Annual schedulesは最小/最大のみにより検証される（データ型の検証はすでに行われているため）。
 
 .ScheduleTypeLimits
 ----
@@ -26,6 +36,15 @@ ScheduleTypeLimits,
 ----
 
 ==== Schedule:Day:Hourly
+
+時刻別のスケジュールを入力する。
+
+Case MZNでは、4つのスケジュールを作成する必要がある。 +
+
+* 発停（24時間ON）のスケジュール（Day Sch On）
+* 発停（24時間OFF）のスケジュール（Day Sch Off）
+* 室温設定値のスケジュール（Temperature）
+* 空調制御タイプのスケジュール（Control Type All Days）
 
 .Schedule:Day:Hourly
 ----
@@ -144,7 +163,9 @@ Schedule:Day:Hourly,
 
 ==== Schedule:Week:Daily,
 
-.Schedule:Week:Daily,
+Schedule:Day:Hourly より曜日毎のスケジュールを作成する。
+
+.Schedule:Week:Daily
 ----
 Schedule:Week:Daily,
     Week Sch On,                     !- Name
@@ -209,7 +230,9 @@ Schedule:Week:Daily,
 
 ==== Schedule:Year
 
-.Schedule:Year,
+Schedule:Week:Daily より一年間のスケジュールを作成する。
+
+.Schedule:Year
 ----
 Schedule:Year,
     Always On,               !- Name
@@ -250,6 +273,9 @@ Schedule:Year,
 
 ==== Material
 
+建材の設定を行う。 +
+Case MZN では、次の2種類の建材を設定する。
+
 .Material
 ----
 Material,
@@ -277,6 +303,9 @@ Material,
 
 ==== Construction
 
+壁体構成の設定を行う。 +
+Case MZN では、次の2種類の壁耐構成（外壁、内壁）を設定する。
+
 .Construction
 ----
 Construction,
@@ -290,6 +319,8 @@ Construction,
 
 ==== GlobalGeometryRules
 
+Case MZN のモデルは DesignBuilderで作成したため、DesignBuilderの設定に従う。
+
 .GlobalGeometryRules
 ----
 GlobalGeometryRules,
@@ -299,6 +330,9 @@ GlobalGeometryRules,
 ----
 
 ==== Zone
+
+Zoneの設定を行う。 +
+Case MZN では、次の3つのZone（ZoneA, B, C）を設定する。
 
 .Zone
 ----
@@ -354,7 +388,12 @@ Zone,
 
 ==== BuildingSurface:Detailed
 
-.BuildingSurface:Detailed,
+壁体の設定を行う。ここでは、外壁と内壁について、ぞれぞれ1つのみ設定例を示す。
+
+Case MZN では床であっても外気に接するとするので、Outside Boundary Condition は 「Outdoors」とする。
+また、全ての壁について Sun Exposure は「NoSun」とする。
+
+.BuildingSurface:Detailed（外壁の例）
 ----
 ! Block 1, Zone A, Ground floor - 48.000 m2 (Ground), Surface Area: 48.000m2
 BuildingSurface:Detailed,
@@ -368,344 +407,24 @@ BuildingSurface:Detailed,
     NoWind,                  !- Wind Exposure
     AutoCalculate,           !- View Factor to Ground
     4,                       !- Number of Vertices
-    6,            !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    0,            !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    0,            !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    0,                       !- Vertex 3 Z-coordinate {m}
-    6,            !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
-    0;                       !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone A, Roof - 48.000 m2, Surface Area: 48.000m2
-BuildingSurface:Detailed,
-    Block1:ZoneA_Roof_1_0_0, !- Name
-    Roof,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneA,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0,            !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    2.7,                     !- Vertex 1 Z-coordinate {m}
-    6,            !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    2.7,                     !- Vertex 2 Z-coordinate {m}
-    6,            !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    0,            !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone A, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneA_Wall_3_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneA,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
     6,                       !- Vertex 1 X-coordinate {m}
-    8,                       !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    0,                       !- Vertex 2 X-coordinate {m}
-    8,                       !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    0,                       !- Vertex 3 X-coordinate {m}
-    8,                       !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    6,                       !- Vertex 4 X-coordinate {m}
-    8,                       !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone A, Wall - 21.600 m2 - 270.0°, Surface Area: 21.600m2
-BuildingSurface:Detailed,
-    Block1:ZoneA_Wall_4_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneA,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0,                       !- Vertex 1 X-coordinate {m}
-    8,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
     0,                       !- Vertex 1 Z-coordinate {m}
     0,                       !- Vertex 2 X-coordinate {m}
     0,                       !- Vertex 2 Y-coordinate {m}
     0,                       !- Vertex 2 Z-coordinate {m}
     0,                       !- Vertex 3 X-coordinate {m}
-    0,                       !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    0,                       !- Vertex 4 X-coordinate {m}
-    8,                       !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone A, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneA_Wall_5_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneA,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0,                       !- Vertex 1 X-coordinate {m}
-    0,                       !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    6,                       !- Vertex 2 X-coordinate {m}
-    0,                       !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    6,                       !- Vertex 3 X-coordinate {m}
-    0,                       !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    0,                       !- Vertex 4 X-coordinate {m}
-    0,                       !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone B, Ground floor - 48.000 m2 (Ground), Surface Area: 48.000m2
-BuildingSurface:Detailed,
-    Block1:ZoneB_GroundFloor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,                      !- Vertex 1 X-coordinate {m}
-    0,                       !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    6,                       !- Vertex 2 X-coordinate {m}
-    0,                       !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    6,                       !- Vertex 3 X-coordinate {m}
     8,                       !- Vertex 3 Y-coordinate {m}
     0,                       !- Vertex 3 Z-coordinate {m}
-    12,                      !- Vertex 4 X-coordinate {m}
-    8,                       !- Vertex 4 Y-coordinate {m}
-    0;                       !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone B, Roof - 48.000 m2, Surface Area: 48.000m2
-BuildingSurface:Detailed,
-    Block1:ZoneB_Roof_1_0_0, !- Name
-    Roof,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6,                       !- Vertex 1 X-coordinate {m}
-    0,                       !- Vertex 1 Y-coordinate {m}
-    2.7,                     !- Vertex 1 Z-coordinate {m}
-    12,                      !- Vertex 2 X-coordinate {m}
-    0,                       !- Vertex 2 Y-coordinate {m}
-    2.7,                     !- Vertex 2 Z-coordinate {m}
-    12,                      !- Vertex 3 X-coordinate {m}
-    8,                       !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
     6,                       !- Vertex 4 X-coordinate {m}
     8,                       !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-    
-! Block 1, Zone B, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneB_Wall_3_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,           !- Vertex 1 X-coordinate {m}
-    8,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    6,            !- Vertex 2 X-coordinate {m}
-    8,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    6,            !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    12,           !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone B, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneB_Wall_5_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6,            !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    12,           !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    12,           !- Vertex 3 X-coordinate {m}
-    0,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    6,            !- Vertex 4 X-coordinate {m}
-    0,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone C, Ground floor - 48.000 m2 (Ground), Surface Area: 48.000m2
-BuildingSurface:Detailed,
-    Block1:ZoneC_GroundFloor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    18,           !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    12,           !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    12,           !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    0,                       !- Vertex 3 Z-coordinate {m}
-    18,           !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
     0;                       !- Vertex 4 Z-coordinate {m}
+----
 
-! Block 1, Zone C, Roof - 48.000 m2, Surface Area: 48.000m2
-BuildingSurface:Detailed,
-    Block1:ZoneC_Roof_1_0_0, !- Name
-    Roof,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,           !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    2.7,                     !- Vertex 1 Z-coordinate {m}
-    18,           !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    2.7,                     !- Vertex 2 Z-coordinate {m}
-    18,           !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    12,           !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
+内壁については、Outside Boundary Condition Object で 接するゾーンの内壁を入力する必要がある。
 
-! Block 1, Zone C, Wall - 21.600 m2 - 90.0°, Surface Area: 21.600m2
-BuildingSurface:Detailed,
-    Block1:ZoneC_Wall_2_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    18,           !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    18,           !- Vertex 2 X-coordinate {m}
-    8,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    18,           !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    18,           !- Vertex 4 X-coordinate {m}
-    0,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone C, Wall - 16.200 m2 - 0.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneC_Wall_3_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    18,           !- Vertex 1 X-coordinate {m}
-    8,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    12,           !- Vertex 2 X-coordinate {m}
-    8,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    12,           !- Vertex 3 X-coordinate {m}
-    8,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    18,           !- Vertex 4 X-coordinate {m}
-    8,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone C, Wall - 16.200 m2 - 180.0°, Surface Area: 16.200m2
-BuildingSurface:Detailed,
-    Block1:ZoneC_Wall_5_0_0, !- Name
-    Wall,                    !- Surface Type
-    Project wall,            !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,           !- Vertex 1 X-coordinate {m}
-    0,            !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    18,           !- Vertex 2 X-coordinate {m}
-    0,            !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    18,           !- Vertex 3 X-coordinate {m}
-    0,            !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    12,           !- Vertex 4 X-coordinate {m}
-    0,            !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
+.BuildingSurface:Detailed（内壁の例）
+----
 ! Block 1, Zone A, Partition - 21.600 m2 (Block 1, Zone 3), Surface Area: 21.6
 BuildingSurface:Detailed,
     Block1:ZoneA_Partition_2_0_0,  !- Name
@@ -718,98 +437,30 @@ BuildingSurface:Detailed,
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
     4,                       !- Number of Vertices
-    6,            !- Vertex 1 X-coordinate {m}
-    0,              !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    6,            !- Vertex 2 X-coordinate {m}
-    8,              !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    6,            !- Vertex 3 X-coordinate {m}
-    8,              !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    6,            !- Vertex 4 X-coordinate {m}
-    0,              !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone A, Partition - 21.600 m2 (Block 1, Zone 3), Surface Area: 21.6 <Other side>
-BuildingSurface:Detailed,
-    Block1:ZoneB_Partition_4_0_10000,  !- Name
-    Wall,                    !- Surface Type
-    Project partition,       !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Block1:ZoneA_Partition_2_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
     6,                       !- Vertex 1 X-coordinate {m}
-    8,                       !- Vertex 1 Y-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
     0,                       !- Vertex 1 Z-coordinate {m}
     6,                       !- Vertex 2 X-coordinate {m}
-    0,                       !- Vertex 2 Y-coordinate {m}
+    8,                       !- Vertex 2 Y-coordinate {m}
     0,                       !- Vertex 2 Z-coordinate {m}
     6,                       !- Vertex 3 X-coordinate {m}
-    0,                       !- Vertex 3 Y-coordinate {m}
+    8,                       !- Vertex 3 Y-coordinate {m}
     2.7,                     !- Vertex 3 Z-coordinate {m}
     6,                       !- Vertex 4 X-coordinate {m}
-    8,                       !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone B, Partition - 21.600 m2 (Block 1, Zone 1), Surface Area: 21.6
-BuildingSurface:Detailed,
-    Block1:ZoneB_Partition_2_0_0,  !- Name
-    Wall,                    !- Surface Type
-    Project partition,       !- Construction Name
-    Block1:ZoneB,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Block1:ZoneC_Partition_4_0_10001,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,           !- Vertex 1 X-coordinate {m}
-    0,              !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    12,           !- Vertex 2 X-coordinate {m}
-    8,              !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    12,           !- Vertex 3 X-coordinate {m}
-    8,              !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    12,           !- Vertex 4 X-coordinate {m}
-    0,              !- Vertex 4 Y-coordinate {m}
-    2.7;                     !- Vertex 4 Z-coordinate {m}
-
-! Block 1, Zone B, Partition - 21.600 m2 (Block 1, Zone 1), Surface Area: 21.6 <Other side>
-BuildingSurface:Detailed,
-    Block1:ZoneC_Partition_4_0_10001,  !- Name
-    Wall,                    !- Surface Type
-    Project partition,       !- Construction Name
-    Block1:ZoneC,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    Block1:ZoneB_Partition_2_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    12,           !- Vertex 1 X-coordinate {m}
-    8,              !- Vertex 1 Y-coordinate {m}
-    0,                       !- Vertex 1 Z-coordinate {m}
-    12,           !- Vertex 2 X-coordinate {m}
-    0,              !- Vertex 2 Y-coordinate {m}
-    0,                       !- Vertex 2 Z-coordinate {m}
-    12,           !- Vertex 3 X-coordinate {m}
-    0,              !- Vertex 3 Y-coordinate {m}
-    2.7,                     !- Vertex 3 Z-coordinate {m}
-    12,           !- Vertex 4 X-coordinate {m}
-    8,              !- Vertex 4 Y-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
     2.7;                     !- Vertex 4 Z-coordinate {m}
 ----
 
+
 ==== SurfaceProperty:ConvectionCoefficients
 
-.SurfaceProperty:ConvectionCoefficients
+各壁体について、対流熱伝達率を設定する。
+
+参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyconvectioncoefficients[SurfaceProperty:ConvectionCoefficientsクラスの作成方法, role="external", window="_blank"]
+
+Case MZN では、放射は0と想定するため、対流絵熱伝達率＝総合熱伝達率と考える。
+
+.SurfaceProperty:ConvectionCoefficients（外壁の例）
 ----
 SurfaceProperty:ConvectionCoefficients,
     Block1:ZoneA_GroundFloor_0_0_0,  !- Surface Name
@@ -821,185 +472,12 @@ SurfaceProperty:ConvectionCoefficients,
     Inside,                  !- Convection Coefficient 2 Location
     Value,                   !- Convection Coefficient 2 Type
     8.29;                    !- Convection Coefficient 2 {W/m2-K}
+----
 
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneA_Roof_1_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneA_Wall_3_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneA_Wall_4_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneA_Wall_5_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_GroundFloor_0_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_Roof_1_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_Wall_3_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_Wall_5_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_GroundFloor_0_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_Roof_1_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_Wall_2_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_Wall_3_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_Wall_5_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
+.SurfaceProperty:ConvectionCoefficients（内壁の例）
+----
 SurfaceProperty:ConvectionCoefficients,
     Block1:ZoneA_Partition_2_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_Partition_4_0_10000,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneB_Partition_2_0_0,  !- Surface Name
-    Outside,                 !- Convection Coefficient 1 Location
-    Value,                   !- Convection Coefficient 1 Type
-    30.49,                      !- Convection Coefficient 1 {W/m2-K}
-    ,                        !- Convection Coefficient 1 Schedule Name
-    ,                        !- Convection Coefficient 1 User Curve Name
-    Inside,                  !- Convection Coefficient 2 Location
-    Value,                   !- Convection Coefficient 2 Type
-    8.29;                    !- Convection Coefficient 2 {W/m2-K}
-
-SurfaceProperty:ConvectionCoefficients,
-    Block1:ZoneC_Partition_4_0_10001,  !- Surface Name
     Outside,                 !- Convection Coefficient 1 Location
     Value,                   !- Convection Coefficient 1 Type
     30.49,                      !- Convection Coefficient 1 {W/m2-K}
@@ -1011,6 +489,8 @@ SurfaceProperty:ConvectionCoefficients,
 ----
 
 ==== OtherEquipment
+
+室内の発熱量を設定する。2500Wと1000Wの2つを設定する必要がある。
 
 .OtherEquipment
 ----
@@ -1049,6 +529,10 @@ OtherEquipment,
 
 ==== ZoneControl:Thermostat
 
+室温制御の方法を設定する。 +
+
+Case MZN では冷房のみであるので、Control Type は「2」となる。
+
 .ZoneControl:Thermostat
 ----
 ZoneControl:Thermostat,
@@ -1061,6 +545,8 @@ ZoneControl:Thermostat,
 
 ==== ThermostatSetpoint:SingleCooling
 
+室温設定値を入力する。予め作成したスケジュールを読み込む。
+
 .ThermostatSetpoint:SingleCooling
 ----
 ThermostatSetpoint:SingleCooling,
@@ -1069,6 +555,8 @@ ThermostatSetpoint:SingleCooling,
 ----
 
 ==== ZoneHVAC:IdealLoadsAirSystem
+
+空調機の仕様を設定する。
 
 .ZoneHVAC:IdealLoadsAirSystem
 ----
@@ -1090,9 +578,9 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Maximum Total Cooling Capacity {W}
     ,                        !- Heating Availability Schedule Name
     ,                        !- Cooling Availability Schedule Name
-    ,  !- Dehumidification Control Type
+    ,                        !- Dehumidification Control Type
     ,                        !- Cooling Sensible Heat Ratio {dimensionless}
-    ,  !- Humidification Control Type
+    ,                        !- Humidification Control Type
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
@@ -1104,7 +592,9 @@ ZoneHVAC:IdealLoadsAirSystem,
 
 ==== ZoneHVAC:EquipmentList
 
-,ZoneHVAC:EquipmentList
+空調機の運転スケジュールの設定を行う。
+
+.ZoneHVAC:EquipmentList
 ----
 ZoneHVAC:EquipmentList,
     Block1:ZoneC Equipment,  !- Name
@@ -1119,6 +609,8 @@ ZoneHVAC:EquipmentList,
 
 ==== ZoneHVAC:EquipmentConnections
 
+空調機の配置（どのゾーンを空調するか）を設定する。
+
 .ZoneHVAC:EquipmentConnections
 ----
 ZoneHVAC:EquipmentConnections,
@@ -1131,6 +623,8 @@ ZoneHVAC:EquipmentConnections,
 ----
 
 ==== NodeList
+
+給気口のノードの設定を行う。
 
 .NodeList
 ----

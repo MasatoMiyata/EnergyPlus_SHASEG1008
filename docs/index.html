@@ -480,7 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a>
 <ul class="sectlevel2">
-<li><a href="#_case_600">3.1. Case 600</a></li>
+<li><a href="#_case600">3.1. Case600</a></li>
 <li><a href="#_case610">3.2. Case610</a></li>
 <li><a href="#_case650">3.3. Case650</a></li>
 <li><a href="#_case900">3.4. Case900</a></li>
@@ -502,6 +502,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
 <li><a href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></li>
 <li><a href="#_空調全体テスト">9. 空調（全体）テスト</a></li>
+<li><a href="#_参考">10. 参考</a>
+<ul class="sectlevel2">
+<li><a href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></li>
+<li><a href="#_designbuilderの使い方">10.2. DesignBuilderの使い方</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -2601,7 +2607,7 @@ Cooling SequenceとHeat or No-Load Sequenceは、複数のタイプのHVAC機器
 <h2 id="_熱負荷単室基本テスト"><a class="link" href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_case_600"><a class="link" href="#_case_600">3.1. Case 600</a></h3>
+<h3 id="_case600"><a class="link" href="#_case600">3.1. Case600</a></h3>
 <div class="paragraph">
 <p>Case600について、2人のユーザが作成したIDFファイルを比較し、計算結果の差に影響を与えている入力パラメータを特定した。</p>
 </div>
@@ -4823,13 +4829,517 @@ OtherEquipment,
 <div class="sect1">
 <h2 id="_空調全体テスト"><a class="link" href="#_空調全体テスト">9. 空調（全体）テスト</a></h2>
 <div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参考"><a class="link" href="#_参考">10. 参考</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<div class="sect3">
+<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.1.1. Errorの重大さによる分類</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/errors.html#errors">bigladder:Input Output Reference</a></p>
+</div>
+<div class="paragraph">
+<p>EnergyPlusを実行した結果、出力ファイルの1つである「<strong>*</strong>.err」に3段階のエラー（Warning, Severe, Fatal）が出力される。エラーのレベルと求められるアクションについて下表に示す。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 6. EnergyPlusにおけるErrorの分類</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Level</th>
+<th class="tableblock halign-left valign-top">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Take note</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Severe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Should fix</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fatal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program will abort</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.1.2. Errorの実行プロセスによる分類</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/error-messages-details.html#error-messages-details">bigladder:Tips and Tricks</a></p>
+</div>
+<div class="paragraph">
+<p>エラーメッセージは、EnergyPlusの以下の5段階のプロセスから生成される。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Input Processing (comparing IDF fields/values to IDD requirements)</p>
+</li>
+<li>
+<p>GetInput for each module (further checking for correct values from the IDF)</p>
+</li>
+<li>
+<p>Sizing operations</p>
+</li>
+<li>
+<p>Warmup operations</p>
+</li>
+<li>
+<p>Simulation of the environments</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>以下の例のように、errファイルではプロセスに応じてエラーが集計される。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
+************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time = 00hr 00min  6.58sec</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.1.3. Preprocessorからのエラーメッセージ</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-preprocessors.html#example-error-messages-for-preprocessors">bigladder:Tips and Tricks</a></p>
+</div>
+<div class="paragraph">
+<p>すべてのPreprocessorプログラムは、検出したエラーに対してOutput：PreprocessorMessageオブジェクトを生成する。これらのエラーを理解するには、実際のPreprocessorプログラムのドキュメントを参照する必要がある場合がある。 Preprocessorからのエラーメッセージは、errファイルの最初に表示される。メッセージの形式は、&lt;objectname&gt;（つまり、Output：Preprocessormessage）、引用符で囲まれたプログラム名（たとえば、EPMacro）、そしてメッセージの文字列（Warning、Severe、Fatal）である。 Fatalの場合、EnergyPlusはすべてのエラーメッセージを生成した後に実行を中止する。</p>
+</div>
+<div class="sect4">
+<h5 id="_warningの例"><a class="link" href="#_warningの例">10.1.3.1. Warningの例</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Output:PreprocessorMessage = "EPXMLPreProc2" has the following Warning conditions:
+   **   ~~~   ** Problem with the width for requested floor area and
+   **   ~~~   ** perimeter depth.  Reduced perimeter depth from 4.57
+   **   ~~~   ** to 3.656 to accommodate perimeter and core layout</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_severeの例"><a class="link" href="#_severeの例">10.1.3.2. Severeの例</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Output:PreprocessorMessage = "EPMacro" has the following Severe conditions:
+   **   ~~~   ** at approximately input line number = 200: column = 11
+   **   ~~~   ** cannot find/read include file
+   **   ~~~   ** symbol = HVAC3ZoneMat-Const.imf
+   **   ~~~   ** refer to &lt;file&gt;.epmdet for details.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.1.4. Input Pocessorからのエラーメッセージ</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-the-input.html#example-error-messages-for-the-input-processor">bigladder:Tips and Tricks</a></p>
+</div>
+<div class="paragraph">
+<p>InputProcessorはEnergyPlusプログラムの一部であり、入力ファイルをスキャンし、IDD（Input Data Dictionary）の要件と照合する。InputProcessorのエラーはIPから始まる文字列で表示される。</p>
+</div>
+<div class="sect4">
+<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.1.4.1. Warningの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>必須項目のうち入力されていないものがある場合（デフォルト値が入力される）</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>IP: Note -- Some missing fields have been filled with defaults. See the audit output file for details.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.1.4.2. Severeの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>オブジェクトの入力フィールドの途中でコンマではなくセミコロン（そのオブジェクトの最終ライン）が入力されている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>IP: IDF line~345 Did not find "UNTIL: 22:00" in list of Objects</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>必須オブジェクトである「BUILDING」が定義されていない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>IP: No items found for Required Object = BUILDING
+IP: Required Object = "BUILDING" not found in IDF.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IDDのバージョンが一致していない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>IP: Possible incorrect IDD File
+IDD Version:"IDD\_Version xxx"
+Possible Invalid Numerics or other problems</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.1.4.3. Fatalの例</a></h5>
+<div class="paragraph">
+<p>Fatalエラーのメッセージは上記のSevereエラーの結果として表示されるようである。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>IP: Errors occurred on processing IDF file. Preceding condition(s) cause termination.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.1.5. Module GetInputからのエラーメッセージ</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-from-module-getinput.html#example-error-messages-from-module-getinput-routines">bigladder:Tips and Tricks</a></p>
+</div>
+<div class="paragraph">
+<p>シミュレーションが開始されると、各モジュールが呼び出され、入力ファイルから値を取得する。これらは通常、GetInputルーチンと呼ばれる。IDDの制限では完全に記述できないエラーチェックを入力に対して追加で行い、さらに、オブジェクトが別のオブジェクトに対して与える可能性のある影響も考慮する。</p>
+</div>
+<div class="sect4">
+<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.1.5.1. Warningの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>地盤温度の入力が推奨範囲を超えている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Site:GroundTemperature:BuildingSurface: Some values fall outside the range of 15-25C.
+These values may be inappropriate.  Please consult the Input Output Reference for more details.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IDF（入力ファイル）で指定した立地情報とEPW（気象データファイル）に含まれる立地情報に齟齬がある場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Weather file location will be used rather than entered Location object.
+..Location object = ATLANTA
+..Weather File Location = Tampa International Ap FL USA TMY3 WMO# = 722110
+..due to location differences, Latitude difference = [5.68] degrees, Longitude difference = [1.89] degrees.
+..Time Zone difference = [0.0] hour(s), Elevation difference = [98.10] percent, [309.00] meters.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>求めている出力に対して必要な入力が足りていない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetPollutionFactorInput: Requested reporting for Carbon Equivalent Pollution, but insufficient information is entered.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>外壁ではないSurfaceにSunExposedが指定されている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>BuildingSurface:Detailed = "SURF:xyz", Sun Exposure = "SUNEXPOSED".
+ ..This surface is not exposed to External Environment.  Sun exposure has no effect.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>内壁の両側（両ゾーンから定義する）で面積が一致していない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetSurfaceData: InterZone Surface Areas do not match as expected and might not satisfy conservation of energy:
+   Area = 1.4E-002 in Surface = 319767, Zone = 2PAV_CONDIC_LOJA_D
+   Area = 67.0 in Surface = 6C0708, Zone = 3PAV_CONDIC_TEATRO_G</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>内壁の両側で角度が一致していない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetSurfaceData: InterZone Surface Azimuths do not match as expected.
+   Azimuth = 270.0, Tilt = 90.0, in Surface = 319767, Zone = 2PAV_CONDIC_LOJA_D
+   Azimuth = 180.0, Tilt = 90.0, in Surface = 6C0708, Zone = 3PAV_CONDIC_TEATRO_G
+..surface class of base surface = Wall</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>床や屋根の傾斜角がおかしい場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetVertices: Floor is upside down! Tilt angle = [0.0], should be near 180, Surface = "ROOM302-FLOOR", in Zone = "ROOM302".
+Automatic fix is attempted.
 
+GetVertices: Roof is upside down! Tilt angle = [180.0], should be near 0, Surface = "ROOM302-CEILING", in Zone = "ROOM302".
+Automatic fix is attempted.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>極めて大きい内部発熱が指定されている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetInternalHeatGains: Zone = "02AO_FCU04_AN" occupant density is extremely high.
+Occupant Density = [14] person/m2.
+Occupant Density = [7.000E-002] m2/person. Problems in Temperature Out of Bounds may result.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Surfaceを構成する2点間の距離が極めて小さい場合（2つのうち1つが除外される）</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetVertices: Distance between two vertices &lt; .01, possibly coincident. for Surface = 1%PIANOINTERRATO:UFFICI_WALL_3_0_1, in Zone = 1%PIANOINTERRATO:UFFICI
+Vertex [2] = (-53.99,5.86,0.50)
+Vertex [1] = (-53.99,5.86,0.51)
+Dropping Vertex [2].</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ゾーンの形状がConvexでない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>CheckConvexity: Surface = "ZN001:ROOF001" is non-convex.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.1.5.2. Severeの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Subsurfaceの構成点がBase surfaceと逆の順番（時計回りか反時計周りか）で指定されている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetSurfaceData: Some Outward Facing angles of subsurfaces differ significantly from base surface.
+...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual surfaces.
+
+GetSurfaceData: Outward facing angle [95.5] of subsurface = "WL2-1" significantly different than
+..facing angle [275.5] of base surface = WEST WALL 2 Tilt = 90.0
+..surface class of base surface = Wall</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No massの材料のみで建物が構成されている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>This building has no thermal mass which can cause an unstable solution.
+Use Material object for all opaque material definitions except very light insulation layers.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Surfaceを構成する2点間の距離が極めて小さい場合（頂点の数が3点未満になるためその頂点を除外できない）</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>GetVertices: Distance between two vertices &lt; .01, possibly coincident. for Surface = 1%PIANOINTERRATO:UFFICI_WALL_3_0_1, in Zone = 1%PIANOINTERRATO:UFFICI
+Vertex [3] = (-44.82,-12.14,0.51)
+Vertex [2] = (-44.82,-12.14,0.50)
+Cannot Drop Vertex [3].
+Number of Surface Sides at minimum.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>日陰面となるSurfaceがConvexでない場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>DetermineShadowingCombinations: Surface = "0%VESPAIO:ZONA1\_ROOF\_1\_6\_0" is a receiving surface and is non-convex.
+...Shadowing values may be inaccurate. Check .shd report file for more surface shading details</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.1.5.3. Fatalの例</a></h5>
+<div class="paragraph">
+<p>このカテゴリーのSevereエラーはたいていFatalエラーにつながり、シミュレーションは途中で終了する。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.1.6. SizingとSimulationからのエラーメッセージ</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-during-sizing.html#example-error-messages-during-sizing-and-simulation">bigladder:Tips and Tricks</a></p>
+</div>
+<div class="sect4">
+<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.1.6.1. Warningの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>熱負荷がゼロのゾーンがある場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Calculated design cooling load for zone = B1AE_FCU02_AN is zero.
+Check Sizing:Zone and ZoneControl:Thermostat inputs.
+
+Calculated design heating load for zone = B1AE\_FCU02\_AN is zero.
+Check Sizing:Zone and ZoneControl:Thermostat inputs.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.1.6.2. Severeの例</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>温度があるレンジを超えている場合</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Temperature (high) out of bounds (206.82] for zone = "ZONE 1", for surface = "SOUTH WALL"
+During Warmup &amp; Sizing, Environment = ALEXANDRIA ESLER REGIONAL AP ANN HTG 99.6% CONDNS DB, at Simulation time = 12/21 01:00 - 01:04
+Zone = "ZONE 1", Diagnostic Details:
+...Internal Heat Gain [155.557] W/m2
+...Infiltration/Ventilation [3.500E-002] m3/s
+...Mixing/Cross Mixing [0.000] m3/s
+...Zone is part of HVAC controlled system.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.1.6.3. Fatalの例</a></h5>
+<div class="paragraph">
+<p>Severeエラーの数などが表示される。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>EnergyPlus has exited due to the reason stated above
+...Summary of Errors that led to program termination:
+..... Reference severe error count = 11
+..... Last severe error = Temperature (high) out of bounds (210.11] for zone = "ZONE 1", for surface = "ROOF1"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.1.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
+<div class="paragraph">
+<p>上記より、建物側（負荷計算）に関するエラーは多く定義されている印象を受ける。しかし、システム側については参照できるドキュメント類からエラーの定義について十分確認できなかった。オブジェクトによってはユーザー自ら温度や流量などの上下限値を指定するものある。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/module-developer/input-services.html#rangecheck">Guide for Module Developers</a>によればRangeCheckというルーチンがあるようだが、具体的にどこで使われているのか、レンジをどのように決めているかについては記載が見当たらない。</p>
+</div>
+<div class="paragraph">
+<p>例えば冷却塔では、UA値（伝熱係数×伝熱面積）は0〜3000,000W/Kの範囲で入力することと<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#group----condenser-equipment">マニュアル</a>に記載されているが、多くの入力項目に対してこのような範囲が明示されているわけではない。</p>
+</div>
+<div class="paragraph">
+<p>冷却塔のソースコード（CoolTower.cc）を見てみると、以下のような上下限値が直接記述されていたが、これがすべてかどうかは不明である。一方で、電動チラーのソースコード（ChillerElectricEIR.cc）には冷却塔のような上下限値の記述はなかった。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Real64 const MaximumWaterFlowRate(0.016667); // Maximum limit of water flow rate in m3/s (1000 l/min)
+Real64 const MinimumWaterFlowRate(0.0);      // Minimum limit of water flow rate
+Real64 const MaxHeight(30.0);                // Maximum effective tower height in m
+Real64 const MinHeight(1.0);                 // Minimum effective tower height in m
+Real64 const MaxValue(100.0);                // Maximum limit of outlet area, airflow, and temperature
+Real64 const MinValue(0.0);                  // Minimum limit of outlet area, airflow, and temperature
+Real64 const MaxFrac(1.0);                   // Maximum fraction
+Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.2. DesignBuilderの使い方</a></h3>
+<div class="paragraph">
+<p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-13 22:42:54 +0900
+Last updated 2021-07-24 10:13:37 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

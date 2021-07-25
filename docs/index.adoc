@@ -71,6 +71,8 @@ include::case900J.adoc[]
 // Case MZN 
 include::caseMZN.adoc[]
 
+// Case MZA
+include::caseMZA.adoc[]
 
 == 熱負荷（建物全体）テスト
 

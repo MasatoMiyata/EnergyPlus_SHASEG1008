@@ -497,6 +497,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a>
 <ul class="sectlevel2">
 <li><a href="#_case_mzn">6.1. Case MZN</a></li>
+<li><a href="#_case_mza">6.2. Case MZA</a></li>
 </ul>
 </li>
 <li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
@@ -4812,6 +4813,180 @@ OtherEquipment,
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_case_mza"><a class="link" href="#_case_mza">6.2. Case MZA</a></h3>
+<div class="paragraph">
+<p>Case MZA のモデルを作成する。Case MZNのモデルをベースとする。</p>
+</div>
+<div class="sect3">
+<h4 id="_zonecrossmixing"><a class="link" href="#_zonecrossmixing">6.2.1. ZoneCrossMixing</a></h4>
+<div class="paragraph">
+<p>参考： <a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-airflow.html#zonecrossmixing" class="external" target="_blank" rel="noopener">ZoneCrossMixingクラスの作成方法</a></p>
+</div>
+<div class="paragraph">
+<p>ZoneCrossMixingは、2つのゾーンがお互いに同じ量の空気を交換する場合に理想的である。
+ZoneMixingと同様、EnergyPlusでは簡略化されたゾーン間の空気の流れとなる。
+ZoneMixingとZoneCrossMixingの主な違いは、クロスミキシングはソースゾーンとレシーブゾーンの両方にエネルギー効果があるため、
+2つのゾーンの空気質量とエネルギーバランスの両方が維持されることである。
+冷蔵ゾーンについては、「ZoneRefrigerationDoorMixing」を参照のこと。
+より高度な混合計算は、EnergyPlus AirflowNetworkモデルを使用すれば、HVACシステム動作の有無にかかわらず、マルチゾーンエアフローに対応できる。</p>
+</div>
+<div class="paragraph">
+<p>ZoneCrossMixingは、1回（混合ゾーンの1つで）、2回（各ゾーンで1回）、または複数回（複数のゾーンと交換）入力できる。
+各オブジェクトには、それぞれの制御条件がモデル化される。
+温度差＞0.0で、ソースゾーンがレシーブゾーンよりも暖かい場合にのみ混合を行うことが望ましい場合、オブジェクトは1回入力されることがある。
+これは、暖かいゾーンが冷たいゾーンの下にあり、混合が浮力によって行われる場合に当てはまる。
+もし、ゾーンが隣り合っていて、開いたドアで仕切られている場合は、各ゾーンにクロスミキシングオブジェクトを入力する方が適している。
+そうすれば、どちらのゾーンが暖かいかに関わらず、ゾーンの温度が温度差以上の差があれば、混合が起こる。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneCrossMixing</div>
+<div class="content">
+<pre>ZoneCrossMixing,
+    Zone-A-B,                !- Name
+    Block1:ZoneA,            !- Zone Name
+    Always On,               !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.33333,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    Block1:ZoneB;            !- Source Zone Name
+
+
+ZoneCrossMixing,
+    Zone-B-C,                !- Name
+    Block1:ZoneB,            !- Zone Name
+    Always On,               !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.33333,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    Block1:ZoneC;            !- Source Zone Name</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_name_6"><a class="link" href="#_name_6">6.2.1.1. Name</a></h5>
+<div class="paragraph">
+<p>ZoneCrossMixingオブジェクトの名称です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_name"><a class="link" href="#_zone_name">6.2.1.2. Zone Name</a></h5>
+<div class="paragraph">
+<p>このフィールドは空気の交換量を受け取るゾーン（ref：Zone）の名前であり、
+建物内のサーマルゾーンに特定のクロスミキシング・ステートメントを割り当てます。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_schedule_name"><a class="link" href="#_schedule_name">6.2.1.3. Schedule Name</a></h5>
+<div class="paragraph">
+<p>このフィールドは、最大設計体積流量パラメータ（次のフィールドを参照）を修正するスケジュール（参照：スケジュール）の名前である。
+0.0から1.0の間のこの分数は、設計レベルのパラメータを修正する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_design_flow_rate_calculation_method"><a class="link" href="#_design_flow_rate_calculation_method">6.2.1.4. Design Flow Rate Calculation Method</a></h5>
+<div class="paragraph">
+<p>このフィールドは、次の4つのフィールドのどれが満たされるかを示すキー／選択肢フィールドであり、設計体積流量の計算方法を記述する。
+キー／選択肢は以下の通り。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Flow/Zone<br>
+この選択では、使用される方法は、設計体積流量をそのまま挿入することになる。(Design Flow Rate に記入されなければならない）。</p>
+</li>
+<li>
+<p>Flow/Area
+この選択では、使用される方法はゾーンの床面積あたりの係数となる。(Flow Rate per Zone Floor Areaフィールドが入力される必要があります)。</p>
+</li>
+<li>
+<p>Flow/Person
+この選択では、使用される方法は、ゾーン内の公称人数ごとの係数となる。(一人あたりのフローフィールドが入力されている必要があります）。</p>
+</li>
+<li>
+<p>AirChanges/Hour
+この選択肢では、浸透量に対する1時間あたりの空気の入れ替え回数を使用する。この係数は、ゾーン容積とともに、設計流量の決定に使用されます。(AirChanges/Hour」フィールドは必ず入力してください）。)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_design_flow_rate"><a class="link" href="#_design_flow_rate">6.2.1.5. Design Flow Rate</a></h5>
+<div class="paragraph">
+<p>このフィールドは、完全な設計体積流量を示す（m3/s).
+前のフィールドでは、選択肢として「flow/zone」を選択する必要がある。設計体積流量は予想される混合空気の最大量である。
+設計値は、スケジュール名とユーザーが指定した係数（以下の4つの「係数」フィールド参照）によって変更される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_flow_rate_per_zone_floor_area"><a class="link" href="#_flow_rate_per_zone_floor_area">6.2.1.6. Flow Rate per Zone Floor Area</a></h5>
+<div class="paragraph">
+<p>この係数（m3/s-m2)は、ゾーン面積とともに使用され、「設計体積流量」欄に記載された最大設計体積流量を決定します。
+方法欄の選択は「Flow/Area」とすべきである。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_flow_rate_per_person"><a class="link" href="#_flow_rate_per_person">6.2.1.7. Flow Rate per Person</a></h5>
+<div class="paragraph">
+<p>この係数（m3/s-person）は、ゾーン内の名目上の（最大）居住者（人）の数とともに使用され、「設計体積流量」フィールドに記載された最大設計体積流量を決定する。
+方法欄の選択は「Flow/Person」とする。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_air_changes_per_hour"><a class="link" href="#_air_changes_per_hour">6.2.1.8. Air Changes per Hour</a></h5>
+<div class="paragraph">
+<p>この選択により、使用される方法は、混合量に対する1時間あたりの空気の変化の数となる。この係数とゾーンボリュームを用いて設計流量を決定する。
+方法の欄には "AirChanges/Hour "を選択すること。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_source_zone_name"><a class="link" href="#_source_zone_name">6.2.1.9. Source Zone Name</a></h5>
+<div class="paragraph">
+<p>このフィールドは、設計レベルおよびスケジュールフィールドで指定された量の空気を、
+ゾーン名フィールドで指定されたゾーンに排気するソースゾーンの名前である。
+実際には、クロスミックスされた空気が両方のゾーンに影響を与えるため、"ソース ゾーンと "レシーブゾーンは入れ替え可能である。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_delta_temperature"><a class="link" href="#_delta_temperature">6.2.1.10. Delta Temperature</a></h5>
+<div class="paragraph">
+<p>この数値は、ソースゾーンからの混合空気をレシービングゾーンに送るタイミングを制御する。
+このパラメーターは温度で、単位は摂氏である。
+このフィールドが正の値の場合、空気が送られてくるゾーン（「ソースゾーン」）の温度がゾーンの空気よりも「デルタ温度」が高くなければ混合は起こらない。
+このフィールドがゼロの場合、空気の相対的な温度に関係なく混合が起こる。デルタ温度の負の値は許されない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_delta_temperature_schedule_name"><a class="link" href="#_delta_temperature_schedule_name">6.2.1.11. Delta Temperature Schedule Name</a></h5>
+<div class="paragraph">
+<p>このフィールドには、ソースゾーンとレシーブゾーンの空気の乾球温度の温度差（摂氏）を時間の関数として含むスケジュール（参照：Schedule objects）の名前が含まれる。このフィールドはオプション・フィールドであり、Delta Temperatureフィールドと同じ機能を持つ。
+ユーザーが有効なスケジュール名を入力した場合、このスケジュールで指定されたデルタ温度値は、デルタ温度フィールドで指定された定数値よりも優先される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_minimum_zone_temperature_schedule_name"><a class="link" href="#_minimum_zone_temperature_schedule_name">6.2.1.12. Minimum Zone Temperature Schedule Name</a></h5>
+<div class="paragraph">
+<p>このフィールドには、時間の関数として交差混合が遮断される最低受信ゾーン温度（摂氏）を含むスケジュール（参照：Schedule objects）の名前が含まれる。
+スケジュールの最小温度値は-100℃、最大値は100℃とすることができます。
+このフィールドはオプションのフィールドです。このフィールドが入力されていない場合、最小ゾーン温度制御は適用されない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_maximum_zone_temperature_schedule_name"><a class="link" href="#_maximum_zone_temperature_schedule_name">6.2.1.13. Maximum Zone Temperature Schedule Name</a></h5>
+<div class="paragraph">
+<p>このフィールドには、時間の関数として交差混合が遮断される上限の受信ゾーン温度（摂氏）を含むスケジュール（参照：Schedule objects）の名前が含まれる。
+スケジュールの最大温度の値は-100℃で、最大値は100℃とすることができる。
+このフィールドはオプションのフィールドです。このフィールドが入力されていない場合、最大ゾーン温度制御は適用されない。</p>
+</div>
+<div class="paragraph">
+<p>注：クロスミキシングが遮断されたときの最大ゾーン温度は、最小ゾーン温度以上でなければならない</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -5339,7 +5514,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-24 10:13:37 +0900
+Last updated 2021-07-24 14:13:32 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

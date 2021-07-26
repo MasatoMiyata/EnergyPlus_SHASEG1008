@@ -13,6 +13,7 @@
 :stem: latexmath
 :xrefstyle: short
 :icons: font
+:xrefstyle: short
 
 = SHASE-G 1008:2016 + EnergyPlus
 建物エネルギーシミュレーションツールの評価手法に関するガイドラインの適用事例（EnergyPlus Ver.9.4）
@@ -90,3 +91,6 @@ include::error.adoc[]
 === DesignBuilderの使い方
 
 link:https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html[DesignBuilder＋Rを用いたAS140単室テスト]
+
+// 900Jの比較
+include::case900J_detail.adoc[]

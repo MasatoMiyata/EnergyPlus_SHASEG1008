@@ -575,6 +575,7 @@ if file_list[CASENAME]["case_ID"] == "900FF":
     df[CASENAME] = pd.Series(tmp)
     df_results = df_results.append(df)
 
+print(df_results)
 
 df_results.to_csv("集計結果_"+ CASENAME + ".csv")
 

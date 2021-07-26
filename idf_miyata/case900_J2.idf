@@ -843,22 +843,24 @@ ThermostatSetpoint:DualSetpoint,
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
 
+! Modified schedule: On 24/7
+
 ZoneHVAC:IdealLoadsAirSystem,
     Zone1Air,                !- Name
     ,                        !- Availability Schedule Name
     NODE_1,                  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
     0.010,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    1000,                    !- Maximum Heating Air Flow Rate {m3/s}
-    1000000,                 !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
     ,                        !- Cooling Limit
-    1000,                    !- Maximum Cooling Air Flow Rate {m3/s}
-    1000000,                 !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     ,                        !- Heating Availability Schedule Name
     ,                        !- Cooling Availability Schedule Name
     ConstantSupplyHumidityRatio,  !- Dehumidification Control Type

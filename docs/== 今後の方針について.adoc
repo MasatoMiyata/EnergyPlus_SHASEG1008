@@ -1,0 +1,117 @@
+=== 今後の方針について 2021.8.5
+詳細は次項以降に記載しているが、link:https://bigladdersoftware.com/epx/docs/9-3/input-output-reference/group-non-zone-equipment.html#loadprofileplant[LoadProfile:Plant]を使うことで比較的用意に切り離すことができそうな熱源サブシステムテストを最初に実施し、冷却水サブシステムテスト、空調機サブシステムテストの順に行うと良いのではないかと思われる。
+
+熱源サブシステムテストは冷水運転のみを対象としているが、EnergyPlusでは冷水ループと温水ループが物理的に区別されていることから、温水運転のテストも行えるとなお良い。
+
+また、サブシステムテストでカバーされていない冷温水コイル、気化式加湿器、CAVシステム、冷却塔ファン発停制御についても、何らかの方法でテストを行う方が望ましい。
+
+EnergyPlusの制約として日本式のシステムや制御に対応していないという問題があるが、後述するLoadProfile:Plant、EnergyManagementSystemやUser defined componentを活用すれば、ある程度任意のシミュレーションを行える可能性がある。とは言え、これらの機能・適用範囲は未確認であるため、まずは熱源サブシステムテストを実施しながら確認・習熟していきたい。
+
+==== サブシステムテストで評価できること
+
+.サブシステムテストで評価できる全体システムの要素
+[cols="1a,1a,1a,1a,1a", options="header,autowidth"]
+|======================================
+2+| テストで評価できる特性や機能 | 空調機サブシステムテスト | 熱源サブシステムテスト |　冷却水サブシステムテスト
+.9+|機器特性 | 冷温水コイル | | |
+|気化式加湿器 | | |
+|ファン ^|◯ | |
+|空冷HPチラー（冷水） | ^|◯ |
+|空冷HPチラー（温水） | | |
+|吸収式冷温水機（冷水） | ^|◯ ^|◯
+|吸収式冷温水機（温水） | | |
+|冷却塔 | | ^|◯
+|ポンプ | ^|◯ ^|◯
+
+.4+|システム構成 |CAVシステム | | |
+|VAVシステム ^|◯ | |
+|2ポンプシステム（冷水） | ^|◯ |
+|2ポンプシステム（温水） | | |
+
+.10+|制御方法| 給気風量制御 ^|◯ | |
+|給気温度リセット制御 ^|◯ | |
+|気化式加湿器の発停制御 | | |
+|熱源台数制御 | ^|◯ |
+|2次ポンプ台数制御 | ^|◯ |
+|2次ポンプインバータ制御 | ^|◯ |
+|冷却塔ファン発停制御 | | | 
+|冷却塔ファンインバータ制御 | | ^|◯ 
+|冷却水ポンプインバータ制御 | | ^|◯ 
+|三方弁制御 | | ^|◯ 
+
+|======================================
+
+
+==== モデル化にあたっての疑問点等
+* どこでサブシステムや機器を切り離すことができるのか？　→link:https://bigladdersoftware.com/epx/docs/9-3/input-output-reference/group-non-zone-equipment.html#loadprofileplant[LoadProfile:Plant]やlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-energy-management-system-ems.html#group----energy-management-system-ems[EnergyManagementSystem]の活用
+* 日本式の給気温度リセット制御を行えるか？
+* 気化式加湿器の代替方法は？
+* 温水用の空冷HPはある？
+* 2次ポンプの台数分割は可能か？
+* 温水システムにおける2ポンプ方式の採用可否
+* 基準階だけのモデリングは可能か？
+
+
+==== 参考ーサブシステムの計算について
+サブシステムの計算方法について、EnergyPlusに詳しいProf. Hongyuan Jia (Chongqing University of Science and Technology, 重慶科技学院)へ質問した。
+
+Question) Can EnergyPlus simulate part of a system? For example, is it possible to simulate a chiller system by inputting the return temperature and flow rate of chilled water as boundary conditions?
+
+Answer) Yes or no. It depends on what part of the system you want to simulate. If you want to simulate the whole HVAC system, EnergyPlus has a class `LoadProfile:Plant` to let you input zone loads. In this way, you can get rid of the geometry and constructions, and only focus on the HVAC system. If you want to isolate a specific HVAC component, such like a chiller, as you mentioned, you may or may not be able to achieve it, mainly depending on whether EnergyPlus exposes the variables to the users or not. The chiller condenser outlet temperature is normally an input of the chiller class and is controlled by a schedule. You can put your measured data as that schedule using the Schedule:File class. The flow rate can be manually controlled using the EMS. But the chiller condenser inlet temperature is determined by the cooling demands and is dynamically calculated. Thus you can not overwrite it.
+
+==== LoadProfile:Plant 
+link:https://bigladdersoftware.com/epx/docs/9-3/input-output-reference/group-non-zone-equipment.html#loadprofileplant[マニュアル]とExample filesを見る限りでは、空調機と2次ポンプの間で配管を切り離し、プラント側に指定の負荷熱量と流量を与えられるようである。おそらくこのオブジェクトで切り離せるのは熱源サブシステムだけであり、空調機サブシステムや冷却水サブシステムには対応していないと思われる。
+
+Example filesとして以下の4つのファイルが見つかったが、いずれも地域冷暖房プラントを用いたシンプルな例であった。
+
+* PlantLoadProfile.idf
+* PlantLoadProfile_AutosizedDistrictHeating.idf
+* PlantLoadProfileCoolingReturnReset.idf
+* PlantLoadProfileCoolingReturnResetLookup.idf
+
+.LoadProfile:Plantを用いたプラントループの構成例（PlantLoadProfileCoolingReturnReset.idf）
+image::figures/loadprofile.png[]
+
+==== EnergyManagementSystem 
+link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-energy-management-system-ems.html#group----energy-management-system-ems[マニュアル]によれば、このオブジェクトを使うことで、様々なセンサーの値とIF文や演算式を組合せた制御を実行できるようである。以下はその一例である。これを見る限りでは、どこかのノードの温度や流量を一定にすることは容易に実現そうであるが、上記のProf. Jiaの回答の通りであれば、ユーザーに解放されていない変数（ノード）もあると思われる。
+
+```
+EnergyManagementSystem:Program,
+  RH_OpeningController ,         ! Name
+  IF ZoneRH < 25,
+  SET MyOpenFactor = 0.0 ,
+  ELSEIF ZoneRH > 60,
+  SET MyOpenFactor = 1.0 ,
+  ELSE,
+  SET MyOpenFactor = (ZoneRH - 25) / (60 - 25),
+  ENDIF;
+
+  EnergyManagementSystem:Program,
+  AverageZoneTemps , ! Name
+  SET Zn1vol = 346.0225, ! zone air volume
+  SET Zn2vol = 205.2650, ! zone air volume
+  SET Zn3vol = 346.0225, ! zone air volume
+  SET Zn4vol = 205.2650, ! zone air volume
+  SET Zn5vol = 456.4551, ! zone air volume
+  SET SumNumerator = T1*Zn1vol + T2*Zn2vol + T3*Zn3vol + T4*Zn4vol + T5*Zn5vol,
+  SET SumDenominator = Zn1vol + Zn2vol + Zn3vol + Zn4vol + Zn5vol,
+  SET AverageBuildingTemp = SumNumerator / SumDenominator;
+
+
+  EnergyManagementSystem:Program,
+  VAV2MixedAirManagers , ! Name
+  SET VAV_2_CoolC_Setpoint = Seasonal_Reset_SAT_Sched - ( T_VAV2FanOut - T_VAV2FanIn),
+  SET VAV_2_HeatC_Setpoint = Seasonal_Reset_SAT_Sched - ( T_VAV2FanOut - T_VAV2FanIn),
+  SET VAV_2_OA_Setpoint = Seasonal_Reset_SAT_Sched - ( T_VAV2FanOut - T_VAV2FanIn);
+```
+
+==== User Defined HVAC and Plant Component Models
+link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-user-defined-hvac-and-plant-component.html#group-user-defined-hvac-and-plant-component-models[マニュアル]によると、上記のEMSと組合せることで比較的自由な動作を行えるユーザー定義モデルを使うことが可能なようである。以下の5つのオブジェクトが用意されている。
+
+* ZoneHVAC:ForcedAir:UserDefined
+* AirTerminal:SingleDuct:UserDefined
+* Coil:UserDefined
+* PlantComponent:UserDefined
+* PlantEquipmentOperation:UserDefined
+
+

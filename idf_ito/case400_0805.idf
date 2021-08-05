@@ -754,20 +754,20 @@ FenestrationSurface:Detailed, !changed on 210805 for 400
 
 !-   ===========  ALL OBJECTS IN CLASS: OTHEREQUIPMENT ===========
 
-OtherEquipment,
-    Euip 1,                  !- Name
-    None,                    !- Fuel Type
-    Zone1,                   !- Zone or ZoneList Name
-    Sch 1,                   !- Schedule Name
-    EquipmentLevel,          !- Design Level Calculation Method
-    200,                     !- Design Level {W}
-    ,                        !- Power per Zone Floor Area {W/m2}
-    ,                        !- Power per Person {W/person}
-    0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
-    0,                       !- Fraction Lost
-    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    General;                 !- End-Use Subcategory
+!OtherEquipment, !deleted on 210805 for 400
+!    Euip 1,                  !- Name
+!    None,                    !- Fuel Type
+!    Zone1,                   !- Zone or ZoneList Name
+!    Sch 1,                   !- Schedule Name
+!    EquipmentLevel,          !- Design Level Calculation Method
+!    200,                     !- Design Level {W}
+!    ,                        !- Power per Zone Floor Area {W/m2}
+!    ,                        !- Power per Person {W/person}
+!    0,                       !- Fraction Latent
+!    0.6,                     !- Fraction Radiant
+!    0,                       !- Fraction Lost
+!    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+!    General;                 !- End-Use Subcategory
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========

@@ -1,0 +1,166 @@
+// Case 400
+
+=== Case400
+
+Case600の入力ファイルを基にCase400の入力ファイルを作成する。
+
+==== Material, Construction
+・外部に面するMATERIAL(WOODSIDING-9mm、ROOFDECK-19mm)の日射吸収率(Solar Absorptance)と可視光吸収率(Visible Absorptance)を0.6から0.1に変更する。
+・窓ガラスを不透明壁に変更するために、新たに3つmaterial(HIGH CONDUCTANCE WALL-INSIDE、HIGH CONDUCTANCE WALL-OUTSIDE、AirSpaceResistance1)と1つconstruction(High_conductance_wall)を定義する。
+
+```
+Material, !changed on 210805 for 400 *:changed item
+    WOODSIDING-9mm,          !- Name
+    Rough,                   !- Roughness
+    0.00900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.100000,                !- Solar Absorptance *
+    0.100000;                !- Visible Absorptance *
+
+Material, !changed on 210805 for 400 *:changed item
+    ROOFDECK-19mm,           !- Name
+    Rough,                   !- Roughness
+    0.01900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.100000,                !- Solar Absorptance *
+    0.100000;                !- Visible Absorptance *
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-INSIDE,           !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material:AirGap, !added on 210805 for 400
+    AirSpaceResistance1,                    !- Name
+    0.1588;                                 !- Thermal Resistance {m2-K/W}
+
+Construction, !added on 210805 for 400
+    High_conductance_wall,                  !- Name
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Layer 1
+    AirSpaceResistance1,                    !- Layer 2
+    HIGH CONDUCTANCE WALL-INSIDE;           !- Layer 3
+
+```
+
+==== FenestrationSurface:Detailed
+以下のように
+Surface Typeのオプションを"Door"にする。
+https://bigladdersoftware.com/epx/docs/8-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed[FenestrationSurface:Detailed]
+
+サーフェスタイプの選択肢は、Window、Door、GlassDoor、TubularDaylightDome、およびTubularDaylightDiffuserです。ドアは不透明（日射を透過しない）であると想定されていますが、他の表面タイプは日射を透過します。窓とガラスドアは、伝導熱伝達、太陽熱利得、採光などの計算で同じように扱われます。窓またはGlassDoorは、ドアではなく、可動式の内部、外部、またはブラインドなどのガラス間シェーディングデバイスを持つことができます（ ref：WindowMaterial：Blindオブジェクト）、フレームや仕切りを持つことができます（ref：WindowProperty：FrameAndDividerオブジェクト）。 TubularDaylightDomesおよびTubularDaylightDomesは、DaylightingDevice：Tubularオブジェクトで使用してTubular Daylighting Devices（TDD）をシミュレートするための特殊なサブサーフェスです。 TubularDaylightDomesとTubularDaylightDomesには、シェード、スクリーン、ブラインドを含めることはできません。以下では、特に明記されていない限り、「ウィンドウ」という用語は、Window、GlassDoor、TubularDaylightDome、およびTubularDaylightDomeに適用されます。
+
+BuildingSurface：Detailedの説明に記載されているように、方位角（対面角度）と傾斜は、入力された頂点から計算されます。地下の傾きは通常、それらのベースサーフェスと同じになります。これらがベースサーフェスの「法線」を大幅に超えている場合、警告メッセージが発行されることがあります。向きの角度が正しくない場合は、ゾーンの外側ではなく「内側」を指すウィンドウがある可能性があります。これにより、計算で問題が発生する可能性があります。また、地下の平面がベースサーフェスと一致しない場合、「表示」（挿入または開始）が発生する可能性があることにも注意してください。リビールは、地下のシェーディングに影響を与えます。
+```
+FenestrationSurface:Detailed, !changed on 210805 for 400 *:changed item
+    Window_S1,               !- Name
+!    Window,                  !- Surface Type
+    Door,                    !- Surface Type *
+!    Window_configure,        !- Construction Name
+    High_conductance_wall,   !- Construction Name *
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    0.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    3.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    3.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed, !changed on 210805 for 400
+    Window_S2,               !- Name
+!    Window,                  !- Surface Type
+    Door,                    !- Surface Type *
+!    Window_configure,        !- Construction Name
+    High_conductance_wall,   !- Construction Name *
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    4.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    7.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    7.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+```
+
+==== OtherEquipment
+発熱量をゼロとするため、削除する。コメントアウトした。
+
+```
+!OtherEquipment, !deleted on 210805 for 400
+!    Euip 1,                  !- Name
+!    None,                    !- Fuel Type
+!    Zone1,                   !- Zone or ZoneList Name
+!    Sch 1,                   !- Schedule Name
+!    EquipmentLevel,          !- Design Level Calculation Method
+!    200,                     !- Design Level {W}
+!    ,                        !- Power per Zone Floor Area {W/m2}
+!    ,                        !- Power per Person {W/person}
+!    0,                       !- Fraction Latent
+!    0.6,                     !- Fraction Radiant
+!    0,                       !- Fraction Lost
+!    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+!    General;                 !- End-Use Subcategory
+```
+
+==== Infiltration
+隙間風をゼロとするため、Design Flow Rateのオプションを0とした。
+
+```
+ZoneInfiltration:DesignFlowRate, !changed on 210805 for 400 *:changed item
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+   Flow/Zone,               !- Design Flow Rate Calculation Method
+!    0.018,                   !- Design Flow Rate {m3/s}
+     0.0,                    !- Design Flow Rate {m3/s} *
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+```

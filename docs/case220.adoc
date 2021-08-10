@@ -1,42 +1,49 @@
-// Case 200
+// Case 220
 
 === Case220
 
-基準ケース Case600 シリーズ から下記を修正する
+基準ケース Case600 から下記を修正する
 
 
-.Schedule:Day:Hourly　冷房設定27→20C
+==== ZoneInfiltration:DesignFlowRate 換気回数0.5→0
 ----
-Schedule:Day:Hourly,
-    Zone Cooling Setpoint All Days,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    20.,                     !- Hour 1
-    20.,                     !- Hour 2
-    20.,                     !- Hour 3
-    20.,                     !- Hour 4
-    20.,                     !- Hour 5
-    20.,                     !- Hour 6
-    20.,                     !- Hour 7
-    20.,                     !- Hour 8
-    20.,                     !- Hour 9
-    20.,                     !- Hour 10
-    20.,                     !- Hour 11
-    20.,                     !- Hour 12
-    20.,                     !- Hour 13
-    20.,                     !- Hour 14
-    20.,                     !- Hour 15
-    20.,                     !- Hour 16
-    20.,                     !- Hour 17
-    20.,                     !- Hour 18
-    20.,                     !- Hour 19
-    20.,                     !- Hour 20
-    20.,                     !- Hour 21
-    20.,                     !- Hour 22
-    20.,                     !- Hour 23
-    20.;                     !- Hour 24
+ZoneInfiltration:DesignFlowRate,
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+!    0.018,                   !- Design Flow Rate {m3/s}
+    0.000,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
 ----
 
-.Material 室外側日射吸収率 0.6→0.1
+==== OtherEquipment 内部発熱200W→0W
+----
+OtherEquipment,
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+!    200,                     !- Design Level {W}
+    0,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+----
+
+
+==== Material 室外側日射吸収率 0.6→0.1
 ----
 Material,
     WOODSIDING-9mm,          !- Name
@@ -75,39 +82,127 @@ Material,
     0.600000;                !- Visible Absorptance
 ----
 
-.ZoneInfiltration:DesignFlowRate 換気回数0.5→0
+
+==== Schedule:Day:Hourly　冷房設定27→20C
 ----
-ZoneInfiltration:DesignFlowRate,
-    Infil_1,                 !- Name
-    Zone1,                   !- Zone or ZoneList Name
-    Sch 1,                   !- Schedule Name
-    Flow/Zone,               !- Design Flow Rate Calculation Method
-!    0.018,                   !- Design Flow Rate {m3/s}
-    0.000,                   !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
+Schedule:Day:Hourly,
+    Zone Cooling Setpoint All Days,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    20.,                     !- Hour 1
+    20.,                     !- Hour 2
+    20.,                     !- Hour 3
+    20.,                     !- Hour 4
+    20.,                     !- Hour 5
+    20.,                     !- Hour 6
+    20.,                     !- Hour 7
+    20.,                     !- Hour 8
+    20.,                     !- Hour 9
+    20.,                     !- Hour 10
+    20.,                     !- Hour 11
+    20.,                     !- Hour 12
+    20.,                     !- Hour 13
+    20.,                     !- Hour 14
+    20.,                     !- Hour 15
+    20.,                     !- Hour 16
+    20.,                     !- Hour 17
+    20.,                     !- Hour 18
+    20.,                     !- Hour 19
+    20.,                     !- Hour 20
+    20.,                     !- Hour 21
+    20.,                     !- Hour 22
+    20.,                     !- Hour 23
+    20.;                     !- Hour 24
 ----
 
-.OtherEquipment 内部発熱200W→0W
+
+==== Material 不透明窓の追加
 ----
-OtherEquipment,
-    Euip 1,                  !- Name
-    None,                    !- Fuel Type
-    Zone1,                   !- Zone or ZoneList Name
-    Sch 1,                   !- Schedule Name
-    EquipmentLevel,          !- Design Level Calculation Method
-!    200,                     !- Design Level {W}
-    0,                     !- Design Level {W}
-    ,                        !- Power per Zone Floor Area {W/m2}
-    ,                        !- Power per Person {W/person}
-    0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
-    0,                       !- Fraction Lost
-    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    General;                 !- End-Use Subcategory
+Material,
+    High_Conductance_Wall-Outside,  !- Name
+    VerySmooth,              !- Roughness
+    0.003175,                !- Thickness {m}
+    1.06,                    !- Conductivity {W/m-K}
+    2500.,                   !- Density {kg/m3}
+    750.00,                  !- Specific Heat {J/kg-K}
+    0.900,                   !- Thermal Absorptance
+    0.100,                   !- Solar Absorptance
+    0.100;                   !- Visible Absorptance
+
+Material,
+    High_Conductance_Wall-Inside,  !- Name
+    VerySmooth,              !- Roughness
+    0.003175,                !- Thickness {m}
+    1.06,                    !- Conductivity {W/m-K}
+    2500.,                   !- Density {kg/m3}
+    750.00,                  !- Specific Heat {J/kg-K}
+    0.900,                   !- Thermal Absorptance
+    0.600,                   !- Solar Absorptance
+    0.600;                   !- Visible Absorptance
+
+Material:AirGap,
+    AirSpaceResistance_2,    !- Name
+    0.1588;                 !- Thermal Resistance {m2-K/W}
+----
+
+
+==== Construction 不透明窓の追加
+----
+Construction,
+    High_Conductance_Wall,   !- Name
+    High_Conductance_Wall-Outside,  !- Outside Layer
+    AirSpaceResistance_2,    !- Layer 2
+    High_Conductance_Wall-Inside;  !- Layer 3
+----
+
+==== FenestrationSurface:Detailed 不透明窓に修正
+----
+FenestrationSurface:Detailed,
+    Window_S1,               !- Name
+!    Window,                  !- Surface Type
+    Door,                  !- Surface Type
+!    Window_configure,        !- Construction Name
+    High_Conductance_Wall    !- Construction Name
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    0.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    3.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    3.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    Window_S2,               !- Name
+!    Window,                  !- Surface Type
+    Door,                  !- Surface Type
+    !    Window_configure,        !- Construction Name
+    High_Conductance_Wall    !- Construction Name
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    4.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    7.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    7.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
 ----

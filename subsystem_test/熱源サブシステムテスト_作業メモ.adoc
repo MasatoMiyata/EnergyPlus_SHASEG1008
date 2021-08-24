@@ -1,0 +1,22 @@
+== 熱源サブシステムテストに関する作業メモ
+
+=== 2021.08.25
+
+==== EnergyPlusにおける2ポンプシステムのモデリング	
+* 1次ポンプを各チラーに与えることは不可（常にポンプが運転してしまう）。
+* 1次ポンプの台数制御はチラーの容量が同じ場合にしか使えない。
+* 設計通りに組もうとするとHEXを挟んで2つのループを作る必要がある？link:https://unmethours.com/question/25108/how-can-we-model-ashrae-901-2004-compliant-chilledcondensing-water-loop-pumps/[link]
+* EnergyPlusでは冷却水の変流量制御はできない。link:https://unmethours.com/question/54977/how-to-simulate-a-variable-speed-condenser-water-pump-in-energyplus/[link]
+
+
+==== 現状のモデルの課題	
+* 1ポンプシステム（チラー冷水も変流量）になっている。
+* 各機器についてガイドライン指定の仕様を反映できていない。
+* 蒸気/温水吸収冷凍機を使っているが、定格効率を指定できない。link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorption[link]
+* ガス焚を用いる場合、温水側も作成する必要がある？link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerheaterabsorptiondirectfired[link]
+* 冷却水の変流量制御ができない。
+* 熱源台数制御設定値の変更がうまく機能していないため要確認。
+
+
+
+

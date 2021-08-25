@@ -1,0 +1,25 @@
+// Case 210
+
+=== Case210
+
+基準ケース Case220 から下記を修正する
+
+
+==== ZoneInfiltration:DesignFlowRate 換気量0→1回（6*8*2.7/3600=0.036m3/s）
+----
+ZoneInfiltration:DesignFlowRate,
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+!    0.018,                   !- Design Flow Rate {m3/s}
+!    0.000,                   !- Design Flow Rate {m3/s}
+    0.036,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+----

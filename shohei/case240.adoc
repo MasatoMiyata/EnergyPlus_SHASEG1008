@@ -1,0 +1,25 @@
+// Case 210
+
+=== Case210
+
+基準ケース Case220 から下記を修正する
+
+
+==== OtherEquipment 内部発熱0→200W
+----
+OtherEquipment,
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    200,                     !- Design Level {W}
+!    0,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory
+----

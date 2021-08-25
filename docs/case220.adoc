@@ -2,9 +2,7 @@
 
 === Case220
 
-基準ケース Case600 から下記を修正する。 + 
-idf_miyata内のcase600.idfがベース。
-
+基準ケース Case600 から下記を変更する。
 
 ==== ZoneInfiltration:DesignFlowRate 換気回数0.5→0
 ----

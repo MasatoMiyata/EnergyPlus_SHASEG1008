@@ -64,6 +64,25 @@ include::case900J.adoc[]
 
 == 熱負荷（単室）詳細テストA
 
+include::case220.adoc[]
+
+include::case210.adoc[]
+
+include::case200.adoc[]
+
+include::case195.adoc[]
+
+include::case215.adoc[]
+
+include::case230.adoc[]
+
+include::case240.adoc[]
+
+include::case250.adoc[]
+
+include::case270.adoc[]
+
+
 == 熱負荷（単室）詳細テストB
 
 <<<

@@ -1,0 +1,25 @@
+// Case 410
+
+=== Case410
+
+Case400の入力ファイルを基にCase410の入力ファイルを作成する。
+
+==== Infiltration
+隙間風の考慮が追加となるため、Design Flow Rateのオプションを0.018とした。
+
+```
+ZoneInfiltration:DesignFlowRate, !changed for 410 *:changed item
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+   Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s} *
+!     0.0,                    !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+```

@@ -1,0 +1,63 @@
+// Case 430
+
+=== Case430
+
+Case420の入力ファイルを基にCase430の入力ファイルを作成する。
+
+==== Material, Construction
+・外部に面するMATERIAL(WOODSIDING-9mm、ROOFDECK-19mm)の日射吸収率(Solar Absorptance)と可視光吸収率(Visible Absorptance)を0.1から0.6に変更する。
+・窓ガラスを不透明壁に変更するために、新たに3つmaterial(HIGH CONDUCTANCE WALL-INSIDE、HIGH CONDUCTANCE WALL-OUTSIDE、AirSpaceResistance1)と1つconstruction(High_conductance_wall)を定義する。
+
+```
+Material, !changed on 210825 for 430 *:changed item
+    WOODSIDING-9mm,          !- Name
+    Rough,                   !- Roughness
+    0.00900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.600000,                !- Solar Absorptance *
+    0.600000;                !- Visible Absorptance *
+!    0.100000,                !- Solar Absorptance *
+!    0.100000;                !- Visible Absorptance *
+
+Material, !changed on 210805 for 430 *:changed item
+    ROOFDECK-19mm,           !- Name
+    Rough,                   !- Roughness
+    0.01900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.600000,                !- Solar Absorptance *
+    0.600000;                !- Visible Absorptance *
+!    0.100000,                !- Solar Absorptance *
+!    0.100000;                !- Visible Absorptance *
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-INSIDE,           !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+!    0.1,                                    !- Solar Absorptance
+!    0.1;                                    !- Visible Absorptance
+    0.6,                                    !- Solar Absorptance
+    0.6;                                    !- Visible Absorptance
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+!    0.1,                                    !- Solar Absorptance
+!    0.1;                                    !- Visible Absorptance
+    0.6,                                    !- Solar Absorptance
+    0.6;                                    !- Visible Absorptance
+```

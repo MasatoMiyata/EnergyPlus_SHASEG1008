@@ -30786,3 +30786,24 @@ NodeList,
     7F:04XOffice1 Inlets,    !- Name
     Node 7F:04XOffice1 In;   !- Node 1 Name
 
+
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    Detailed;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Cooling Energy,  !- Variable Name
+    Detailed;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Air System Sensible Heating Energy,  !- Variable Name
+    Detailed;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Total Internal Latent Gain Energy,  !- Variable Name
+    Detailed;                  !- Reporting Frequency

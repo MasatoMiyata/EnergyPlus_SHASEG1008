@@ -18,5 +18,67 @@
 * 熱源台数制御設定値の変更がうまく機能していないため要確認。
 
 
+=== 2021.09.22
+==== 今回取り組んだ課題
+* link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerheaterabsorptiondirectfired[ChillerHeater:Absorption:DirectFired]を用いてガス焚をモデル化しようとしたが、以下のエラーを解消できなかった。link:https://unmethours.com/question/27397/solve-error-relating-chillerheater-in-e/[Unmet Hours]によると、このオブジェクトを使う場合にオートサイズ機能が悪さをするようであるが、すべての仕様を入力してオートサイズを行わない場合でもエラーは無くならなかった。とりあえず、以下の検討ではlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorptionindirect[Chiller:Absorption:Indirect]を使用している（入力は蒸気）。
 
+```
+** Severe  ** CalcGasAbsorberChillerModel: Condenser flow = 0, for Gas Absorber Chiller=AR
+**   ~~~   **  During Warmup, Environment=JSBC2O18 (O1-O1:31-12), at Simulation time=01/01 00:00 - 00:15
+```
+
+* EnergyPlusにおけるサブシステムの計算方法についてlink:https://unmethours.com/question/61452/how-to-simulate-a-subsystem-by-energyplus/[Unmet Hours]で質問したが、まだ回答なし。
+
+* ガイドラインの機器仕様の反映（以下にて説明）
+
+==== 機器仕様の入力
+
+===== link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerelectriceir[AHP (Chiller:Electric:EIR)]
+
+以下の3つの特性を入力できる。
+
+* Field: Cooling Capacity Function of Temperature Curve Name
+定格条件時の能力に対する最大能力比を冷水出口温度と冷却水入口温度の2次式（Biquadratic）で指定する。このカーブのアウトプットは定格条件時に1になる必要がある。
+
+* Field: Electric Input to Cooling Output Ratio Function of Temperature Curve Name
+定格条件時のEIR（COPの逆数）に対する比を冷水出口温度と冷却水入口温度の2次式（Biquadratic）で指定する。このカーブのアウトプットは定格条件時に1になる必要がある。
+
+* Field: Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name
+EIRの部分負荷特性を2次式で指定する。ある条件下の消費電力をその時の最大能力で除した値に対して、最大能力比基準の比を計算し、それを負荷率で近似したカーブを与える。日本のプログラムと比べるとやや特殊と思われる。
+
+===== link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorptionindirect[AR (Chiller:Absorption:Indirect)]
+
+以下の7つの特性を入力できる。
+
+* Field: Generator Heat Input Function of Part Load Ratio Curve Name
+負荷率の3次式でEIRを近似したカーブを指定する。定格点で1に合わせる必要がないため、この特性によって実質的に定格COPを指定できる。
+
+* Field: Pump Electric Input Function of Part Load Ratio Curve Name
+負荷率の2次式または3次式で補機電力比を近似したカーブを指定する。
+
+* Field: Capacity Correction Function of Condenser Temperature Curve Name
+冷却水温度の2次式または3次式で最大能力比を近似したカーブを指定する。
+
+* Field: Capacity Correction Function of Chilled Water Temperature Curve Name
+冷水温度の2次式または3次式で最大能力比を近似したカーブを指定する。
+
+* Field: Capacity Correction Function of Generator Temperature Curve Name
+再生温度の2次式または3次式で最大能力比を近似したカーブを指定する。
+
+* Field: Generator Heat Input Correction Function of Condenser Temperature Curve Name
+冷却水温度の2次式または3次式で入力比を近似したカーブを指定する。
+
+* Field: Generator Heat Input Correction Function of Chilled Water Temperature Curve Name
+冷却水温度の2次式または3次式で入力比を近似したカーブを指定する。
+
+==== 計算結果
+* AHPの特性は他のツールとほぼ一致するようになった。上記の部分負荷特性の与え方は何度か試行錯誤を要した。
+* ARの特性については、定格点は一致したものの、冷却水温度に対する変化特性が反映されていない。今のところ原因は不明。部分負荷特性についても未確認。
+* 以下の通りまだ大きな課題がいくつかあるが、システム全体としてのエネルギー特性は他のツールとほぼ一致するようになってきた。
+
+==== 課題
+* ARの冷却水温度特性の反映
+* 1ポンプシステム（チラー冷水も変流量）になっている。
+* 冷却水の変流量制御ができない。
+* 熱源台数制御設定値の変更がうまく機能していないため要確認。
 

@@ -30791,19 +30791,19 @@ NodeList,
 Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    Detailed;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Air System Sensible Cooling Energy,  !- Variable Name
-    Detailed;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Air System Sensible Heating Energy,  !- Variable Name
-    Detailed;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Total Internal Latent Gain Energy,  !- Variable Name
-    Detailed;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency

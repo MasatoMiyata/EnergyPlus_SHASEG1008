@@ -96,6 +96,8 @@ include::caseMZA.adoc[]
 
 == 熱負荷（建物全体）テスト
 
+// include::caseWBT.adoc[]
+
 == 空調システムテストのモデル作成
 
 == 空調（全体）テスト

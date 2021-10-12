@@ -89,7 +89,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    4;                       !- Number of Timesteps per Hour
+    1;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
@@ -113,7 +113,7 @@ Site:Location,
 !-   ===========  ALL OBJECTS IN CLASS: SIZINGPERIOD:DESIGNDAY ===========
 
 SizingPeriod:DesignDay,
-    Summer Design Day in JSBC2018 (01-01:31-12) Jul,  !- Name
+    Summer Design Day,       !- Name
     7,                       !- Month
     15,                      !- Day of Month
     SummerDesignDay,         !- Day Type
@@ -141,7 +141,7 @@ SizingPeriod:DesignDay,
     0.98;                    !- Sky Clearness
 
 SizingPeriod:DesignDay,
-    Winter Design Day in JSBC2018 (01-01:31-12),  !- Name
+    Winter Design Day,       !- Name
     1,                       !- Month
     15,                      !- Day of Month
     WinterDesignDay,         !- Day Type
@@ -30788,22 +30788,8 @@ NodeList,
 
 
 
-Output:Variable,
-    *,                       !- Key Value
-    Zone Mean Air Temperature,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+Output:VariableDictionary,IDF;
+Output:VariableDictionary,IDF;
 
-Output:Variable,
-    *,                       !- Key Value
-    Zone Air System Sensible Cooling Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Zone Air System Sensible Heating Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Zone Total Internal Latent Gain Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+Output:Meter,Electricity:Building,hourly; !- [J]
+Output:Meter:Cumulative,Electricity:Building,hourly; !- [J]

@@ -30793,3 +30793,19 @@ Output:VariableDictionary,IDF;
 
 Output:Meter,Electricity:Building,hourly; !- [J]
 Output:Meter:Cumulative,Electricity:Building,hourly; !- [J]
+
+Output:Variable,*,Zone Mean Air Temperature,hourly; !- Zone Average [C]
+
+Output:Variable,*,Zone Ideal Loads Zone Sensible Heating Energy,hourly; !- HVAC Sum [J]
+Output:Variable,*,Zone Ideal Loads Zone Latent Heating Energy,hourly; !- HVAC Sum [J]
+Output:Variable,*,Zone Ideal Loads Zone Total Heating Energy,hourly; !- HVAC Sum [J]
+Output:Variable,*,Zone Ideal Loads Zone Sensible Cooling Energy,hourly; !- HVAC Sum [J]
+Output:Variable,*,Zone Ideal Loads Zone Latent Cooling Energy,hourly; !- HVAC Sum [J]
+Output:Variable,*,Zone Ideal Loads Zone Total Cooling Energy,hourly; !- HVAC Sum [J]
+
+Output:Variable,*,Zone Ideal Loads Zone Sensible Heating Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Ideal Loads Zone Latent Heating Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Ideal Loads Zone Total Heating Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Ideal Loads Zone Sensible Cooling Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Ideal Loads Zone Latent Cooling Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Ideal Loads Zone Total Cooling Rate,hourly; !- HVAC Average [W]

@@ -9,7 +9,7 @@ files_file = [f for f in files if os.path.isfile(os.path.join(path, f))]
 # 不要なファイルの削除
 for filename in files_file:
 
-    for extension in [".audit", ".bnd", "dxf", "eio", "err", "eso", "mdd", "mtd", "rdd", "rvaudit", "shd", "svg", "mtr", "Meter.csv"]:
+    for extension in [".audit", ".bnd", "dxf", "eio", "err", "eso", "mtd", "rvaudit", "shd", "svg", "mtr", "Zsz.csv", "mtr" ]:
     
         if filename.endswith(extension):
             os.remove(path + "/" + filename)

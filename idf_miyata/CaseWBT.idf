@@ -532,62 +532,6 @@ Schedule:Day:Hourly,
     4,                       !- Hour 23
     4;                       !- Hour 24
 
-Schedule:Day:Hourly,
-    Summer Control Type Day Sch - cool,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    2,                       !- Hour 1
-    2,                       !- Hour 2
-    2,                       !- Hour 3
-    2,                       !- Hour 4
-    2,                       !- Hour 5
-    2,                       !- Hour 6
-    2,                       !- Hour 7
-    2,                       !- Hour 8
-    2,                       !- Hour 9
-    2,                       !- Hour 10
-    2,                       !- Hour 11
-    2,                       !- Hour 12
-    2,                       !- Hour 13
-    2,                       !- Hour 14
-    2,                       !- Hour 15
-    2,                       !- Hour 16
-    2,                       !- Hour 17
-    2,                       !- Hour 18
-    2,                       !- Hour 19
-    2,                       !- Hour 20
-    2,                       !- Hour 21
-    2,                       !- Hour 22
-    2,                       !- Hour 23
-    2;                       !- Hour 24
-
-Schedule:Day:Hourly,
-    Winter Control Type Day Sch - heat,  !- Name
-    Control Type,            !- Schedule Type Limits Name
-    1,                       !- Hour 1
-    1,                       !- Hour 2
-    1,                       !- Hour 3
-    1,                       !- Hour 4
-    1,                       !- Hour 5
-    1,                       !- Hour 6
-    1,                       !- Hour 7
-    1,                       !- Hour 8
-    1,                       !- Hour 9
-    1,                       !- Hour 10
-    1,                       !- Hour 11
-    1,                       !- Hour 12
-    1,                       !- Hour 13
-    1,                       !- Hour 14
-    1,                       !- Hour 15
-    1,                       !- Hour 16
-    1,                       !- Hour 17
-    1,                       !- Hour 18
-    1,                       !- Hour 19
-    1,                       !- Hour 20
-    1,                       !- Hour 21
-    1,                       !- Hour 22
-    1,                       !- Hour 23
-    1;                       !- Hour 24
-
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:DAILY ===========
 
@@ -622,6 +566,21 @@ Schedule:Week:Daily,
     Summer Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
 
 Schedule:Week:Daily,
+    Midseason Control Type Week Sch,  !- Name
+    Summer Control Type Day Sch,  !- Sunday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Monday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Tuesday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Wednesday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Thursday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Friday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Saturday Schedule:Day Name
+    Summer Control Type Day Sch,  !- Holiday Schedule:Day Name
+    Summer Control Type Day Sch,  !- SummerDesignDay Schedule:Day Name
+    Summer Control Type Day Sch,  !- WinterDesignDay Schedule:Day Name
+    Summer Control Type Day Sch,  !- CustomDay1 Schedule:Day Name
+    Summer Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
+
+Schedule:Week:Daily,
     Winter Control Type Week Sch,  !- Name
     Winter Control Type Day Sch,  !- Sunday Schedule:Day Name
     Winter Control Type Day Sch,  !- Monday Schedule:Day Name
@@ -636,36 +595,6 @@ Schedule:Week:Daily,
     Winter Control Type Day Sch,  !- CustomDay1 Schedule:Day Name
     Winter Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
 
-Schedule:Week:Daily,
-    Summer Control Type Week Sch - cool,  !- Name
-    Summer Control Type Day Sch - cool,  !- Sunday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Monday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Tuesday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Wednesday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Thursday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Friday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Saturday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- Holiday Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- SummerDesignDay Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- WinterDesignDay Schedule:Day Name
-    Summer Control Type Day Sch - cool,  !- CustomDay1 Schedule:Day Name
-    Summer Control Type Day Sch - cool;  !- CustomDay2 Schedule:Day Name
-
-Schedule:Week:Daily,
-    Winter Control Type Week Sch - heat,  !- Name
-    Winter Control Type Day Sch - heat,  !- Sunday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Monday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Tuesday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Wednesday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Thursday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Friday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Saturday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- Holiday Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- SummerDesignDay Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- WinterDesignDay Schedule:Day Name
-    Winter Control Type Day Sch - heat,  !- CustomDay1 Schedule:Day Name
-    Winter Control Type Day Sch - heat;  !- CustomDay2 Schedule:Day Name
-
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
 
@@ -677,13 +606,23 @@ Schedule:Year,
     1,                       !- Start Day 1
     3,                       !- End Month 1
     31,                      !- End Day 1
-    Summer Control Type Week Sch,  !- Schedule:Week Name 2
+    Midseason Control Type Week Sch,  !- Schedule:Week Name 2
     4,                       !- Start Month 2
+    1,                       !- Start Day 2
+    5,                       !- End Month 2
+    31,                      !- End Day 2
+    Summer Control Type Week Sch,  !- Schedule:Week Name 2
+    6,                       !- Start Month 2
     1,                       !- Start Day 2
     9,                       !- End Month 2
     30,                      !- End Day 2
+    Midseason Control Type Week Sch,  !- Schedule:Week Name 2
+    10,                       !- Start Month 2
+    1,                       !- Start Day 2
+    11,                       !- End Month 2
+    30,                      !- End Day 2
     Winter Control Type Week Sch,  !- Schedule:Week Name 3
-    10,                      !- Start Month 3
+    12,                      !- Start Month 3
     1,                       !- Start Day 3
     12,                      !- End Month 3
     31;                      !- End Day 3
@@ -1494,7 +1433,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    1F:10XOffice2 Cooling SP Sch,  !- Name
+    1F:10XOffice2 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -1622,7 +1561,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    1F:02XLobby Cooling SP Sch,  !- Name
+    1F:02XLobby Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -1750,7 +1689,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    1F:07XBreakRoom Cooling SP Sch,  !- Name
+    1F:07XBreakRoom Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -1878,7 +1817,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    1F:06XDressing2 Cooling SP Sch,  !- Name
+    1F:06XDressing2 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -1978,7 +1917,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 24H Cooling
 Schedule:Compact,
-    1F:04XCntrlMntrngRm Cooling SP Sch,  !- Name
+    1F:04XCntrlMntrngRm Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For:AllDays,             !- Field 2
@@ -2092,7 +2031,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    1F:01XCorridor Cooling SP Sch,  !- Name
+    1F:01XCorridor Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2220,7 +2159,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    1F:03XEVHall Cooling SP Sch,  !- Name
+    1F:03XEVHall Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2348,7 +2287,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    1F:09XOffice1 Cooling SP Sch,  !- Name
+    1F:09XOffice1 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2476,7 +2415,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    1F:05XDressing1 Cooling SP Sch,  !- Name
+    1F:05XDressing1 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2604,7 +2543,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    1F:08XVending Cooling SP Sch,  !- Name
+    1F:08XVending Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2732,7 +2671,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    2X6F:01XCorridor Cooling SP Sch,  !- Name
+    2X6F:01XCorridor Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2860,7 +2799,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    2X6F:03XEVHall Cooling SP Sch,  !- Name
+    2X6F:03XEVHall Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -2988,7 +2927,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:05X1XOfficeSP Cooling SP Sch,  !- Name
+    2X6F:05X1XOfficeSP Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3116,7 +3055,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:05X3XOfficeSI Cooling SP Sch,  !- Name
+    2X6F:05X3XOfficeSI Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3244,7 +3183,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    2X6F:02XVending Cooling SP Sch,  !- Name
+    2X6F:02XVending Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3372,7 +3311,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:04X1XOfficeNP Cooling SP Sch,  !- Name
+    2X6F:04X1XOfficeNP Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3500,7 +3439,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:04X2XOfficeNEP Cooling SP Sch,  !- Name
+    2X6F:04X2XOfficeNEP Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3628,7 +3567,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:04X3XOfficeNWP Cooling SP Sch,  !- Name
+    2X6F:04X3XOfficeNWP Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3756,7 +3695,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:04X4XOfficeNI Cooling SP Sch,  !- Name
+    2X6F:04X4XOfficeNI Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -3884,7 +3823,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    2X6F:05X2XOfficeSWP Cooling SP Sch,  !- Name
+    2X6F:05X2XOfficeSWP Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -4012,7 +3951,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    7F:01XCorridor Cooling SP Sch,  !- Name
+    7F:01XCorridor Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -4140,7 +4079,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    7F:03XEVHall Cooling SP Sch,  !- Name
+    7F:03XEVHall Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -4268,7 +4207,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    7F:05XOffice2 Cooling SP Sch,  !- Name
+    7F:05XOffice2 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -4396,7 +4335,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
-    7F:02XVending Cooling SP Sch,  !- Name
+    7F:02XVending Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -4524,7 +4463,7 @@ Schedule:Compact,
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
-    7F:04XOffice1 Cooling SP Sch,  !- Name
+    7F:04XOffice1 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
@@ -29375,129 +29314,129 @@ ZoneControl:Thermostat,
 !-   ===========  ALL OBJECTS IN CLASS: THERMOSTATSETPOINT:DUALSETPOINT ===========
 
 ThermostatSetpoint:DualSetpoint,
+    Dual Setpoint - Zone 1F:09XOffice1,  !- Name
+    1F:09XOffice1 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    1F:09XOffice1 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:10XOffice2,  !- Name
     1F:10XOffice2 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:10XOffice2 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:10XOffice2 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:02XLobby,  !- Name
     1F:02XLobby Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:02XLobby Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:02XLobby Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:07XBreakRoom,  !- Name
     1F:07XBreakRoom Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:07XBreakRoom Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:07XBreakRoom Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:06XDressing2,  !- Name
     1F:06XDressing2 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:06XDressing2 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:06XDressing2 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:04XCntrlMntrngRm,  !- Name
     1F:04XCntrlMntrngRm Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:04XCntrlMntrngRm Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:04XCntrlMntrngRm Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:01XCorridor,  !- Name
     1F:01XCorridor Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:01XCorridor Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:01XCorridor Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:03XEVHall,  !- Name
     1F:03XEVHall Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:03XEVHall Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
-
-ThermostatSetpoint:DualSetpoint,
-    Dual Setpoint - Zone 1F:09XOffice1,  !- Name
-    1F:09XOffice1 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:09XOffice1 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:03XEVHall Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:05XDressing1,  !- Name
     1F:05XDressing1 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:05XDressing1 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:05XDressing1 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:08XVending,  !- Name
     1F:08XVending Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    1F:08XVending Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    1F:08XVending Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:01XCorridor,  !- Name
     2X6F:01XCorridor Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:01XCorridor Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:01XCorridor Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:03XEVHall,  !- Name
     2X6F:03XEVHall Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:03XEVHall Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:03XEVHall Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X1XOfficeSP,  !- Name
     2X6F:05X1XOfficeSP Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:05X1XOfficeSP Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:05X1XOfficeSP Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X3XOfficeSI,  !- Name
     2X6F:05X3XOfficeSI Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:05X3XOfficeSI Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:05X3XOfficeSI Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:02XVending,  !- Name
     2X6F:02XVending Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:02XVending Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:02XVending Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X1XOfficeNP,  !- Name
     2X6F:04X1XOfficeNP Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:04X1XOfficeNP Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:04X1XOfficeNP Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X2XOfficeNEP,  !- Name
     2X6F:04X2XOfficeNEP Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:04X2XOfficeNEP Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:04X2XOfficeNEP Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X3XOfficeNWP,  !- Name
     2X6F:04X3XOfficeNWP Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:04X3XOfficeNWP Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:04X3XOfficeNWP Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X4XOfficeNI,  !- Name
     2X6F:04X4XOfficeNI Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:04X4XOfficeNI Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:04X4XOfficeNI Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X2XOfficeSWP,  !- Name
     2X6F:05X2XOfficeSWP Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    2X6F:05X2XOfficeSWP Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    2X6F:05X2XOfficeSWP Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:01XCorridor,  !- Name
     7F:01XCorridor Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    7F:01XCorridor Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    7F:01XCorridor Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:03XEVHall,  !- Name
     7F:03XEVHall Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    7F:03XEVHall Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    7F:03XEVHall Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:05XOffice2,  !- Name
     7F:05XOffice2 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    7F:05XOffice2 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    7F:05XOffice2 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:02XVending,  !- Name
     7F:02XVending Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    7F:02XVending Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    7F:02XVending Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:04XOffice1,  !- Name
     7F:04XOffice1 Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
-    7F:04XOffice1 Cooling SP Sch;  !- Cooling Setpoint Temperature Schedule Name
+    7F:04XOffice1 Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========

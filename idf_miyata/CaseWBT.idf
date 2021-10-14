@@ -2227,6 +2227,7 @@ Schedule:Compact,
 Schedule:Compact,
     1F:09XOffice1 Heating Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
+
     Through: 31 Mar,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2238,10 +2239,43 @@ Schedule:Compact,
     For: Weekends AllOtherDays,  !- Field 9
     Until: 24:00,            !- Field 10
     -50,                     !- Field 11
-    Through: 30 Nov,         !- Field 12
-    For: AllDays,            !- Field 13
-    Until: 24:00,            !- Field 14
-    -50,                     !- Field 15
+
+    Through: 31 May,         !- Field 1
+    For: Weekdays,  !- Field 2
+    Until: 07:00,            !- Field 3
+    -50,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    24,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    -50,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    -50,                     !- Field 11
+
+    Through: 30 Sep,         !- Field 1
+    For: Weekdays,  !- Field 2
+    Until: 07:00,            !- Field 3
+    -50,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    26,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    -50,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    -50,                     !- Field 11
+
+    Through: 30 Nov,         !- Field 1
+    For: Weekdays,  !- Field 2
+    Until: 07:00,            !- Field 3
+    -50,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    24,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    -50,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    -50,                     !- Field 11
+
     Through: 31 Dec,         !- Field 16
     For: Weekdays,           !- Field 17
     Until: 07:00,            !- Field 18
@@ -2258,7 +2292,7 @@ Schedule:Compact,
 Schedule:Compact,
     1F:09XOffice1 Heating Availability Sch,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
+    Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
     0,                       !- Field 4
@@ -2268,70 +2302,89 @@ Schedule:Compact,
     0,                       !- Field 8
     For: Weekends AllOtherDays,  !- Field 9
     Until: 24:00,            !- Field 10
-    0,                       !- Field 11
-    Through: 30 Nov,         !- Field 12
-    For: AllDays,            !- Field 13
-    Until: 24:00,            !- Field 14
-    0,                       !- Field 15
-    Through: 31 Dec,         !- Field 16
-    For: Weekdays,           !- Field 17
-    Until: 07:00,            !- Field 18
-    0,                       !- Field 19
-    Until: 21:00,            !- Field 20
-    1,                       !- Field 21
-    Until: 24:00,            !- Field 22
-    0,                       !- Field 23
-    For: Weekends AllOtherDays,  !- Field 24
-    Until: 24:00,            !- Field 25
-    0;                       !- Field 26
+    0;                       !- Field 11
+
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     1F:09XOffice1 Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
+
     Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
     100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays SummerDesignDay,  !- Field 6
-    Until: 07:00,            !- Field 7
+    Until: 21:00,            !- Field 5
+    22,                      !- Field 6
+    Until: 24:00,            !- Field 7
     100,                     !- Field 8
-    Until: 21:00,            !- Field 9
-    26,                      !- Field 10
-    Until: 24:00,            !- Field 11
-    100,                     !- Field 12
-    For: Weekends AllOtherDays,  !- Field 13
-    Until: 24:00,            !- Field 14
-    100,                     !- Field 15
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    100,                     !- Field 11
+
+    Through: 31 May,         !- Field 1
+    For: Weekdays,  !- Field 2
+    Until: 07:00,            !- Field 3
+    100,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    24,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    100,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    100,                     !- Field 11
+
+    Through: 30 Sep,         !- Field 1
+    For: Weekdays SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    100,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    26,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    100,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    100,                     !- Field 11
+
+    Through: 30 Nov,         !- Field 1
+    For: Weekdays,  !- Field 2
+    Until: 07:00,            !- Field 3
+    100,                     !- Field 4
+    Until: 21:00,            !- Field 5
+    24,                      !- Field 6
+    Until: 24:00,            !- Field 7
+    100,                     !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    100,                     !- Field 11
+
     Through: 31 Dec,         !- Field 16
-    For: AllDays,            !- Field 17
-    Until: 24:00,            !- Field 18
-    100;                     !- Field 19
+    For: Weekdays,           !- Field 17
+    Until: 07:00,            !- Field 18
+    100,                     !- Field 19
+    Until: 21:00,            !- Field 20
+    22,                      !- Field 21
+    Until: 24:00,            !- Field 22
+    100,                     !- Field 23
+    For: Weekends AllOtherDays,  !- Field 24
+    Until: 24:00,            !- Field 25
+    100;                     !- Field 26
 
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     1F:09XOffice1 Cooling Availability Sch,  !- Name
     Temperature,             !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
     0,                       !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays SummerDesignDay,  !- Field 6
-    Until: 07:00,            !- Field 7
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
     0,                       !- Field 8
-    Until: 21:00,            !- Field 9
-    1,                       !- Field 10
-    Until: 24:00,            !- Field 11
-    0,                       !- Field 12
-    For: Weekends AllOtherDays,  !- Field 13
-    Until: 24:00,            !- Field 14
-    0,                       !- Field 15
-    Through: 31 Dec,         !- Field 16
-    For: AllDays,            !- Field 17
-    Until: 24:00,            !- Field 18
-    0;                       !- Field 19
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
 
 ! Modified schedule: On 24/7
 Schedule:Compact,

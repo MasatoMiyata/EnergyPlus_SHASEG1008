@@ -1599,19 +1599,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:01XCorridor Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:01XCorridor Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1651,19 +1667,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:03XEVHall Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:03XEVHall Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1702,19 +1734,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:09XOffice1 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:09XOffice1 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1753,19 +1801,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:05XDressing1 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:05XDressing1 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1804,19 +1868,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:08XVending Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:08XVending Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1855,19 +1935,34 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:01XCorridor Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
-
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:01XCorridor Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1907,19 +2002,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:03XEVHall Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:03XEVHall Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1958,19 +2069,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:05X1XOfficeSP Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:05X1XOfficeSP Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2009,19 +2136,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:05X3XOfficeSI Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:05X3XOfficeSI Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -2060,19 +2203,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:02XVending Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:02XVending Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2111,19 +2270,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:04X1XOfficeNP Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:04X1XOfficeNP Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2162,19 +2337,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:04X2XOfficeNEP Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:04X2XOfficeNEP Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2213,19 +2404,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:04X3XOfficeNWP Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:04X3XOfficeNWP Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2264,19 +2471,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:04X4XOfficeNI Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:04X4XOfficeNI Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2315,19 +2538,35 @@ Schedule:Compact,
 Schedule:Compact,
     2X6F:05X2XOfficeSWP Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:05X2XOfficeSWP Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -2366,19 +2605,35 @@ Schedule:Compact,
 Schedule:Compact,
     7F:01XCorridor Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:01XCorridor Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -2417,19 +2672,35 @@ Schedule:Compact,
 Schedule:Compact,
     7F:03XEVHall Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:03XEVHall Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2469,19 +2740,35 @@ Schedule:Compact,
 Schedule:Compact,
     7F:05XOffice2 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:05XOffice2 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -2520,19 +2807,35 @@ Schedule:Compact,
 Schedule:Compact,
     7F:02XVending Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:02XVending Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -2571,19 +2874,35 @@ Schedule:Compact,
 Schedule:Compact,
     7F:04XOffice1 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:04XOffice1 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========

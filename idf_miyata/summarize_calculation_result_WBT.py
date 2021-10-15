@@ -27,7 +27,7 @@ roomlist = {
     "2-6F廊下":"2X6F:01XCORRIDOR",
     "2-6F自販機ｺｰﾅｰ":"2X6F:02XVENDING",
     "2-6FEVホール":"2X6F:03XEVHALL",
-    "2-6F事務室1NP":"2X6F:04X1XOFFICENP",
+    "2-6F事務室1 NP":"2X6F:04X1XOFFICENP",
     "2-6F事務室1NEP":"2X6F:04X2XOFFICENEP",
     "2-6F事務室1NWP":"2X6F:04X3XOFFICENWP",
     "2-6F事務室1NI":"2X6F:04X4XOFFICENI",
@@ -54,15 +54,24 @@ data.index.name = "data_hour"
 # 確認
 # print(data[roomlist["1F事務室2"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-01-01 7:00:00":"2021-01-01 17:00:00"])
 
-
+# 室温のグラフ
 for room_name in roomlist:
 
-    fig = plt.figure(figsize=(14,7))
-    plt.subplots_adjust(left=0.05, bottom=0.10, right=0.97, top=0.9, wspace=0.20, hspace=0.25)
-    plt.subplot(111)
-    plt.plot(data[roomlist[room_name] + ":Zone Mean Air Temperature [C](Hourly)"]) 
-    plt.title(room_name)
-    plt.grid()
+    print(room_name)
 
+    fig = plt.figure(figsize=(14,7))
+    plt.subplots_adjust(left=0.07, bottom=0.10, right=0.97, top=0.9, wspace=0.20, hspace=0.25)
+    plt.subplot(211)
+    plt.plot(data[roomlist[room_name] + ":Zone Mean Air Temperature [C](Hourly)"]) 
+    plt.title("室温の変動 :" +room_name)
+    plt.ylabel("室温 [℃]")
+    plt.ylim([5,35])
+    plt.grid()
+    plt.subplot(212)
+    plt.plot(data[roomlist[room_name] + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Energy [J](Hourly)"]/1000000, 'b')
+    plt.plot(data[roomlist[room_name] + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Energy [J](Hourly)"]/1000000*(-1), 'r')
+    plt.title("熱負荷 :" +room_name)
+    plt.ylabel("負荷 [MJ]")
+    plt.grid()
 
 plt.show()

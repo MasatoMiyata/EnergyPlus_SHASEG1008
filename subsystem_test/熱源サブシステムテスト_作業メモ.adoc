@@ -79,7 +79,106 @@ EIRの部分負荷特性を2次式で指定する。ある条件下の消費電�
 ==== 課題
 * ARの冷却水温度特性の反映
 * ポンプ特性の反映
+* 1ポンプシステム（チラー冷水も変流量）になっている
+* 冷却水の変流量制御ができない
+* 熱源台数制御設定値の変更がうまく機能していないため要確認
+
+
+=== 2021.10.18
+==== 今回取り組んだ課題
+* ARの冷却水温度特性の反映
+* 熱源台数制御設定値の変更がうまく機能していないため要確認
+* ポンプ特性の反映
+
+==== 入力ファイルの修正点
+
+===== ARの冷却水温度特性の反映
+link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorptionindirect[Chiller:Absorption:Indirect]は以下の通り冷却水温度に対する再生器への入力熱量の変化特性を2〜3次式で指定できるようになっているはずであるが、前回の計算結果では冷却水温度が変化しても入力熱量に変化が見られなかった。その後、試しにこのカーブの係数を極端な値に変更してみても入力熱量の計算結果はまったく変化しなかった。
+```
+* Field: Generator Heat Input Correction Function of Condenser Temperature Curve Name
+This alpha field specifies the name of a quadratic or cubic curve which correlates the chiller’s heat input as a function of condenser entering water temperature. This curve is used to correct generator heat input at off-design condensing temperatures.
+```
+
+link:https://github.com/NREL/EnergyPlus/blob/develop/src/EnergyPlus/ChillerIndirectAbsorption.cc[Source code]（おそらくこれで合っていると思われる）を見てみると、冷却水温度特性のカーブの計算コードの中で再生器の入口ノードの温度を参照しているように見えるため、これはプログラムのバグではないかと思われる。このバグ疑惑についてはUnmetHours等で問い合わせても良い。
+```
+! Line 1984
+ Real64 HeatInputfCondTemp = 1.0; // performance curve output
+    if (this->GeneratorInletNodeNum > 0) {
+        if (this->HeatInputFCondTempPtr > 0) {
+            HeatInputfCondTemp =
+                CurveManager::CurveValue(state, this->HeatInputFCondTempPtr, state.dataLoopNodes->Node(this->GeneratorInletNodeNum).Temp);
+        } else {
+            HeatInputfCondTemp = 1.0;
+        }
+    }
+```
+
+===== 熱源台数制御設定値の変更
+E+では以下のように、熱源のリストを複数作成し、各リストが運転する負荷熱量帯を指定することで台数制御の設定が可能である。増段と減段の閾値を別々に指定することはできない。
+```
+  PlantEquipmentOperation:CoolingLoad,
+    CHW Loop Scheme 1,       !- Name
+    0,                      !- Load Range 1 Lower Limit {W}
+    270000,                 !- Load Range 1 Upper Limit {W}
+    CHW Loop Scheme 1 Range 1 Equipment List,  !- Range 1 Equipment List Name
+    270000,                    !- Load Range 1 Lower Limit {W}
+    540000,                 !- Load Range 1 Upper Limit {W}
+    CHW Loop Scheme 1 Range 2 Equipment List,  !- Range 1 Equipment List Name
+    540000,                    !- Load Range 1 Lower Limit {W}
+    1500000,                !- Load Range 1 Upper Limit {W}
+    CHW Loop Scheme 1 Range 3 Equipment List;  !- Range 1 Equipment List Name
+
+  PlantEquipmentList,
+    CHW Loop Scheme 1 Range 1 Equipment List,  !- Name
+    Chiller:Electric:EIR,    !- Equipment 1 Object Type
+    AHP1;                    !- Equipment 1 Name
+  
+  PlantEquipmentList,
+    CHW Loop Scheme 1 Range 2 Equipment List,  !- Name
+    Chiller:Electric:EIR,    !- Equipment 1 Object Type
+    AHP1,                    !- Equipment 1 Name
+    Chiller:Electric:EIR,    !- Equipment 2 Object Type
+    AHP2;                    !- Equipment 2 Name
+  
+  PlantEquipmentList,
+    CHW Loop Scheme 1 Range 3 Equipment List,  !- Name
+    Chiller:Electric:EIR,    !- Equipment 1 Object Type
+    AHP1,                    !- Equipment 1 Name
+    Chiller:Electric:EIR,    !- Equipment 2 Object Type
+    AHP2,                    !- Equipment 2 Name
+    Chiller:Absorption:Indirect,      !- Equipment 3 Object Type
+    AR;                      !- Equipment 3 Name
+```
+
+上記は90％で増減段の設定であるが、HSS230用に40％で増減段するように変更したところ、3台の熱源がすべて運転するようになった。前回計算では同様の設定で3台起動しなかったと思うが、何か間違いがあったのかもしれない。また、HSS230においてARが部分負荷で運転した結果、部分負荷特性の入力方法に誤りがあったことが分かった。
+マニュアルに、
+```
+The curve output is multiplied by the chiller’s nominal capacity and operating part-load ratio or minimum part-load ratio, whichever is greater, to determine the amount of heat input required for the given operating conditons.
+```
+という記述があったため、このカーブの出力＝蒸気入力/（定格能力*負荷率）と理解していたが、計算値から推測すると実際には、カーブの出力＝蒸気入力/定格能力、だったようである。
+
+
+===== ポンプ特性の反映
+これまで調べた限りでは、E+においては日本では一般的な2ポンプシステムを構築することはできないようである。よって、link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-pumps.html#headeredpumpsvariablespeed[HeaderedPumps:VariableSpeed]を用いて台数制御を行う1系統のポンプ群のみを定義し、その入力値によって可能な範囲で両ポンプの特性を反映する。
+
+* 定格電力：2次ポンプ3台＋1次ポンプ3台の合計電力を入力する。ただし、2次ポンプは揚程170kPa相当の電力を入力する。
+* 揚程：2次ポンプ170kPa＋1次ポンプ147kPa＝317kPaを入力する。
+* モータ効率：6台のポンプのモータ効率×インバータ効率をもとに、定格電力による加重平均値を入力する。
+* 部分負荷特性：link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-pumps.html#pumpvariablespeed[Pump:VariableSpeed]やlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-pumps.html#headeredpumpsvariablespeed[HeaderedPumps:VariableSpeed]では、定格電力に対する電力消費率を負荷率PLR（＝流量比）の4次式で与えることができる。2次ポンプは前後圧一定制御であり理論的には電力は流量に比例するため1次式で与えることになる。ただし、定回転の1次ポンプの影響を考慮するため、1台目に起動するAHPの1次ポンプ電力相当分（3.53kW）が切片となるように1次式の係数を入力する。
+
+ちなみに、基本的に揚程とモータ効率の入力は電力計算には影響せず、ポンプ効率等の出力にのみ影響するようである。ただし、圧力計算を行う計算モードの場合には何らか反映されると思われる（link:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/pumps.html#variable-speed-pump[Engineering Reference]）。
+
+==== 計算結果
+* ポンプ電力（1次＋2次）は他のツールとほぼ一致するようになった。閾値を変更するHSS230だけは想定している1次ポンプの運転台数が異なるため、E+の電力が他のツールよりも小さい。
+* ARの冷却水温度特性が反映されていないという問題（HSS110）は残っているものの、それ以外は他のツールと遜色ない結果になったと考えられる。
+
+==== 課題
+残った熱源サブシステムテストに関する課題は以下である。
+
 * 1ポンプシステム（チラー冷水も変流量）になっている。
-* 冷却水の変流量制御ができない。
-* 熱源台数制御設定値の変更がうまく機能していないため要確認。
+* 冷却水の変流量制御ができない。　→熱源サブシステムテストではHSS200以降は冷却水流量が50％の条件になっているが、全体システムテストでは定流量のため、全ケース100％で統一するよう矢島委員に提案済。
+* link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerheaterabsorptiondirectfired[ChillerHeater:Absorption:DirectFired]のエラーを未解決。
+
+WGメンバーに異存がなければ、上記は今後の課題として残しておき、次回から冷却水サブシステムテストに取り組むつもりである。
+
 

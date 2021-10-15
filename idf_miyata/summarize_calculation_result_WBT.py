@@ -148,36 +148,36 @@ latent_heating_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating
 total_cooling_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Rate [W](Hourly)"
 total_heating_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Rate [W](Hourly)"
 
-sensible_cooling_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"
-sensible_heating_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"
-latent_cooling_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"
-latent_heating_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"
+sensible_cooling_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Energy [J](Hourly)"
+sensible_heating_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Energy [J](Hourly)"
+latent_cooling_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Energy [J](Hourly)"
+latent_heating_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Energy [J](Hourly)"
 
-# for room_name in roomlist:
+for room_name in roomlist:
 
-#     print( "----" + room_name + "----")
+    print( "----" + room_name + "----")
 
-#     if "2-6F" in room_name:
-#         Multiplier = 5
-#     else:
-#         Multiplier = 1
+    if "2-6F" in room_name:
+        Multiplier = 5
+    else:
+        Multiplier = 1
 
-#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].sum() / 1000000 )
-#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].sum() / 1000000 )
-#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].sum() / 1000000*(-1) )
-#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].sum() / 1000000*(-1) )
-#     print( data[roomlist[room_name]["ID"] + sensible_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + latent_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + sensible_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + latent_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() / 1000 )
-#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() / 1000 )
-#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() / 1000*(-1) )
-#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() / 1000*(-1) )
-#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
-#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].sum() / 1000000 )
+    print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].sum() / 1000000 )
+    print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].sum() / 1000000*(-1) )
+    print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].sum() / 1000000*(-1) )
+    print( data[roomlist[room_name]["ID"] + sensible_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + latent_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + sensible_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + latent_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() / 1000 )
+    print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() / 1000 )
+    print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() / 1000*(-1) )
+    print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() / 1000*(-1) )
+    print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
 
 
 # 基準階の事務室の時系列負荷

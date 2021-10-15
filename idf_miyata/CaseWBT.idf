@@ -89,7 +89,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    1;                       !- Number of Timesteps per Hour
+    4;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
@@ -22255,15 +22255,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:10XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    5.915,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:10XOffice2 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:10XOffice2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22284,15 +22284,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:02XLobby In,     !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    2.255933,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:02XLobby Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:02XLobby Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22313,15 +22313,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:07XBreakRoom In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.563333,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:07XBreakRoom Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:07XBreakRoom Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22342,15 +22342,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:06XDressing2 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.281667,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:06XDressing2 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:06XDressing2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22371,15 +22371,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:04XCntrlMntrngRm In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.845,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:04XCntrlMntrngRm Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:04XCntrlMntrngRm Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22400,15 +22400,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    3.2162,                  !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22429,15 +22429,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.312,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22458,15 +22458,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:09XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    7.947333,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:09XOffice1 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:09XOffice1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22487,15 +22487,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:05XDressing1 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.281667,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:05XDressing1 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:05XDressing1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22516,15 +22516,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:08XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.471792,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     1F:08XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:08XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22545,15 +22545,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:01XCorridor In,!- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    2.201,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22574,15 +22574,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:03XEVHall In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.24,                    !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22603,15 +22603,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X1XOfficeSP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    2.791667,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:05X1XOfficeSP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X1XOfficeSP Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22632,15 +22632,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X3XOfficeSI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    4.65,                    !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:05X3XOfficeSI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X3XOfficeSI Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22661,15 +22661,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:02XVending In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.362917,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:02XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:02XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22690,15 +22690,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X1XOfficeNP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    3.125,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:04X1XOfficeNP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X1XOfficeNP Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22719,15 +22719,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X2XOfficeNEP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.958333,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:04X2XOfficeNEP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X2XOfficeNEP Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22748,15 +22748,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X3XOfficeNWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.958333,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:04X3XOfficeNWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X3XOfficeNWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22777,15 +22777,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X4XOfficeNI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    4.874999,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:04X4XOfficeNI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X4XOfficeNI Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22806,15 +22806,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X2XOfficeSWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.958333,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     2X6F:05X2XOfficeSWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X2XOfficeSWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22835,15 +22835,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    2.201,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     7F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22864,15 +22864,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.24,                    !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     7F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22893,15 +22893,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:05XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    8.4,                     !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     7F:05XOffice2 Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:05XOffice2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22922,15 +22922,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:02XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.362917,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     7F:02XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:02XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
@@ -22951,15 +22951,15 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:04XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    80,                      !- Maximum Heating Supply Air Temperature {C}
+    4,                       !- Minimum Cooling Supply Air Temperature {C}
     0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
+    ,                        !- Heating Limit
     Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     Autosize,                !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    9.916666,                !- Maximum Cooling Air Flow Rate {m3/s}
+    ,             !- Cooling Limit
+    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
     Autosize,                !- Maximum Total Cooling Capacity {W}
     7F:04XOffice1 Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:04XOffice1 Cooling Availability Sch,  !- Cooling Availability Schedule Name

@@ -14,103 +14,103 @@ plt.rcParams["font.size"] = 10
 filename = "./idf_miyata/CaseWBT.csv"
 
 roomlist = {
-    "1F 廊下":{
+    "1F_廊下":{
         "ID": "1F:01XCORRIDOR",
         "面積": 163.5,
         },
-    "1F ロビー":{
+    "1F_ロビー":{
         "ID": "1F:02XLOBBY",
         "面積": 100.0,
         },
-    "1F EVホール":{
+    "1F_EVホール":{
         "ID": "1F:03XEVHALL",
         "面積": 12.0,
         },
-    "1F 中央監視室":{
+    "1F_中央監視室":{
         "ID": "1F:04XCNTRLMNTRNGRM",
         "面積": 39.0,
         },
-    "1F 更衣室1":{
+    "1F_更衣室1":{
         "ID": "1F:05XDRESSING1",
         "面積": 10.9,
         },
-    "1F 更衣室2":{
+    "1F_更衣室2":{
         "ID": "1F:06XDRESSING2",
         "面積": 10.9,
         },
-    "1F 休憩室":{
+    "1F_休憩室":{
         "ID": "1F:07XBREAKROOM",
         "面積": 21.8,
         },
-    "1F 自販機コーナー":{
+    "1F_自販機コーナー":{
         "ID": "1F:08XVENDING",
         "面積": 21.8,
         },
-    "1F 事務室1":{
+    "1F_事務室1":{
         "ID": "1F:09XOFFICE1",
         "面積": 366.8,
         },
-    "1F 事務室2":{
+    "1F_事務室2":{
         "ID": "1F:10XOFFICE2",
         "面積": 273.0,
         },
-    "2-6F 廊下":{
+    "2-6F_廊下":{
         "ID": "2X6F:01XCORRIDOR",
         "面積": 144.0,
         },
-    "2-6F 自販機コーナー":{
+    "2-6F_自販機コーナー":{
         "ID": "2X6F:02XVENDING",
         "面積": 21.8,
         },
-    "2-6F EVホール":{
+    "2-6F_EVホール":{
         "ID": "2X6F:03XEVHALL",
         "面積": 12.0,
         },
-    "2-6F 事務室1 ペリメータ北":{
+    "2-6F_事務室1_ペリメータ北":{
         "ID": "2X6F:04X1XOFFICENP",
         "面積": 187.5,
         },
-    "2-6F 事務室1 ペリメータ北東":{
+    "2-6F_事務室1_ペリメータ北東":{
         "ID": "2X6F:04X2XOFFICENEP",
         "面積": 57.5,
         },
-    "2-6F 事務室1 ペリメータ北西":{
+    "2-6F_事務室1_ペリメータ北西":{
         "ID": "2X6F:04X3XOFFICENWP",
         "面積": 57.5,
         },
-    "2-6F 事務室1 インテリア":{
+    "2-6F_事務室1_インテリア":{
         "ID": "2X6F:04X4XOFFICENI",
         "面積": 292.5,
         },
-    "2-6F 事務室2 ペリメータ南":{
+    "2-6F_事務室2_ペリメータ南":{
         "ID": "2X6F:05X1XOFFICESP",
         "面積": 167.5,
         },
-    "2-6F 事務室2 ペリメータ南西":{
+    "2-6F_事務室2_ペリメータ南西":{
         "ID": "2X6F:05X2XOFFICESWP",
         "面積": 57.5,
         },
-    "2-6F 事務室2 インテリア":{
+    "2-6F_事務室2_インテリア":{
         "ID": "2X6F:05X3XOFFICESI",
         "面積": 279.0,
         },
-    "7F 廊下":{
+    "7F_廊下":{
         "ID": "7F:01XCORRIDOR",
         "面積": 144.0,
         },
-    "7F 自販機コーナー":{
+    "7F_自販機コーナー":{
         "ID": "7F:02XVENDING",
         "面積": 21.8,
         },
-    "7F EVホール":{
+    "7F_EVホール":{
         "ID": "7F:03XEVHALL",
         "面積": 12.0,
         },
-    "7F 事務室1":{
+    "7F_事務室1":{
         "ID": "7F:04XOFFICE1",
         "面積": 595.0,
         },
-    "7F 事務室2":{
+    "7F_事務室2":{
         "ID": "7F:05XOFFICE2",
         "面積": 504.0,
         }
@@ -126,33 +126,77 @@ data  = pd.read_csv(filepath_or_buffer=filename, sep=",", header=[0], encoding="
 data.index = dates
 data.index.name = "data_hour"
 
-# 確認
-# print(data[roomlist["1F事務室2"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-01-01 7:00:00":"2021-01-01 17:00:00"])
+for colunms_name in data.columns:
+    if colunms_name[-1] == " ":  # EnergyPlusの出力項目名称の末尾になぜか空白が入ってしまう場合がある問題を解消
+        print(colunms_name)
+        data = data.rename(columns={colunms_name:colunms_name[:-1]})
+
+
+# # 確認
+# # print(data[roomlist["1F事務室2"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-01-01 7:00:00":"2021-01-01 17:00:00"])
 
 # 集計
 
+# 積算負荷（冷房顕熱）
+
+for room_name in roomlist:
+
+    print( "----" + room_name + "----")
+
+    if "2-6F" in room_name:
+        Multiplier = 5
+    else:
+        Multiplier = 1
+
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].sum() / 1000000 )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].sum() / 1000000 )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].sum() / 1000000*(-1) )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].sum() / 1000000*(-1) )
+
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Energy [J](Hourly)"].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Energy [J](Hourly)"].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Energy [J](Hourly)"].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Energy [J](Hourly)"].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].max() / 1000 )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].max() / 1000 )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].max() / 1000*(-1) )
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].max() / 1000*(-1) )
+
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].max() /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].max() /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
 
 
+# 室温のグラフ
+for room_name in roomlist:
 
+    print(room_name)
 
-# # 室温のグラフ
-# for room_name in roomlist:
+    fig = plt.figure(figsize=(10,7))
+    plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+    plt.subplot(311)
+    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]) 
+    plt.title("室温の変動: " +room_name)
+    plt.ylabel("室温 [℃]")
+    plt.ylim([5,35])
+    plt.grid()
 
-#     print(room_name)
+    plt.subplot(312)
+    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000) 
+    plt.title("絶対湿度の変動: " +room_name)
+    plt.ylabel("絶対湿度 [g/kgDA]")
+    plt.ylim([0,20])
+    plt.grid()
+    
+    plt.subplot(313)
+    plt.plot(data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Rate [W](Hourly)"]/roomlist[room_name]["面積"], 'b')
+    plt.plot(data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Rate [W](Hourly)"]*(-1)/roomlist[room_name]["面積"], 'r')
+    plt.title("熱負荷の変動: " +room_name)
+    plt.ylabel("負荷 [W/㎡]")
+    plt.grid()
 
-#     fig = plt.figure(figsize=(14,7))
-#     plt.subplots_adjust(left=0.07, bottom=0.10, right=0.97, top=0.9, wspace=0.20, hspace=0.25)
-#     plt.subplot(211)
-#     plt.plot(data[roomlist[room_name] + ":Zone Mean Air Temperature [C](Hourly)"]) 
-#     plt.title("室温の変動: " +room_name)
-#     plt.ylabel("室温 [℃]")
-#     plt.ylim([5,35])
-#     plt.grid()
-#     plt.subplot(212)
-#     plt.plot(data[roomlist[room_name] + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Energy [J](Hourly)"]/1000000, 'b')
-#     plt.plot(data[roomlist[room_name] + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Energy [J](Hourly)"]/1000000*(-1), 'r')
-#     plt.title("熱負荷の変動: " +room_name)
-#     plt.ylabel("負荷 [MJ]")
-#     plt.grid()
+    plt.savefig("CaseWBT_温湿度と熱負荷_"+ room_name +".png")
 
 # plt.show()

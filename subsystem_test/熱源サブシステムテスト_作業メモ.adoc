@@ -94,10 +94,9 @@ EIRの部分負荷特性を2次式で指定する。ある条件下の消費電�
 
 ===== ARの冷却水温度特性の反映
 link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorptionindirect[Chiller:Absorption:Indirect]は以下の通り冷却水温度に対する再生器への入力熱量の変化特性を2〜3次式で指定できるようになっているはずであるが、前回の計算結果では冷却水温度が変化しても入力熱量に変化が見られなかった。その後、試しにこのカーブの係数を極端な値に変更してみても入力熱量の計算結果はまったく変化しなかった。
-```
-* Field: Generator Heat Input Correction Function of Condenser Temperature Curve Name
-This alpha field specifies the name of a quadratic or cubic curve which correlates the chiller’s heat input as a function of condenser entering water temperature. This curve is used to correct generator heat input at off-design condensing temperatures.
-```
+
+_Field: Generator Heat Input Correction Function of Condenser Temperature Curve Name_
+_This alpha field specifies the name of a quadratic or cubic curve which correlates the chiller’s heat input as a function of condenser entering water temperature. This curve is used to correct generator heat input at off-design condensing temperatures._
 
 link:https://github.com/NREL/EnergyPlus/blob/develop/src/EnergyPlus/ChillerIndirectAbsorption.cc[Source code]（おそらくこれで合っていると思われる）を見てみると、冷却水温度特性のカーブの計算コードの中で再生器の入口ノードの温度を参照しているように見えるため、これはプログラムのバグではないかと思われる。このバグ疑惑についてはUnmetHours等で問い合わせても良い。
 ```
@@ -150,11 +149,10 @@ E+では以下のように、熱源のリストを複数作成し、各リスト
     AR;                      !- Equipment 3 Name
 ```
 
-上記は90％で増減段の設定であるが、HSS230用に40％で増減段するように変更したところ、3台の熱源がすべて運転するようになった。前回計算では同様の設定で3台起動しなかったと思うが、何か間違いがあったのかもしれない。また、HSS230においてARが部分負荷で運転した結果、部分負荷特性の入力方法に誤りがあったことが分かった。
-マニュアルに、
-```
-The curve output is multiplied by the chiller’s nominal capacity and operating part-load ratio or minimum part-load ratio, whichever is greater, to determine the amount of heat input required for the given operating conditons.
-```
+上記は90％で増減段の設定であるが、HSS230用に40％で増減段するように変更したところ、3台の熱源がすべて運転するようになった。前回計算では同様の設定で3台起動しなかったと思うが、何か間違いがあったのかもしれない。また、HSS230においてARが部分負荷で運転した結果、部分負荷特性の入力方法に誤りがあったことが分かった。マニュアルに、
+
+_The curve output is multiplied by the chiller’s nominal capacity and operating part-load ratio or minimum part-load ratio, whichever is greater, to determine the amount of heat input required for the given operating conditons._
+
 という記述があったため、このカーブの出力＝蒸気入力/（定格能力*負荷率）と理解していたが、計算値から推測すると実際には、カーブの出力＝蒸気入力/定格能力、だったようである。
 
 

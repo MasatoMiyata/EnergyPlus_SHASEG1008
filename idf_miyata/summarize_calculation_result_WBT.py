@@ -227,34 +227,166 @@ for room_name in roomlist:
 
 
 
-# # 室温のグラフ
-# for room_name in roomlist:
+# 室温のグラフ
+for room_name in roomlist:
 
-#     print(room_name)
+    print(room_name)
 
-#     fig = plt.figure(figsize=(10,7))
-#     plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
-#     plt.subplot(311)
-#     plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]) 
-#     plt.title("室温の変動: " +room_name)
-#     plt.ylabel("室温 [℃]")
-#     plt.ylim([5,35])
-#     plt.grid()
+    fig = plt.figure(figsize=(10,7))
+    plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+    plt.subplot(311)
+    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]) 
+    plt.title("室温の変動: " +room_name)
+    plt.ylabel("室温 [℃]")
+    plt.ylim([5,35])
+    plt.grid()
 
-#     plt.subplot(312)
-#     plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000) 
-#     plt.title("絶対湿度の変動: " +room_name)
-#     plt.ylabel("絶対湿度 [g/kgDA]")
-#     plt.ylim([0,20])
-#     plt.grid()
+    plt.subplot(312)
+    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000) 
+    plt.title("絶対湿度の変動: " +room_name)
+    plt.ylabel("絶対湿度 [g/kgDA]")
+    plt.ylim([0,20])
+    plt.grid()
     
-#     plt.subplot(313)
-#     plt.plot(data[roomlist[room_name]["ID"]  + total_cooling_rate_W]/roomlist[room_name]["面積"], 'b')
-#     plt.plot(data[roomlist[room_name]["ID"]  + total_heating_rate_W]*(-1)/roomlist[room_name]["面積"], 'r')
-#     plt.title("熱負荷の変動: " +room_name)
-#     plt.ylabel("負荷 [W/㎡]")
-#     plt.grid()
+    plt.subplot(313)
+    plt.plot(data[roomlist[room_name]["ID"]  + total_cooling_rate_W]/roomlist[room_name]["面積"], 'b')
+    plt.plot(data[roomlist[room_name]["ID"]  + total_heating_rate_W]*(-1)/roomlist[room_name]["面積"], 'r')
+    plt.title("熱負荷の変動: " +room_name)
+    plt.ylabel("負荷 [W/㎡]")
+    plt.grid()
 
-#     plt.savefig("CaseWBT_温湿度と熱負荷_"+ room_name +".png")
+    plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_"+ room_name +".png")
+
+
+    if "事務室" in room_name and "2-6F" in room_name:
+
+        fig = plt.figure(figsize=(10,7))
+        plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+        plt.subplot(411)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]) 
+        plt.title("室温の変動: " +room_name)
+        plt.ylabel("室温 [℃]")
+        plt.ylim([5,35])
+        plt.grid()
+
+        plt.subplot(412)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]*1000) 
+        plt.title("絶対湿度の変動: " +room_name)
+        plt.ylabel("絶対湿度 [g/kgDA]")
+        plt.ylim([0,20])
+        plt.grid()
+        
+        plt.subplot(413)
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_cooling_rate_W]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_heating_rate_W]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("顕熱負荷の変動: " +room_name)
+        plt.ylabel("顕熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.subplot(414)
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_cooling_rate_W]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_heating_rate_W]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("潜熱負荷の変動: " +room_name)
+        plt.ylabel("潜熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_代表日_01月"+ room_name +".png")
+
+
+        fig = plt.figure(figsize=(10,7))
+        plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+        plt.subplot(411)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]) 
+        plt.title("室温の変動: " +room_name)
+        plt.ylabel("室温 [℃]")
+        plt.ylim([5,35])
+        plt.grid()
+
+        plt.subplot(412)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]*1000) 
+        plt.title("絶対湿度の変動: " +room_name)
+        plt.ylabel("絶対湿度 [g/kgDA]")
+        plt.ylim([0,20])
+        plt.grid()
+        
+        plt.subplot(413)
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_cooling_rate_W]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_heating_rate_W]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("顕熱負荷の変動: " +room_name)
+        plt.ylabel("顕熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.subplot(414)
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_cooling_rate_W]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_heating_rate_W]["2021-04-05 0:00:00":"2021-04-06 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("潜熱負荷の変動: " +room_name)
+        plt.ylabel("潜熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_代表日_04月"+ room_name +".png")
+
+        fig = plt.figure(figsize=(10,7))
+        plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+        plt.subplot(411)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]) 
+        plt.title("室温の変動: " +room_name)
+        plt.ylabel("室温 [℃]")
+        plt.ylim([5,35])
+        plt.grid()
+
+        plt.subplot(412)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]*1000) 
+        plt.title("絶対湿度の変動: " +room_name)
+        plt.ylabel("絶対湿度 [g/kgDA]")
+        plt.ylim([0,20])
+        plt.grid()
+        
+        plt.subplot(413)
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_cooling_rate_W]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_heating_rate_W]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("顕熱負荷の変動: " +room_name)
+        plt.ylabel("顕熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.subplot(414)
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_cooling_rate_W]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_heating_rate_W]["2021-07-18 0:00:00":"2021-07-19 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("潜熱負荷の変動: " +room_name)
+        plt.ylabel("潜熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_代表日_07月"+ room_name +".png")
+
+        fig = plt.figure(figsize=(10,7))
+        plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+        plt.subplot(411)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]) 
+        plt.title("室温の変動: " +room_name)
+        plt.ylabel("室温 [℃]")
+        plt.ylim([5,35])
+        plt.grid()
+
+        plt.subplot(412)
+        plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]*1000) 
+        plt.title("絶対湿度の変動: " +room_name)
+        plt.ylabel("絶対湿度 [g/kgDA]")
+        plt.ylim([0,20])
+        plt.grid()
+        
+        plt.subplot(413)
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_cooling_rate_W]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + sensible_heating_rate_W]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("顕熱負荷の変動: " +room_name)
+        plt.ylabel("顕熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.subplot(414)
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_cooling_rate_W]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]/roomlist[room_name]["面積"], 'b')
+        plt.plot(data[roomlist[room_name]["ID"]  + latent_heating_rate_W]["2021-11-11 0:00:00":"2021-11-12 1:00:00"]*(-1)/roomlist[room_name]["面積"], 'r')
+        plt.title("潜熱負荷の変動: " +room_name)
+        plt.ylabel("潜熱負荷 [W/㎡]")
+        plt.grid()
+
+        plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_代表日_11月"+ room_name +".png")
 
 # plt.show()

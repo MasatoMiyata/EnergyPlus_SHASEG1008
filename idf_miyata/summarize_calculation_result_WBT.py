@@ -117,7 +117,7 @@ roomlist = {
 }
 
 # 時刻ラベルを生成
-dates = pd.date_range(start='1/1/2021 0:00:00', end='12/31/2021 23:00:00', freq='H')
+dates = pd.date_range(start='1/1/2021 1:00:00', end='1/1/2022 0:00:00', freq='H')
 
 # データの読み込み
 data  = pd.read_csv(filepath_or_buffer=filename, sep=",", header=[0], encoding="cp932")
@@ -139,64 +139,122 @@ for colunms_name in data.columns:
 
 # 積算負荷（冷房顕熱）
 
+temperature             = ":Zone Mean Air Temperature [C](Hourly)"
+humidity                = ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"
+sensible_cooling_rate_W = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"
+sensible_heating_rate_W = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"
+latent_cooling_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"
+latent_heating_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"
+total_cooling_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Rate [W](Hourly)"
+total_heating_rate_W   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Rate [W](Hourly)"
+
+sensible_cooling_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"
+sensible_heating_energy_J = " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"
+latent_cooling_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"
+latent_heating_energy_J   = " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"
+
+# for room_name in roomlist:
+
+#     print( "----" + room_name + "----")
+
+#     if "2-6F" in room_name:
+#         Multiplier = 5
+#     else:
+#         Multiplier = 1
+
+#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].sum() / 1000000 )
+#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].sum() / 1000000 )
+#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].sum() / 1000000*(-1) )
+#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].sum() / 1000000*(-1) )
+#     print( data[roomlist[room_name]["ID"] + sensible_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + latent_cooling_energy_J].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + sensible_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + latent_heating_energy_J].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() / 1000 )
+#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() / 1000 )
+#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() / 1000*(-1) )
+#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() / 1000*(-1) )
+#     print( data[roomlist[room_name]["ID"] + sensible_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + latent_cooling_rate_W].max() /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + sensible_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+#     print( data[roomlist[room_name]["ID"] + latent_heating_rate_W].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+
+
+# 基準階の事務室の時系列負荷
 for room_name in roomlist:
 
-    print( "----" + room_name + "----")
+    if "事務室" in room_name and "2-6F" in room_name:
 
-    if "2-6F" in room_name:
+        print( "----" + room_name + "----")
+
         Multiplier = 5
-    else:
-        Multiplier = 1
 
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].sum() / 1000000 )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].sum() / 1000000 )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].sum() / 1000000*(-1) )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].sum() / 1000000*(-1) )
+        data[ roomlist[room_name]["ID"] + " sensible_heat_load" ] = \
+            data[roomlist[room_name]["ID"] + sensible_cooling_rate_W] /roomlist[room_name]["面積"]/Multiplier + \
+            data[roomlist[room_name]["ID"] + sensible_heating_rate_W] *(-1) /roomlist[room_name]["面積"]/Multiplier
 
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Energy [J](Hourly)"].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Energy [J](Hourly)"].sum() / 1000000 /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Energy [J](Hourly)"].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Energy [J](Hourly)"].sum() / 1000000*(-1) /roomlist[room_name]["面積"]/Multiplier)
+        data[ roomlist[room_name]["ID"] + " latent_heat_load" ] = \
+            data[roomlist[room_name]["ID"] + latent_cooling_rate_W] /roomlist[room_name]["面積"]/Multiplier + \
+            data[roomlist[room_name]["ID"] + latent_heating_rate_W] *(-1) /roomlist[room_name]["面積"]/Multiplier
 
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].max() / 1000 )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].max() / 1000 )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].max() / 1000*(-1) )
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].max() / 1000*(-1) )
+        output_sensible_data = data[ roomlist[room_name]["ID"] + " sensible_heat_load" ]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]
+        output_sensible_data = output_sensible_data.append(data[ roomlist[room_name]["ID"] + " sensible_heat_load" ]["2021-04-05 0:00:00":"2021-04-06 1:00:00"] )
+        output_sensible_data = output_sensible_data.append(data[ roomlist[room_name]["ID"] + " sensible_heat_load" ]["2021-07-18 0:00:00":"2021-07-19 1:00:00"] )
+        output_sensible_data = output_sensible_data.append(data[ roomlist[room_name]["ID"] + " sensible_heat_load" ]["2021-11-11 0:00:00":"2021-11-12 1:00:00"] )
 
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Cooling Rate [W](Hourly)"].max() /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Cooling Rate [W](Hourly)"].max() /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Sensible Heating Rate [W](Hourly)"].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
-    print( data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Latent Heating Rate [W](Hourly)"].max() *(-1) /roomlist[room_name]["面積"]/Multiplier)
+        output_sensible_data.to_csv("建物全体テスト_代表日_顕熱負荷_"+ room_name + ".csv", encoding="cp932")
+
+        output_latent_data = data[ roomlist[room_name]["ID"] + " latent_heat_load" ]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]
+        output_latent_data = output_latent_data.append(data[ roomlist[room_name]["ID"] + " latent_heat_load" ]["2021-04-05 0:00:00":"2021-04-06 1:00:00"] )
+        output_latent_data = output_latent_data.append(data[ roomlist[room_name]["ID"] + " latent_heat_load" ]["2021-07-18 0:00:00":"2021-07-19 1:00:00"] )
+        output_latent_data = output_latent_data.append(data[ roomlist[room_name]["ID"] + " latent_heat_load" ]["2021-11-11 0:00:00":"2021-11-12 1:00:00"] )
+
+        output_latent_data.to_csv("建物全体テスト_代表日_潜熱負荷_"+ room_name + ".csv", encoding="cp932")
+
+        output_temperature_data = data[ roomlist[room_name]["ID"] + temperature ]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]
+        output_temperature_data = output_temperature_data.append(data[ roomlist[room_name]["ID"] + temperature ]["2021-04-05 0:00:00":"2021-04-06 1:00:00"] )
+        output_temperature_data = output_temperature_data.append(data[ roomlist[room_name]["ID"] + temperature ]["2021-07-18 0:00:00":"2021-07-19 1:00:00"] )
+        output_temperature_data = output_temperature_data.append(data[ roomlist[room_name]["ID"] + temperature ]["2021-11-11 0:00:00":"2021-11-12 1:00:00"] )
+
+        output_temperature_data.to_csv("建物全体テスト_代表日_室温_"+ room_name + ".csv", encoding="cp932")
+
+        output_humidity_data = data[ roomlist[room_name]["ID"] + humidity ]["2021-01-04 0:00:00":"2021-01-05 1:00:00"]
+        output_humidity_data = output_humidity_data.append(data[ roomlist[room_name]["ID"] + humidity ]["2021-04-05 0:00:00":"2021-04-06 1:00:00"] )
+        output_humidity_data = output_humidity_data.append(data[ roomlist[room_name]["ID"] + humidity ]["2021-07-18 0:00:00":"2021-07-19 1:00:00"] )
+        output_humidity_data = output_humidity_data.append(data[ roomlist[room_name]["ID"] + humidity ]["2021-11-11 0:00:00":"2021-11-12 1:00:00"] )
+
+        output_humidity_data.to_csv("建物全体テスト_代表日_湿度_"+ room_name + ".csv", encoding="cp932")
 
 
-# 室温のグラフ
-for room_name in roomlist:
 
-    print(room_name)
+# # 室温のグラフ
+# for room_name in roomlist:
 
-    fig = plt.figure(figsize=(10,7))
-    plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
-    plt.subplot(311)
-    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]) 
-    plt.title("室温の変動: " +room_name)
-    plt.ylabel("室温 [℃]")
-    plt.ylim([5,35])
-    plt.grid()
+#     print(room_name)
 
-    plt.subplot(312)
-    plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000) 
-    plt.title("絶対湿度の変動: " +room_name)
-    plt.ylabel("絶対湿度 [g/kgDA]")
-    plt.ylim([0,20])
-    plt.grid()
+#     fig = plt.figure(figsize=(10,7))
+#     plt.subplots_adjust(left=0.09, bottom=0.05, right=0.97, top=0.95, wspace=0.15, hspace=0.40)
+#     plt.subplot(311)
+#     plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"]) 
+#     plt.title("室温の変動: " +room_name)
+#     plt.ylabel("室温 [℃]")
+#     plt.ylim([5,35])
+#     plt.grid()
+
+#     plt.subplot(312)
+#     plt.plot(data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000) 
+#     plt.title("絶対湿度の変動: " +room_name)
+#     plt.ylabel("絶対湿度 [g/kgDA]")
+#     plt.ylim([0,20])
+#     plt.grid()
     
-    plt.subplot(313)
-    plt.plot(data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Cooling Rate [W](Hourly)"]/roomlist[room_name]["面積"], 'b')
-    plt.plot(data[roomlist[room_name]["ID"]  + " IDEAL LOADS AIR:Zone Ideal Loads Zone Total Heating Rate [W](Hourly)"]*(-1)/roomlist[room_name]["面積"], 'r')
-    plt.title("熱負荷の変動: " +room_name)
-    plt.ylabel("負荷 [W/㎡]")
-    plt.grid()
+#     plt.subplot(313)
+#     plt.plot(data[roomlist[room_name]["ID"]  + total_cooling_rate_W]/roomlist[room_name]["面積"], 'b')
+#     plt.plot(data[roomlist[room_name]["ID"]  + total_heating_rate_W]*(-1)/roomlist[room_name]["面積"], 'r')
+#     plt.title("熱負荷の変動: " +room_name)
+#     plt.ylabel("負荷 [W/㎡]")
+#     plt.grid()
 
-    plt.savefig("CaseWBT_温湿度と熱負荷_"+ room_name +".png")
+#     plt.savefig("CaseWBT_温湿度と熱負荷_"+ room_name +".png")
 
 # plt.show()

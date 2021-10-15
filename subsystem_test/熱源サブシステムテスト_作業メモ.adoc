@@ -96,6 +96,7 @@ EIRの部分負荷特性を2次式で指定する。ある条件下の消費電�
 link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#chillerabsorptionindirect[Chiller:Absorption:Indirect]は以下の通り冷却水温度に対する再生器への入力熱量の変化特性を2〜3次式で指定できるようになっているはずであるが、前回の計算結果では冷却水温度が変化しても入力熱量に変化が見られなかった。その後、試しにこのカーブの係数を極端な値に変更してみても入力熱量の計算結果はまったく変化しなかった。
 
 _Field: Generator Heat Input Correction Function of Condenser Temperature Curve Name_
+
 _This alpha field specifies the name of a quadratic or cubic curve which correlates the chiller’s heat input as a function of condenser entering water temperature. This curve is used to correct generator heat input at off-design condensing temperatures._
 
 link:https://github.com/NREL/EnergyPlus/blob/develop/src/EnergyPlus/ChillerIndirectAbsorption.cc[Source code]（おそらくこれで合っていると思われる）を見てみると、冷却水温度特性のカーブの計算コードの中で再生器の入口ノードの温度を参照しているように見えるため、これはプログラムのバグではないかと思われる。このバグ疑惑についてはUnmetHours等で問い合わせても良い。

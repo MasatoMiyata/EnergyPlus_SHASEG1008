@@ -89,7 +89,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    4;                       !- Number of Timesteps per Hour
+    4;                      !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
@@ -1292,31 +1292,60 @@ Schedule:Compact,
 
 !---------------------------------------------------------------------------------------
 ! room temperature setpoint schedule
+
 Schedule:Compact,
-    Room Temp Setpoint Schedule,  !- Name
+    Heating Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
+    For: AllDays,  !- Field 2
     Until: 24:00,            !- Field 10
     22,                      !- Field 11
 
     Through: 31 May,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
     24,                      !- Field 11
 
     Through: 30 Sep,         !- Field 1
-    For: Weekdays SummerDesignDay,   !- Field 2
+    For: AllDays,   !- Field 2
     Until: 24:00,            !- Field 10
     26,                      !- Field 11
 
     Through: 30 Nov,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
     24,                      !- Field 11
 
     Through: 31 Dec,         !- Field 16
-    For: Weekdays,           !- Field 17
+    For: AllDays,           !- Field 17
+    Until: 24:00,            !- Field 10
+    22;                      !- Field 11
+
+Schedule:Compact,
+    Cooling Setpoint Schedule,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,  !- Field 2
+    Until: 24:00,            !- Field 10
+    22,                      !- Field 11
+
+    Through: 31 May,         !- Field 1
+    For: AllDays,           !- Field 2
+    Until: 24:00,            !- Field 10
+    24,                      !- Field 11
+
+    Through: 30 Sep,         !- Field 1
+    For: AllDays,   !- Field 2
+    Until: 24:00,            !- Field 10
+    26,                      !- Field 11
+
+    Through: 30 Nov,         !- Field 1
+    For: AllDays,           !- Field 2
+    Until: 24:00,            !- Field 10
+    24,                      !- Field 11
+
+    Through: 31 Dec,         !- Field 16
+    For: AllDays,           !- Field 17
     Until: 24:00,            !- Field 10
     22;                      !- Field 11
 
@@ -1358,19 +1387,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:10XOffice2 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:10XOffice2 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1409,19 +1454,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:02XLobby Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:02XLobby Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1460,19 +1521,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:07XBreakRoom Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:07XBreakRoom Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1511,19 +1588,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:06XDressing2 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:06XDressing2 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 24H Heating
@@ -1548,19 +1641,35 @@ Schedule:Compact,
 Schedule:Compact,
     1F:04XCntrlMntrngRm Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40;                      !- Field 4
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:04XCntrlMntrngRm Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
+    Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    50;                      !- Field 4
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1600,15 +1709,15 @@ Schedule:Compact,
     1F:01XCorridor Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                      !- Field 8
+    0,                       !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
 
@@ -1617,17 +1726,17 @@ Schedule:Compact,
     1F:01XCorridor Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                      !- Field 4
+    100,                     !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
     50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                      !- Field 12
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1668,15 +1777,15 @@ Schedule:Compact,
     1F:03XEVHall Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                      !- Field 8
+    0,                       !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
 
@@ -1685,17 +1794,17 @@ Schedule:Compact,
     1F:03XEVHall Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                      !- Field 4
+    100,                     !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
     50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                      !- Field 12
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1735,15 +1844,15 @@ Schedule:Compact,
     1F:09XOffice1 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                      !- Field 8
+    0,                       !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
 
@@ -1752,17 +1861,17 @@ Schedule:Compact,
     1F:09XOffice1 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                      !- Field 4
+    100,                     !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
     50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                      !- Field 12
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
@@ -1802,15 +1911,15 @@ Schedule:Compact,
     1F:05XDressing1 Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                      !- Field 8
+    0,                       !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
 
@@ -1819,17 +1928,17 @@ Schedule:Compact,
     1F:05XDressing1 Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                      !- Field 4
+    100,                     !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
     50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                      !- Field 12
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -1869,15 +1978,15 @@ Schedule:Compact,
     1F:08XVending Humidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                      !- Field 8
+    0,                       !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
 
@@ -1886,17 +1995,17 @@ Schedule:Compact,
     1F:08XVending Dehumidifying RH Schedule,  !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
+    For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                      !- Field 4
+    100,                     !- Field 4
     Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
+    For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
     50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
+    For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                      !- Field 12
+    100;                     !- Field 12
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -21055,8 +21164,8 @@ DesignSpecification:ZoneAirDistribution,
 !-   ===========  ALL OBJECTS IN CLASS: SIZING:PARAMETERS ===========
 
 Sizing:Parameters,
-    1.25,                    !- Heating Sizing Factor
-    1.15,                    !- Cooling Sizing Factor
+    1.3,                     !- Heating Sizing Factor
+    1.3,                     !- Cooling Sizing Factor
     2;                       !- Timesteps in Averaging Window
 
 
@@ -21065,10 +21174,10 @@ Sizing:Parameters,
 Sizing:Zone,
     1F:10XOffice2,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21094,10 +21203,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:02XLobby,             !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21123,10 +21232,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:07XBreakRoom,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21152,10 +21261,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:06XDressing2,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21181,10 +21290,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21210,10 +21319,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:01XCorridor,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21239,10 +21348,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:03XEVHall,            !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21268,10 +21377,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:09XOffice1,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21297,10 +21406,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:05XDressing1,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21326,10 +21435,10 @@ Sizing:Zone,
 Sizing:Zone,
     1F:08XVending,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21355,10 +21464,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:01XCorridor,        !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21384,10 +21493,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:03XEVHall,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21413,10 +21522,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21442,10 +21551,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21471,10 +21580,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:02XVending,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21500,10 +21609,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21529,10 +21638,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X2XOfficeNEP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21558,10 +21667,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X3XOfficeNWP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21587,10 +21696,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X4XOfficeNI,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21616,10 +21725,10 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X2XOfficeSWP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21645,10 +21754,10 @@ Sizing:Zone,
 Sizing:Zone,
     7F:01XCorridor,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21674,10 +21783,10 @@ Sizing:Zone,
 Sizing:Zone,
     7F:03XEVHall,            !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21703,10 +21812,10 @@ Sizing:Zone,
 Sizing:Zone,
     7F:05XOffice2,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21732,10 +21841,10 @@ Sizing:Zone,
 Sizing:Zone,
     7F:02XVending,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -21761,10 +21870,10 @@ Sizing:Zone,
 Sizing:Zone,
     7F:04XOffice1,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    12,                      !- Zone Cooling Design Supply Air Temperature {C}
+    5,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
-    35,                      !- Zone Heating Design Supply Air Temperature {C}
+    50,                      !- Zone Heating Design Supply Air Temperature {C}
     0,                       !- Zone Heating Design Supply Air Temperature Difference {deltaC}
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
@@ -22123,128 +22232,128 @@ ZoneControl:Thermostat,
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:09XOffice1,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:10XOffice2,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:02XLobby,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:07XBreakRoom,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:06XDressing2,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:04XCntrlMntrngRm,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:01XCorridor,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:03XEVHall,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:05XDressing1,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:08XVending,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:01XCorridor,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:03XEVHall,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X1XOfficeSP,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X3XOfficeSI,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:02XVending,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X1XOfficeNP,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X2XOfficeNEP,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X3XOfficeNWP,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X4XOfficeNI,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X2XOfficeSWP,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:01XCorridor, !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:03XEVHall,   !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:05XOffice2,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:02XVending,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:04XOffice1,  !- Name
-    Room Temp Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Room Temp Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
@@ -22255,16 +22364,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:10XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:10XOffice2 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:10XOffice2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22273,8 +22382,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22284,16 +22393,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:02XLobby In,     !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:02XLobby Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:02XLobby Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22302,8 +22411,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22313,16 +22422,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:07XBreakRoom In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:07XBreakRoom Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:07XBreakRoom Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22331,8 +22440,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22342,16 +22451,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:06XDressing2 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:06XDressing2 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:06XDressing2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22360,8 +22469,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22371,16 +22480,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:04XCntrlMntrngRm In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:04XCntrlMntrngRm Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:04XCntrlMntrngRm Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22389,8 +22498,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22400,16 +22509,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22418,8 +22527,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22429,16 +22538,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22447,8 +22556,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22458,16 +22567,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:09XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:09XOffice1 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:09XOffice1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22476,8 +22585,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22487,16 +22596,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:05XDressing1 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:05XDressing1 Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:05XDressing1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22505,8 +22614,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22516,16 +22625,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:08XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     1F:08XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     1F:08XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22534,8 +22643,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22545,16 +22654,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:01XCorridor In,!- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22563,8 +22672,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22574,16 +22683,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:03XEVHall In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22592,8 +22701,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22603,16 +22712,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X1XOfficeSP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:05X1XOfficeSP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X1XOfficeSP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22621,8 +22730,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22632,16 +22741,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X3XOfficeSI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:05X3XOfficeSI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X3XOfficeSI Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22650,8 +22759,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22661,16 +22770,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:02XVending In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:02XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:02XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22679,8 +22788,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22690,16 +22799,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X1XOfficeNP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:04X1XOfficeNP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X1XOfficeNP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22708,8 +22817,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22719,16 +22828,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X2XOfficeNEP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:04X2XOfficeNEP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X2XOfficeNEP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22737,8 +22846,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22748,16 +22857,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X3XOfficeNWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:04X3XOfficeNWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X3XOfficeNWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22766,8 +22875,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22777,16 +22886,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X4XOfficeNI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:04X4XOfficeNI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X4XOfficeNI Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22795,8 +22904,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22806,16 +22915,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X2XOfficeSWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     2X6F:05X2XOfficeSWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X2XOfficeSWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22824,8 +22933,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22835,16 +22944,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     7F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22853,8 +22962,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22864,16 +22973,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     7F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22882,8 +22991,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22893,16 +23002,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:05XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     7F:05XOffice2 Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:05XOffice2 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22911,8 +23020,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22922,16 +23031,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:02XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     7F:02XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:02XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22940,8 +23049,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -22951,16 +23060,16 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:04XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    80,                      !- Maximum Heating Supply Air Temperature {C}
-    4,                       !- Minimum Cooling Supply Air Temperature {C}
-    0.0500,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0001,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
-    Autosize,                !- Maximum Heating Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Sensible Heating Capacity {W}
-    ,             !- Cooling Limit
-    100,                     !- Maximum Cooling Air Flow Rate {m3/s}
-    Autosize,                !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     7F:04XOffice1 Heating Availability Sch,  !- Heating Availability Schedule Name
     7F:04XOffice1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -22969,8 +23078,8 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Design Specification Outdoor Air Object Name
     ,                        !- Outdoor Air Inlet Node Name
     ,                        !- Demand Controlled Ventilation Type
-    DifferentialDryBulb,     !- Outdoor Air Economizer Type
-    Sensible,                !- Heat Recovery Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
@@ -23536,7 +23645,8 @@ NodeList,
 
 
 Output:VariableDictionary,IDF;
-Output:VariableDictionary,IDF;
+Output:Surfaces:Drawing,DXF;
+Output:Constructions,Constructions; 
 
 Output:Variable,*,Zone Mean Air Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Zone Mean Air Humidity Ratio,hourly; !- Zone Average [kgWater/kgDryAir]

@@ -175,11 +175,11 @@ RunPeriod,
     RunPeriod 1,             !- Name
     1,                       !- Begin Month
     1,                       !- Begin Day of Month
-    2002,                    !- Begin Year
+    1989,                    !- Begin Year
     12,                      !- End Month
     31,                      !- End Day of Month
-    2002,                    !- End Year
-    ,                        !- Day of Week for Start Day
+    1989,                    !- End Year
+    Sunday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
     Yes,                     !- Apply Weekend Holiday Rule

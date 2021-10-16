@@ -455,9 +455,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a></li>
 <li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
 <li><a href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></li>
-<li><a href="#_空調全体テスト">9. 空調（全体）テスト</a></li>
-<li><a href="#_計算結果の出力">10. 計算結果の出力</a></li>
-<li><a href="#_参考">11. 参考</a></li>
+<li><a href="#_計算結果の出力">9. 計算結果の出力</a></li>
+<li><a href="#_参考">10. 参考</a></li>
 </ul>
 </div>
 </div>
@@ -4067,6 +4066,248 @@ BlockBeamSolarオプションは、ビームソーラーが窓に入射するの
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_case900jシリーズの詳細分析"><a class="link" href="#_case900jシリーズの詳細分析">3.11. Case900Jシリーズの詳細分析</a></h3>
+<div class="paragraph">
+<p>Case900Jシリーズについて、2人が別々にモデル化を行った。
+作成者Mが作成したモデルをmodel-m、作成者Oが作成したモデルをmodel-oとし、モデル化の方法の差異、この差異による算出結果の違いについて紹介する。</p>
+</div>
+<div class="sect3">
+<h4 id="_case900_2"><a class="link" href="#_case900_2">3.11.1. Case900</a></h4>
+<div class="paragraph">
+<p>基準ケースとなるCase900の計算結果を<a href="#Case900の計算結果">図 1</a>に示す。EnergyPlusは他のツール比べてやや小さいが（ESPの結果に近い）、両モデルの結果は一致している。</p>
+</div>
+<div id="Case900の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900_annual_peak_load.png" alt="Case900 annual peak load">
+</div>
+<div class="title">図 1. Case900の計算結果</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_case900_j1_1_2"><a class="link" href="#_case900_j1_1_2">3.11.2. Case900-J1-1</a></h4>
+<div class="paragraph">
+<p>Case900-J1-1の計算結果を<a href="#Case900-J1-1の計算結果">図 2</a>に示す。Case900ど同様の傾向となっている。</p>
+</div>
+<div id="Case900-J1-1の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900-J1-1_annual_peak_load.png" alt="Case900 J1 1 annual peak load">
+</div>
+<div class="title">図 2. Case900-J1-1の計算結果</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_case900_j1_2_2"><a class="link" href="#_case900_j1_2_2">3.11.3. Case900-J1-2</a></h4>
+<div class="paragraph">
+<p>Case900-J1-2の計算結果を<a href="#Case900-J1-2の計算結果">図 3</a>に示す。
+両モデルに若干の差が生じている。特に暖房負荷に差がある。
+入力ファイルを確認したところ、model-mにおいて屋根の60mmのコンクリート厚さが600mmとなっていたことが分かったため、修正した。</p>
+</div>
+<div id="Case900-J1-2の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900-J1-2_annual_peak_load.png" alt="Case900 J1 2 annual peak load">
+</div>
+<div class="title">図 3. Case900-J1-2の計算結果（model-m 修正前）</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Material,
+    CONCRATE-60mm,           !- Name
+    Rough,                   !- Roughness
+    0.6000,                  !- Thickness {m}
+    1.600,                   !- Conductivity {W/m-K}
+    2300.00,                 !- Density {kg/m3}
+    870.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.600000,                !- Solar Absorptance
+    0.600000;                !- Visible Absorptance</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_case900_j2_2"><a class="link" href="#_case900_j2_2">3.11.4. Case900-J2</a></h4>
+<div class="paragraph">
+<p>Case900-J2の計算結果を<a href="#Case900-J2の計算結果">図 4</a>に示す。
+両モデルに若干の差が生じている。暖房ピークの差はCase900-J1-2と逆転している。</p>
+</div>
+<div id="Case900-J2の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900-J2_annual_peak_load.png" alt="Case900 J2 annual peak load">
+</div>
+<div class="title">図 4. Case900-J2の計算結果</div>
+</div>
+<div class="paragraph">
+<p>上記のコンクリート厚さの修正を行った後も特に暖房ピークの差は大きいままであったため、原因を追究した。
+model-mとmodel-oでは、下記の通り間欠空調のスケジュール指定の方法が異なっていた。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>model-mのスケジュール指定（Thermostatの制御スケジュールで指定）</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Schedule:Day:Hourly,
+    Control Type All Days,   !- Name
+    Control Type,            !- Schedule Type Limits Name
+    0,                       !- Hour 1  0:00:01〜1:00:00
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0,                       !- Hour 8
+    4,                       !- Hour 9
+    4,                       !- Hour 10
+    4,                       !- Hour 11
+    4,                       !- Hour 12
+    4,                       !- Hour 13
+    4,                       !- Hour 14
+    4,                       !- Hour 15
+    4,                       !- Hour 16
+    4,                       !- Hour 17
+    4,                       !- Hour 18  17:00:01〜18:00:00
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>model-oのスケジュール指定（空調システムの運転スケジュールで指定）</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Schedule:Compact,
+    Block1:Zone1 Cooling Availability Sch,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until:  8:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 18:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0;                       !- Field 8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>どちらの指定方法でも同じ結果になると想定されるが、このモデル化方法の違いが結果に重大な影響を及ぼすことが判明した。
+<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#group----design-objects">Input Output Reference: Group – Design Objects</a>を確認すると下記のような説明が記載されていた。</p>
+</div>
+<div class="paragraph">
+<p><code><em>Other than zone thermostat setpoints, the sizing calculations generally know nothing about the system control inputs such as setpoints and availability schedules. The user must coordinate sizing inputs with the actual simulation control inputs.</em></code></p>
+</div>
+<div class="paragraph">
+<p>つまり、Thermostatの設定を除き、空調システムの運転スケジュール等はAuto sizingの計算には反映されないのである。
+従って、model-mでは間欠空調の条件でSizingが行われていたのに対し、model-oでは24時間空調の条件でSizingされていたため、
+model-oの方が容量が小さくなり、結果として年間計算におけるピーク負荷が小さくなっていたようである。
+細かな話ではあるが、非常に重要なポイントであるため、EnergyPlusを使用する際にはこの点に十分注意しておく必要がある。</p>
+</div>
+<div class="paragraph">
+<p>なお、AS140およびSHASEガイドラインでは、「空調システムの装置容量の制約はない」と規定しているため、
+本来的にはAuto sizingを行わず、十分大きな容量を指定しておくべきである。
+model-oの装置容量を1000kWとして再計算した結果を下図に示す。
+結果、暖房ピーク以外はほぼ一致し、暖房ピークはmodel-oの方が大きくなった。
+model-mにおいても装置容量の制約が影響していると考えられる。</p>
+</div>
+<div id="model-o修正後のCase900-J2の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900-J2_annual_peak_load_rev.png" alt="Case900 J2 annual peak load rev">
+</div>
+<div class="title">図 5. model-o修正後のCase900-J2の計算結果</div>
+</div>
+<div class="listingblock">
+<div class="title">ZoneHVAC:IdealLoadsAirSystemの設定（model-o）</div>
+<div class="content">
+<pre>ZoneHVAC:IdealLoadsAirSystem,
+    Block1:Zone1 Ideal Loads Air,  !- Name
+    ,                        !- Availability Schedule Name
+    Node Block1:Zone1 In,    !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    12,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    LimitCapacity,           !- Heating Limit
+    1000,                    !- Maximum Heating Air Flow Rate {m3/s}
+    1000000,                 !- Maximum Sensible Heating Capacity {W}
+    LimitFlowRateAndCapacity,!- Cooling Limit
+    1000,                    !- Maximum Cooling Air Flow Rate {m3/s}
+    1000000,                 !- Maximum Total Cooling Capacity {W}
+    Block1:Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
+    Block1:Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    None,                    !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
+    None,                    !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">ZoneHVAC:IdealLoadsAirSystemの設定（model-m）</div>
+<div class="content">
+<pre>ZoneHVAC:IdealLoadsAirSystem,
+    Zone1Air,                !- Name
+    ,                        !- Availability Schedule Name
+    NODE_1,                  !- Zone Supply Air Node Name
+    ,                        !- Zone Exhaust Air Node Name
+    ,                        !- System Inlet Air Node Name
+    50,                      !- Maximum Heating Supply Air Temperature {C}
+    13,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.010,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    ,                        !- Heating Availability Schedule Name
+    ,                        !- Cooling Availability Schedule Name
+    ConstantSupplyHumidityRatio,  !- Dehumidification Control Type
+    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+    ConstantSupplyHumidityRatio,  !- Humidification Control Type
+    ,                        !- Design Specification Outdoor Air Object Name
+    ,                        !- Outdoor Air Inlet Node Name
+    ,                        !- Demand Controlled Ventilation Type
+    ,                        !- Outdoor Air Economizer Type
+    ,                        !- Heat Recovery Type
+    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_case900_j3_2"><a class="link" href="#_case900_j3_2">3.11.5. Case900-J3</a></h4>
+<div class="paragraph">
+<p>Case900-J3の計算結果を <a href="#Case900-J3の計算結果">図 6</a> に示す。両モデルに大きな差がある。
+model-oではスラット角の入力を誤っていると考えられる。</p>
+</div>
+<div id="Case900-J3の計算結果" class="imageblock">
+<div class="content">
+<img src="figures/Case900-J3_annual_peak_load.png" alt="Case900 J3 annual peak load">
+</div>
+<div class="title">図 6. Case900-J3の計算結果</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -4768,6 +5009,7 @@ Material,
     0.600000;                !- Visible Absorptance</pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -4775,7 +5017,499 @@ Material,
 <div class="sect1">
 <h2 id="_熱負荷単室詳細テストb"><a class="link" href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_case400"><a class="link" href="#_case400">5.1. Case400</a></h3>
+<div class="paragraph">
+<p>Case600の入力ファイルを基にCase400の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_material_construction_6"><a class="link" href="#_material_construction_6">5.1.1. Material, Construction</a></h4>
+<div class="paragraph">
+<p>・外部に面するMATERIAL(WOODSIDING-9mm、ROOFDECK-19mm)の日射吸収率(Solar Absorptance)と可視光吸収率(Visible Absorptance)を0.6から0.1に変更する。
+・窓ガラスを不透明壁に変更するために、新たに3つmaterial(HIGH CONDUCTANCE WALL-INSIDE、HIGH CONDUCTANCE WALL-OUTSIDE、AirSpaceResistance1)と1つconstruction(High_conductance_wall)を定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Material, !changed on 210805 for 400 *:changed item
+    WOODSIDING-9mm,          !- Name
+    Rough,                   !- Roughness
+    0.00900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.100000,                !- Solar Absorptance *
+    0.100000;                !- Visible Absorptance *
+
+Material, !changed on 210805 for 400 *:changed item
+    ROOFDECK-19mm,           !- Name
+    Rough,                   !- Roughness
+    0.01900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.100000,                !- Solar Absorptance *
+    0.100000;                !- Visible Absorptance *
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-INSIDE,           !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material:AirGap, !added on 210805 for 400
+    AirSpaceResistance1,                    !- Name
+    0.1588;                                 !- Thermal Resistance {m2-K/W}
+
+Construction, !added on 210805 for 400
+    High_conductance_wall,                  !- Name
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Layer 1
+    AirSpaceResistance1,                    !- Layer 2
+    HIGH CONDUCTANCE WALL-INSIDE;           !- Layer 3</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fenestrationsurfacedetailed_2"><a class="link" href="#_fenestrationsurfacedetailed_2">5.1.2. FenestrationSurface:Detailed</a></h4>
+<div class="paragraph">
+<p>以下のように
+Surface Typeのオプションを"Door"にする。
+<a href="https://bigladdersoftware.com/epx/docs/8-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed">FenestrationSurface:Detailed</a></p>
+</div>
+<div class="paragraph">
+<p>サーフェスタイプの選択肢は、Window、Door、GlassDoor、TubularDaylightDome、およびTubularDaylightDiffuserです。ドアは不透明（日射を透過しない）であると想定されていますが、他の表面タイプは日射を透過します。窓とガラスドアは、伝導熱伝達、太陽熱利得、採光などの計算で同じように扱われます。窓またはGlassDoorは、ドアではなく、可動式の内部、外部、またはブラインドなどのガラス間シェーディングデバイスを持つことができます（ ref：WindowMaterial：Blindオブジェクト）、フレームや仕切りを持つことができます（ref：WindowProperty：FrameAndDividerオブジェクト）。 TubularDaylightDomesおよびTubularDaylightDomesは、DaylightingDevice：Tubularオブジェクトで使用してTubular Daylighting Devices（TDD）をシミュレートするための特殊なサブサーフェスです。 TubularDaylightDomesとTubularDaylightDomesには、シェード、スクリーン、ブラインドを含めることはできません。以下では、特に明記されていない限り、「ウィンドウ」という用語は、Window、GlassDoor、TubularDaylightDome、およびTubularDaylightDomeに適用されます。</p>
+</div>
+<div class="paragraph">
+<p>BuildingSurface：Detailedの説明に記載されているように、方位角（対面角度）と傾斜は、入力された頂点から計算されます。地下の傾きは通常、それらのベースサーフェスと同じになります。これらがベースサーフェスの「法線」を大幅に超えている場合、警告メッセージが発行されることがあります。向きの角度が正しくない場合は、ゾーンの外側ではなく「内側」を指すウィンドウがある可能性があります。これにより、計算で問題が発生する可能性があります。また、地下の平面がベースサーフェスと一致しない場合、「表示」（挿入または開始）が発生する可能性があることにも注意してください。リビールは、地下のシェーディングに影響を与えます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>FenestrationSurface:Detailed, !changed on 210805 for 400 *:changed item
+    Window_S1,               !- Name
+!    Window,                  !- Surface Type
+    Door,                    !- Surface Type *
+!    Window_configure,        !- Construction Name
+    High_conductance_wall,   !- Construction Name *
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    0.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    3.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    3.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed, !changed on 210805 for 400
+    Window_S2,               !- Name
+!    Window,                  !- Surface Type
+    Door,                    !- Surface Type *
+!    Window_configure,        !- Construction Name
+    High_conductance_wall,   !- Construction Name *
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    4.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    7.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    7.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_otherequipment_2"><a class="link" href="#_otherequipment_2">5.1.3. OtherEquipment</a></h4>
+<div class="paragraph">
+<p>発熱量をゼロとするため、削除する。コメントアウトした。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>!OtherEquipment, !deleted on 210805 for 400
+!    Euip 1,                  !- Name
+!    None,                    !- Fuel Type
+!    Zone1,                   !- Zone or ZoneList Name
+!    Sch 1,                   !- Schedule Name
+!    EquipmentLevel,          !- Design Level Calculation Method
+!    200,                     !- Design Level {W}
+!    ,                        !- Power per Zone Floor Area {W/m2}
+!    ,                        !- Power per Person {W/person}
+!    0,                       !- Fraction Latent
+!    0.6,                     !- Fraction Radiant
+!    0,                       !- Fraction Lost
+!    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+!    General;                 !- End-Use Subcategory</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infiltration_2"><a class="link" href="#_infiltration_2">5.1.4. Infiltration</a></h4>
+<div class="paragraph">
+<p>隙間風をゼロとするため、Design Flow Rateのオプションを0とした。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ZoneInfiltration:DesignFlowRate, !changed on 210805 for 400 *:changed item
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+   Flow/Zone,               !- Design Flow Rate Calculation Method
+!    0.018,                   !- Design Flow Rate {m3/s}
+     0.0,                    !- Design Flow Rate {m3/s} *
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case395"><a class="link" href="#_case395">5.2. Case395</a></h3>
+<div class="paragraph">
+<p>Case400の入力ファイルを基にCase395の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_fenestrationsurfacedetailed_3"><a class="link" href="#_fenestrationsurfacedetailed_3">5.2.1. FenestrationSurface:Detailed</a></h4>
+<div class="paragraph">
+<p>窓を削除する。（コメントアウト）</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>!FenestrationSurface:Detailed, !changed on 210805 for 400 *:changed item
+!    Window_S1,               !- Name
+!!    Window,                  !- Surface Type
+!    Door,                    !- Surface Type *
+!!    Window_configure,        !- Construction Name
+!    High_conductance_wall,   !- Construction Name *
+!    Wall_S,                  !- Building Surface Name
+!    ,                        !- Outside Boundary Condition Object
+!    0.5,                     !- View Factor to Ground
+!    ,                        !- Frame and Divider Name
+!    1,                       !- Multiplier
+!    4,                       !- Number of Vertices
+!    0.500000000000,          !- Vertex 1 X-coordinate {m}
+!    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+!    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+!    0.500000000000,          !- Vertex 2 X-coordinate {m}
+!    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+!    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+!    3.500000000000,          !- Vertex 3 X-coordinate {m}
+!    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+!    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+!    3.500000000000,          !- Vertex 4 X-coordinate {m}
+!    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+!    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+!FenestrationSurface:Detailed, !changed on 210805 for 400
+!    Window_S2,               !- Name
+!!    Window,                  !- Surface Type
+!    Door,                    !- Surface Type *
+!!    Window_configure,        !- Construction Name
+!    High_conductance_wall,   !- Construction Name *
+!    Wall_S,                  !- Building Surface Name
+!    ,                        !- Outside Boundary Condition Object
+!    0.5,                     !- View Factor to Ground
+!    ,                        !- Frame and Divider Name
+!    1,                       !- Multiplier
+!    4,                       !- Number of Vertices
+!    4.500000000000,          !- Vertex 1 X-coordinate {m}
+!    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+!    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+!    4.500000000000,          !- Vertex 2 X-coordinate {m}
+!    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+!    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+!    7.500000000000,          !- Vertex 3 X-coordinate {m}
+!    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+!    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+!    7.500000000000,          !- Vertex 4 X-coordinate {m}
+!    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+!    2.200000000000;          !- Vertex 4 Z-coordinate {m}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case410"><a class="link" href="#_case410">5.3. Case410</a></h3>
+<div class="paragraph">
+<p>Case400の入力ファイルを基にCase410の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_infiltration_3"><a class="link" href="#_infiltration_3">5.3.1. Infiltration</a></h4>
+<div class="paragraph">
+<p>隙間風の考慮が追加となるため、Design Flow Rateのオプションを0.018とした。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ZoneInfiltration:DesignFlowRate, !changed for 410 *:changed item
+    Infil_1,                 !- Name
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+   Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.018,                   !- Design Flow Rate {m3/s} *
+!     0.0,                    !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case410_2"><a class="link" href="#_case410_2">5.4. Case410</a></h3>
+<div class="paragraph">
+<p>Case410の入力ファイルを基にCase420の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_otherequipment_3"><a class="link" href="#_otherequipment_3">5.4.1. OtherEquipment</a></h4>
+<div class="paragraph">
+<p>発熱量を考慮するため、コメントアウトしていた条件を再度、復帰させた。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>OtherEquipment, !deleted on 210805 for 400
+    Euip 1,                  !- Name
+    None,                    !- Fuel Type
+    Zone1,                   !- Zone or ZoneList Name
+    Sch 1,                   !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    200,                     !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    General;                 !- End-Use Subcategory</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case430"><a class="link" href="#_case430">5.5. Case430</a></h3>
+<div class="paragraph">
+<p>Case420の入力ファイルを基にCase430の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_material_construction_7"><a class="link" href="#_material_construction_7">5.5.1. Material, Construction</a></h4>
+<div class="paragraph">
+<p>・外部に面するMATERIAL(WOODSIDING-9mm、ROOFDECK-19mm)の日射吸収率(Solar Absorptance)と可視光吸収率(Visible Absorptance)を0.1から0.6に変更する。
+・窓ガラスを不透明壁に変更するために、新たに3つmaterial(HIGH CONDUCTANCE WALL-INSIDE、HIGH CONDUCTANCE WALL-OUTSIDE、AirSpaceResistance1)と1つconstruction(High_conductance_wall)を定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Material, !changed on 210825 for 430 *:changed item
+    WOODSIDING-9mm,          !- Name
+    Rough,                   !- Roughness
+    0.00900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.600000,                !- Solar Absorptance *
+    0.600000;                !- Visible Absorptance *
+!    0.100000,                !- Solar Absorptance *
+!    0.100000;                !- Visible Absorptance *
+
+Material, !changed on 210805 for 430 *:changed item
+    ROOFDECK-19mm,           !- Name
+    Rough,                   !- Roughness
+    0.01900,                 !- Thickness {m}
+    0.14000,                 !- Conductivity {W/m-K}
+    530.000,                 !- Density {kg/m3}
+    900.00,                  !- Specific Heat {J/kg-K}
+    0.9000000,               !- Thermal Absorptance
+    0.600000,                !- Solar Absorptance *
+    0.600000;                !- Visible Absorptance *
+!    0.100000,                !- Solar Absorptance *
+!    0.100000;                !- Visible Absorptance *
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-INSIDE,           !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+!    0.1,                                    !- Solar Absorptance
+!    0.1;                                    !- Visible Absorptance
+    0.6,                                    !- Solar Absorptance
+    0.6;                                    !- Visible Absorptance
+
+Material, !added on 210805 for 400
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+!    0.1,                                    !- Solar Absorptance
+!    0.1;                                    !- Visible Absorptance
+    0.6,                                    !- Solar Absorptance
+    0.6;                                    !- Visible Absorptance</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case800"><a class="link" href="#_case800">5.6. Case800</a></h3>
+<div class="paragraph">
+<p>Case900の入力ファイルを基にCase800の入力ファイルを作成する。</p>
+</div>
+<div class="sect3">
+<h4 id="_material_construction_8"><a class="link" href="#_material_construction_8">5.6.1. Material, Construction</a></h4>
+<div class="paragraph">
+<p>・窓ガラスを不透明壁に変更するために、新たに3つmaterial(HIGH CONDUCTANCE WALL-INSIDE、HIGH CONDUCTANCE WALL-OUTSIDE、AirSpaceResistance1)と1つconstruction(High_conductance_wall)を定義する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Construction, !added on 210825 for 800
+    High_conductance_wall,                  !- Name
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Layer 1
+    AirSpaceResistance1,                    !- Layer 2 *xxx
+    HIGH CONDUCTANCE WALL-INSIDE;           !- Layer 3
+
+Material, !added on 210825 for 800
+    HIGH CONDUCTANCE WALL-INSIDE,           !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material, !added on 210825 for 800
+    HIGH CONDUCTANCE WALL-OUTSIDE,          !- Name
+    VerySmooth,                             !- Roughness
+    0.003175,                               !- Thickness {m}
+    1.06,                                   !- Conductivity {W/m-K
+    2500,                                   !- Density {kg/m3}
+    750,                                    !- Specific Heat {J/kg
+    0.9,                                    !- Thermal Absorptance
+    0.1,                                    !- Solar Absorptance
+    0.1;                                    !- Visible Absorptance
+
+Material:AirGap, !added on 210825 for 800
+    AirSpaceResistance1,                    !- Name
+    0.1588;                                 !- Thermal Resistance {m2-K/W}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fenestrationsurfacedetailed_4"><a class="link" href="#_fenestrationsurfacedetailed_4">5.6.2. FenestrationSurface:Detailed</a></h4>
+<div class="paragraph">
+<p>以下のように
+Surface Typeのオプションを"Door"にする。
+<a href="https://bigladdersoftware.com/epx/docs/8-4/input-output-reference/group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed">FenestrationSurface:Detailed</a></p>
+</div>
+<div class="paragraph">
+<p>サーフェスタイプの選択肢は、Window、Door、GlassDoor、TubularDaylightDome、およびTubularDaylightDiffuserです。ドアは不透明（日射を透過しない）であると想定されていますが、他の表面タイプは日射を透過します。窓とガラスドアは、伝導熱伝達、太陽熱利得、採光などの計算で同じように扱われます。窓またはGlassDoorは、ドアではなく、可動式の内部、外部、またはブラインドなどのガラス間シェーディングデバイスを持つことができます（ ref：WindowMaterial：Blindオブジェクト）、フレームや仕切りを持つことができます（ref：WindowProperty：FrameAndDividerオブジェクト）。 TubularDaylightDomesおよびTubularDaylightDomesは、DaylightingDevice：Tubularオブジェクトで使用してTubular Daylighting Devices（TDD）をシミュレートするための特殊なサブサーフェスです。 TubularDaylightDomesとTubularDaylightDomesには、シェード、スクリーン、ブラインドを含めることはできません。以下では、特に明記されていない限り、「ウィンドウ」という用語は、Window、GlassDoor、TubularDaylightDome、およびTubularDaylightDomeに適用されます。</p>
+</div>
+<div class="paragraph">
+<p>BuildingSurface：Detailedの説明に記載されているように、方位角（対面角度）と傾斜は、入力された頂点から計算されます。地下の傾きは通常、それらのベースサーフェスと同じになります。これらがベースサーフェスの「法線」を大幅に超えている場合、警告メッセージが発行されることがあります。向きの角度が正しくない場合は、ゾーンの外側ではなく「内側」を指すウィンドウがある可能性があります。これにより、計算で問題が発生する可能性があります。また、地下の平面がベースサーフェスと一致しない場合、「表示」（挿入または開始）が発生する可能性があることにも注意してください。リビールは、地下のシェーディングに影響を与えます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>FenestrationSurface:Detailed,
+    Window_S1,               !- Name
+    ! Window,                  !- Surface Type
+    Door,                    !- Surface Type
+    ! Window_configure,        !- Construction Name
+    High_conductance_wall,        !- Construction Name
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    0.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    0.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    3.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    3.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    Window_S2,               !- Name
+    ! Window,                  !- Surface Type
+    Door,                    !- Surface Type
+    ! Window_configure,        !- Construction Name
+    High_conductance_wall,        !- Construction Name
+    Wall_S,                  !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    0.5,                     !- View Factor to Ground
+    ,                        !- Frame and Divider Name
+    1,                       !- Multiplier
+    4,                       !- Number of Vertices
+    4.500000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.200000000000,          !- Vertex 1 Z-coordinate {m}
+    4.500000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.200000000000,          !- Vertex 2 Z-coordinate {m}
+    7.500000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.200000000000,          !- Vertex 3 Z-coordinate {m}
+    7.500000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.200000000000;          !- Vertex 4 Z-coordinate {m}</code></pre>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -5319,7 +6053,7 @@ BuildingSurface:Detailed,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_otherequipment_2"><a class="link" href="#_otherequipment_2">6.1.11. OtherEquipment</a></h4>
+<h4 id="_otherequipment_4"><a class="link" href="#_otherequipment_4">6.1.11. OtherEquipment</a></h4>
 <div class="paragraph">
 <p>室内の発熱量を設定する。2500Wと1000Wの2つを設定する必要がある。</p>
 </div>
@@ -5657,6 +6391,7 @@ ZoneCrossMixing,
 <div class="paragraph">
 <p>注：クロスミキシングが遮断されたときの最大ゾーン温度は、最小ゾーン温度以上でなければならない</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -5665,14 +6400,8 @@ ZoneCrossMixing,
 <div class="sect1">
 <h2 id="_熱負荷建物全体テスト"><a class="link" href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_空調システムテストのモデル作成"><a class="link" href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_計算地点情報"><a class="link" href="#_計算地点情報">8.1. 計算地点情報</a></h3>
+<h3 id="_計算地点情報"><a class="link" href="#_計算地点情報">7.1. 計算地点情報</a></h3>
 <div class="literalblock">
 <div class="content">
 <pre>計算地点は東京（北緯35.7°、東経139.8°）とする。
@@ -5683,7 +6412,7 @@ ZoneCrossMixing,
 <div class="content">
 <img src="figures/caseWBT_001.png" alt="図1" width="800">
 </div>
-<div class="title">図 1. 緯度経度、海抜、地物反射率の設定（Design Builder）</div>
+<div class="title">図 7. 緯度経度、海抜、地物反射率の設定（Design Builder）</div>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -5704,7 +6433,7 @@ ZoneCrossMixing,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_建物形状"><a class="link" href="#_建物形状">8.2. 建物形状</a></h3>
+<h3 id="_建物形状"><a class="link" href="#_建物形状">7.2. 建物形状</a></h3>
 <div class="literalblock">
 <div class="content">
 <pre>表5.3.1、図5.3.1から図5.3.9、表5.3.2に建物全体テストに用いるモデル建物の概要、平面図、矩計図、断面の詳細図、梁伏図、空調ゾーニング図、各居室の面積を示す。
@@ -5715,19 +6444,19 @@ ZoneCrossMixing,
 <div class="content">
 <img src="figures/caseWBT_002.png" alt="図2" width="800">
 </div>
-<div class="title">図 2. 建物モデル 1階（Design Builder）</div>
+<div class="title">図 8. 建物モデル 1階（Design Builder）</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="figures/caseWBT_003.png" alt="図3" width="800">
 </div>
-<div class="title">図 3. 建物モデル 2〜6階（Design Builder）</div>
+<div class="title">図 9. 建物モデル 2〜6階（Design Builder）</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="figures/caseWBT_004.png" alt="図4" width="800">
 </div>
-<div class="title">図 4. 建物モデル 7階（Design Builder）</div>
+<div class="title">図 10. 建物モデル 7階（Design Builder）</div>
 </div>
 <div class="ulist">
 <ul>
@@ -5767,7 +6496,7 @@ ZoneCrossMixing,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_室温設定値の指定冷房期中間期暖房期"><a class="link" href="#_室温設定値の指定冷房期中間期暖房期">8.3. 室温設定値の指定（冷房期、中間期、暖房期）</a></h3>
+<h3 id="_室温設定値の指定冷房期中間期暖房期"><a class="link" href="#_室温設定値の指定冷房期中間期暖房期">7.3. 室温設定値の指定（冷房期、中間期、暖房期）</a></h3>
 <div class="paragraph">
 <p>ゾーンの設定は次の通りとする。ゾーンの名称は「ROOM1」とする。</p>
 </div>
@@ -5976,7 +6705,7 @@ Schedule:Day:Hourly,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_計算結果"><a class="link" href="#_計算結果">8.4. 計算結果</a></h3>
+<h3 id="_計算結果"><a class="link" href="#_計算結果">7.4. 計算結果</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="figures_caseWBT/CaseWBT_温湿度と熱負荷_1F_廊下.png" alt="図">
@@ -6102,20 +6831,21 @@ Schedule:Day:Hourly,
 <img src="figures_caseWBT/CaseWBT_温湿度と熱負荷_7F_事務室2".png" alt="図">
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_空調全体テスト"><a class="link" href="#_空調全体テスト">9. 空調（全体）テスト</a></h2>
+<h2 id="_空調システムテストのモデル作成"><a class="link" href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></h2>
 <div class="sectionbody">
-
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_計算結果の出力"><a class="link" href="#_計算結果の出力">10. 計算結果の出力</a></h2>
+<h2 id="_計算結果の出力"><a class="link" href="#_計算結果の出力">9. 計算結果の出力</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_rddファイル"><a class="link" href="#_rddファイル">10.1. rddファイル</a></h3>
+<h3 id="_rddファイル"><a class="link" href="#_rddファイル">9.1. rddファイル</a></h3>
 <div class="paragraph">
 <p>rddファイル（コマンド Output:VariableDictionary,regular; もしくは Output:VariableDictionary,IDF; を指定することにより生成）には、
 現在の入力ファイルに対して出力可能なすべての出力変数のリストが表示されます。
@@ -6130,7 +6860,7 @@ Schedule:Day:Hourly,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mddファイル"><a class="link" href="#_mddファイル">10.2. mddファイル</a></h3>
+<h3 id="_mddファイル"><a class="link" href="#_mddファイル">9.2. mddファイル</a></h3>
 <div class="paragraph">
 <p>mddファイル（コマンド Output:VariableDictionary,regular; もしくは Output:VariableDictionary,IDF; を指定することにより生成）には、
 現在の入力ファイルに対して出力可能なすべてのレポートメーターのリストが表示されます。
@@ -6144,7 +6874,7 @@ Schedule:Day:Hourly,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mtdファイル"><a class="link" href="#_mtdファイル">10.3. mtdファイル</a></h3>
+<h3 id="_mtdファイル"><a class="link" href="#_mtdファイル">9.3. mtdファイル</a></h3>
 <div class="paragraph">
 <p>このファイルには、「メーターの詳細」が記されています。<br>
 これは、どのレポート変数がどのメーターにあるか、また逆に、どのメーターがどのレポート変数を含んでいるかを示しています。<br>
@@ -6198,7 +6928,7 @@ Meters for 1557,SPACE1-1 ZONE COIL:Heating Coil Heating Energy [J]
 </div>
 </div>
 <div class="sect2">
-<h3 id="_eplaunchにて実行する際におけるcsvファイルの制限"><a class="link" href="#_eplaunchにて実行する際におけるcsvファイルの制限">10.4. EPlaunchにて実行する際におけるCSVファイルの制限</a></h3>
+<h3 id="_eplaunchにて実行する際におけるcsvファイルの制限"><a class="link" href="#_eplaunchにて実行する際におけるcsvファイルの制限">9.4. EPlaunchにて実行する際におけるCSVファイルの制限</a></h3>
 <div class="paragraph">
 <p>EPlaunchにてEnergyplusを実行する際、初期設定では出力されるCSVファイルの列数が250に制限されている。<br>
 EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェックを入れると、この制約を解除してより多くの変数を一度に出力することができる。</p>
@@ -6207,19 +6937,19 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <div class="content">
 <img src="figures/EPlaunch.png" alt="図" width="600">
 </div>
-<div class="title">図 5. EPLaunchの設定</div>
+<div class="title">図 11. EPLaunchの設定</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_参考"><a class="link" href="#_参考">11. 参考</a></h2>
+<h2 id="_参考"><a class="link" href="#_参考">10. 参考</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">11.1. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></h3>
 <div class="sect3">
-<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">11.1.1. Errorの重大さによる分類</a></h4>
+<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.1.1. Errorの重大さによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/errors.html#errors">bigladder:Input Output Reference</a></p>
 </div>
@@ -6255,7 +6985,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </table>
 </div>
 <div class="sect3">
-<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">11.1.2. Errorの実行プロセスによる分類</a></h4>
+<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.1.2. Errorの実行プロセスによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/error-messages-details.html#error-messages-details">bigladder:Tips and Tricks</a></p>
 </div>
@@ -6293,7 +7023,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">11.1.3. Preprocessorからのエラーメッセージ</a></h4>
+<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.1.3. Preprocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-preprocessors.html#example-error-messages-for-preprocessors">bigladder:Tips and Tricks</a></p>
 </div>
@@ -6301,7 +7031,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <p>すべてのPreprocessorプログラムは、検出したエラーに対してOutput：PreprocessorMessageオブジェクトを生成する。これらのエラーを理解するには、実際のPreprocessorプログラムのドキュメントを参照する必要がある場合がある。 Preprocessorからのエラーメッセージは、errファイルの最初に表示される。メッセージの形式は、&lt;objectname&gt;（つまり、Output：Preprocessormessage）、引用符で囲まれたプログラム名（たとえば、EPMacro）、そしてメッセージの文字列（Warning、Severe、Fatal）である。 Fatalの場合、EnergyPlusはすべてのエラーメッセージを生成した後に実行を中止する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例"><a class="link" href="#_warningの例">11.1.3.1. Warningの例</a></h5>
+<h5 id="_warningの例"><a class="link" href="#_warningの例">10.1.3.1. Warningの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPXMLPreProc2" has the following Warning conditions:
@@ -6312,7 +7042,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例"><a class="link" href="#_severeの例">11.1.3.2. Severeの例</a></h5>
+<h5 id="_severeの例"><a class="link" href="#_severeの例">10.1.3.2. Severeの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPMacro" has the following Severe conditions:
@@ -6325,7 +7055,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">11.1.4. Input Pocessorからのエラーメッセージ</a></h4>
+<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.1.4. Input Pocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-the-input.html#example-error-messages-for-the-input-processor">bigladder:Tips and Tricks</a></p>
 </div>
@@ -6333,7 +7063,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <p>InputProcessorはEnergyPlusプログラムの一部であり、入力ファイルをスキャンし、IDD（Input Data Dictionary）の要件と照合する。InputProcessorのエラーはIPから始まる文字列で表示される。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">11.1.4.1. Warningの例</a></h5>
+<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.1.4.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6348,7 +7078,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">11.1.4.2. Severeの例</a></h5>
+<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.1.4.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6390,7 +7120,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例"><a class="link" href="#_fatalの例">11.1.4.3. Fatalの例</a></h5>
+<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.1.4.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Fatalエラーのメッセージは上記のSevereエラーの結果として表示されるようである。</p>
 </div>
@@ -6402,7 +7132,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">11.1.5. Module GetInputからのエラーメッセージ</a></h4>
+<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.1.5. Module GetInputからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-from-module-getinput.html#example-error-messages-from-module-getinput-routines">bigladder:Tips and Tricks</a></p>
 </div>
@@ -6410,7 +7140,7 @@ Possible Invalid Numerics or other problems</code></pre>
 <p>シミュレーションが開始されると、各モジュールが呼び出され、入力ファイルから値を取得する。これらは通常、GetInputルーチンと呼ばれる。IDDの制限では完全に記述できないエラーチェックを入力に対して追加で行い、さらに、オブジェクトが別のオブジェクトに対して与える可能性のある影響も考慮する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">11.1.5.1. Warningの例</a></h5>
+<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.1.5.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6553,7 +7283,7 @@ Dropping Vertex [2].</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">11.1.5.2. Severeの例</a></h5>
+<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.1.5.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6615,19 +7345,19 @@ Number of Surface Sides at minimum.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">11.1.5.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.1.5.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>このカテゴリーのSevereエラーはたいていFatalエラーにつながり、シミュレーションは途中で終了する。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">11.1.6. SizingとSimulationからのエラーメッセージ</a></h4>
+<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.1.6. SizingとSimulationからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-during-sizing.html#example-error-messages-during-sizing-and-simulation">bigladder:Tips and Tricks</a></p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">11.1.6.1. Warningの例</a></h5>
+<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.1.6.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6646,7 +7376,7 @@ Check Sizing:Zone and ZoneControl:Thermostat inputs.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">11.1.6.2. Severeの例</a></h5>
+<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.1.6.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -6667,7 +7397,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">11.1.6.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.1.6.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Severeエラーの数などが表示される。</p>
 </div>
@@ -6682,7 +7412,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">11.1.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
+<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.1.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
 <div class="paragraph">
 <p>上記より、建物側（負荷計算）に関するエラーは多く定義されている印象を受ける。しかし、システム側については参照できるドキュメント類からエラーの定義について十分確認できなかった。オブジェクトによってはユーザー自ら温度や流量などの上下限値を指定するものある。</p>
 </div>
@@ -6710,250 +7440,30 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">11.2. DesignBuilderの使い方</a></h3>
+<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.2. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
 <div class="paragraph">
-<p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
+<p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
+</div>
+<div class="paragraph">
+<p>EnergyPlusにおいては予熱時間そのものの概念はないが、最大負荷を求める際の平均時間を設定することで、類似の処理を行えるようになっている。オブジェクトSizing:ParametersのTimesteps in Averaging Windowに平均処理を行うタイムステップ数を指定することができる。以下は<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder:Input Output Reference:Sizing:Parameters:Timesteps in Averaging Window</a>の和訳である。以下ではゾーン設計風量にのみ言及しているが、ゾーン設計風量の計算はAuto-sizingの計算フロー上、最も上流側で行われるようであるため、空調システムや熱源システムの容量設計においてもここで指定したステップ数が反映されると思われる。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_case900jシリーズの詳細分析"><a class="link" href="#_case900jシリーズの詳細分析">11.3. Case900Jシリーズの詳細分析</a></h3>
+<h3 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.3. Timesteps in Averaging Window</a></h3>
 <div class="paragraph">
-<p>Case900Jシリーズについて、2人が別々にモデル化を行った。
-作成者Mが作成したモデルをmodel-m、作成者Oが作成したモデルをmodel-oとし、モデル化の方法の差異、この差異による算出結果の違いについて紹介する。</p>
-</div>
-<div class="sect3">
-<h4 id="_case900_2"><a class="link" href="#_case900_2">11.3.1. Case900</a></h4>
-<div class="paragraph">
-<p>基準ケースとなるCase900の計算結果を<a href="#Case900の計算結果">図 6</a>に示す。EnergyPlusは他のツール比べてやや小さいが（ESPの結果に近い）、両モデルの結果は一致している。</p>
-</div>
-<div id="Case900の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900_annual_peak_load.png" alt="Case900 annual peak load">
-</div>
-<div class="title">図 6. Case900の計算結果</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_case900_j1_1_2"><a class="link" href="#_case900_j1_1_2">11.3.2. Case900-J1-1</a></h4>
-<div class="paragraph">
-<p>Case900-J1-1の計算結果を<a href="#Case900-J1-1の計算結果">図 7</a>に示す。Case900ど同様の傾向となっている。</p>
-</div>
-<div id="Case900-J1-1の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900-J1-1_annual_peak_load.png" alt="Case900 J1 1 annual peak load">
-</div>
-<div class="title">図 7. Case900-J1-1の計算結果</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_case900_j1_2_2"><a class="link" href="#_case900_j1_2_2">11.3.3. Case900-J1-2</a></h4>
-<div class="paragraph">
-<p>Case900-J1-2の計算結果を<a href="#Case900-J1-2の計算結果">図 8</a>に示す。
-両モデルに若干の差が生じている。特に暖房負荷に差がある。
-入力ファイルを確認したところ、model-mにおいて屋根の60mmのコンクリート厚さが600mmとなっていたことが分かったため、修正した。</p>
-</div>
-<div id="Case900-J1-2の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900-J1-2_annual_peak_load.png" alt="Case900 J1 2 annual peak load">
-</div>
-<div class="title">図 8. Case900-J1-2の計算結果（model-m 修正前）</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Material,
-    CONCRATE-60mm,           !- Name
-    Rough,                   !- Roughness
-    0.6000,                  !- Thickness {m}
-    1.600,                   !- Conductivity {W/m-K}
-    2300.00,                 !- Density {kg/m3}
-    870.00,                  !- Specific Heat {J/kg-K}
-    0.9000000,               !- Thermal Absorptance
-    0.600000,                !- Solar Absorptance
-    0.600000;                !- Visible Absorptance</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_case900_j2_2"><a class="link" href="#_case900_j2_2">11.3.4. Case900-J2</a></h4>
-<div class="paragraph">
-<p>Case900-J2の計算結果を<a href="#Case900-J2の計算結果">図 9</a>に示す。
-両モデルに若干の差が生じている。暖房ピークの差はCase900-J1-2と逆転している。</p>
-</div>
-<div id="Case900-J2の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900-J2_annual_peak_load.png" alt="Case900 J2 annual peak load">
-</div>
-<div class="title">図 9. Case900-J2の計算結果</div>
+<p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
 </div>
 <div class="paragraph">
-<p>上記のコンクリート厚さの修正を行った後も特に暖房ピークの差は大きいままであったため、原因を追究した。
-model-mとmodel-oでは、下記の通り間欠空調のスケジュール指定の方法が異なっていた。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>model-mのスケジュール指定（Thermostatの制御スケジュールで指定）</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Schedule:Day:Hourly,
-    Control Type All Days,   !- Name
-    Control Type,            !- Schedule Type Limits Name
-    0,                       !- Hour 1  0:00:01〜1:00:00
-    0,                       !- Hour 2
-    0,                       !- Hour 3
-    0,                       !- Hour 4
-    0,                       !- Hour 5
-    0,                       !- Hour 6
-    0,                       !- Hour 7
-    0,                       !- Hour 8
-    4,                       !- Hour 9
-    4,                       !- Hour 10
-    4,                       !- Hour 11
-    4,                       !- Hour 12
-    4,                       !- Hour 13
-    4,                       !- Hour 14
-    4,                       !- Hour 15
-    4,                       !- Hour 16
-    4,                       !- Hour 17
-    4,                       !- Hour 18  17:00:01〜18:00:00
-    0,                       !- Hour 19
-    0,                       !- Hour 20
-    0,                       !- Hour 21
-    0,                       !- Hour 22
-    0,                       !- Hour 23
-    0;                       !- Hour 24</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>model-oのスケジュール指定（空調システムの運転スケジュールで指定）</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>Schedule:Compact,
-    Block1:Zone1 Cooling Availability Sch,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 12/31,          !- Field 1
-    For: AllDays,            !- Field 2
-    Until:  8:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 18:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0;                       !- Field 8</code></pre>
-</div>
+<p>ゾーン設計風量計算は、一定の温度で加熱または冷却空気が無限に供給されると想定して実行される。したがって、計算された設計風量は、どれほど大きく急激な負荷であっても、常にあらゆる負荷変動に対応できる。実際には、風量はダクトのサイズとファンの容量によって制限される。理想的なゾーン設計風量計算では、特にユーザーが夜間のセットアップまたはセットバックを伴うサーモスタットスケジュールを使用してサイジング計算を実行している場合、非現実的に大きな風量が発生する可能性がある。計算されたゾーン設計風量は、常にタイムステップにわたって平均化される。ユーザーは、サーモスタットのセットアップとセットバックの影響を軽減し、ウォームアップまたはクールダウン時の風量が設計風量の計算において支配的になるのを防ぐために、より平均時間を長く指定することができる。</p>
 </div>
 <div class="paragraph">
-<p>どちらの指定方法でも同じ結果になると想定されるが、このモデル化方法の違いが結果に重大な影響を及ぼすことが判明した。
-<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#group----design-objects">Input Output Reference: Group – Design Objects</a>を確認すると下記のような説明が記載されていた。</p>
+<p>たとえば、負荷計算のタイムステップが15分で、ユーザーがこの平均化タイムステップ数を4に指定した場合、ゾーン設計風量は1時間にわたって平均化される。8を指定すると、2時間の平均となる。</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.4. DesignBuilderの使い方</a></h3>
 <div class="paragraph">
-<p><code><em>Other than zone thermostat setpoints, the sizing calculations generally know nothing about the system control inputs such as setpoints and availability schedules. The user must coordinate sizing inputs with the actual simulation control inputs.</em></code></p>
-</div>
-<div class="paragraph">
-<p>つまり、Thermostatの設定を除き、空調システムの運転スケジュール等はAuto sizingの計算には反映されないのである。
-従って、model-mでは間欠空調の条件でSizingが行われていたのに対し、model-oでは24時間空調の条件でSizingされていたため、
-model-oの方が容量が小さくなり、結果として年間計算におけるピーク負荷が小さくなっていたようである。
-細かな話ではあるが、非常に重要なポイントであるため、EnergyPlusを使用する際にはこの点に十分注意しておく必要がある。</p>
-</div>
-<div class="paragraph">
-<p>なお、AS140およびSHASEガイドラインでは、「空調システムの装置容量の制約はない」と規定しているため、
-本来的にはAuto sizingを行わず、十分大きな容量を指定しておくべきである。
-model-oの装置容量を1000kWとして再計算した結果を下図に示す。
-結果、暖房ピーク以外はほぼ一致し、暖房ピークはmodel-oの方が大きくなった。
-model-mにおいても装置容量の制約が影響していると考えられる。</p>
-</div>
-<div id="model-o修正後のCase900-J2の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900-J2_annual_peak_load_rev.png" alt="Case900 J2 annual peak load rev">
-</div>
-<div class="title">図 10. model-o修正後のCase900-J2の計算結果</div>
-</div>
-<div class="listingblock">
-<div class="title">ZoneHVAC:IdealLoadsAirSystemの設定（model-o）</div>
-<div class="content">
-<pre>ZoneHVAC:IdealLoadsAirSystem,
-    Block1:Zone1 Ideal Loads Air,  !- Name
-    ,                        !- Availability Schedule Name
-    Node Block1:Zone1 In,    !- Zone Supply Air Node Name
-    ,                        !- Zone Exhaust Air Node Name
-    ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    12,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitCapacity,           !- Heating Limit
-    1000,                    !- Maximum Heating Air Flow Rate {m3/s}
-    1000000,                 !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    1000,                    !- Maximum Cooling Air Flow Rate {m3/s}
-    1000000,                 !- Maximum Total Cooling Capacity {W}
-    Block1:Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
-    Block1:Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
-    None,                    !- Dehumidification Control Type
-    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
-    None,                    !- Humidification Control Type
-    ,                        !- Design Specification Outdoor Air Object Name
-    ,                        !- Outdoor Air Inlet Node Name
-    ,                        !- Demand Controlled Ventilation Type
-    NoEconomizer,            !- Outdoor Air Economizer Type
-    None,                    !- Heat Recovery Type
-    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
-    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">ZoneHVAC:IdealLoadsAirSystemの設定（model-m）</div>
-<div class="content">
-<pre>ZoneHVAC:IdealLoadsAirSystem,
-    Zone1Air,                !- Name
-    ,                        !- Availability Schedule Name
-    NODE_1,                  !- Zone Supply Air Node Name
-    ,                        !- Zone Exhaust Air Node Name
-    ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.010,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    ,                        !- Heating Limit
-    ,                        !- Maximum Heating Air Flow Rate {m3/s}
-    ,                        !- Maximum Sensible Heating Capacity {W}
-    ,                        !- Cooling Limit
-    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
-    ,                        !- Maximum Total Cooling Capacity {W}
-    ,                        !- Heating Availability Schedule Name
-    ,                        !- Cooling Availability Schedule Name
-    ConstantSupplyHumidityRatio,  !- Dehumidification Control Type
-    ,                        !- Cooling Sensible Heat Ratio {dimensionless}
-    ConstantSupplyHumidityRatio,  !- Humidification Control Type
-    ,                        !- Design Specification Outdoor Air Object Name
-    ,                        !- Outdoor Air Inlet Node Name
-    ,                        !- Demand Controlled Ventilation Type
-    ,                        !- Outdoor Air Economizer Type
-    ,                        !- Heat Recovery Type
-    ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
-    ;                        !- Latent Heat Recovery Effectiveness {dimensionless}</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_case900_j3_2"><a class="link" href="#_case900_j3_2">11.3.5. Case900-J3</a></h4>
-<div class="paragraph">
-<p>Case900-J3の計算結果を <a href="#Case900-J3の計算結果">図 11</a> に示す。両モデルに大きな差がある。
-model-oではスラット角の入力を誤っていると考えられる。</p>
-</div>
-<div id="Case900-J3の計算結果" class="imageblock">
-<div class="content">
-<img src="figures/Case900-J3_annual_peak_load.png" alt="Case900 J3 annual peak load">
-</div>
-<div class="title">図 11. Case900-J3の計算結果</div>
-</div>
+<p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
 </div>
 </div>
 </div>
@@ -6961,7 +7471,7 @@ model-oではスラット角の入力を誤っていると考えられる。</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-16 14:00:06 +0900
+Last updated 2021-10-16 14:10:25 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

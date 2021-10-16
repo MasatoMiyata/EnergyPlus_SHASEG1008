@@ -1,7 +1,7 @@
 :lang: ja
 :doctype: book
 :toc: left
-:toclevels: 2
+:toclevels: 1
 :toc-title: EnergyPlus SHASE-G1008:2016
 :sectnums:
 :sectnumlevels: 4
@@ -100,8 +100,14 @@ include::caseMZA.adoc[]
 
 == 空調システムテストのモデル作成
 
+include::caseWBT.adoc[]
+
+
 == 空調（全体）テスト
 
+
+== 計算結果の出力
+include::output.adoc[]
 
 <<<
 == 参考

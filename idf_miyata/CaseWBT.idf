@@ -1207,35 +1207,7 @@ Schedule:Compact,
     Through: 31 May,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    23,                      !- Field 11
-
-    Through: 30 Sep,         !- Field 1
-    For: AllDays,   !- Field 2
-    Until: 24:00,            !- Field 10
-    23,                      !- Field 11
-
-    Through: 30 Nov,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    23,                      !- Field 11
-
-    Through: 31 Dec,         !- Field 16
-    For: AllDays,           !- Field 17
-    Until: 24:00,            !- Field 10
-    23;                      !- Field 11
-
-Schedule:Compact,
-    Cooling Setpoint Schedule,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,  !- Field 2
-    Until: 24:00,            !- Field 10
-    25,                      !- Field 11
-
-    Through: 31 May,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    25,                      !- Field 11
+    24,                      !- Field 11
 
     Through: 30 Sep,         !- Field 1
     For: AllDays,   !- Field 2
@@ -1245,12 +1217,40 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    25,                      !- Field 11
+    24,                      !- Field 11
 
     Through: 31 Dec,         !- Field 16
     For: AllDays,           !- Field 17
     Until: 24:00,            !- Field 10
-    25;                      !- Field 11
+    22;                      !- Field 11
+
+Schedule:Compact,
+    Cooling Setpoint Schedule,  !- Name
+    Temperature,             !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,  !- Field 2
+    Until: 24:00,            !- Field 10
+    22,                      !- Field 11
+
+    Through: 31 May,         !- Field 1
+    For: AllDays,           !- Field 2
+    Until: 24:00,            !- Field 10
+    24,                      !- Field 11
+
+    Through: 30 Sep,         !- Field 1
+    For: AllDays,   !- Field 2
+    Until: 24:00,            !- Field 10
+    26,                      !- Field 11
+
+    Through: 30 Nov,         !- Field 1
+    For: AllDays,           !- Field 2
+    Until: 24:00,            !- Field 10
+    24,                      !- Field 11
+
+    Through: 31 Dec,         !- Field 16
+    For: AllDays,           !- Field 17
+    Until: 24:00,            !- Field 10
+    22;                      !- Field 11
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
@@ -2015,6 +2015,7 @@ Schedule:Compact,
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:02XVending Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
@@ -20652,435 +20653,363 @@ ZoneInfiltration:DesignFlowRate,
 !-   ===========  ALL OBJECTS IN CLASS: ZONEMIXING ===========
 
 ZoneMixing,
-    1F:02XLobby_1,           !- Name
-    1F:02XLobby,             !- Zone Name
-    On,                      !- Schedule Name
-    Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.416306066400001,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:01XCorridor,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_2,           !- Name
-    1F:01XCorridor,          !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.416306066400001,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:02XLobby,             !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_3,           !- Name
-    1F:02XLobby,             !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/Zone,               !- Design Flow Rate Calculation Method
-    2.94402292800001E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:NXVestibule,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_4,           !- Name
-    1F:NXVestibule,          !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    2.94402292800001E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:02XLobby,             !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_5,           !- Name
-    1F:02XLobby,             !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.11112209328,           !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:NXVestibule,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_6,           !- Name
-    1F:NXVestibule,          !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.11112209328,           !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:02XLobby,             !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_7,           !- Name
-    1F:02XLobby,             !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/Zone,               !- Design Flow Rate Calculation Method
-    2.94402292800001E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:NXVestibule,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:02XLobby_8,           !- Name
-    1F:NXVestibule,          !- Zone Name
-    Office_OpenOff_Occ,      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    2.94402292800001E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:02XLobby,             !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:01XCorridor_9,        !- Name
+    1F:01XCorridor_1,        !- Name
     1F:01XCorridor,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    8.35199999999999E-02,    !- Design Flow Rate {m3/s}
+    0.125,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    1F:08XVending,           !- Source Zone Name
+    1F:03XEVHALL,            !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    1F:01XCorridor_10,       !- Name
-    1F:08XVending,           !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    8.35199999999999E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:01XCorridor,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    1F:01XCorridor_11,       !- Name
+    1F:01XCorridor_2,        !- Name
     1F:01XCorridor,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.1247168664,            !- Design Flow Rate {m3/s}
+    0.083333333,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    1F:03XEVHall,            !- Source Zone Name
+    1F:08XVENDING,           !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    1F:01XCorridor_12,       !- Name
-    1F:03XEVHall,            !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.1247168664,            !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    1F:01XCorridor,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:01XCorridor_13,     !- Name
-    2X6F:01XCorridor,        !- Zone Name
+    1F:01XCorridor_3,        !- Name
+    1F:01XCorridor,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    8.32140383999997E-02,    !- Design Flow Rate {m3/s}
+    0.416666667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:02XVending,         !- Source Zone Name
+    1F:02XLOBBY,             !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:01XCorridor_14,     !- Name
-    2X6F:02XVending,         !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    8.32140383999997E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:01XCorridor,        !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:01XCorridor_15,     !- Name
-    2X6F:01XCorridor,        !- Zone Name
+    1F:02XLOBBY_1,           !- Name
+    1F:02XLOBBY,             !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.1247168664,            !- Design Flow Rate {m3/s}
+    0.416666667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:03XEVHall,          !- Source Zone Name
+    1F:01XCORRIDOR,          !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:01XCorridor_16,     !- Name
-    2X6F:03XEVHall,          !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.1247168664,            !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:01XCorridor,        !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:05X1XOfficeSP_17,   !- Name
-    2X6F:05X1XOfficeSP,      !- Zone Name
+    1F:03XEVHALL_1,          !- Name
+    1F:03XEVHALL,            !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    1.2910736664,            !- Design Flow Rate {m3/s}
+    0.4375,                  !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X3XOfficeSI,      !- Source Zone Name
+    1F:01XCORRIDOR,          !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X1XOfficeSP_18,   !- Name
-    2X6F:05X3XOfficeSI,      !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    1.2910736664,            !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X1XOfficeSP,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:05X1XOfficeSP_19,   !- Name
-    2X6F:05X1XOfficeSP,      !- Zone Name
+    1F:08XVENDING_1,         !- Name
+    1F:08XVENDING,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.294299638666235,       !- Design Flow Rate {m3/s}
+    0.083333333,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X2XOfficeSWP,     !- Source Zone Name
+    1F:01XCORRIDOR,          !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X1XOfficeSP_20,   !- Name
-    2X6F:05X2XOfficeSWP,     !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.294299638666235,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X1XOfficeSP,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:05X3XOfficeSI_21,   !- Name
-    2X6F:05X3XOfficeSI,      !- Zone Name
+    2X6F:01XCORRIDOR_1,         !- Name
+    2X6F:01XCORRIDOR,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.374650466399999,       !- Design Flow Rate {m3/s}
+    0.083333333,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X2XOfficeSWP,     !- Source Zone Name
+    2X6F:02XVENDING,         !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X3XOfficeSI_22,   !- Name
-    2X6F:05X2XOfficeSWP,     !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.374650466399999,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:05X3XOfficeSI,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:04X1XOfficeNP_23,   !- Name
-    2X6F:04X1XOfficeNP,      !- Zone Name
+    2X6F:01XCORRIDOR_2,         !- Name
+    2X6F:01XCORRIDOR,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.294299639082791,       !- Design Flow Rate {m3/s}
+    0.125,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X2XOfficeNEP,     !- Source Zone Name
+    2X6F:03XEVHALL,         !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOfficeNP_24,   !- Name
-    2X6F:04X2XOfficeNEP,     !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.294299639082791,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X1XOfficeNP,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:04X1XOfficeNP_25,   !- Name
-    2X6F:04X1XOfficeNP,      !- Zone Name
+    2X6F:03XEVHALL_1,         !- Name
+    2X6F:03XEVHALL,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.294299638666234,       !- Design Flow Rate {m3/s}
+    0.125,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X3XOfficeNWP,     !- Source Zone Name
+    2X6F:01XCORRIDOR,        !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOfficeNP_26,   !- Name
-    2X6F:04X3XOfficeNWP,     !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.294299638666234,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X1XOfficeNP,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:04X1XOfficeNP_27,   !- Name
-    2X6F:04X1XOfficeNP,      !- Zone Name
+    2X6F:02XVENDING_1,         !- Name
+    2X6F:02XVENDING,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    1.3535570664,            !- Design Flow Rate {m3/s}
+    0.083333333,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X4XOfficeNI,      !- Source Zone Name
+    2X6F:01XCORRIDOR,        !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOfficeNP_28,   !- Name
-    2X6F:04X4XOfficeNI,      !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    1.3535570664,            !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X1XOfficeNP,      !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:04X2XOfficeNEP_29,  !- Name
-    2X6F:04X2XOfficeNEP,     !- Zone Name
+    2X6F:04X1XOFFICENP_1,         !- Name
+    2X6F:04X1XOFFICENP,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.3750467967096,         !- Design Flow Rate {m3/s}
+    0.291666667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X4XOfficeNI,      !- Source Zone Name
+    2X6F:04X3XOFFICENWP,     !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X2XOfficeNEP_30,  !- Name
-    2X6F:04X4XOfficeNI,      !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.3750467967096,         !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X2XOfficeNEP,     !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    2X6F:04X3XOfficeNWP_31,  !- Name
-    2X6F:04X3XOfficeNWP,     !- Zone Name
+    2X6F:04X1XOFFICENP_2,         !- Name
+    2X6F:04X1XOFFICENP,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.374650424744399,       !- Design Flow Rate {m3/s}
+    0.291666667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X4XOfficeNI,      !- Source Zone Name
+    2X6F:04X2XOFFICENEP,     !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X3XOfficeNWP_32,  !- Name
-    2X6F:04X4XOfficeNI,      !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.374650424744399,       !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X3XOfficeNWP,     !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    7F:01XCorridor_33,       !- Name
-    7F:01XCorridor,          !- Zone Name
+    2X6F:04X1XOFFICENP_3,         !- Name
+    2X6F:04X1XOFFICENP,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    8.30612664000002E-02,    !- Design Flow Rate {m3/s}
+    1.354166667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    7F:02XVending,           !- Source Zone Name
+    2X6F:04X4XOFFICENI,      !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    7F:01XCorridor_34,       !- Name
-    7F:02XVending,           !- Zone Name
-    On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    8.30612664000002E-02,    !- Design Flow Rate {m3/s}
-    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow Rate per Person {m3/s-person}
-    ,                        !- Air Changes per Hour {1/hr}
-    7F:01XCorridor,          !- Source Zone Name
-    0;                       !- Delta Temperature {deltaC}
-
-ZoneMixing,
-    7F:01XCorridor_35,       !- Name
-    7F:01XCorridor,          !- Zone Name
+    2X6F:04X2XOFFICENEP_1,         !- Name
+    2X6F:04X2XOFFICENEP,           !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    0.124716866400001,       !- Design Flow Rate {m3/s}
+    0.375,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    7F:03XEVHall,            !- Source Zone Name
+    2X6F:04X4XOFFICENI,      !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    7F:01XCorridor_36,       !- Name
-    7F:03XEVHall,            !- Zone Name
+    2X6F:04X2XOFFICENEP_2,         !- Name
+    2X6F:04X2XOFFICENEP,           !- Zone Name
     On,                      !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.124716866400001,       !- Design Flow Rate {m3/s}
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.291666667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    7F:01XCorridor,          !- Source Zone Name
+    2X6F:04X1XOFFICENP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:04X3XOFFICENWP_1,         !- Name
+    2X6F:04X3XOFFICENWP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.375,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:04X4XOFFICENI,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:04X3XOFFICENWP_2,         !- Name
+    2X6F:04X3XOFFICENWP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.291666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:04X1XOFFICENP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:04X4XOFFICENI_1,         !- Name
+    2X6F:04X4XOFFICENI,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    1.354166667,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:04X1XOFFICENP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:04X4XOFFICENI_2,         !- Name
+    2X6F:04X4XOFFICENI,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.375,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:04X2XOFFICENEP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:04X4XOFFICENI_3,         !- Name
+    2X6F:04X4XOFFICENI,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.375,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:04X3XOFFICENWP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X1XOFFICESP_1,         !- Name
+    2X6F:05X1XOFFICESP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    1.291666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X3XOFFICESI,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X1XOFFICESP_2,         !- Name
+    2X6F:05X1XOFFICESP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.291666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X2XOFFICESWP,     !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X2XOFFICESWP_1,         !- Name
+    2X6F:05X2XOFFICESWP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.375,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X3XOFFICESI,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X2XOFFICESWP_2,         !- Name
+    2X6F:05X2XOFFICESWP,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.291666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X1XOFFICESP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X3XOFFICESI_1,         !- Name
+    2X6F:05X3XOFFICESI,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    1.291666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X1XOFFICESP,      !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    2X6F:05X3XOFFICESI_2,         !- Name
+    2X6F:05X3XOFFICESI,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.375,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    2X6F:05X2XOFFICESWP,     !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    7F:01XCORRIDOR_1,         !- Name
+    7F:01XCORRIDOR,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.083333333,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    7F:02XVENDING,           !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    7F:01XCORRIDOR_2,         !- Name
+    7F:01XCORRIDOR,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.125,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    7F:03XEVHALL,            !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    7F:03XEVHALL_1,          !- Name
+    7F:03XEVHALL,            !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.125,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    7F:01XCORRIDOR,          !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    7F:02XVENDING_1,         !- Name
+    7F:02XVENDING,           !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.083333333,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    7F:01XCORRIDOR,          !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 
@@ -21225,7 +21154,7 @@ Sizing:Parameters,
 Sizing:Zone,
     1F:10XOffice2,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21233,8 +21162,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21254,7 +21183,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:02XLobby,             !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21262,8 +21191,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21283,7 +21212,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:07XBreakRoom,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21291,8 +21220,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21312,7 +21241,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:06XDressing2,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21320,8 +21249,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21341,7 +21270,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21349,8 +21278,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21370,7 +21299,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:01XCorridor,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21378,8 +21307,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21399,7 +21328,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:03XEVHall,            !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21407,8 +21336,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21428,7 +21357,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:09XOffice1,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21436,8 +21365,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21457,7 +21386,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:05XDressing1,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21465,8 +21394,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21486,7 +21415,7 @@ Sizing:Zone,
 Sizing:Zone,
     1F:08XVending,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21494,8 +21423,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21515,7 +21444,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:01XCorridor,        !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21523,8 +21452,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21544,7 +21473,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:03XEVHall,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21552,8 +21481,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21573,7 +21502,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21581,8 +21510,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21602,7 +21531,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21610,8 +21539,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21631,7 +21560,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:02XVending,         !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21639,8 +21568,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21660,7 +21589,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21668,8 +21597,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21689,7 +21618,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X2XOfficeNEP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21697,8 +21626,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21718,7 +21647,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X3XOfficeNWP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21726,8 +21655,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21747,7 +21676,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:04X4XOfficeNI,      !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21755,8 +21684,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21776,7 +21705,7 @@ Sizing:Zone,
 Sizing:Zone,
     2X6F:05X2XOfficeSWP,     !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21784,8 +21713,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21805,7 +21734,7 @@ Sizing:Zone,
 Sizing:Zone,
     7F:01XCorridor,          !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21813,8 +21742,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21834,7 +21763,7 @@ Sizing:Zone,
 Sizing:Zone,
     7F:03XEVHall,            !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21842,8 +21771,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21863,7 +21792,7 @@ Sizing:Zone,
 Sizing:Zone,
     7F:05XOffice2,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21871,8 +21800,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21892,7 +21821,7 @@ Sizing:Zone,
 Sizing:Zone,
     7F:02XVending,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21900,8 +21829,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
@@ -21921,7 +21850,7 @@ Sizing:Zone,
 Sizing:Zone,
     7F:04XOffice1,           !- Zone or ZoneList Name
     SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
-    5,                      !- Zone Cooling Design Supply Air Temperature {C}
+    15,                      !- Zone Cooling Design Supply Air Temperature {C}
     0,                       !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
     SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
     50,                      !- Zone Heating Design Supply Air Temperature {C}
@@ -21929,8 +21858,8 @@ Sizing:Zone,
     0.0077,                  !- Zone Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     0.0156,                  !- Zone Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Design Specification Outdoor Air Object Name
-    3,                       !- Zone Heating Sizing Factor
-    3,                       !- Zone Cooling Sizing Factor
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
     DesignDay,               !- Cooling Design Air Flow Method
     ,                        !- Cooling Design Air Flow Rate {m3/s}
     ,                        !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}

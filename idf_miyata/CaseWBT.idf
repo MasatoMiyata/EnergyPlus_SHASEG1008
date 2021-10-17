@@ -175,7 +175,7 @@ RunPeriod,
     RunPeriod 1,             !- Name
     1,                       !- Begin Month
     1,                       !- Begin Day of Month
-    1989,                    !- Begin Year
+    1988,                    !- Begin Year
     12,                      !- End Month
     31,                      !- End Day of Month
     1989,                    !- End Year
@@ -1304,22 +1304,22 @@ Schedule:Compact,
     Through: 31 May,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    24,                      !- Field 11
+    23,                      !- Field 11
 
     Through: 30 Sep,         !- Field 1
     For: AllDays,   !- Field 2
     Until: 24:00,            !- Field 10
-    26,                      !- Field 11
+    23,                      !- Field 11
 
     Through: 30 Nov,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    24,                      !- Field 11
+    23,                      !- Field 11
 
     Through: 31 Dec,         !- Field 16
     For: AllDays,           !- Field 17
     Until: 24:00,            !- Field 10
-    22;                      !- Field 11
+    23;                      !- Field 11
 
 Schedule:Compact,
     Cooling Setpoint Schedule,  !- Name
@@ -1327,12 +1327,12 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,  !- Field 2
     Until: 24:00,            !- Field 10
-    22,                      !- Field 11
+    25,                      !- Field 11
 
     Through: 31 May,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    24,                      !- Field 11
+    25,                      !- Field 11
 
     Through: 30 Sep,         !- Field 1
     For: AllDays,   !- Field 2
@@ -1342,12 +1342,12 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 1
     For: AllDays,           !- Field 2
     Until: 24:00,            !- Field 10
-    24,                      !- Field 11
+    25,                      !- Field 11
 
     Through: 31 Dec,         !- Field 16
     For: AllDays,           !- Field 17
     Until: 24:00,            !- Field 10
-    22;                      !- Field 11
+    25;                      !- Field 11
 
 
 !---------------------------------------------------------------------------------------
@@ -19940,11 +19940,11 @@ OtherEquipment,
 !-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========
 
 ZoneInfiltration:DesignFlowRate,
-    1F:10XOffice2 Infiltration,  !- Name
-    1F:10XOffice2,           !- Zone or ZoneList Name
+    1F:01XCorridor Infiltration,  !- Name
+    1F:01XCorridor,          !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.021294,                !- Design Flow Rate {m3/s}
+    0.010292,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19968,11 +19968,40 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:07XBreakRoom Infiltration,  !- Name
-    1F:07XBreakRoom,         !- Zone or ZoneList Name
+    1F:03XEVHall Infiltration,  !- Name
+    1F:03XEVHall,            !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001803,                !- Design Flow Rate {m3/s}
+    0.001456,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:04XCntrlMntrngRm Infiltration,  !- Name
+    1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.002929,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+
+ZoneInfiltration:DesignFlowRate,
+    1F:05XDressing1 Infiltration,  !- Name
+    1F:05XDressing1,         !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.000901,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19996,179 +20025,11 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:NXWC Infiltration,    !- Name
-    1F:NXWC,                 !- Zone or ZoneList Name
+    1F:07XBreakRoom Infiltration,  !- Name
+    1F:07XBreakRoom,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.009999,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXVestibule Infiltration,  !- Name
-    1F:NXVestibule,          !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003143,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:04XCntrlMntrngRm Infiltration,  !- Name
-    1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002929,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXMech2 Infiltration, !- Name
-    1F:NXMech2,              !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007042,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:01XCorridor Infiltration,  !- Name
-    1F:01XCorridor,          !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.010292,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXStrXES1XKtchntt Infiltration,  !- Name
-    1F:NXStrXES1XKtchntt,    !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003709,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXEVXDSPS Infiltration,  !- Name
-    1F:NXEVXDSPS,            !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003779,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:03XEVHall Infiltration,  !- Name
-    1F:03XEVHall,            !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001456,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXEV Infiltration,    !- Name
-    1F:NXEV,                 !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002565,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXDSPSXStair Infiltration,  !- Name
-    1F:NXDSPSXStair,         !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007791,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:09XOffice1 Infiltration,  !- Name
-    1F:09XOffice1,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02861,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXElecMech Infiltration,  !- Name
-    1F:NXElecMech,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.030596,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:05XDressing1 Infiltration,  !- Name
-    1F:05XDressing1,         !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.000901,                !- Design Flow Rate {m3/s}
+    0.001803,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20192,11 +20053,26 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    2X6F:NXMech2 Infiltration,  !- Name
-    2X6F:NXMech2,            !- Zone or ZoneList Name
+    1F:09XOffice1 Infiltration,  !- Name
+    1F:09XOffice1,           !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.005417,                !- Design Flow Rate {m3/s}
+    0.02861,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+    
+
+ZoneInfiltration:DesignFlowRate,
+    1F:10XOffice2 Infiltration,  !- Name
+    1F:10XOffice2,           !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.021294,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20220,25 +20096,11 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    2X6F:NXStrXES1XKtchntt Infiltration,  !- Name
-    2X6F:NXStrXES1XKtchntt,  !- Zone or ZoneList Name
+    2X6F:02XVending Infiltration,  !- Name
+    2X6F:02XVending,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002853,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:NXEVXDSPS Infiltration,  !- Name
-    2X6F:NXEVXDSPS,          !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002907,                !- Design Flow Rate {m3/s}
+    0.001573,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20253,90 +20115,6 @@ ZoneInfiltration:DesignFlowRate,
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
     0.00104,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:NXEV Infiltration,  !- Name
-    2X6F:NXEV,               !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001973,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:NXStairXDSPS Infiltration,  !- Name
-    2X6F:NXStairXDSPS,       !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.005993,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:05X1XOfficeSP Infiltration,  !- Name
-    2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.012656,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:NXWC Infiltration,  !- Name
-    2X6F:NXWC,               !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007692,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:05X3XOfficeSI Infiltration,  !- Name
-    2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02108,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    2X6F:02XVending Infiltration,  !- Name
-    2X6F:02XVending,         !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001573,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20402,11 +20180,109 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
+    2X6F:05X1XOfficeSP Infiltration,  !- Name
+    2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.012656,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
     2X6F:05X2XOfficeSWP Infiltration,  !- Name
     2X6F:05X2XOfficeSWP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
     0.004344,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:05X3XOfficeSI Infiltration,  !- Name
+    2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.02108,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    7F:01XCorridor Infiltration,  !- Name
+    7F:01XCorridor,          !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.007043,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    7F:02XVending Infiltration,  !- Name
+    7F:02XVending,           !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.001573,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    7F:03XEVHall Infiltration,  !- Name
+    7F:03XEVHall,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.00104,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    7F:04XOffice1 Infiltration,  !- Name
+    7F:04XOffice1,           !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.044956,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    7F:05XOffice2 Infiltration,  !- Name
+    7F:05XOffice2,           !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.03808,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20430,11 +20306,193 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    7F:01XCorridor Infiltration,  !- Name
-    7F:01XCorridor,          !- Zone or ZoneList Name
+    1F:NXWC Infiltration,    !- Name
+    1F:NXWC,                 !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007043,                !- Design Flow Rate {m3/s}
+    0.009999,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXVestibule Infiltration,  !- Name
+    1F:NXVestibule,          !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.003143,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXMech2 Infiltration, !- Name
+    1F:NXMech2,              !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.007042,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXStrXES1XKtchntt Infiltration,  !- Name
+    1F:NXStrXES1XKtchntt,    !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.003709,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXEVXDSPS Infiltration,  !- Name
+    1F:NXEVXDSPS,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.003779,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXEV Infiltration,    !- Name
+    1F:NXEV,                 !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.002565,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXDSPSXStair Infiltration,  !- Name
+    1F:NXDSPSXStair,         !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.007791,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:NXElecMech Infiltration,  !- Name
+    1F:NXElecMech,           !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.030596,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXMech2 Infiltration,  !- Name
+    2X6F:NXMech2,            !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.005417,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXStrXES1XKtchntt Infiltration,  !- Name
+    2X6F:NXStrXES1XKtchntt,  !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.002853,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXEVXDSPS Infiltration,  !- Name
+    2X6F:NXEVXDSPS,          !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.002907,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXEV Infiltration,  !- Name
+    2X6F:NXEV,               !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.001973,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXStairXDSPS Infiltration,  !- Name
+    2X6F:NXStairXDSPS,       !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.005993,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    2X6F:NXWC Infiltration,  !- Name
+    2X6F:NXWC,               !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.007692,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20471,19 +20529,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
-ZoneInfiltration:DesignFlowRate,
-    7F:03XEVHall Infiltration,  !- Name
-    7F:03XEVHall,            !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00104,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
     7F:NXEV Infiltration,    !- Name
@@ -20513,19 +20558,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
-ZoneInfiltration:DesignFlowRate,
-    7F:05XOffice2 Infiltration,  !- Name
-    7F:05XOffice2,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.03808,                 !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
     7F:NXWC Infiltration,    !- Name
@@ -20541,33 +20573,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
-ZoneInfiltration:DesignFlowRate,
-    7F:02XVending Infiltration,  !- Name
-    7F:02XVending,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001573,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    7F:04XOffice1 Infiltration,  !- Name
-    7F:04XOffice1,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.044956,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
     PHX1:NXMech Infiltration,!- Name

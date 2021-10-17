@@ -1,7 +1,7 @@
 :lang: ja
 :doctype: book
 :toc: left
-:toclevels: 1
+:toclevels: 2
 :toc-title: EnergyPlus SHASE-G1008:2016
 :sectnums:
 :sectnumlevels: 4

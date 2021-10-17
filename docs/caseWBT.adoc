@@ -1,6 +1,8 @@
 // Case 建物全体テスト
 
-=== 計算地点情報
+=== DesignBuilderによる建物形状等のモデル化 (2021/9/22)
+
+==== 計算地点情報
 
 ....
 計算地点は東京（北緯35.7°、東経139.8°）とする。
@@ -8,14 +10,7 @@
 ....
 
 .緯度経度、海抜、地物反射率の設定（Design Builder）
-image::figures/caseWBT_001.png[図1,800]
-
-
-....
-気象データは拡張AMeDAS標準年（1991～2000年、東京） を用いる。
-....
-
-拡張アメダスデータのEPW版は存在する？
+image::figures/caseWBT_001.png[図1,600]
 
 ....
 斜面日射量の計算では天空放射輝度分布一様（Isotropicモデル）とする。
@@ -25,7 +20,7 @@ EnergyPlusでは、天空放射輝度分布一様（Isotropicモデル）を想�
 参考：　https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/sky-radiance-model.html[bigladder解説]
 
 
-=== 建物形状
+==== 建物形状
 
 ....
 表5.3.1、図5.3.1から図5.3.9、表5.3.2に建物全体テストに用いるモデル建物の概要、平面図、矩計図、断面の詳細図、梁伏図、空調ゾーニング図、各居室の面積を示す。
@@ -33,18 +28,18 @@ EnergyPlusでは、天空放射輝度分布一様（Isotropicモデル）を想�
 ....
 
 .建物モデル 1階（Design Builder）
-image::figures/caseWBT_002.png[図2,800]
+image::figures/caseWBT_002.png[図2,600]
 
 .建物モデル 2〜6階（Design Builder）
-image::figures/caseWBT_003.png[図3,800]
+image::figures/caseWBT_003.png[図3,600]
 
 .建物モデル 7階（Design Builder）
-image::figures/caseWBT_004.png[図4,800]
+image::figures/caseWBT_004.png[図4,600]
 
 
 * 東側階段の前室は非空調では？
 
-image::figures/caseWBT_005.jpg[図5,800]
+image::figures/caseWBT_005.jpg[図5,600]
 
 * 自動販売機コーナー横のSKの寸法が分からない。
 
@@ -55,10 +50,113 @@ image::figures/caseWBT_006.jpg[図6,600]
 image::figures/caseWBT_007.jpg[図7,600]
 
 
+=== EnergyPlus idfファイルの編集 (2021/10/18)
 
-=== 室温設定値の指定（冷房期、中間期、暖房期）
+* 曜日の設定 +
+* 助走計算の設定 +
+* ゾーン間換気の設定 +
+* 外気導入量の設定 +
+* 室内温度設定値の変更（冬期22度、夏期26度の設定しか無く、中間期が設定されていなかった） +
+* 室内湿度の設定 
 
-ゾーンの設定は次の通りとする。ゾーンの名称は「ROOM1」とする。
+
+==== 曜日の設定
+
+1月1日を「日曜日」としたいため、気象データの日付を1989年（1989年は1月1日が日曜日）に設定し、
+RunPeriod における Year を 1989年に設定した。また、Start Day をSundayに設定した。
+
+.RunPeriodの設定
+----
+RunPeriod,
+    RunPeriod 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    1988,                    !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    1989,                    !- End Year
+    Sunday,                  !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    Yes,                     !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual
+----
+
+==== 助走計算の設定
+
+助走計算を2週間分行っているが、非空調となっているのか、1月4日の負荷がとても大きくなってしまう。
+これを回避するために、RunPeriod における Begin Year を1988年に設定し、2年分計算させることにした。
+
+.RunPeriodの設定
+----
+RunPeriod,
+    RunPeriod 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    1988,                    !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    1989,                    !- End Year
+    Sunday,                  !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    Yes,                     !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual
+----
+
+==== ゾーン間換気の設定
+
+ZoneMixing にゾーン間換気の設定を行った。ゾーン間空気移動量は境界長さあたり 150 m3/(h・m) とした。
+
+.ZoneMixing
+----
+ZoneMixing,
+    1F:01XCorridor_1,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.125,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:03XEVHALL,            !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    1F:01XCorridor_2,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.083333333,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:08XVENDING,           !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    1F:01XCorridor_3,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.416666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:02XLOBBY,             !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+----
+
+
+==== 室温設定値の指定（冷房期、中間期、暖房期）
+
+室温設定値を冷房期、中間期、暖房期に分けて指定する。
+
+まず、ゾーンの設定は次の通りとする。ゾーンの名称は「ROOM1」とする。
 
 .Zoneの設定
 ----
@@ -252,7 +350,64 @@ Schedule:Compact,
 ----
 
 
-=== 計算結果
+
+==== 室内湿度の設定 
+
+まず、湿度のスケジュールを次のように設定した。
+
+.Schedule:Compact
+----
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+----
+
+加湿の設定は、ZoneControl:Humidistat で行う。
+
+.ZoneControl:Humidistat
+----
+ZoneControl:Humidistat,
+    1F:01XCorridor Humidistat,  !- Name
+    1F:01XCorridor,          !- Zone Name
+    1F:01XCorridor Humidifying RH Schedule,  !- Humidifying Relative Humidity Setpoint Schedule Name
+    1F:01XCorridor Dehumidifying RH Schedule;  !- Dehumidifying Relative Humidity Setpoint Schedule Name
+----
+
+
+
+=== 計算結果（2021/10/18時点）
+
+* 冷房負荷と暖房負荷が同時に発生する。
 
 image::figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_廊下.png[図]
 image::figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_ロビー.png[図]

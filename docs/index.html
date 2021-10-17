@@ -448,15 +448,104 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">EnergyPlus SHASE-G1008:2016</div>
 <ul class="sectlevel1">
 <li><a href="#_はじめに">1. はじめに</a></li>
-<li><a href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a></li>
-<li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a></li>
-<li><a href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a></li>
-<li><a href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a></li>
-<li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a></li>
-<li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
+<li><a href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a>
+<ul class="sectlevel2">
+<li><a href="#_building">2.1. Building</a></li>
+<li><a href="#_sitelocation">2.2. Site:Location</a></li>
+<li><a href="#_timestep">2.3. Timestep</a></li>
+<li><a href="#_runperiod">2.4. RunPeriod</a></li>
+<li><a href="#_shadowcalculation">2.5. ShadowCalculation</a></li>
+<li><a href="#_sitegroundreflectance">2.6. Site:GroundReflectance</a></li>
+<li><a href="#_sitegroundtemperaturebuildingsurface">2.7. Site:GroundTemperature:BuildingSurface</a></li>
+<li><a href="#_zone">2.8. Zone</a></li>
+<li><a href="#_globalgeometryrules">2.9. GlobalGeometryRules</a></li>
+<li><a href="#_buildingsurfacedetailed">2.10. BuildingSurface:Detailed</a></li>
+<li><a href="#_fenestrationsurfacedetailed">2.11. FenestrationSurface:Detailed</a></li>
+<li><a href="#_material_construction">2.12. Material, Construction</a></li>
+<li><a href="#_windowmaterialglazing">2.13. WindowMaterial:Glazing</a></li>
+<li><a href="#_windowmaterialsimpleglazingsystem">2.14. WindowMaterial:SimpleGlazingSystem</a></li>
+<li><a href="#_scheduledayhourly">2.15. Schedule:Day:Hourly</a></li>
+<li><a href="#_scheduleweekdaily">2.16. Schedule:Week:Daily</a></li>
+<li><a href="#_scheduleyear">2.17. Schedule:Year</a></li>
+<li><a href="#_zoneinfiltrationdesignflowrate">2.18. ZoneInfiltration:DesignFlowRate</a></li>
+<li><a href="#_otherequipment">2.19. OtherEquipment</a></li>
+<li><a href="#_zonecontrolthermostat">2.20. ZoneControl:Thermostat</a></li>
+<li><a href="#_thermostatsetpointdualsetpoint">2.21. ThermostatSetpoint:DualSetpoint</a></li>
+<li><a href="#_zonehvacidealloadsairsystem">2.22. ZoneHVAC:IdealLoadsAirSystem</a></li>
+<li><a href="#_zonehvacequipmentlist">2.23. ZoneHVAC:EquipmentList</a></li>
+<li><a href="#_nodelist">2.24. NodeList</a></li>
+<li><a href="#_zonehvacequipmentconnections">2.25. ZoneHVAC:EquipmentConnections</a></li>
+<li><a href="#_outputvariable">2.26. Output:Variable</a></li>
+</ul>
+</li>
+<li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a>
+<ul class="sectlevel2">
+<li><a href="#_case600">3.1. Case600</a></li>
+<li><a href="#_case610">3.2. Case610</a></li>
+<li><a href="#_case650">3.3. Case650</a></li>
+<li><a href="#_case900">3.4. Case900</a></li>
+<li><a href="#_case900ff">3.5. Case900FF</a></li>
+<li><a href="#_case960">3.6. Case960</a></li>
+<li><a href="#_case900_j1_1">3.7. Case900-J1-1</a></li>
+<li><a href="#_case900_j1_2">3.8. Case900-J1-2</a></li>
+<li><a href="#_case900_j2">3.9. Case900-J2</a></li>
+<li><a href="#_case900_j3">3.10. Case900-J3</a></li>
+<li><a href="#_case900jシリーズの詳細分析">3.11. Case900Jシリーズの詳細分析</a></li>
+</ul>
+</li>
+<li><a href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a>
+<ul class="sectlevel2">
+<li><a href="#_case220">4.1. Case220</a></li>
+<li><a href="#_case210">4.2. Case210</a></li>
+<li><a href="#_case200">4.3. Case200</a></li>
+<li><a href="#_case195">4.4. Case195</a></li>
+<li><a href="#_case215">4.5. Case215</a></li>
+<li><a href="#_case230">4.6. Case230</a></li>
+<li><a href="#_case240">4.7. Case240</a></li>
+<li><a href="#_case250">4.8. Case250</a></li>
+<li><a href="#_case270">4.9. Case270</a></li>
+</ul>
+</li>
+<li><a href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a>
+<ul class="sectlevel2">
+<li><a href="#_case400">5.1. Case400</a></li>
+<li><a href="#_case395">5.2. Case395</a></li>
+<li><a href="#_case410">5.3. Case410</a></li>
+<li><a href="#_case410_2">5.4. Case410</a></li>
+<li><a href="#_case430">5.5. Case430</a></li>
+<li><a href="#_case800">5.6. Case800</a></li>
+</ul>
+</li>
+<li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a>
+<ul class="sectlevel2">
+<li><a href="#_case_mzn">6.1. Case MZN</a></li>
+<li><a href="#_case_mza">6.2. Case MZA</a></li>
+</ul>
+</li>
+<li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a>
+<ul class="sectlevel2">
+<li><a href="#_designbuilderによる建物形状等のモデル化_2021922">7.1. DesignBuilderによる建物形状等のモデル化 (2021/9/22)</a></li>
+<li><a href="#_energyplus_idfファイルの編集_20211018">7.2. EnergyPlus idfファイルの編集 (2021/10/18)</a></li>
+<li><a href="#_計算結果20211018時点">7.3. 計算結果（2021/10/18時点）</a></li>
+</ul>
+</li>
 <li><a href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></li>
-<li><a href="#_計算結果の出力">9. 計算結果の出力</a></li>
-<li><a href="#_参考">10. 参考</a></li>
+<li><a href="#_計算結果の出力">9. 計算結果の出力</a>
+<ul class="sectlevel2">
+<li><a href="#_rddファイル">9.1. rddファイル</a></li>
+<li><a href="#_mddファイル">9.2. mddファイル</a></li>
+<li><a href="#_mtdファイル">9.3. mtdファイル</a></li>
+<li><a href="#_eplaunchにて実行する際におけるcsvファイルの制限">9.4. EPlaunchにて実行する際におけるCSVファイルの制限</a></li>
+</ul>
+</li>
+<li><a href="#_参考">10. 参考</a>
+<ul class="sectlevel2">
+<li><a href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></li>
+<li><a href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.2. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></li>
+<li><a href="#_timesteps_in_averaging_window">10.3. Timesteps in Averaging Window</a></li>
+<li><a href="#_designbuilderの使い方">10.4. DesignBuilderの使い方</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -6409,7 +6498,9 @@ ZoneCrossMixing,
 <h2 id="_熱負荷建物全体テスト"><a class="link" href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_計算地点情報"><a class="link" href="#_計算地点情報">7.1. 計算地点情報</a></h3>
+<h3 id="_designbuilderによる建物形状等のモデル化_2021922"><a class="link" href="#_designbuilderによる建物形状等のモデル化_2021922">7.1. DesignBuilderによる建物形状等のモデル化 (2021/9/22)</a></h3>
+<div class="sect3">
+<h4 id="_計算地点情報"><a class="link" href="#_計算地点情報">7.1.1. 計算地点情報</a></h4>
 <div class="literalblock">
 <div class="content">
 <pre>計算地点は東京（北緯35.7°、東経139.8°）とする。
@@ -6418,17 +6509,9 @@ ZoneCrossMixing,
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="figures/caseWBT_001.png" alt="図1" width="800">
+<img src="figures/caseWBT_001.png" alt="図1" width="600">
 </div>
 <div class="title">図 7. 緯度経度、海抜、地物反射率の設定（Design Builder）</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>気象データは拡張AMeDAS標準年（1991～2000年、東京） を用いる。</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>拡張アメダスデータのEPW版は存在する？</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -6440,8 +6523,8 @@ ZoneCrossMixing,
 参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/sky-radiance-model.html">bigladder解説</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_建物形状"><a class="link" href="#_建物形状">7.2. 建物形状</a></h3>
+<div class="sect3">
+<h4 id="_建物形状"><a class="link" href="#_建物形状">7.1.2. 建物形状</a></h4>
 <div class="literalblock">
 <div class="content">
 <pre>表5.3.1、図5.3.1から図5.3.9、表5.3.2に建物全体テストに用いるモデル建物の概要、平面図、矩計図、断面の詳細図、梁伏図、空調ゾーニング図、各居室の面積を示す。
@@ -6450,19 +6533,19 @@ ZoneCrossMixing,
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="figures/caseWBT_002.png" alt="図2" width="800">
+<img src="figures/caseWBT_002.png" alt="図2" width="600">
 </div>
 <div class="title">図 8. 建物モデル 1階（Design Builder）</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="figures/caseWBT_003.png" alt="図3" width="800">
+<img src="figures/caseWBT_003.png" alt="図3" width="600">
 </div>
 <div class="title">図 9. 建物モデル 2〜6階（Design Builder）</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="figures/caseWBT_004.png" alt="図4" width="800">
+<img src="figures/caseWBT_004.png" alt="図4" width="600">
 </div>
 <div class="title">図 10. 建物モデル 7階（Design Builder）</div>
 </div>
@@ -6475,7 +6558,7 @@ ZoneCrossMixing,
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="figures/caseWBT_005.jpg" alt="図5" width="800">
+<img src="figures/caseWBT_005.jpg" alt="図5" width="600">
 </div>
 </div>
 <div class="ulist">
@@ -6503,10 +6586,138 @@ ZoneCrossMixing,
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_室温設定値の指定冷房期中間期暖房期"><a class="link" href="#_室温設定値の指定冷房期中間期暖房期">7.3. 室温設定値の指定（冷房期、中間期、暖房期）</a></h3>
+<h3 id="_energyplus_idfファイルの編集_20211018"><a class="link" href="#_energyplus_idfファイルの編集_20211018">7.2. EnergyPlus idfファイルの編集 (2021/10/18)</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>曜日の設定<br></p>
+</li>
+<li>
+<p>助走計算の設定<br></p>
+</li>
+<li>
+<p>ゾーン間換気の設定<br></p>
+</li>
+<li>
+<p>外気導入量の設定<br></p>
+</li>
+<li>
+<p>室内温度設定値の変更（冬期22度、夏期26度の設定しか無く、中間期が設定されていなかった）<br></p>
+</li>
+<li>
+<p>室内湿度の設定</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_曜日の設定"><a class="link" href="#_曜日の設定">7.2.1. 曜日の設定</a></h4>
 <div class="paragraph">
-<p>ゾーンの設定は次の通りとする。ゾーンの名称は「ROOM1」とする。</p>
+<p>1月1日を「日曜日」としたいため、気象データの日付を1989年（1989年は1月1日が日曜日）に設定し、
+RunPeriod における Year を 1989年に設定した。また、Start Day をSundayに設定した。</p>
+</div>
+<div class="listingblock">
+<div class="title">RunPeriodの設定</div>
+<div class="content">
+<pre>RunPeriod,
+    RunPeriod 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    1988,                    !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    1989,                    !- End Year
+    Sunday,                  !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    Yes,                     !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_助走計算の設定"><a class="link" href="#_助走計算の設定">7.2.2. 助走計算の設定</a></h4>
+<div class="paragraph">
+<p>助走計算を2週間分行っているが、非空調となっているのか、1月4日の負荷がとても大きくなってしまう。
+これを回避するために、RunPeriod における Begin Year を1988年に設定し、2年分計算させることにした。</p>
+</div>
+<div class="listingblock">
+<div class="title">RunPeriodの設定</div>
+<div class="content">
+<pre>RunPeriod,
+    RunPeriod 1,             !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    1988,                    !- Begin Year
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    1989,                    !- End Year
+    Sunday,                  !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    Yes,                     !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    Yes,                     !- Use Weather File Snow Indicators
+    No;                      !- Treat Weather as Actual</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ゾーン間換気の設定"><a class="link" href="#_ゾーン間換気の設定">7.2.3. ゾーン間換気の設定</a></h4>
+<div class="paragraph">
+<p>ZoneMixing にゾーン間換気の設定を行った。ゾーン間空気移動量は境界長さあたり 150 m3/(h・m) とした。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneMixing</div>
+<div class="content">
+<pre>ZoneMixing,
+    1F:01XCorridor_1,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.125,                   !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:03XEVHALL,            !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    1F:01XCorridor_2,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.083333333,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:08XVENDING,           !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}
+
+ZoneMixing,
+    1F:01XCorridor_3,        !- Name
+    1F:01XCorridor,          !- Zone Name
+    On,                      !- Schedule Name
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.416666667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow Rate per Person {m3/s-person}
+    ,                        !- Air Changes per Hour {1/hr}
+    1F:02XLOBBY,             !- Source Zone Name
+    0;                       !- Delta Temperature {deltaC}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_室温設定値の指定冷房期中間期暖房期"><a class="link" href="#_室温設定値の指定冷房期中間期暖房期">7.2.4. 室温設定値の指定（冷房期、中間期、暖房期）</a></h4>
+<div class="paragraph">
+<p>室温設定値を冷房期、中間期、暖房期に分けて指定する。</p>
+</div>
+<div class="paragraph">
+<p>まず、ゾーンの設定は次の通りとする。ゾーンの名称は「ROOM1」とする。</p>
 </div>
 <div class="listingblock">
 <div class="title">Zoneの設定</div>
@@ -6712,8 +6923,73 @@ Schedule:Day:Hourly,
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_室内湿度の設定"><a class="link" href="#_室内湿度の設定">7.2.5. 室内湿度の設定</a></h4>
+<div class="paragraph">
+<p>まず、湿度のスケジュールを次のように設定した。</p>
+</div>
+<div class="listingblock">
+<div class="title">Schedule:Compact</div>
+<div class="content">
+<pre>! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>加湿の設定は、ZoneControl:Humidistat で行う。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneControl:Humidistat</div>
+<div class="content">
+<pre>ZoneControl:Humidistat,
+    1F:01XCorridor Humidistat,  !- Name
+    1F:01XCorridor,          !- Zone Name
+    1F:01XCorridor Humidifying RH Schedule,  !- Humidifying Relative Humidity Setpoint Schedule Name
+    1F:01XCorridor Dehumidifying RH Schedule;  !- Dehumidifying Relative Humidity Setpoint Schedule Name</pre>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="_計算結果"><a class="link" href="#_計算結果">7.4. 計算結果</a></h3>
+<h3 id="_計算結果20211018時点"><a class="link" href="#_計算結果20211018時点">7.3. 計算結果（2021/10/18時点）</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>冷房負荷と暖房負荷が同時に発生する。</p>
+</li>
+</ul>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_廊下.png" alt="図">
@@ -7479,7 +7755,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-16 14:13:57 +0900
+Last updated 2021-10-17 17:05:39 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

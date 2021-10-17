@@ -1349,12 +1349,606 @@ Schedule:Compact,
     Until: 24:00,            !- Field 10
     25;                      !- Field 11
 
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 8-21 Heating
+Schedule:Compact,
+    1F:01XCorridor Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 8-21 Cooling
+Schedule:Compact,
+    1F:01XCorridor Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:01XCorridor Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 8-21 Heating
+Schedule:Compact,
+    1F:02XLobby Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 8-21 Cooling
+Schedule:Compact,
+    1F:02XLobby Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:02XLobby Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:02XLobby Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 8-21 Heating
+Schedule:Compact,
+    1F:03XEVHall Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 8-21 Cooling
+Schedule:Compact,
+    1F:03XEVHall Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:03XEVHall Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:03XEVHall Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 24H Heating
+Schedule:Compact,
+    1F:04XCntrlMntrngRm Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    1;                       !- Field 12
+
+! Modified schedule: JP Office - 24H Cooling
+Schedule:Compact,
+    1F:04XCntrlMntrngRm Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    1;                       !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:04XCntrlMntrngRm Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:04XCntrlMntrngRm Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
+    1F:05XDressing1 Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    1F:05XDressing1 Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:05XDressing1 Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:05XDressing1 Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
+    1F:06XDressing2 Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    1F:06XDressing2 Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:06XDressing2 Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:06XDressing2 Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
+    1F:07XBreakRoom Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    1F:07XBreakRoom Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:07XBreakRoom Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:07XBreakRoom Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 8-21 Heating
+Schedule:Compact,
+    1F:08XVending Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 8-21 Cooling
+Schedule:Compact,
+    1F:08XVending Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:08XVending Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:08XVending Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
+    1F:09XOffice1 Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    1F:09XOffice1 Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:09XOffice1 Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    1F:09XOffice1 Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    100,                     !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    100;                     !- Field 12
+
+
 
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:10XOffice2 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -1370,7 +1964,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:10XOffice2 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -1420,598 +2014,8 @@ Schedule:Compact,
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
-    1F:02XLobby Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 8-21 Cooling
-Schedule:Compact,
-    1F:02XLobby Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:02XLobby Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:02XLobby Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    1F:07XBreakRoom Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    1F:07XBreakRoom Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:07XBreakRoom Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:07XBreakRoom Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    1F:06XDressing2 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    1F:06XDressing2 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:06XDressing2 Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:06XDressing2 Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 24H Heating
-Schedule:Compact,
-    1F:04XCntrlMntrngRm Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    1;                       !- Field 12
-
-! Modified schedule: JP Office - 24H Cooling
-Schedule:Compact,
-    1F:04XCntrlMntrngRm Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    1;                       !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:04XCntrlMntrngRm Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:04XCntrlMntrngRm Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 8-21 Heating
-Schedule:Compact,
-    1F:01XCorridor Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 8-21 Cooling
-Schedule:Compact,
-    1F:01XCorridor Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:01XCorridor Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:01XCorridor Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 8-21 Heating
-Schedule:Compact,
-    1F:03XEVHall Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 8-21 Cooling
-Schedule:Compact,
-    1F:03XEVHall Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:03XEVHall Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:03XEVHall Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    1F:09XOffice1 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    1F:09XOffice1 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:09XOffice1 Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:09XOffice1 Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    1F:05XDressing1 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    1F:05XDressing1 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:05XDressing1 Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:05XDressing1 Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 8-21 Heating
-Schedule:Compact,
-    1F:08XVending Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 8-21 Cooling
-Schedule:Compact,
-    1F:08XVending Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:08XVending Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    1F:08XVending Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: AllDays,            !- Field 2
-    Until: 24:00,            !- Field 3
-    100,                     !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: AllDays,            !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    100;                     !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 8-21 Heating
-Schedule:Compact,
     2X6F:01XCorridor Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2027,7 +2031,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
     2X6F:01XCorridor Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2056,6 +2060,7 @@ Schedule:Compact,
     For: Weekdays,           !- Field 10
     Until: 24:00,            !- Field 11
     40;                      !- Field 12
+
 ! Modified schedule: On 24/7
 Schedule:Compact,
     2X6F:01XCorridor Dehumidifying RH Schedule,  !- Name
@@ -2076,210 +2081,8 @@ Schedule:Compact,
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
-    2X6F:03XEVHall Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-
-! Modified schedule: JP Office - 8-21 Cooling
-Schedule:Compact,
-    2X6F:03XEVHall Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 08:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:03XEVHall Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:03XEVHall Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    2X6F:05X1XOfficeSP Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    2X6F:05X1XOfficeSP Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:05X1XOfficeSP Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:05X1XOfficeSP Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 7-21 Heating
-Schedule:Compact,
-    2X6F:05X3XOfficeSI Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  WinterDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: JP Office - 7-21 Cooling
-Schedule:Compact,
-    2X6F:05X3XOfficeSI Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 1
-    For: Weekdays  SummerDesignDay,  !- Field 2
-    Until: 07:00,            !- Field 3
-    0,                       !- Field 4
-    Until: 21:00,            !- Field 5
-    1,                       !- Field 6
-    Until: 24:00,            !- Field 7
-    0,                       !- Field 8
-    For: Weekends AllOtherDays,  !- Field 9
-    Until: 24:00,            !- Field 10
-    0;                       !- Field 11
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:05X3XOfficeSI Humidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-! Modified schedule: On 24/7
-Schedule:Compact,
-    2X6F:05X3XOfficeSI Dehumidifying RH Schedule,  !- Name
-    Any Number,              !- Schedule Type Limits Name
-    Through: 31 Mar,         !- Field 1
-    For: Weekdays,           !- Field 2
-    Until: 24:00,            !- Field 3
-    40,                      !- Field 4
-    Through: 30 Nov,         !- Field 5
-    For: Weekdays,           !- Field 6
-    Until: 24:00,            !- Field 7
-    50,                      !- Field 8
-    Through: 31 Dec,         !- Field 9
-    For: Weekdays,           !- Field 10
-    Until: 24:00,            !- Field 11
-    40;                      !- Field 12
-
-!---------------------------------------------------------------------------------------
-! Modified schedule: JP Office - 8-21 Heating
-Schedule:Compact,
     2X6F:02XVending Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2295,7 +2098,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
     2X6F:02XVending Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2343,10 +2146,79 @@ Schedule:Compact,
     40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 8-21 Heating
+Schedule:Compact,
+    2X6F:03XEVHall Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+
+! Modified schedule: JP Office - 8-21 Cooling
+Schedule:Compact,
+    2X6F:03XEVHall Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 08:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:03XEVHall Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:03XEVHall Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+
+!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X1XOfficeNP Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2362,7 +2234,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     2X6F:04X1XOfficeNP Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2413,7 +2285,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X2XOfficeNEP Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2429,7 +2301,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     2X6F:04X2XOfficeNEP Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2480,7 +2352,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X3XOfficeNWP Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2496,7 +2368,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     2X6F:04X3XOfficeNWP Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2547,7 +2419,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X4XOfficeNI Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2563,7 +2435,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     2X6F:04X4XOfficeNI Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2613,8 +2485,75 @@ Schedule:Compact,
 !---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
+    2X6F:05X1XOfficeSP Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    2X6F:05X1XOfficeSP Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:05X1XOfficeSP Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:05X1XOfficeSP Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+!---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
     2X6F:05X2XOfficeSWP Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2630,7 +2569,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     2X6F:05X2XOfficeSWP Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2678,10 +2617,77 @@ Schedule:Compact,
     40;                      !- Field 12
 
 !---------------------------------------------------------------------------------------
+! Modified schedule: JP Office - 7-21 Heating
+Schedule:Compact,
+    2X6F:05X3XOfficeSI Heating Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  WinterDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: JP Office - 7-21 Cooling
+Schedule:Compact,
+    2X6F:05X3XOfficeSI Cooling Availability Sch,  !- Name
+    Fraction,                !- Schedule Type Limits Name
+    Through: 31 Dec,         !- Field 1
+    For: Weekdays  SummerDesignDay,  !- Field 2
+    Until: 07:00,            !- Field 3
+    0,                       !- Field 4
+    Until: 21:00,            !- Field 5
+    1,                       !- Field 6
+    Until: 24:00,            !- Field 7
+    0,                       !- Field 8
+    For: Weekends AllOtherDays,  !- Field 9
+    Until: 24:00,            !- Field 10
+    0;                       !- Field 11
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:05X3XOfficeSI Humidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+! Modified schedule: On 24/7
+Schedule:Compact,
+    2X6F:05X3XOfficeSI Dehumidifying RH Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 31 Mar,         !- Field 1
+    For: Weekdays,           !- Field 2
+    Until: 24:00,            !- Field 3
+    40,                      !- Field 4
+    Through: 30 Nov,         !- Field 5
+    For: Weekdays,           !- Field 6
+    Until: 24:00,            !- Field 7
+    50,                      !- Field 8
+    Through: 31 Dec,         !- Field 9
+    For: Weekdays,           !- Field 10
+    Until: 24:00,            !- Field 11
+    40;                      !- Field 12
+
+!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:01XCorridor Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2697,7 +2703,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
     7F:01XCorridor Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2748,7 +2754,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:03XEVHall Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2764,7 +2770,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
     7F:03XEVHall Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2815,7 +2821,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     7F:05XOffice2 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2831,7 +2837,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     7F:05XOffice2 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2883,7 +2889,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:02XVending Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2899,7 +2905,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
     7F:02XVending Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 08:00,            !- Field 3
@@ -2950,7 +2956,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     7F:04XOffice1 Heating Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  WinterDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -2966,7 +2972,7 @@ Schedule:Compact,
 ! Modified schedule: JP Office - 7-21 Cooling
 Schedule:Compact,
     7F:04XOffice1 Cooling Availability Sch,  !- Name
-    Temperature,             !- Schedule Type Limits Name
+    Fraction,                !- Schedule Type Limits Name
     Through: 31 Dec,         !- Field 1
     For: Weekdays  SummerDesignDay,  !- Field 2
     Until: 07:00,            !- Field 3
@@ -19940,11 +19946,11 @@ OtherEquipment,
 !-   ===========  ALL OBJECTS IN CLASS: ZONEINFILTRATION:DESIGNFLOWRATE ===========
 
 ZoneInfiltration:DesignFlowRate,
-    1F:01XCorridor Infiltration,  !- Name
+    1F:01XCorridor Infiltration 1,  !- Name
     1F:01XCorridor,          !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.010292,                !- Design Flow Rate {m3/s}
+    0.0109,                  !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19954,11 +19960,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:02XLobby Infiltration,!- Name
+    1F:01XCorridor Infiltration 2,  !- Name
+    1F:01XCorridor,          !- Zone or ZoneList Name
+    1F:01XCorridor Heating Availability Sch,       !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.113541667,             !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:02XLobby Infiltration 1,!- Name
     1F:02XLobby,             !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.010528,                !- Design Flow Rate {m3/s}
+    0.00972,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19968,11 +19988,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:03XEVHall Infiltration,  !- Name
+    1F:02XLobby Infiltration 2,!- Name
+    1F:02XLobby,             !- Zone or ZoneList Name
+    1F:02XLobby Heating Availability Sch,  !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.06944,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:03XEVHall Infiltration 1,  !- Name
     1F:03XEVHall,            !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001456,                !- Design Flow Rate {m3/s}
+    0.00117,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19982,11 +20016,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:04XCntrlMntrngRm Infiltration,  !- Name
+    1F:03XEVHall Infiltration 2,  !- Name
+    1F:03XEVHall,            !- Zone or ZoneList Name
+    1F:03XEVHall Heating Availability Sch,   !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.00833,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:04XCntrlMntrngRm Infiltration 1,  !- Name
     1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002929,                !- Design Flow Rate {m3/s}
+    0.00282,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19995,13 +20043,26 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
+ZoneInfiltration:DesignFlowRate,
+    1F:04XCntrlMntrngRm Infiltration 2,  !- Name
+    1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
+    1F:04XCntrlMntrngRm Heating Availability Sch,  !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.04333,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:05XDressing1 Infiltration,  !- Name
+    1F:05XDressing1 Infiltration 1,  !- Name
     1F:05XDressing1,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.000901,                !- Design Flow Rate {m3/s}
+    0.00073,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20011,11 +20072,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:06XDressing2 Infiltration,  !- Name
+    1F:05XDressing1 Infiltration 2,  !- Name
+    1F:05XDressing1,         !- Zone or ZoneList Name
+    1F:05XDressing1 Heating Availability Sch,         !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.01211,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:06XDressing2 Infiltration 1,  !- Name
     1F:06XDressing2,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.000901,                !- Design Flow Rate {m3/s}
+    0.00073,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20025,11 +20100,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:07XBreakRoom Infiltration,  !- Name
+    1F:06XDressing2 Infiltration 2,  !- Name
+    1F:06XDressing2,         !- Zone or ZoneList Name
+    1F:06XDressing2 Heating Availability Sch,          !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.01211,                !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:07XBreakRoom Infiltration 1,  !- Name
     1F:07XBreakRoom,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001803,                !- Design Flow Rate {m3/s}
+    0.00145,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20039,11 +20128,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:08XVending Infiltration,  !- Name
+    1F:07XBreakRoom Infiltration 2,  !- Name
+    1F:07XBreakRoom,         !- Zone or ZoneList Name
+    1F:07XBreakRoom Heating Availability Sch,    !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.02422,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:08XVending Infiltration 1,  !- Name
     1F:08XVending,           !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.001636,                !- Design Flow Rate {m3/s}
+    0.00157,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20053,11 +20156,25 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:09XOffice1 Infiltration,  !- Name
+    1F:08XVending Infiltration 2,  !- Name
+    1F:08XVending,           !- Zone or ZoneList Name
+    1F:08XVending Heating Availability Sch,    !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.01514,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:09XOffice1 Infiltration 1,  !- Name
     1F:09XOffice1,           !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02861,                 !- Design Flow Rate {m3/s}
+    0.02001,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20065,14 +20182,41 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Temperature Term Coefficient
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
-    
 
 ZoneInfiltration:DesignFlowRate,
-    1F:10XOffice2 Infiltration,  !- Name
+    1F:09XOffice1 Infiltration 2,  !- Name
+    1F:09XOffice1,           !- Zone or ZoneList Name
+    1F:09XOffice1 Heating Availability Sch,    !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.37056,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:10XOffice2 Infiltration 1,  !- Name
     1F:10XOffice2,           !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.021294,                !- Design Flow Rate {m3/s}
+    0.02048,                 !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient
+
+ZoneInfiltration:DesignFlowRate,
+    1F:10XOffice2 Infiltration 2,  !- Name
+    1F:10XOffice2,           !- Zone or ZoneList Name
+    1F:10XOffice2 Heating Availability Sch,       !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.37917,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}

@@ -448,104 +448,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">EnergyPlus SHASE-G1008:2016</div>
 <ul class="sectlevel1">
 <li><a href="#_はじめに">1. はじめに</a></li>
-<li><a href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a>
-<ul class="sectlevel2">
-<li><a href="#_building">2.1. Building</a></li>
-<li><a href="#_sitelocation">2.2. Site:Location</a></li>
-<li><a href="#_timestep">2.3. Timestep</a></li>
-<li><a href="#_runperiod">2.4. RunPeriod</a></li>
-<li><a href="#_shadowcalculation">2.5. ShadowCalculation</a></li>
-<li><a href="#_sitegroundreflectance">2.6. Site:GroundReflectance</a></li>
-<li><a href="#_sitegroundtemperaturebuildingsurface">2.7. Site:GroundTemperature:BuildingSurface</a></li>
-<li><a href="#_zone">2.8. Zone</a></li>
-<li><a href="#_globalgeometryrules">2.9. GlobalGeometryRules</a></li>
-<li><a href="#_buildingsurfacedetailed">2.10. BuildingSurface:Detailed</a></li>
-<li><a href="#_fenestrationsurfacedetailed">2.11. FenestrationSurface:Detailed</a></li>
-<li><a href="#_material_construction">2.12. Material, Construction</a></li>
-<li><a href="#_windowmaterialglazing">2.13. WindowMaterial:Glazing</a></li>
-<li><a href="#_windowmaterialsimpleglazingsystem">2.14. WindowMaterial:SimpleGlazingSystem</a></li>
-<li><a href="#_scheduledayhourly">2.15. Schedule:Day:Hourly</a></li>
-<li><a href="#_scheduleweekdaily">2.16. Schedule:Week:Daily</a></li>
-<li><a href="#_scheduleyear">2.17. Schedule:Year</a></li>
-<li><a href="#_zoneinfiltrationdesignflowrate">2.18. ZoneInfiltration:DesignFlowRate</a></li>
-<li><a href="#_otherequipment">2.19. OtherEquipment</a></li>
-<li><a href="#_zonecontrolthermostat">2.20. ZoneControl:Thermostat</a></li>
-<li><a href="#_thermostatsetpointdualsetpoint">2.21. ThermostatSetpoint:DualSetpoint</a></li>
-<li><a href="#_zonehvacidealloadsairsystem">2.22. ZoneHVAC:IdealLoadsAirSystem</a></li>
-<li><a href="#_zonehvacequipmentlist">2.23. ZoneHVAC:EquipmentList</a></li>
-<li><a href="#_nodelist">2.24. NodeList</a></li>
-<li><a href="#_zonehvacequipmentconnections">2.25. ZoneHVAC:EquipmentConnections</a></li>
-<li><a href="#_outputvariable">2.26. Output:Variable</a></li>
-</ul>
-</li>
-<li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a>
-<ul class="sectlevel2">
-<li><a href="#_case600">3.1. Case600</a></li>
-<li><a href="#_case610">3.2. Case610</a></li>
-<li><a href="#_case650">3.3. Case650</a></li>
-<li><a href="#_case900">3.4. Case900</a></li>
-<li><a href="#_case900ff">3.5. Case900FF</a></li>
-<li><a href="#_case960">3.6. Case960</a></li>
-<li><a href="#_case900_j1_1">3.7. Case900-J1-1</a></li>
-<li><a href="#_case900_j1_2">3.8. Case900-J1-2</a></li>
-<li><a href="#_case900_j2">3.9. Case900-J2</a></li>
-<li><a href="#_case900_j3">3.10. Case900-J3</a></li>
-<li><a href="#_case900jシリーズの詳細分析">3.11. Case900Jシリーズの詳細分析</a></li>
-</ul>
-</li>
-<li><a href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a>
-<ul class="sectlevel2">
-<li><a href="#_case220">4.1. Case220</a></li>
-<li><a href="#_case210">4.2. Case210</a></li>
-<li><a href="#_case200">4.3. Case200</a></li>
-<li><a href="#_case195">4.4. Case195</a></li>
-<li><a href="#_case215">4.5. Case215</a></li>
-<li><a href="#_case230">4.6. Case230</a></li>
-<li><a href="#_case240">4.7. Case240</a></li>
-<li><a href="#_case250">4.8. Case250</a></li>
-<li><a href="#_case270">4.9. Case270</a></li>
-</ul>
-</li>
-<li><a href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a>
-<ul class="sectlevel2">
-<li><a href="#_case400">5.1. Case400</a></li>
-<li><a href="#_case395">5.2. Case395</a></li>
-<li><a href="#_case410">5.3. Case410</a></li>
-<li><a href="#_case410_2">5.4. Case410</a></li>
-<li><a href="#_case430">5.5. Case430</a></li>
-<li><a href="#_case800">5.6. Case800</a></li>
-</ul>
-</li>
-<li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a>
-<ul class="sectlevel2">
-<li><a href="#_case_mzn">6.1. Case MZN</a></li>
-<li><a href="#_case_mza">6.2. Case MZA</a></li>
-</ul>
-</li>
-<li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a>
-<ul class="sectlevel2">
-<li><a href="#_designbuilderによる建物形状等のモデル化_2021922">7.1. DesignBuilderによる建物形状等のモデル化 (2021/9/22)</a></li>
-<li><a href="#_energyplus_idfファイルの編集_20211018">7.2. EnergyPlus idfファイルの編集 (2021/10/18)</a></li>
-<li><a href="#_計算結果20211018時点">7.3. 計算結果（2021/10/18時点）</a></li>
-</ul>
-</li>
+<li><a href="#_熱負荷単室基本テストのモデル作成">2. 熱負荷(単室)基本テストのモデル作成</a></li>
+<li><a href="#_熱負荷単室基本テスト">3. 熱負荷(単室)基本テスト</a></li>
+<li><a href="#_熱負荷単室詳細テストa">4. 熱負荷（単室）詳細テストA</a></li>
+<li><a href="#_熱負荷単室詳細テストb">5. 熱負荷（単室）詳細テストB</a></li>
+<li><a href="#_熱負荷複数室テスト">6. 熱負荷（複数室）テスト</a></li>
+<li><a href="#_熱負荷建物全体テスト">7. 熱負荷（建物全体）テスト</a></li>
 <li><a href="#_空調システムテストのモデル作成">8. 空調システムテストのモデル作成</a></li>
-<li><a href="#_計算結果の出力">9. 計算結果の出力</a>
-<ul class="sectlevel2">
-<li><a href="#_rddファイル">9.1. rddファイル</a></li>
-<li><a href="#_mddファイル">9.2. mddファイル</a></li>
-<li><a href="#_mtdファイル">9.3. mtdファイル</a></li>
-<li><a href="#_eplaunchにて実行する際におけるcsvファイルの制限">9.4. EPlaunchにて実行する際におけるCSVファイルの制限</a></li>
-</ul>
-</li>
-<li><a href="#_参考">10. 参考</a>
-<ul class="sectlevel2">
-<li><a href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></li>
-<li><a href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.2. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></li>
-<li><a href="#_timesteps_in_averaging_window">10.3. Timesteps in Averaging Window</a></li>
-<li><a href="#_designbuilderの使い方">10.4. DesignBuilderの使い方</a></li>
-</ul>
-</li>
+<li><a href="#_計算結果の出力">9. 計算結果の出力</a></li>
+<li><a href="#_参考">10. 参考</a></li>
 </ul>
 </div>
 </div>
@@ -7231,9 +7142,146 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <h2 id="_参考"><a class="link" href="#_参考">10. 参考</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.1. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<h3 id="_隣室条件の与え方"><a class="link" href="#_隣室条件の与え方">10.1. 隣室条件の与え方</a></h3>
 <div class="sect3">
-<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.1.1. Errorの重大さによる分類</a></h4>
+<h4 id="_outside_boundary_condition"><a class="link" href="#_outside_boundary_condition">10.1.1. Outside Boundary Condition</a></h4>
+<div class="paragraph">
+<p>BuildingSurface:DetailedオブジェクトのField: Outside Boundary Conditionにて、壁の外側の条件を設定することができる。<br>
+OtherSideCoeﬀicientsを選択すると計算式で与えることもできる（内壁に使えるかどうかは未確認）。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#field-outside-boundary-condition-3">bigladder:BuildingSurface:Detailed</a></p>
+</div>
+<div class="literalblock">
+<div class="title">Outside Boundary Condition の選択肢</div>
+<div class="content">
+<pre>1.	Surface
+この表面が内部表面である場合はこれを選択します。
+値は、ベースゾーンのサーフェスまたは別のゾーンのサーフェスのいずれかになります。
+隣接するゾーンの表面を指定することにより、2つのゾーン間の熱バランスを正確にシミュレートできます。
+EnergyPlusは、ゾーンのグループを同時にシミュレートし、ゾーン間の熱伝達を含みます。
+ただし、これにより計算が複雑になるため、2つのゾーンに大きな温度差がない限り、他のゾーンを指定する必要はありません。
+2つのゾーンに大きな違いがない場合（温度に関して）、サーフェスはそれ自体を外部環境として使用するか、このフィールドを断熱として指定する必要があります。
+このサーフェスの「外側」（に隣接）のサーフェス名は、次のフィールドに配置されます。
+
+2.	Adiabatic
+同じゾーンの内面。この表面はゾーン外に熱を伝達しませんが、それでも熱を熱質量で蓄えます。
+表面の内面のみがゾーンと熱を交換します（つまり、表面の両側がゾーンと熱を交換する内部パーティションをモデル化するには、2つの断熱表面が必要です）。
+外部境界条件オブジェクトは空白のままにすることができます。
+
+3.	Zone
+これはSurfaceに似ていますが、EnergyPlusは、これがサーフェスに入力されると、隣接するゾーンに必要なサーフェスを自動的に作成します。
+サーフェスに窓やドアがある場合、EnergyPlusは適切なサブサーフェスも自動的に作成します。
+
+4.	Outdoors
+この表面が外気温条件にさらされる場合は、これが選択です。
+この種の表面の詳細な仕様については、以下の太陽への露出と風への露出を参照してください。
+
+5.	Foundation
+代替モデル（現在はKivaTMモデルのみ）を使用して、基礎表面の多次元熱伝達を説明します。
+外側境界条件オブジェクトは、Foundation：Kivaオブジェクトの名前を参照します（または、追加の断熱材なしでデフォルトの基礎を使用するには、空白のままにします）。
+
+6.	Ground
+この表面の外側の温度は、その月のSite：GroundTemperature：Surfaceの値になります。
+
+7.	GroundFCfactorMethod
+この表面が地面に露出していて、Construction：CfactorUndergroundWallを使用している場合は、これが選択です。この表面の外側の温度は、その月のSite：GroundTemperature：FcfactorMethod値になります。
+
+8.	OtherSideCoeﬀicients
+このサーフェスにカスタムのユーザー指定の温度またはその他のパラメーターがある場合（SurfaceProperty：OtherSideCoeﬀicientsの仕様を参照）、これを選択します。
+外側の境界条件は、SurfaceProperty：OtherSideCoeﬀicients仕様の名前になります。
+
+9.	OtherSideConditionsModel
+この表面に、外部に取り付けられた、蒸散コレクターや通気型太陽光発電パネルなどの特別にモデル化されたマルチスキンコンポーネントがある場合（SurfaceProp-erty：OtherSideConditionsModel仕様を参照）、これを選択します。外面環境は、SurfaceProperty：OtherSideConditionsModel仕様の名前になります。
+
+10. GroundSlabPreprocessorAverage
+スラブプリプロセッサ計算の平均結果を使用します。
+
+11. GroundSlabPreprocessorCore
+スラブプリプロセッサ計算からのコア結果を使用します。
+
+12. GroundSlabPreprocessorPerimeter
+スラブプリプロセッサ計算からの境界結果を使用します。
+
+13. GroundBasementPreprocessorAverageWall
+地下室のプリプロセッサ計算からの平均壁結果を使用します。
+
+14. GroundBasementPreprocessorAverageFloor
+地下室のプリプロセッサ計算からの平均フロア結果を使用します。
+
+15. GroundBasementPreprocessorUpperWall
+地下室のプリプロセッサ計算からの上部壁の結果を使用します。
+
+16. GroundBasementPreprocessorLowerWall
+地下室のプリプロセッサ計算からの下部壁の結果を使用します。</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_surfacepropertyothersidecoeﬀicients"><a class="link" href="#_surfacepropertyothersidecoeﬀicients">10.1.2. SurfaceProperty:OtherSideCoeﬀicients</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyothersidecoefficients">bigladder:SurfaceProperty:OtherSideCoeﬀicients</a></p>
+</div>
+<div class="paragraph">
+<p>サーフェスのステートメント（＝Outside Boundary Condition）でOther Side Coefficientsのステートメントを参照することで、サーフェスの外面の温度（図1参照）を直接制御することができます。また、Other Side Coefficientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。他の側の係数を使用する場合、太陽の影響は考慮されないことに注意する必要があります。さらに、他方の側の係数がサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができますが）。</p>
+</div>
+<div class="paragraph">
+<p>other side 係数は、すべてのタイプの伝熱面に同じ効果を与えます。言い換えれば、他方の側の係数を指定した室内表面と、同一の他方の側の係数を指定した外壁は、まったく同じようにシミュレーションされます。他の側の係数を使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外面の場合は屋外の環境が相手側の環境となります。内部表面の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。同様に、他面係数を指定したサーフェスでは、他面環境をコントロールすることができます。</p>
+</div>
+<div class="paragraph">
+<p>サーフェスを介した熱伝導は、ゾーンロードの計算において非常に重要な要素です。この熱伝達を計算するための情報は、表面が屋外環境やシミュレーションされている別のゾーンにさらされていれば、すぐに入手できます。時には、EnergyPlusモデルに含まれていないエリアに隣接する表面の熱伝達をモデル化したい場合があります。例えば、オフィスエリアが倉庫に隣接していて、ユーザーはオフィスエリアのシミュレーションにしか興味がない場合です。Other Side Coefficientsが指定されたインテリアサーフェスは、サーフェスの反対側の環境を制御するために使用することができ、それによって隣接するサーフェスを介した熱伝達を考慮することができます。</p>
+</div>
+<div class="paragraph">
+<p>Other Side Coefficientsは、以下のように表面の「反対側」に影響を与えます。各係数には特別な意味があります。特定の係数を使用しない場合は、0または空白を入力することができます。反対側の係数を使用する方法は2つあることに注意してください。外側面の温度を直接設定する場合（下記の対流・輻射複合係数が0以下の場合）と、フィルム係数（下記の対流・輻射複合係数の正の値）と外気温度の両方を設定する場合に使用します。</p>
+</div>
+<div class="listingblock">
+<div class="title">SurfaceProperty:OtherSideCoefficients</div>
+<div class="content">
+<pre>!  Example input using temperature schedule
+SurfaceProperty:OtherSideCoefficients,
+      OSCCoef:Zn005:Wall003,   !- Name
+      0,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+      0.000000,                !- Constant Temperature {C}
+      1.000000,                !- Constant Temperature Coefficient
+      0.000000,                !- External Dry-Bulb Temperature Coefficient
+      0.000000,                !- Ground Temperature Coefficient
+      0.000000,                !- Wind Speed Coefficient
+      0.000000,                !- Zone Air Temperature Coefficient
+      Zn005Wall003OtherSideTempSched;  !- Constant Temperature Schedule Name
+
+!  Example input for outside heat transfer coefficient of 1.23, using Toadb
+SurfaceProperty:OtherSideCoefficients,
+      OSCCoef:Zn005:Wall004,   !- Name
+      1.230000,                !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+      0.000000,                !- Constant Temperature {C}
+      0.000000,                !- Constant Temperature Coefficient
+      1.000000,                !- External Dry-Bulb Temperature Coefficient
+      0.000000,                !- Ground Temperature Coefficient
+      0.000000,                !- Wind Speed Coefficient
+      0.000000,                !- Zone Air Temperature Coefficient
+      ,                        !- Constant Temperature Schedule Name
+      No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+      24,                      !- Period of Sinusoidal Variation {hr}
+      0.,                      !- Previous Other Side Temperature Coefficient
+      ,                        !- Minimum Other Side Temperature Limit {C}
+      ;                        !- Maximum Other Side Temperature Limit {C}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>OtherSideCoeﬀicientsは、下記の式で与えられる。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/OthersideCoefficients.png" alt="図" width="800">
+</div>
+<div class="title">図 12. OtherSideCoeﬀicients</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.2. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<div class="sect3">
+<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.2.1. Errorの重大さによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/errors.html#errors">bigladder:Input Output Reference</a></p>
 </div>
@@ -7269,7 +7317,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </table>
 </div>
 <div class="sect3">
-<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.1.2. Errorの実行プロセスによる分類</a></h4>
+<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.2.2. Errorの実行プロセスによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/error-messages-details.html#error-messages-details">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7307,7 +7355,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.1.3. Preprocessorからのエラーメッセージ</a></h4>
+<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.2.3. Preprocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-preprocessors.html#example-error-messages-for-preprocessors">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7315,7 +7363,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <p>すべてのPreprocessorプログラムは、検出したエラーに対してOutput：PreprocessorMessageオブジェクトを生成する。これらのエラーを理解するには、実際のPreprocessorプログラムのドキュメントを参照する必要がある場合がある。 Preprocessorからのエラーメッセージは、errファイルの最初に表示される。メッセージの形式は、&lt;objectname&gt;（つまり、Output：Preprocessormessage）、引用符で囲まれたプログラム名（たとえば、EPMacro）、そしてメッセージの文字列（Warning、Severe、Fatal）である。 Fatalの場合、EnergyPlusはすべてのエラーメッセージを生成した後に実行を中止する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例"><a class="link" href="#_warningの例">10.1.3.1. Warningの例</a></h5>
+<h5 id="_warningの例"><a class="link" href="#_warningの例">10.2.3.1. Warningの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPXMLPreProc2" has the following Warning conditions:
@@ -7326,7 +7374,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例"><a class="link" href="#_severeの例">10.1.3.2. Severeの例</a></h5>
+<h5 id="_severeの例"><a class="link" href="#_severeの例">10.2.3.2. Severeの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPMacro" has the following Severe conditions:
@@ -7339,7 +7387,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.1.4. Input Pocessorからのエラーメッセージ</a></h4>
+<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.2.4. Input Pocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-the-input.html#example-error-messages-for-the-input-processor">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7347,7 +7395,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <p>InputProcessorはEnergyPlusプログラムの一部であり、入力ファイルをスキャンし、IDD（Input Data Dictionary）の要件と照合する。InputProcessorのエラーはIPから始まる文字列で表示される。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.1.4.1. Warningの例</a></h5>
+<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.2.4.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7362,7 +7410,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.1.4.2. Severeの例</a></h5>
+<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.2.4.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7404,7 +7452,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.1.4.3. Fatalの例</a></h5>
+<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.2.4.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Fatalエラーのメッセージは上記のSevereエラーの結果として表示されるようである。</p>
 </div>
@@ -7416,7 +7464,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.1.5. Module GetInputからのエラーメッセージ</a></h4>
+<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.2.5. Module GetInputからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-from-module-getinput.html#example-error-messages-from-module-getinput-routines">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7424,7 +7472,7 @@ Possible Invalid Numerics or other problems</code></pre>
 <p>シミュレーションが開始されると、各モジュールが呼び出され、入力ファイルから値を取得する。これらは通常、GetInputルーチンと呼ばれる。IDDの制限では完全に記述できないエラーチェックを入力に対して追加で行い、さらに、オブジェクトが別のオブジェクトに対して与える可能性のある影響も考慮する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.1.5.1. Warningの例</a></h5>
+<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.2.5.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7567,7 +7615,7 @@ Dropping Vertex [2].</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.1.5.2. Severeの例</a></h5>
+<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.2.5.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7629,19 +7677,19 @@ Number of Surface Sides at minimum.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.1.5.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.2.5.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>このカテゴリーのSevereエラーはたいていFatalエラーにつながり、シミュレーションは途中で終了する。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.1.6. SizingとSimulationからのエラーメッセージ</a></h4>
+<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.2.6. SizingとSimulationからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-during-sizing.html#example-error-messages-during-sizing-and-simulation">bigladder:Tips and Tricks</a></p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.1.6.1. Warningの例</a></h5>
+<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.2.6.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7660,7 +7708,7 @@ Check Sizing:Zone and ZoneControl:Thermostat inputs.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.1.6.2. Severeの例</a></h5>
+<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.2.6.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7681,7 +7729,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.1.6.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.2.6.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Severeエラーの数などが表示される。</p>
 </div>
@@ -7696,7 +7744,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.1.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
+<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.2.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
 <div class="paragraph">
 <p>上記より、建物側（負荷計算）に関するエラーは多く定義されている印象を受ける。しかし、システム側については参照できるドキュメント類からエラーの定義について十分確認できなかった。オブジェクトによってはユーザー自ら温度や流量などの上下限値を指定するものある。</p>
 </div>
@@ -7724,7 +7772,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.2. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
+<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.3. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
 <div class="paragraph">
 <p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
 </div>
@@ -7733,7 +7781,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.3. Timesteps in Averaging Window</a></h3>
+<h3 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.4. Timesteps in Averaging Window</a></h3>
 <div class="paragraph">
 <p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
 </div>
@@ -7745,7 +7793,34 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.4. DesignBuilderの使い方</a></h3>
+<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.5. DesignBuilderの使い方</a></h3>
+<div class="paragraph">
+<p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い_2"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い_2">10.6. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
+<div class="paragraph">
+<p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
+</div>
+<div class="paragraph">
+<p>EnergyPlusにおいては予熱時間そのものの概念はないが、最大負荷を求める際の平均時間を設定することで、類似の処理を行えるようになっている。オブジェクトSizing:ParametersのTimesteps in Averaging Windowに平均処理を行うタイムステップ数を指定することができる。以下は<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder:Input Output Reference:Sizing:Parameters:Timesteps in Averaging Window</a>の和訳である。以下ではゾーン設計風量にのみ言及しているが、ゾーン設計風量の計算はAuto-sizingの計算フロー上、最も上流側で行われるようであるため、空調システムや熱源システムの容量設計においてもここで指定したステップ数が反映されると思われる。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timesteps_in_averaging_window_2"><a class="link" href="#_timesteps_in_averaging_window_2">10.7. Timesteps in Averaging Window</a></h3>
+<div class="paragraph">
+<p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
+</div>
+<div class="paragraph">
+<p>ゾーン設計風量計算は、一定の温度で加熱または冷却空気が無限に供給されると想定して実行される。したがって、計算された設計風量は、どれほど大きく急激な負荷であっても、常にあらゆる負荷変動に対応できる。実際には、風量はダクトのサイズとファンの容量によって制限される。理想的なゾーン設計風量計算では、特にユーザーが夜間のセットアップまたはセットバックを伴うサーモスタットスケジュールを使用してサイジング計算を実行している場合、非現実的に大きな風量が発生する可能性がある。計算されたゾーン設計風量は、常にタイムステップにわたって平均化される。ユーザーは、サーモスタットのセットアップとセットバックの影響を軽減し、ウォームアップまたはクールダウン時の風量が設計風量の計算において支配的になるのを防ぐために、より平均時間を長く指定することができる。</p>
+</div>
+<div class="paragraph">
+<p>たとえば、負荷計算のタイムステップが15分で、ユーザーがこの平均化タイムステップ数を4に指定した場合、ゾーン設計風量は1時間にわたって平均化される。8を指定すると、2時間の平均となる。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_designbuilderの使い方_2"><a class="link" href="#_designbuilderの使い方_2">10.8. DesignBuilderの使い方</a></h3>
 <div class="paragraph">
 <p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
 </div>
@@ -7755,7 +7830,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-17 17:05:39 +0900
+Last updated 2021-10-19 19:18:08 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

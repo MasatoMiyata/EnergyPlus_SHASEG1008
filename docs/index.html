@@ -7223,7 +7223,7 @@ EnergyPlusは、ゾーンのグループを同時にシミュレートし、ゾ�
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyothersidecoefficients">bigladder:SurfaceProperty:OtherSideCoeﬀicients</a></p>
 </div>
 <div class="paragraph">
-<p>サーフェスのステートメント（＝Outside Boundary Condition）でOther Side Coefficientsのステートメントを参照することで、サーフェスの外面の温度（図1参照）を直接制御することができます。また、Other Side Coefficientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。他の側の係数を使用する場合、太陽の影響は考慮されないことに注意する必要があります。さらに、他方の側の係数がサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができますが）。</p>
+<p>サーフェスのステートメント（＝Outside Boundary Condition）でOther Side Coefficientsのステートメントを参照することで、サーフェスの外面の温度を直接制御することができます。また、Other Side Coefficientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。他の側の係数を使用する場合、太陽の影響は考慮されないことに注意する必要があります。さらに、他方の側の係数がサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができますが）。</p>
 </div>
 <div class="paragraph">
 <p>other side 係数は、すべてのタイプの伝熱面に同じ効果を与えます。言い換えれば、他方の側の係数を指定した室内表面と、同一の他方の側の係数を指定した外壁は、まったく同じようにシミュレーションされます。他の側の係数を使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外面の場合は屋外の環境が相手側の環境となります。内部表面の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。同様に、他面係数を指定したサーフェスでは、他面環境をコントロールすることができます。</p>
@@ -7279,9 +7279,83 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.2. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<h3 id="_ポンプの設定方法"><a class="link" href="#_ポンプの設定方法">10.2. ポンプの設定方法</a></h3>
 <div class="sect3">
-<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.2.1. Errorの重大さによる分類</a></h4>
+<h4 id="_2ポンプシステムのモデリング方法"><a class="link" href="#_2ポンプシステムのモデリング方法">10.2.1. 2ポンプシステムのモデリング方法</a></h4>
+<div class="paragraph">
+<p>2ポンプシステム（一次ポンプと二次ポンプがあるシステム）をモデリングする場合は、
+「PlantLoop」オブジェクトの「Common Pipe Simulation」フィールドを「TwoWayCommonPipe」として、
+一次ポンプをprimaryループの熱源入り口側ブランチに、二次ポンプをsecondaryループの空調機入り口側ブランチに設置する。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump01.png" alt="図" width="600">
+</div>
+<div class="title">図 13. 2ポンプシステムのモデリング</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_様々なパターンのモデリング"><a class="link" href="#_様々なパターンのモデリング">10.2.2. 様々なパターンのモデリング</a></h4>
+<div class="paragraph">
+<p>複数の熱源を設置したうえで、一次ポンプと二次ポンプを設置した場合の解析に不具合が発生する。</p>
+</div>
+<div class="paragraph">
+<p>パターン1： NG<br>
+一次ポンプを変流量とする。運転しない熱源の通過流量は０となる。一次ポンプ流量は最大で、バイパス管を通じて流れていると考えられる。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump02.png" alt="図" width="600">
+</div>
+<div class="title">図 14. パターン1</div>
+</div>
+<div class="paragraph">
+<p>パターン2： NG<br>
+熱源の運転台数にかかわらず、全ての一次ポンプが運転する。全ての熱源が停止すると、全ての一次ポンプが停止する。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump03.png" alt="図" width="600">
+</div>
+<div class="title">図 15. パターン2</div>
+</div>
+<div class="paragraph">
+<p>パターン3：OK<br>
+単一熱源で一次ポンプ、二次ポンプを設置することは可能である。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump04.png" alt="図" width="600">
+</div>
+<div class="title">図 16. パターン3</div>
+</div>
+<div class="paragraph">
+<p>パターン4：OK<br>
+複数の熱源を設置した１ポンプ方式は計算可能である。熱源の容量が異なる場合も計算できることを確認した。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump05.png" alt="図" width="600">
+</div>
+<div class="title">図 17. パターン4</div>
+</div>
+<div class="paragraph">
+<p>EnergyPlusでポンプの運転は、ループや熱源の運転に連動する。
+しかし、連動する機器を指定できないため、意図しないポンプの運転が発生してしまう。
+EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御すれば、意図通りの運転を再現出来る可能性がある。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/secondarypump06.png" alt="図" width="600">
+</div>
+<div class="title">図 18. Plant/Condenser Supply Side Solution Scheme</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.3. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<div class="sect3">
+<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.3.1. Errorの重大さによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/errors.html#errors">bigladder:Input Output Reference</a></p>
 </div>
@@ -7317,7 +7391,7 @@ SurfaceProperty:OtherSideCoefficients,
 </table>
 </div>
 <div class="sect3">
-<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.2.2. Errorの実行プロセスによる分類</a></h4>
+<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.3.2. Errorの実行プロセスによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/error-messages-details.html#error-messages-details">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7355,7 +7429,7 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.2.3. Preprocessorからのエラーメッセージ</a></h4>
+<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.3.3. Preprocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-preprocessors.html#example-error-messages-for-preprocessors">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7363,7 +7437,7 @@ SurfaceProperty:OtherSideCoefficients,
 <p>すべてのPreprocessorプログラムは、検出したエラーに対してOutput：PreprocessorMessageオブジェクトを生成する。これらのエラーを理解するには、実際のPreprocessorプログラムのドキュメントを参照する必要がある場合がある。 Preprocessorからのエラーメッセージは、errファイルの最初に表示される。メッセージの形式は、&lt;objectname&gt;（つまり、Output：Preprocessormessage）、引用符で囲まれたプログラム名（たとえば、EPMacro）、そしてメッセージの文字列（Warning、Severe、Fatal）である。 Fatalの場合、EnergyPlusはすべてのエラーメッセージを生成した後に実行を中止する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例"><a class="link" href="#_warningの例">10.2.3.1. Warningの例</a></h5>
+<h5 id="_warningの例"><a class="link" href="#_warningの例">10.3.3.1. Warningの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPXMLPreProc2" has the following Warning conditions:
@@ -7374,7 +7448,7 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例"><a class="link" href="#_severeの例">10.2.3.2. Severeの例</a></h5>
+<h5 id="_severeの例"><a class="link" href="#_severeの例">10.3.3.2. Severeの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPMacro" has the following Severe conditions:
@@ -7387,7 +7461,7 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="sect3">
-<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.2.4. Input Pocessorからのエラーメッセージ</a></h4>
+<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.3.4. Input Pocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-the-input.html#example-error-messages-for-the-input-processor">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7395,7 +7469,7 @@ SurfaceProperty:OtherSideCoefficients,
 <p>InputProcessorはEnergyPlusプログラムの一部であり、入力ファイルをスキャンし、IDD（Input Data Dictionary）の要件と照合する。InputProcessorのエラーはIPから始まる文字列で表示される。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.2.4.1. Warningの例</a></h5>
+<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.3.4.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7410,7 +7484,7 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.2.4.2. Severeの例</a></h5>
+<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.3.4.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7452,7 +7526,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.2.4.3. Fatalの例</a></h5>
+<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.3.4.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Fatalエラーのメッセージは上記のSevereエラーの結果として表示されるようである。</p>
 </div>
@@ -7464,7 +7538,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.2.5. Module GetInputからのエラーメッセージ</a></h4>
+<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.3.5. Module GetInputからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-from-module-getinput.html#example-error-messages-from-module-getinput-routines">bigladder:Tips and Tricks</a></p>
 </div>
@@ -7472,7 +7546,7 @@ Possible Invalid Numerics or other problems</code></pre>
 <p>シミュレーションが開始されると、各モジュールが呼び出され、入力ファイルから値を取得する。これらは通常、GetInputルーチンと呼ばれる。IDDの制限では完全に記述できないエラーチェックを入力に対して追加で行い、さらに、オブジェクトが別のオブジェクトに対して与える可能性のある影響も考慮する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.2.5.1. Warningの例</a></h5>
+<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.3.5.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7615,7 +7689,7 @@ Dropping Vertex [2].</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.2.5.2. Severeの例</a></h5>
+<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.3.5.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7677,19 +7751,19 @@ Number of Surface Sides at minimum.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.2.5.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.3.5.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>このカテゴリーのSevereエラーはたいていFatalエラーにつながり、シミュレーションは途中で終了する。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.2.6. SizingとSimulationからのエラーメッセージ</a></h4>
+<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.3.6. SizingとSimulationからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-during-sizing.html#example-error-messages-during-sizing-and-simulation">bigladder:Tips and Tricks</a></p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.2.6.1. Warningの例</a></h5>
+<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.3.6.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7708,7 +7782,7 @@ Check Sizing:Zone and ZoneControl:Thermostat inputs.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.2.6.2. Severeの例</a></h5>
+<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.3.6.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -7729,7 +7803,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.2.6.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.3.6.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Severeエラーの数などが表示される。</p>
 </div>
@@ -7744,7 +7818,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.2.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
+<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.3.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
 <div class="paragraph">
 <p>上記より、建物側（負荷計算）に関するエラーは多く定義されている印象を受ける。しかし、システム側については参照できるドキュメント類からエラーの定義について十分確認できなかった。オブジェクトによってはユーザー自ら温度や流量などの上下限値を指定するものある。</p>
 </div>
@@ -7772,7 +7846,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.3. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
+<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.4. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
 <div class="paragraph">
 <p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
 </div>
@@ -7781,7 +7855,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.4. Timesteps in Averaging Window</a></h3>
+<h3 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.5. Timesteps in Averaging Window</a></h3>
 <div class="paragraph">
 <p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
 </div>
@@ -7793,34 +7867,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.5. DesignBuilderの使い方</a></h3>
-<div class="paragraph">
-<p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い_2"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い_2">10.6. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
-<div class="paragraph">
-<p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
-</div>
-<div class="paragraph">
-<p>EnergyPlusにおいては予熱時間そのものの概念はないが、最大負荷を求める際の平均時間を設定することで、類似の処理を行えるようになっている。オブジェクトSizing:ParametersのTimesteps in Averaging Windowに平均処理を行うタイムステップ数を指定することができる。以下は<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder:Input Output Reference:Sizing:Parameters:Timesteps in Averaging Window</a>の和訳である。以下ではゾーン設計風量にのみ言及しているが、ゾーン設計風量の計算はAuto-sizingの計算フロー上、最も上流側で行われるようであるため、空調システムや熱源システムの容量設計においてもここで指定したステップ数が反映されると思われる。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_timesteps_in_averaging_window_2"><a class="link" href="#_timesteps_in_averaging_window_2">10.7. Timesteps in Averaging Window</a></h3>
-<div class="paragraph">
-<p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
-</div>
-<div class="paragraph">
-<p>ゾーン設計風量計算は、一定の温度で加熱または冷却空気が無限に供給されると想定して実行される。したがって、計算された設計風量は、どれほど大きく急激な負荷であっても、常にあらゆる負荷変動に対応できる。実際には、風量はダクトのサイズとファンの容量によって制限される。理想的なゾーン設計風量計算では、特にユーザーが夜間のセットアップまたはセットバックを伴うサーモスタットスケジュールを使用してサイジング計算を実行している場合、非現実的に大きな風量が発生する可能性がある。計算されたゾーン設計風量は、常にタイムステップにわたって平均化される。ユーザーは、サーモスタットのセットアップとセットバックの影響を軽減し、ウォームアップまたはクールダウン時の風量が設計風量の計算において支配的になるのを防ぐために、より平均時間を長く指定することができる。</p>
-</div>
-<div class="paragraph">
-<p>たとえば、負荷計算のタイムステップが15分で、ユーザーがこの平均化タイムステップ数を4に指定した場合、ゾーン設計風量は1時間にわたって平均化される。8を指定すると、2時間の平均となる。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_designbuilderの使い方_2"><a class="link" href="#_designbuilderの使い方_2">10.8. DesignBuilderの使い方</a></h3>
+<h3 id="_designbuilderの使い方"><a class="link" href="#_designbuilderの使い方">10.6. DesignBuilderの使い方</a></h3>
 <div class="paragraph">
 <p><a href="https://masatomiyata.github.io/EnergyPlus_SHASEG1008/DesignBuilder.html">DesignBuilder＋Rを用いたAS140単室テスト</a></p>
 </div>
@@ -7830,7 +7877,7 @@ Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-19 19:18:08 +0900
+Last updated 2021-10-19 20:54:31 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

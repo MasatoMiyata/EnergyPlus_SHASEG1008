@@ -124,6 +124,58 @@ OtherSideCoeﬀicientsは、下記の式で与えられる。
 image::figures/OthersideCoefficients.png[図,800]
 
 
+=== ポンプの設定方法
+
+==== 2ポンプシステムのモデリング方法
+
+2ポンプシステム（一次ポンプと二次ポンプがあるシステム）をモデリングする場合は、
+「PlantLoop」オブジェクトの「Common Pipe Simulation」フィールドを「TwoWayCommonPipe」として、
+一次ポンプをprimaryループの熱源入り口側ブランチに、二次ポンプをsecondaryループの空調機入り口側ブランチに設置する。
+
+.2ポンプシステムのモデリング 
+image::figures/secondarypump01.png[図,600]
+
+
+==== 様々なパターンのモデリング
+
+複数の熱源を設置したうえで、一次ポンプと二次ポンプを設置した場合の解析に不具合が発生する。
+
+パターン1： NG +
+一次ポンプを変流量とする。運転しない熱源の通過流量は０となる。一次ポンプ流量は最大で、バイパス管を通じて流れていると考えられる。
+
+.パターン1
+image::figures/secondarypump02.png[図,600]
+
+
+パターン2： NG +
+熱源の運転台数にかかわらず、全ての一次ポンプが運転する。全ての熱源が停止すると、全ての一次ポンプが停止する。
+
+.パターン2
+image::figures/secondarypump03.png[図,600]
+
+
+パターン3：OK +
+単一熱源で一次ポンプ、二次ポンプを設置することは可能である。
+
+.パターン3
+image::figures/secondarypump04.png[図,600]
+
+パターン4：OK +
+複数の熱源を設置した１ポンプ方式は計算可能である。熱源の容量が異なる場合も計算できることを確認した。
+
+.パターン4
+image::figures/secondarypump05.png[図,600]
+
+
+EnergyPlusでポンプの運転は、ループや熱源の運転に連動する。
+しかし、連動する機器を指定できないため、意図しないポンプの運転が発生してしまう。
+EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御すれば、意図通りの運転を再現出来る可能性がある。
+
+.Plant/Condenser Supply Side Solution Scheme
+image::figures/secondarypump06.png[図,600]
+
+
+
 === EnergyPlusにおけるErrorの取り扱い
 
 ==== Errorの重大さによる分類

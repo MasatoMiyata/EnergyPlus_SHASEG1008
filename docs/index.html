@@ -7223,16 +7223,32 @@ EnergyPlusは、ゾーンのグループを同時にシミュレートし、ゾ�
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyothersidecoefficients">bigladder:SurfaceProperty:OtherSideCoeﬀicients</a></p>
 </div>
 <div class="paragraph">
-<p>サーフェスのステートメント（＝Outside Boundary Condition）でOther Side Coefficientsのステートメントを参照することで、サーフェスの外面の温度を直接制御することができます。また、Other Side Coefficientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。他の側の係数を使用する場合、太陽の影響は考慮されないことに注意する必要があります。さらに、他方の側の係数がサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができますが）。</p>
+<p>サーフェスのステートメント（Outside Boundary Condition）において、OtherSideCoeﬀicientsを参照することで、サーフェスの外側の温度を直接制御することができます。
+また、OtherSideCoeﬀicientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。
+OtherSideCoeﬀicientsを使用する場合、太陽の影響は考慮されないことに注意する必要があります。
+さらに、OtherSideCoeﬀicientsがサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができます）。</p>
 </div>
 <div class="paragraph">
-<p>other side 係数は、すべてのタイプの伝熱面に同じ効果を与えます。言い換えれば、他方の側の係数を指定した室内表面と、同一の他方の側の係数を指定した外壁は、まったく同じようにシミュレーションされます。他の側の係数を使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外面の場合は屋外の環境が相手側の環境となります。内部表面の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。同様に、他面係数を指定したサーフェスでは、他面環境をコントロールすることができます。</p>
+<p>OtherSideCoeﬀicientsは、すべてのタイプの伝熱面に同じ効果を与えます。
+言い換えれば、OtherSideCoeﬀicientsを指定した室内表面と、同一のOtherSideCoeﬀicientsを指定した外壁は、まったく同じようにシミュレーションされます。
+OtherSideCoeﬀicientsを使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。
+様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外壁の場合は屋外の環境が相手側の環境となります。
+内壁の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。
+同様に、OtherSideCoeﬀicientsを指定したサーフェスでは、他面環境をコントロールすることができます。</p>
 </div>
 <div class="paragraph">
-<p>サーフェスを介した熱伝導は、ゾーンロードの計算において非常に重要な要素です。この熱伝達を計算するための情報は、表面が屋外環境やシミュレーションされている別のゾーンにさらされていれば、すぐに入手できます。時には、EnergyPlusモデルに含まれていないエリアに隣接する表面の熱伝達をモデル化したい場合があります。例えば、オフィスエリアが倉庫に隣接していて、ユーザーはオフィスエリアのシミュレーションにしか興味がない場合です。Other Side Coefficientsが指定されたインテリアサーフェスは、サーフェスの反対側の環境を制御するために使用することができ、それによって隣接するサーフェスを介した熱伝達を考慮することができます。</p>
+<p>サーフェスを介した熱伝導は、ゾーンロードの計算において非常に重要な要素です。
+この熱伝達を計算するための情報は、表面が屋外環境やシミュレーションされている別のゾーンにさらされていれば、すぐに入手できます。
+時には、EnergyPlusモデルに含まれていないエリアに隣接する表面の熱伝達をモデル化したい場合があります。
+例えば、オフィスエリアが倉庫に隣接していて、ユーザーはオフィスエリアのシミュレーションにしか興味がない場合です。
+OtherSideCoeﬀicientsが指定されたインテリアサーフェスは、サーフェスの反対側の環境を制御するために使用することができ、それによって隣接するサーフェスを介した熱伝達を考慮することができます。</p>
 </div>
 <div class="paragraph">
-<p>Other Side Coefficientsは、以下のように表面の「反対側」に影響を与えます。各係数には特別な意味があります。特定の係数を使用しない場合は、0または空白を入力することができます。反対側の係数を使用する方法は2つあることに注意してください。外側面の温度を直接設定する場合（下記の対流・輻射複合係数が0以下の場合）と、フィルム係数（下記の対流・輻射複合係数の正の値）と外気温度の両方を設定する場合に使用します。</p>
+<p>OtherSideCoeﬀicientsは、以下に示すように表面の「反対側」に影響を与えます。各係数には特別な意味があります。
+特定の係数を使用しない場合は、0または空白を入力することができます。
+反対側の係数を使用する方法は2つあることに注意してください。
+外側面の温度を直接設定する場合（下記の対流・輻射複合係数が0以下の場合）と、
+フィルム係数（下記の対流・輻射複合係数の正の値）と外気温度の両方を設定する場合に使用します。</p>
 </div>
 <div class="listingblock">
 <div class="title">SurfaceProperty:OtherSideCoefficients</div>
@@ -7268,13 +7284,124 @@ SurfaceProperty:OtherSideCoefficients,
 </div>
 </div>
 <div class="paragraph">
-<p>OtherSideCoeﬀicientsは、下記の式で与えられる。</p>
+<p>OtherSideCoeﬀicientsは、下記の式で与えられる。係数C1〜C8は以下で説明する入力項目である。</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="figures/OthersideCoefficients.png" alt="図" width="800">
 </div>
 <div class="title">図 12. OtherSideCoeﬀicients</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_7"><a class="link" href="#_name_7">10.1.3. Name</a></h4>
+<div class="paragraph">
+<p>OtherSideCoefficientsをOutside Boundary Conditionとして使用しているSurfaceステートメントで参照される文字列です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_combined_convectiveradiative_film_coefficient_c1"><a class="link" href="#_combined_convectiveradiative_film_coefficient_c1">10.1.4. Combined Convective/Radiative Film Coefficient (C1)</a></h4>
+<div class="paragraph">
+<p>これはトリガーとなる値である。
+値が0より大きい場合、それは複合対流/放射膜係数であるとみなされる。
+値が0より大きい場合、残りのフィールドは、まず外気温度を計算し、次に外気温度とフィルム係数に基づいて外部表面温度を計算するために使用される。
+このフィールドが0以下の場合、残りのフィールドは表面温度を計算するために使用されます（外気温度ではありません）。
+このフィールドの単位は、対流熱伝達率と同じ　W/(m2*K)　です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constant_temperature_c2"><a class="link" href="#_constant_temperature_c2">10.1.5. Constant Temperature (C2)</a></h4>
+<div class="paragraph">
+<p>このフィールドは、表面温度または外気温度のいずれかを計算する際に一定の要素となる温度項を定義する。
+2番目のパラメータにスケジュール名が含まれている場合、このパラメータの値はスケジュールの値で上書きされます。
+このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constant_temperature_coefficient_c3"><a class="link" href="#_constant_temperature_coefficient_c3">10.1.6. Constant Temperature Coefficient (C3)</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、一定の温度に適用される一定の係数を定義する（前のフィールドを参照）。
+このパラメータは無次元である。
+C2の設定にスケジュールが使用されている場合、このパラメータの値は通常1.0です。
+このフィールドは、Sinusoidal Variation of Constant Temperature Coefficient = Yesの場合は無視されます。
+このフィールドのデフォルトは1.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_external_dry_bulb_temperature_coefficient_c4"><a class="link" href="#_external_dry_bulb_temperature_coefficient_c4">10.1.7. External Dry-Bulb Temperature Coefficient (C4)</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、外気乾球温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ground_temperature_coefficient_c5"><a class="link" href="#_ground_temperature_coefficient_c5">10.1.8. Ground Temperature Coefficient (C5)</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、地面の温度（参考：Site:GroundTemperature:BuildingSurface）に適用される一定の係数を定義します。
+このパラメータは無次元です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_wind_speed_coefficient_c6"><a class="link" href="#_wind_speed_coefficient_c6">10.1.9. Wind Speed Coefficient (C6)</a></h4>
+<div class="paragraph">
+<p>このフィールドは、外気乾球温度と風速の積に適用される一定の係数を定義する。
+このパラメータは、逆速度またはs/mの単位を持ちます。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_zone_air_temperature_coefficient_c7"><a class="link" href="#_zone_air_temperature_coefficient_c7">10.1.10. Zone Air Temperature Coefficient (C7)</a></h4>
+<div class="paragraph">
+<p>このフィールドは、このサーフェスが属するゾーンの温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constant_temperature_schedule_name"><a class="link" href="#_constant_temperature_schedule_name">10.1.11. Constant Temperature Schedule Name</a></h4>
+<div class="paragraph">
+<p>このフィールドは、スケジュール名を入力するために使用される。そのスケジュールは「一定」の温度値C2を供給する。
+C2にスケジュールが使用されている場合、C3フィールドの値は通常1.0であることに注意してください。
+空白でない場合、このフィールドには有効なスケジュール名を入力する必要があります。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sinusoidal_variation_of_constant_temperature_coefficient"><a class="link" href="#_sinusoidal_variation_of_constant_temperature_coefficient">10.1.12. Sinusoidal Variation of Constant Temperature Coefficient</a></h4>
+<div class="paragraph">
+<p>このフィールドはオプションで、一定温度に適用される係数を規定する別の方法を定義するために使用できます（フィールド「Constant Temperature」および「Constant Temperature Coefficient」を参照）。
+このパラメータは、以下の式では "C2 "と表示されています。このフィールドが省略されるか、空白にされるか、または「No」に設定された場合、C2は定数です（フィールド「Constant Temperature Coefficient」で定義されます）。
+ただし、この項目が「Yes」に設定されている場合、C2の値はユニタリーサイン波に応じて以下のように変化します。</p>
+</div>
+<div class="paragraph">
+<p>期間の値は、次のフィールドで制御されます。時間帯の値は、ゾーンのタイムステップに基づいており、単位は時間である。
+ここでのサイン関数は、ラジアンとしての入力を使用します。
+このオプションを使用すると、「C2」の値は-1.0～1.0の間で変化し、「一定の温度係数」フィールドに入力された値は使用されません。
+このオプションは、前のフィールドで一定の温度をスケジュールするのと同時に使用することはできません。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_period_of_sinusoidal_variation"><a class="link" href="#_period_of_sinusoidal_variation">10.1.13. Period of Sinusoidal Variation</a></h4>
+<div class="paragraph">
+<p>このフィールドは、前のフィールドで選択した「Sinusoidal Variation of Constant Temperature Coefficient」機能を使用する際に、正弦波の周期を定義するために使用される。
+このフィールドは、正弦波の期間を時間単位で表します。
+デフォルトは24時間で、日周期の正弦波が得られます。ここに入力された値は、前のフィールドの式における「period」である。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_previous_other_side_temperature_coefficient_c8"><a class="link" href="#_previous_other_side_temperature_coefficient_c8">10.1.14. Previous Other Side Temperature Coefficient (C8)</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、前のゾーン・タイム・ステップからこのオブジェクトによって計算された相手側温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_minimum_other_side_temperature_limit"><a class="link" href="#_minimum_other_side_temperature_limit">10.1.15. Minimum Other Side Temperature Limit</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、相手側の温度結果の下限値を℃で指定する。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_maximum_other_side_temperature_limit"><a class="link" href="#_maximum_other_side_temperature_limit">10.1.16. Maximum Other Side Temperature Limit</a></h4>
+<div class="paragraph">
+<p>このフィールドでは、他方の温度結果の上限を℃で指定する。</p>
 </div>
 </div>
 </div>

@@ -89,7 +89,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    1;                      !- Number of Timesteps per Hour
+    1;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
@@ -278,6 +278,7 @@ Site:GroundTemperature:BuildingSurface,
     18,                      !- October Ground Temperature {C}
     18,                      !- November Ground Temperature {C}
     18;                      !- December Ground Temperature {C}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDREFLECTANCE ===========
 
@@ -471,19 +472,20 @@ Schedule:Week:Daily,
     Off;                     !- CustomDay2 Schedule:Day Name
 
 Schedule:Week:Daily,
-    Control Type Week Sch,  !- Name
-    Control Type Day Sch,  !- Sunday Schedule:Day Name
-    Control Type Day Sch,  !- Monday Schedule:Day Name
-    Control Type Day Sch,  !- Tuesday Schedule:Day Name
-    Control Type Day Sch,  !- Wednesday Schedule:Day Name
-    Control Type Day Sch,  !- Thursday Schedule:Day Name
-    Control Type Day Sch,  !- Friday Schedule:Day Name
-    Control Type Day Sch,  !- Saturday Schedule:Day Name
-    Control Type Day Sch,  !- Holiday Schedule:Day Name
-    Control Type Day Sch,  !- SummerDesignDay Schedule:Day Name
-    Control Type Day Sch,  !- WinterDesignDay Schedule:Day Name
-    Control Type Day Sch,  !- CustomDay1 Schedule:Day Name
-    Control Type Day Sch;  !- CustomDay2 Schedule:Day Name
+    Control Type Week Sch,   !- Name
+    Control Type Day Sch,    !- Sunday Schedule:Day Name
+    Control Type Day Sch,    !- Monday Schedule:Day Name
+    Control Type Day Sch,    !- Tuesday Schedule:Day Name
+    Control Type Day Sch,    !- Wednesday Schedule:Day Name
+    Control Type Day Sch,    !- Thursday Schedule:Day Name
+    Control Type Day Sch,    !- Friday Schedule:Day Name
+    Control Type Day Sch,    !- Saturday Schedule:Day Name
+    Control Type Day Sch,    !- Holiday Schedule:Day Name
+    Control Type Day Sch,    !- SummerDesignDay Schedule:Day Name
+    Control Type Day Sch,    !- WinterDesignDay Schedule:Day Name
+    Control Type Day Sch,    !- CustomDay1 Schedule:Day Name
+    Control Type Day Sch;    !- CustomDay2 Schedule:Day Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
 
@@ -1193,66 +1195,55 @@ Schedule:Compact,
     Until: 24:00,            !- Field 11
     1;                       !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! room temperature setpoint schedule
-
 Schedule:Compact,
     Heating Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: AllDays,  !- Field 2
-    Until: 24:00,            !- Field 10
-    22,                      !- Field 11
-
-    Through: 31 May,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    24,                      !- Field 11
-
-    Through: 30 Sep,         !- Field 1
-    For: AllDays,   !- Field 2
-    Until: 24:00,            !- Field 10
-    26,                      !- Field 11
-
-    Through: 30 Nov,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    24,                      !- Field 11
-
-    Through: 31 Dec,         !- Field 16
-    For: AllDays,           !- Field 17
-    Until: 24:00,            !- Field 10
-    22;                      !- Field 11
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    22,                      !- Field 4
+    Through: 31 May,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    24,                      !- Field 8
+    Through: 30 Sep,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    26,                      !- Field 12
+    Through: 30 Nov,         !- Field 13
+    For: AllDays,            !- Field 14
+    Until: 24:00,            !- Field 15
+    24,                      !- Field 16
+    Through: 31 Dec,         !- Field 17
+    For: AllDays,            !- Field 18
+    Until: 24:00,            !- Field 19
+    22;                      !- Field 20
 
 Schedule:Compact,
     Cooling Setpoint Schedule,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 31 Mar,         !- Field 1
-    For: AllDays,  !- Field 2
-    Until: 24:00,            !- Field 10
-    22,                      !- Field 11
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    22,                      !- Field 4
+    Through: 31 May,         !- Field 5
+    For: AllDays,            !- Field 6
+    Until: 24:00,            !- Field 7
+    24,                      !- Field 8
+    Through: 30 Sep,         !- Field 9
+    For: AllDays,            !- Field 10
+    Until: 24:00,            !- Field 11
+    26,                      !- Field 12
+    Through: 30 Nov,         !- Field 13
+    For: AllDays,            !- Field 14
+    Until: 24:00,            !- Field 15
+    24,                      !- Field 16
+    Through: 31 Dec,         !- Field 17
+    For: AllDays,            !- Field 18
+    Until: 24:00,            !- Field 19
+    22;                      !- Field 20
 
-    Through: 31 May,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    24,                      !- Field 11
-
-    Through: 30 Sep,         !- Field 1
-    For: AllDays,   !- Field 2
-    Until: 24:00,            !- Field 10
-    26,                      !- Field 11
-
-    Through: 30 Nov,         !- Field 1
-    For: AllDays,           !- Field 2
-    Until: 24:00,            !- Field 10
-    24,                      !- Field 11
-
-    Through: 31 Dec,         !- Field 16
-    For: AllDays,           !- Field 17
-    Until: 24:00,            !- Field 10
-    22;                      !- Field 11
-
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     1F:01XCorridor Heating Availability Sch,  !- Name
@@ -1296,7 +1287,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1309,7 +1300,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1317,10 +1308,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     1F:02XLobby Heating Availability Sch,  !- Name
@@ -1364,7 +1353,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1377,7 +1366,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1385,9 +1374,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     1F:03XEVHall Heating Availability Sch,  !- Name
@@ -1420,7 +1408,6 @@ Schedule:Compact,
     Until: 24:00,            !- Field 10
     0;                       !- Field 11
 
-
 ! Modified schedule: On 24/7
 Schedule:Compact,
     1F:03XEVHall Humidifying RH Schedule,  !- Name
@@ -1432,7 +1419,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1445,7 +1432,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1453,26 +1440,25 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 24H Heating
 Schedule:Compact,
     1F:04XCntrlMntrngRm Heating Availability Sch,  !- Name
     Fraction,                !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    1;                       !- Field 12
+    Through: 31 Dec,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    1;                       !- Field 4
 
 ! Modified schedule: JP Office - 24H Cooling
 Schedule:Compact,
     1F:04XCntrlMntrngRm Cooling Availability Sch,  !- Name
     Fraction,                !- Schedule Type Limits Name
-    Through: 31 Dec,         !- Field 9
-    For: AllDays,            !- Field 10
-    Until: 24:00,            !- Field 11
-    1;                       !- Field 12
+    Through: 31 Dec,         !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    1;                       !- Field 4
 
 ! Modified schedule: On 24/7
 Schedule:Compact,
@@ -1485,7 +1471,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1498,7 +1484,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1506,10 +1492,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:05XDressing1 Heating Availability Sch,  !- Name
@@ -1553,7 +1537,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1566,7 +1550,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1574,9 +1558,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:06XDressing2 Heating Availability Sch,  !- Name
@@ -1620,7 +1603,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1633,7 +1616,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1641,9 +1624,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:07XBreakRoom Heating Availability Sch,  !- Name
@@ -1687,7 +1669,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1700,7 +1682,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1708,10 +1690,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     1F:08XVending Heating Availability Sch,  !- Name
@@ -1755,7 +1735,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1768,7 +1748,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1776,9 +1756,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:09XOffice1 Heating Availability Sch,  !- Name
@@ -1822,7 +1801,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1835,7 +1814,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1843,9 +1822,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     1F:10XOffice2 Heating Availability Sch,  !- Name
@@ -1889,7 +1867,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1902,7 +1880,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1910,9 +1888,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     2X6F:01XCorridor Heating Availability Sch,  !- Name
@@ -1956,7 +1933,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -1969,7 +1946,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -1977,9 +1954,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     2X6F:02XVending Heating Availability Sch,  !- Name
@@ -2023,7 +1999,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2036,7 +2012,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2044,9 +2020,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     2X6F:03XEVHall Heating Availability Sch,  !- Name
@@ -2062,7 +2037,6 @@ Schedule:Compact,
     For: Weekends AllOtherDays,  !- Field 9
     Until: 24:00,            !- Field 10
     0;                       !- Field 11
-
 
 ! Modified schedule: JP Office - 8-21 Cooling
 Schedule:Compact,
@@ -2091,7 +2065,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2104,7 +2078,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2112,9 +2086,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X1XOfficeNP Heating Availability Sch,  !- Name
@@ -2158,7 +2131,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2171,7 +2144,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2179,9 +2152,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X2XOfficeNEP Heating Availability Sch,  !- Name
@@ -2225,7 +2197,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2238,7 +2210,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2246,9 +2218,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X3XOfficeNWP Heating Availability Sch,  !- Name
@@ -2292,7 +2263,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2305,7 +2276,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2313,9 +2284,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:04X4XOfficeNI Heating Availability Sch,  !- Name
@@ -2359,7 +2329,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2372,7 +2342,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2380,9 +2350,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:05X1XOfficeSP Heating Availability Sch,  !- Name
@@ -2426,7 +2395,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2439,7 +2408,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2447,9 +2416,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:05X2XOfficeSWP Heating Availability Sch,  !- Name
@@ -2493,7 +2461,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2506,7 +2474,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2514,9 +2482,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     2X6F:05X3XOfficeSI Heating Availability Sch,  !- Name
@@ -2560,7 +2527,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2573,7 +2540,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2581,9 +2548,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:01XCorridor Heating Availability Sch,  !- Name
@@ -2627,7 +2593,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2640,7 +2606,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2648,9 +2614,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:02XVending Heating Availability Sch,  !- Name
@@ -2694,7 +2659,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2707,7 +2672,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2715,9 +2680,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 8-21 Heating
 Schedule:Compact,
     7F:03XEVHall Heating Availability Sch,  !- Name
@@ -2761,7 +2725,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2774,7 +2738,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2782,9 +2746,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     7F:04XOffice1 Heating Availability Sch,  !- Name
@@ -2828,7 +2791,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2841,7 +2804,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2849,9 +2812,8 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
-!---------------------------------------------------------------------------------------
 ! Modified schedule: JP Office - 7-21 Heating
 Schedule:Compact,
     7F:05XOffice2 Heating Availability Sch,  !- Name
@@ -2884,7 +2846,6 @@ Schedule:Compact,
     Until: 24:00,            !- Field 10
     0;                       !- Field 11
 
-
 ! Modified schedule: On 24/7
 Schedule:Compact,
     7F:05XOffice2 Humidifying RH Schedule,  !- Name
@@ -2896,7 +2857,7 @@ Schedule:Compact,
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
-    50,                       !- Field 8
+    50,                      !- Field 8
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
@@ -2909,7 +2870,7 @@ Schedule:Compact,
     Through: 31 Mar,         !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
-    40,                     !- Field 4
+    40,                      !- Field 4
     Through: 30 Nov,         !- Field 5
     For: AllDays,            !- Field 6
     Until: 24:00,            !- Field 7
@@ -2917,7 +2878,7 @@ Schedule:Compact,
     Through: 31 Dec,         !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,            !- Field 11
-    40;                     !- Field 12
+    40;                      !- Field 12
 
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
@@ -4152,7 +4113,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     541.424,                 !- Volume {m3}
-    100,                  !- Floor Area {m2}
+    100,                     !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4168,7 +4129,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     135.2,                   !- Volume {m3}
-    21.8,                      !- Floor Area {m2}
+    21.8,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4184,7 +4145,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     67.6,                    !- Volume {m3}
-    10.9,                      !- Floor Area {m2}
+    10.9,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4264,7 +4225,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     771.888,                 !- Volume {m3}
-    163.5,                  !- Floor Area {m2}
+    163.5,                   !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4392,7 +4353,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     67.6,                    !- Volume {m3}
-    10.9,                      !- Floor Area {m2}
+    10.9,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4408,7 +4369,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     113.23,                  !- Volume {m3}
-    21.8,                  !- Floor Area {m2}
+    21.8,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4584,7 +4545,7 @@ Zone,
     5,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     87.1,                    !- Volume {m3}
-    21.8,                  !- Floor Area {m2}
+    21.8,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4696,7 +4657,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     528.24,                  !- Volume {m3}
-    144.0,                  !- Floor Area {m2}
+    144.0,                   !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4824,7 +4785,7 @@ Zone,
     1,                       !- Multiplier
     ,                        !- Ceiling Height {m}
     87.1,                    !- Volume {m3}
-    21.8,                  !- Floor Area {m2}
+    21.8,                    !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -18770,6 +18731,22 @@ InternalMass,
     556.7;                   !- Surface Area {m2}
 
 
+!-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:OTHERSIDECOEFFICIENTS ===========
+
+SurfaceProperty:OtherSideCoefficients,
+    nonACzone,               !- Name
+    ,                        !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+    ,                        !- Constant Temperature {C}
+    1,                       !- Constant Temperature Coefficient
+    0.1,                     !- External Dry-Bulb Temperature Coefficient
+    ,                        !- Ground Temperature Coefficient
+    ,                        !- Wind Speed Coefficient
+    0.9,                     !- Zone Air Temperature Coefficient
+    ,                        !- Constant Temperature Schedule Name
+    No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+    24;                      !- Period of Sinusoidal Variation {hr}
+
+
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
 People,
@@ -19653,11 +19630,11 @@ ZoneInfiltration:DesignFlowRate,
     0;                       !- Velocity Squared Term Coefficient
 
 ZoneInfiltration:DesignFlowRate,
-    1F:02XLobby Infiltration 1,!- Name
+    1F:02XLobby Infiltration 1,  !- Name
     1F:02XLobby,             !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00972,                !- Design Flow Rate {m3/s}
+    0.00972,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19671,7 +19648,7 @@ ZoneInfiltration:DesignFlowRate,
     1F:03XEVHall,            !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00117,                !- Design Flow Rate {m3/s}
+    0.00117,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19685,7 +19662,7 @@ ZoneInfiltration:DesignFlowRate,
     1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00282,                !- Design Flow Rate {m3/s}
+    0.00282,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19699,7 +19676,7 @@ ZoneInfiltration:DesignFlowRate,
     1F:05XDressing1,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00073,                !- Design Flow Rate {m3/s}
+    0.00073,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19713,7 +19690,7 @@ ZoneInfiltration:DesignFlowRate,
     1F:06XDressing2,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00073,                !- Design Flow Rate {m3/s}
+    0.00073,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19783,7 +19760,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:01XCorridor,        !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00960,                !- Design Flow Rate {m3/s}
+    0.00960,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19797,7 +19774,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:02XVending,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00157,                !- Design Flow Rate {m3/s}
+    0.00157,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -19825,7 +19802,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.01406,                !- Design Flow Rate {m3/s}
+    0.01406,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20226,7 +20203,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
-
 ZoneInfiltration:DesignFlowRate,
     7F:NXEV Infiltration,    !- Name
     7F:NXEV,                 !- Zone or ZoneList Name
@@ -20255,7 +20231,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
 
-
 ZoneInfiltration:DesignFlowRate,
     7F:NXWC Infiltration,    !- Name
     7F:NXWC,                 !- Zone or ZoneList Name
@@ -20269,7 +20244,6 @@ ZoneInfiltration:DesignFlowRate,
     0,                       !- Temperature Term Coefficient
     0,                       !- Velocity Term Coefficient
     0;                       !- Velocity Squared Term Coefficient
-
 
 ZoneInfiltration:DesignFlowRate,
     PHX1:NXMech Infiltration,!- Name
@@ -20375,8 +20349,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:01XCORRIDOR_1,         !- Name
-    2X6F:01XCORRIDOR,           !- Zone Name
+    2X6F:01XCORRIDOR_1,      !- Name
+    2X6F:01XCORRIDOR,        !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.083333333,             !- Design Flow Rate {m3/s}
@@ -20387,20 +20361,20 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:01XCORRIDOR_2,         !- Name
-    2X6F:01XCORRIDOR,           !- Zone Name
+    2X6F:01XCORRIDOR_2,      !- Name
+    2X6F:01XCORRIDOR,        !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.125,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:03XEVHALL,         !- Source Zone Name
+    2X6F:03XEVHALL,          !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:03XEVHALL_1,         !- Name
-    2X6F:03XEVHALL,           !- Zone Name
+    2X6F:03XEVHALL_1,        !- Name
+    2X6F:03XEVHALL,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.125,                   !- Design Flow Rate {m3/s}
@@ -20411,8 +20385,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:02XVENDING_1,         !- Name
-    2X6F:02XVENDING,           !- Zone Name
+    2X6F:02XVENDING_1,       !- Name
+    2X6F:02XVENDING,         !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.083333333,             !- Design Flow Rate {m3/s}
@@ -20423,8 +20397,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOFFICENP_1,         !- Name
-    2X6F:04X1XOFFICENP,           !- Zone Name
+    2X6F:04X1XOFFICENP_1,    !- Name
+    2X6F:04X1XOFFICENP,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20435,8 +20409,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOFFICENP_2,         !- Name
-    2X6F:04X1XOFFICENP,           !- Zone Name
+    2X6F:04X1XOFFICENP_2,    !- Name
+    2X6F:04X1XOFFICENP,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20447,8 +20421,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X1XOFFICENP_3,         !- Name
-    2X6F:04X1XOFFICENP,           !- Zone Name
+    2X6F:04X1XOFFICENP_3,    !- Name
+    2X6F:04X1XOFFICENP,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     1.354166667,             !- Design Flow Rate {m3/s}
@@ -20459,8 +20433,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X2XOFFICENEP_1,         !- Name
-    2X6F:04X2XOFFICENEP,           !- Zone Name
+    2X6F:04X2XOFFICENEP_1,   !- Name
+    2X6F:04X2XOFFICENEP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
@@ -20471,8 +20445,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X2XOFFICENEP_2,         !- Name
-    2X6F:04X2XOFFICENEP,           !- Zone Name
+    2X6F:04X2XOFFICENEP_2,   !- Name
+    2X6F:04X2XOFFICENEP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20483,8 +20457,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X3XOFFICENWP_1,         !- Name
-    2X6F:04X3XOFFICENWP,           !- Zone Name
+    2X6F:04X3XOFFICENWP_1,   !- Name
+    2X6F:04X3XOFFICENWP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
@@ -20495,8 +20469,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X3XOFFICENWP_2,         !- Name
-    2X6F:04X3XOFFICENWP,           !- Zone Name
+    2X6F:04X3XOFFICENWP_2,   !- Name
+    2X6F:04X3XOFFICENWP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20507,11 +20481,11 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X4XOFFICENI_1,         !- Name
-    2X6F:04X4XOFFICENI,           !- Zone Name
+    2X6F:04X4XOFFICENI_1,    !- Name
+    2X6F:04X4XOFFICENI,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
-    1.354166667,                   !- Design Flow Rate {m3/s}
+    1.354166667,             !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
@@ -20519,32 +20493,32 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X4XOFFICENI_2,         !- Name
-    2X6F:04X4XOFFICENI,           !- Zone Name
+    2X6F:04X4XOFFICENI_2,    !- Name
+    2X6F:04X4XOFFICENI,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X2XOFFICENEP,      !- Source Zone Name
+    2X6F:04X2XOFFICENEP,     !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:04X4XOFFICENI_3,         !- Name
-    2X6F:04X4XOFFICENI,           !- Zone Name
+    2X6F:04X4XOFFICENI_3,    !- Name
+    2X6F:04X4XOFFICENI,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
     ,                        !- Flow Rate per Zone Floor Area {m3/s-m2}
     ,                        !- Flow Rate per Person {m3/s-person}
     ,                        !- Air Changes per Hour {1/hr}
-    2X6F:04X3XOFFICENWP,      !- Source Zone Name
+    2X6F:04X3XOFFICENWP,     !- Source Zone Name
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X1XOFFICESP_1,         !- Name
-    2X6F:05X1XOFFICESP,           !- Zone Name
+    2X6F:05X1XOFFICESP_1,    !- Name
+    2X6F:05X1XOFFICESP,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     1.291666667,             !- Design Flow Rate {m3/s}
@@ -20555,8 +20529,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X1XOFFICESP_2,         !- Name
-    2X6F:05X1XOFFICESP,           !- Zone Name
+    2X6F:05X1XOFFICESP_2,    !- Name
+    2X6F:05X1XOFFICESP,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20567,8 +20541,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X2XOFFICESWP_1,         !- Name
-    2X6F:05X2XOFFICESWP,           !- Zone Name
+    2X6F:05X2XOFFICESWP_1,   !- Name
+    2X6F:05X2XOFFICESWP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
@@ -20579,8 +20553,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X2XOFFICESWP_2,         !- Name
-    2X6F:05X2XOFFICESWP,           !- Zone Name
+    2X6F:05X2XOFFICESWP_2,   !- Name
+    2X6F:05X2XOFFICESWP,     !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.291666667,             !- Design Flow Rate {m3/s}
@@ -20591,8 +20565,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X3XOFFICESI_1,         !- Name
-    2X6F:05X3XOFFICESI,           !- Zone Name
+    2X6F:05X3XOFFICESI_1,    !- Name
+    2X6F:05X3XOFFICESI,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     1.291666667,             !- Design Flow Rate {m3/s}
@@ -20603,8 +20577,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    2X6F:05X3XOFFICESI_2,         !- Name
-    2X6F:05X3XOFFICESI,           !- Zone Name
+    2X6F:05X3XOFFICESI_2,    !- Name
+    2X6F:05X3XOFFICESI,      !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.375,                   !- Design Flow Rate {m3/s}
@@ -20615,8 +20589,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    7F:01XCORRIDOR_1,         !- Name
-    7F:01XCORRIDOR,           !- Zone Name
+    7F:01XCORRIDOR_1,        !- Name
+    7F:01XCORRIDOR,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.083333333,             !- Design Flow Rate {m3/s}
@@ -20627,8 +20601,8 @@ ZoneMixing,
     0;                       !- Delta Temperature {deltaC}
 
 ZoneMixing,
-    7F:01XCORRIDOR_2,         !- Name
-    7F:01XCORRIDOR,           !- Zone Name
+    7F:01XCORRIDOR_2,        !- Name
+    7F:01XCORRIDOR,          !- Zone Name
     On,                      !- Schedule Name
     Flow/Zone,               !- Design Flow Rate Calculation Method
     0.125,                   !- Design Flow Rate {m3/s}
@@ -21862,128 +21836,128 @@ ZoneControl:Thermostat,
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:09XOffice1,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:10XOffice2,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:02XLobby,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:07XBreakRoom,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:06XDressing2,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:04XCntrlMntrngRm,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:01XCorridor,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:03XEVHall,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:05XDressing1,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 1F:08XVending,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:01XCorridor,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:03XEVHall,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X1XOfficeSP,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X3XOfficeSI,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:02XVending,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X1XOfficeNP,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X2XOfficeNEP,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X3XOfficeNWP,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:04X4XOfficeNI,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 2X6F:05X2XOfficeSWP,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
-    Dual Setpoint - Zone 7F:01XCorridor, !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Dual Setpoint - Zone 7F:01XCorridor,  !- Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
-    Dual Setpoint - Zone 7F:03XEVHall,   !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Dual Setpoint - Zone 7F:03XEVHall,  !- Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:05XOffice2,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:02XVending,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 ThermostatSetpoint:DualSetpoint,
     Dual Setpoint - Zone 7F:04XOffice1,  !- Name
-    Heating Setpoint Schedule,         !- Heating Setpoint Temperature Schedule Name
-    Cooling Setpoint Schedule;         !- Cooling Setpoint Temperature Schedule Name
+    Heating Setpoint Schedule,  !- Heating Setpoint Temperature Schedule Name
+    Cooling Setpoint Schedule;  !- Cooling Setpoint Temperature Schedule Name
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
@@ -23273,26 +23247,93 @@ NodeList,
     Node 7F:04XOffice1 In;   !- Node 1 Name
 
 
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
 
-Output:VariableDictionary,IDF;
-Output:Surfaces:Drawing,DXF;
-Output:Constructions,Constructions; 
+Output:VariableDictionary,
+    IDF;                     !- Key Field
 
-Output:Variable,*,Zone Mean Air Temperature,hourly; !- Zone Average [C]
-Output:Variable,*,Zone Mean Air Humidity Ratio,hourly; !- Zone Average [kgWater/kgDryAir]
 
-Output:Variable,*,Zone Ideal Loads Zone Sensible Heating Energy,hourly; !- HVAC Sum [J]
-Output:Variable,*,Zone Ideal Loads Zone Latent Heating Energy,hourly; !- HVAC Sum [J]
-Output:Variable,*,Zone Ideal Loads Zone Total Heating Energy,hourly; !- HVAC Sum [J]
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:SURFACES:DRAWING ===========
 
-Output:Variable,*,Zone Ideal Loads Zone Sensible Cooling Energy,hourly; !- HVAC Sum [J]
-Output:Variable,*,Zone Ideal Loads Zone Latent Cooling Energy,hourly; !- HVAC Sum [J]
-Output:Variable,*,Zone Ideal Loads Zone Total Cooling Energy,hourly; !- HVAC Sum [J]
+Output:Surfaces:Drawing,
+    DXF;                     !- Report Type
 
-Output:Variable,*,Zone Ideal Loads Zone Sensible Heating Rate,hourly; !- HVAC Average [W]
-Output:Variable,*,Zone Ideal Loads Zone Latent Heating Rate,hourly; !- HVAC Average [W]
-Output:Variable,*,Zone Ideal Loads Zone Total Heating Rate,hourly; !- HVAC Average [W]
 
-Output:Variable,*,Zone Ideal Loads Zone Sensible Cooling Rate,hourly; !- HVAC Average [W]
-Output:Variable,*,Zone Ideal Loads Zone Latent Cooling Rate,hourly; !- HVAC Average [W]
-Output:Variable,*,Zone Ideal Loads Zone Total Cooling Rate,hourly; !- HVAC Average [W]
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:CONSTRUCTIONS ===========
+
+Output:Constructions,
+    Constructions;           !- Details Type 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Mean Air Humidity Ratio,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
+    hourly;                  !- Reporting Frequency
+

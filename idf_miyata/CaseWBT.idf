@@ -4150,38 +4150,6 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
-! 1F - N-WC
-Zone,
-    1F:NXWC,                 !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    359.97,                  !- Volume {m3}
-    69.225,                  !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-! 1F - N-Vestibule
-Zone,
-    1F:NXVestibule,          !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    113.152,                 !- Volume {m3}
-    21.76,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
 ! 1F - 04-Central Monitoring Room
 Zone,
     1F:04XCntrlMntrngRm,     !- Name
@@ -4194,22 +4162,6 @@ Zone,
     ,                        !- Ceiling Height {m}
     202.8,                   !- Volume {m3}
     39,                      !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-! 1F - N-Mech 2
-Zone,
-    1F:NXMech2,              !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    253.5,                   !- Volume {m3}
-    48.75,                   !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -4230,38 +4182,6 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
-! 1F - N-Stair_ES1_Kitchenette
-Zone,
-    1F:NXStrXES1XKtchntt,    !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    133.536,                 !- Volume {m3}
-    25.68,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-! 1F - N-EV-DSPS
-Zone,
-    1F:NXEVXDSPS,            !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    136.032,                 !- Volume {m3}
-    26.16,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
 ! 1F - 03-EV Hall
 Zone,
     1F:03XEVHall,            !- Name
@@ -4278,38 +4198,6 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
-! 1F - N-EV
-Zone,
-    1F:NXEV,                 !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    92.352,                  !- Volume {m3}
-    17.76,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-! 1F - N-DSPS-Stair
-Zone,
-    1F:NXDSPSXStair,         !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    280.488,                 !- Volume {m3}
-    53.94,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
 ! 1F - 09-Office 1
 Zone,
     1F:09XOffice1,           !- Name
@@ -4322,22 +4210,6 @@ Zone,
     ,                        !- Ceiling Height {m}
     1907.3599,               !- Volume {m3}
     366.8,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-! 1F - N-ElecMech
-Zone,
-    1F:NXElecMech,           !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    1101.4639,               !- Volume {m3}
-    211.82,                  !- Floor Area {m2}
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
@@ -5038,8 +4910,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:10XOffice2,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXMech2_Partition_5_0_10004,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5057,30 +4929,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 10-Office 2, Partition - 33.800 m2 (1F, N-Mech 2), Surface Area: 33.8 <Other side>
-BuildingSurface:Detailed,
-    1F:NXMech2_Partition_5_0_10004,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:10XOffice2_Partition_4_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -22.94929697,            !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -22.94929697,            !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 10-Office 2, Wall - 72.800 m2 - 270.0°, Surface Area: 72.800m2
 BuildingSurface:Detailed,
@@ -5513,8 +5361,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXVestibule_Partition_5_0_10014,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5532,30 +5380,6 @@ BuildingSurface:Detailed,
     -10.01659183,            !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 02-Lobby, Partition - 8.840 m2 (1F, N-Vestibule), Surface Area: 0.3802 <Other side>
-BuildingSurface:Detailed,
-    1F:NXVestibule_Partition_5_0_10014,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Partition_6_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.1492969697,           !- Vertex 1 X-coordinate {m}
-    -8.31659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 2 X-coordinate {m}
-    -10.01659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 3 X-coordinate {m}
-    -10.01659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 02-Lobby, Partition - 33.280 m2 (1F, N-Vestibule), Surface Area: 1.3484
 BuildingSurface:Detailed,
@@ -5563,8 +5387,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXVestibule_Partition_4_0_10016,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5582,30 +5406,6 @@ BuildingSurface:Detailed,
     -8.31659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 02-Lobby, Partition - 33.280 m2 (1F, N-Vestibule), Surface Area: 1.3484 <Other side>
-BuildingSurface:Detailed,
-    1F:NXVestibule_Partition_4_0_10016,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Partition_7_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.74929697,             !- Vertex 1 X-coordinate {m}
-    -8.31659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.14929697,             !- Vertex 2 X-coordinate {m}
-    -8.31659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.14929697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -1.74929697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 02-Lobby, Partition - 8.840 m2 (1F, N-Vestibule), Surface Area: 0.3802
 BuildingSurface:Detailed,
@@ -5613,8 +5413,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXVestibule_Partition_3_0_10018,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5632,30 +5432,6 @@ BuildingSurface:Detailed,
     -8.31659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 02-Lobby, Partition - 8.840 m2 (1F, N-Vestibule), Surface Area: 0.3802 <Other side>
-BuildingSurface:Detailed,
-    1F:NXVestibule_Partition_3_0_10018,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Partition_8_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.7492969697,           !- Vertex 1 X-coordinate {m}
-    -10.01659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 2 X-coordinate {m}
-    -8.31659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 4 X-coordinate {m}
-    -10.01659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 02-Lobby, Wall - 9.360 m2 - 180.0°, Surface Area: 9.360m2
 BuildingSurface:Detailed,
@@ -5688,8 +5464,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:04XCntrlMntrngRm_Partition_5_0_10020,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5705,31 +5481,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     0.0507030301,            !- Vertex 4 X-coordinate {m}
     -10.01659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 02-Lobby, Partition - 18.200 m2 (1F, 04-Central Monitoring Room), Surface Area: 18.2 <Other side>
-BuildingSurface:Detailed,
-    1F:04XCntrlMntrngRm_Partition_5_0_10020,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:04XCntrlMntrngRm,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Partition_10_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.0507030301,            !- Vertex 1 X-coordinate {m}
-    -6.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.0507030301,            !- Vertex 2 X-coordinate {m}
-    -10.01659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.0507030301,            !- Vertex 3 X-coordinate {m}
-    -10.01659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    0.0507030301,            !- Vertex 4 X-coordinate {m}
-    -6.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 07-Break Room, Floor - 26.000 m2, Surface Area: 26
@@ -6088,8 +5839,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:06XDressing2,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Partition_5_0_10029,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6107,30 +5858,6 @@ BuildingSurface:Detailed,
     -6.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 06-Dressing 2, Partition - 20.800 m2 (1F, N-WC), Surface Area: 20.8 <Other side>
-BuildingSurface:Detailed,
-    1F:NXWC_Partition_5_0_10029,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:06XDressing2_Partition_2_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.5507030304,            !- Vertex 1 X-coordinate {m}
-    -2.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.5507030304,            !- Vertex 2 X-coordinate {m}
-    -6.51659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.5507030304,            !- Vertex 3 X-coordinate {m}
-    -6.51659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    6.5507030304,            !- Vertex 4 X-coordinate {m}
-    -2.51659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 06-Dressing 2, Partition - 16.900 m2 (1F, 05-Dressing 1), Surface Area: 16.9
 BuildingSurface:Detailed,
@@ -6232,130 +5959,6 @@ BuildingSurface:Detailed,
     -6.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-WC, Floor - 69.225 m2, Surface Area: 69.225
-BuildingSurface:Detailed,
-    1F:NXWC_Floor_0_0_0,     !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10032,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.55070303,              !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.55070303,              !- Vertex 3 X-coordinate {m}
-    -1.86659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    -1.86659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-WC, Floor - 69.225 m2, Surface Area: 69.225 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10032,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Floor_0_0_0,     !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.55070303,              !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -1.86659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    6.55070303,              !- Vertex 4 X-coordinate {m}
-    -1.86659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-WC, Ceiling - 69.225 m2 (Adiabatic), Surface Area: 69.225m2
-BuildingSurface:Detailed,
-    1F:NXWC_Ceiling_1_0_0,   !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Ceiling_1_0_0,   !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.55070303,              !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -1.86659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    6.55070303,              !- Vertex 4 X-coordinate {m}
-    -1.86659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-WC, Wall - 55.380 m2 - 90.0°, Surface Area: 55.380m2
-BuildingSurface:Detailed,
-    1F:NXWC_Wall_2_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -1.86659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -1.86659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    -12.51659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-WC, Partition - 33.800 m2 (1F, 08-Vending), Surface Area: 33.8
-BuildingSurface:Detailed,
-    1F:NXWC_Partition_3_0_0, !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:08XVending_Partition_6_0_10034,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -1.86659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.55070303,              !- Vertex 2 X-coordinate {m}
-    -1.86659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.55070303,              !- Vertex 3 X-coordinate {m}
-    -1.86659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    -1.86659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, N-WC, Partition - 33.800 m2 (1F, 08-Vending), Surface Area: 33.8 <Other side>
 BuildingSurface:Detailed,
@@ -6363,8 +5966,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Partition_3_0_0, !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6379,31 +5982,6 @@ BuildingSurface:Detailed,
     -1.86659183,             !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     6.55070303,              !- Vertex 4 X-coordinate {m}
-    -1.86659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-WC, Partition - 3.380 m2 (1F, 05-Dressing 1), Surface Area: 3.38
-BuildingSurface:Detailed,
-    1F:NXWC_Partition_4_0_0, !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:05XDressing1_Partition_2_0_10035,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.5507030304,            !- Vertex 1 X-coordinate {m}
-    -1.86659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.5507030304,            !- Vertex 2 X-coordinate {m}
-    -2.51659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.5507030304,            !- Vertex 3 X-coordinate {m}
-    -2.51659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    6.5507030304,            !- Vertex 4 X-coordinate {m}
     -1.86659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -6413,8 +5991,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:05XDressing1,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Partition_4_0_0, !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6432,39 +6010,14 @@ BuildingSurface:Detailed,
     -2.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-WC, Partition - 31.200 m2 (1F, 04-Central Monitoring Room), Surface Area: 31.2
-BuildingSurface:Detailed,
-    1F:NXWC_Partition_6_0_0, !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:04XCntrlMntrngRm_Partition_2_0_10036,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.5507030304,            !- Vertex 1 X-coordinate {m}
-    -6.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.5507030304,            !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.5507030304,            !- Vertex 3 X-coordinate {m}
-    -12.51659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    6.5507030304,            !- Vertex 4 X-coordinate {m}
-    -6.51659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, N-WC, Partition - 31.200 m2 (1F, 04-Central Monitoring Room), Surface Area: 31.2 <Other side>
 BuildingSurface:Detailed,
     1F:04XCntrlMntrngRm_Partition_2_0_10036,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:04XCntrlMntrngRm,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXWC_Partition_6_0_0, !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6482,180 +6035,6 @@ BuildingSurface:Detailed,
     -12.51659183,            !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-WC, Wall - 33.800 m2 - 180.0°, Surface Area: 33.800m2
-BuildingSurface:Detailed,
-    1F:NXWC_Wall_7_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXWC,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.5507030304,            !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -12.51659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    6.5507030304,            !- Vertex 4 X-coordinate {m}
-    -12.51659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Floor - 21.760 m2, Surface Area: 21.76
-BuildingSurface:Detailed,
-    1F:NXVestibule_Floor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10037,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.74929697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.14929697,             !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.14929697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -1.74929697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Floor - 21.760 m2, Surface Area: 21.76 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10037,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXVestibule_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.14929697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -1.74929697,             !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -1.74929697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -8.14929697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Ceiling - 21.760 m2 (Adiabatic), Surface Area: 21.760m2
-BuildingSurface:Detailed,
-    1F:NXVestibule_Ceiling_1_0_0,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXVestibule_Ceiling_1_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.14929697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    -1.74929697,             !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    -1.74929697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -8.14929697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Wall - 8.840 m2 - 90.0°, Surface Area: 8.840m2
-BuildingSurface:Detailed,
-    1F:NXVestibule_Wall_2_0_0,  !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.7492969699,           !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 2 X-coordinate {m}
-    -10.01659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 3 X-coordinate {m}
-    -10.01659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 4 X-coordinate {m}
-    -11.71659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Wall - 8.840 m2 - 270.0°, Surface Area: 8.840m2
-BuildingSurface:Detailed,
-    1F:NXVestibule_Wall_6_0_0,  !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.1492969699,           !- Vertex 1 X-coordinate {m}
-    -10.01659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 3 X-coordinate {m}
-    -11.71659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 4 X-coordinate {m}
-    -10.01659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Vestibule, Wall - 33.280 m2 - 180.0°, Surface Area: 33.280m2
-BuildingSurface:Detailed,
-    1F:NXVestibule_Wall_7_0_0,  !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXVestibule,          !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.14929697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -1.74929697,             !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -1.74929697,             !- Vertex 3 X-coordinate {m}
-    -11.71659183,            !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -8.14929697,             !- Vertex 4 X-coordinate {m}
-    -11.71659183,            !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 04-Central Monitoring Room, Floor - 39.000 m2, Surface Area: 39
 BuildingSurface:Detailed,
@@ -6782,114 +6161,14 @@ BuildingSurface:Detailed,
     -12.51659183,            !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-Mech 2, Floor - 48.750 m2, Surface Area: 48.75
-BuildingSurface:Detailed,
-    1F:NXMech2_Floor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10041,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -22.94929697,            !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -22.94929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Mech 2, Floor - 48.750 m2, Surface Area: 48.75 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10041,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXMech2_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -22.94929697,            !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -22.94929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Mech 2, Ceiling - 48.750 m2 (Adiabatic), Surface Area: 48.750m2
-BuildingSurface:Detailed,
-    1F:NXMech2_Ceiling_1_0_0,!- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXMech2_Ceiling_1_0_0,!- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    -22.94929697,            !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    -22.94929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Mech 2, Partition - 39.000 m2 (1F, 01-Corridor), Surface Area: 39
-BuildingSurface:Detailed,
-    1F:NXMech2_Partition_2_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_4_0_10043,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -22.9492969696,          !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -22.9492969696,          !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -22.9492969696,          !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -22.9492969696,          !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, N-Mech 2, Partition - 39.000 m2 (1F, 01-Corridor), Surface Area: 39 <Other side>
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_4_0_10043,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXMech2_Partition_2_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6904,31 +6183,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -22.9492969696,          !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Mech 2, Partition - 33.800 m2 (1F, 09-Office 1), Surface Area: 33.8
-BuildingSurface:Detailed,
-    1F:NXMech2_Partition_3_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:09XOffice1_Partition_6_0_10044,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -22.94929697,            !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -22.94929697,            !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -6938,8 +6192,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXMech2_Partition_3_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6952,31 +6206,6 @@ BuildingSurface:Detailed,
     10,                      !- Vertex 2 Z-coordinate {m}
     -22.94929697,            !- Vertex 3 X-coordinate {m}
     8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Mech 2, Wall - 39.000 m2 - 270.0°, Surface Area: 39.000m2
-BuildingSurface:Detailed,
-    1F:NXMech2_Wall_4_0_0,   !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXMech2,              !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -29.44929697,            !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
@@ -7413,8 +6642,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Partition_4_0_10056,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7430,31 +6659,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -19.6492969696,          !- Vertex 4 X-coordinate {m}
     4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-Stair_ES1_Kitchenette), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Partition_4_0_10056,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_2_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -19.6492969696,          !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -19.6492969696,          !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -19.6492969696,          !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -19.6492969696,          !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 17.160 m2 (1F, 09-Office 1), Surface Area: 17.16
@@ -7613,8 +6817,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Partition_6_0_10061,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7632,39 +6836,14 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 14.040 m2 (1F, N-DSPS-Stair), Surface Area: 14.04 <Other side>
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Partition_6_0_10061,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_10_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    10.85070303,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    10.85070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    10.85070303,             !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    10.85070303,             !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Partition - 40.560 m2 (1F, N-DSPS-Stair), Surface Area: 40.56
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_11_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Partition_5_0_10062,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7682,39 +6861,14 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 40.560 m2 (1F, N-DSPS-Stair), Surface Area: 40.56 <Other side>
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Partition_5_0_10062,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_11_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    10.85070303,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    10.85070303,             !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-DSPS-Stair), Surface Area: 24.96
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_12_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Partition_4_0_10063,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7732,30 +6886,6 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-DSPS-Stair), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Partition_4_0_10063,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_12_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.0507030304,            !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.0507030304,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.0507030304,            !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.0507030304,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 13.520 m2 (1F, N-ElecMech), Surface Area: 13.52
 BuildingSurface:Detailed,
@@ -7763,8 +6893,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Partition_6_0_10064,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7782,30 +6912,6 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 13.520 m2 (1F, N-ElecMech), Surface Area: 13.52 <Other side>
-BuildingSurface:Detailed,
-    1F:NXElecMech_Partition_6_0_10064,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_13_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.0507030304,            !- Vertex 1 X-coordinate {m}
-    11.58340817,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.0507030304,            !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.0507030304,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.0507030304,            !- Vertex 4 X-coordinate {m}
-    11.58340817,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 32.760 m2 (1F, N-ElecMech), Surface Area: 32.76
 BuildingSurface:Detailed,
@@ -7813,8 +6919,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Partition_5_0_10065,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7832,30 +6938,6 @@ BuildingSurface:Detailed,
     11.58340817,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 32.760 m2 (1F, N-ElecMech), Surface Area: 32.76 <Other side>
-BuildingSurface:Detailed,
-    1F:NXElecMech_Partition_5_0_10065,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_14_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    11.58340817,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    11.58340817,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    11.58340817,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
-    11.58340817,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 13.520 m2 (1F, 09-Office 1), Surface Area: 13.52
 BuildingSurface:Detailed,
@@ -7913,8 +6995,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Partition_3_0_10067,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7929,31 +7011,6 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -3.24929697,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 19.240 m2 (1F, N-EV), Surface Area: 19.24 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEV_Partition_3_0_10067,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_16_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.45070303,              !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.24929697,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.24929697,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    0.45070303,              !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -7963,8 +7020,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Partition_2_0_10068,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7982,39 +7039,14 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-EV), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEV_Partition_2_0_10068,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_17_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.4507030304,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.4507030304,            !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.4507030304,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    0.4507030304,            !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Partition - 19.240 m2 (1F, N-EV), Surface Area: 19.24
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_18_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Partition_5_0_10069,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8029,31 +7061,6 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     0.45070303,              !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 19.240 m2 (1F, N-EV), Surface Area: 19.24 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEV_Partition_5_0_10069,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_18_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.45070303,              !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.45070303,              !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -8113,8 +7120,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Partition_5_0_10072,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8132,39 +7139,14 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Partition - 28.340 m2 (1F, N-EV-DSPS), Surface Area: 28.34 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Partition_5_0_10072,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_20_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -11.69929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -6.24929697,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -6.24929697,             !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -11.69929697,            !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-EV-DSPS), Surface Area: 24.96
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_21_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Partition_4_0_10073,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8180,31 +7162,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -11.6992969696,          !- Vertex 4 X-coordinate {m}
     4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-EV-DSPS), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Partition_4_0_10073,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_21_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -11.6992969696,          !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -11.6992969696,          !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -11.6992969696,          !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -11.6992969696,          !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 13.520 m2 (1F, 09-Office 1), Surface Area: 13.52
@@ -8263,8 +7220,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Partition_2_0_10075,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8280,31 +7237,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -14.2992969696,          !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 24.960 m2 (1F, N-Stair_ES1_Kitchenette), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Partition_2_0_10075,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_23_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -14.2992969696,          !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -14.2992969696,          !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -14.2992969696,          !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -14.2992969696,          !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 01-Corridor, Partition - 27.820 m2 (1F, N-Stair_ES1_Kitchenette), Surface Area: 27.82
@@ -8313,8 +7245,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Partition_5_0_10076,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8330,131 +7262,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -14.29929697,            !- Vertex 4 X-coordinate {m}
     4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Partition - 27.820 m2 (1F, N-Stair_ES1_Kitchenette), Surface Area: 27.82 <Other side>
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Partition_5_0_10076,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Partition_24_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -19.64929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -14.29929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -14.29929697,            !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -19.64929697,            !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Stair_ES1_Kitchenette, Floor - 25.680 m2, Surface Area: 25.68
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Floor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10077,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -14.29929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -19.64929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -19.64929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -14.29929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Stair_ES1_Kitchenette, Floor - 25.680 m2, Surface Area: 25.68 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10077,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -19.64929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -14.29929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -14.29929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -19.64929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Stair_ES1_Kitchenette, Ceiling - 25.680 m2 (Adiabatic), Surface Area: 25.680m2
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Ceiling_1_0_0,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Ceiling_1_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -19.64929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    -14.29929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    -14.29929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -19.64929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-Stair_ES1_Kitchenette, Partition - 27.820 m2 (1F, 09-Office 1), Surface Area: 27.82
-BuildingSurface:Detailed,
-    1F:NXStrXES1XKtchntt_Partition_3_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXStrXES1XKtchntt,    !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:09XOffice1_Partition_8_0_10079,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -14.29929697,            !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -19.64929697,            !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -19.64929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -14.29929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, N-Stair_ES1_Kitchenette, Partition - 27.820 m2 (1F, 09-Office 1), Surface Area: 27.82 <Other side>
@@ -8463,8 +7270,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXStrXES1XKtchntt_Partition_3_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8482,114 +7289,14 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-EV-DSPS, Floor - 26.160 m2, Surface Area: 26.16
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Floor_0_0_0,!- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10080,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -6.24929697,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -11.69929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -11.69929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -6.24929697,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV-DSPS, Floor - 26.160 m2, Surface Area: 26.16 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10080,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Floor_0_0_0,!- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -11.69929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -6.24929697,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -6.24929697,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -11.69929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV-DSPS, Ceiling - 26.160 m2 (Adiabatic), Surface Area: 26.160m2
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Ceiling_1_0_0,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Ceiling_1_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -11.69929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    -6.24929697,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    -6.24929697,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -11.69929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV-DSPS, Partition - 24.960 m2 (1F, 03-EV Hall), Surface Area: 24.96
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Partition_2_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:03XEVHall_Partition_4_0_10082,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -6.2492969696,           !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -6.2492969696,           !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -6.2492969696,           !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -6.2492969696,           !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
 ! 1F, N-EV-DSPS, Partition - 24.960 m2 (1F, 03-EV Hall), Surface Area: 24.96 <Other side>
 BuildingSurface:Detailed,
     1F:03XEVHall_Partition_4_0_10082,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Partition_2_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8604,31 +7311,6 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -6.2492969696,           !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV-DSPS, Partition - 28.340 m2 (1F, 09-Office 1), Surface Area: 28.34
-BuildingSurface:Detailed,
-    1F:NXEVXDSPS_Partition_3_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEVXDSPS,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:09XOffice1_Partition_10_0_10083,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -6.24929697,             !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -11.69929697,            !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -11.69929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -6.24929697,             !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -8638,8 +7320,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEVXDSPS_Partition_3_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8738,8 +7420,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Partition_4_0_10086,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8757,30 +7439,6 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, 03-EV Hall, Partition - 24.960 m2 (1F, N-EV), Surface Area: 24.96 <Other side>
-BuildingSurface:Detailed,
-    1F:NXEV_Partition_4_0_10086,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:03XEVHall_Partition_2_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.2492969696,           !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 03-EV Hall, Partition - 15.600 m2 (1F, 09-Office 1), Surface Area: 15.6
 BuildingSurface:Detailed,
@@ -8832,330 +7490,6 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-! 1F, N-EV, Floor - 17.760 m2, Surface Area: 17.76
-BuildingSurface:Detailed,
-    1F:NXEV_Floor_0_0_0,     !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10088,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.45070303,              !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.24929697,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.24929697,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    0.45070303,              !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV, Floor - 17.760 m2, Surface Area: 17.76 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10088,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Floor_0_0_0,     !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.45070303,              !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.45070303,              !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-EV, Ceiling - 17.760 m2 (Adiabatic), Surface Area: 17.760m2
-BuildingSurface:Detailed,
-    1F:NXEV_Ceiling_1_0_0,   !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXEV,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXEV_Ceiling_1_0_0,   !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    0.45070303,              !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    0.45070303,              !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Floor - 53.940 m2, Surface Area: 5.94
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Floor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10090,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    10.85070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    10.85070303,             !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Floor - 53.940 m2, Surface Area: 5.94 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10090,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    10.85070303,             !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    10.85070303,             !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Floor - 53.940 m2, Surface Area: 48
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Floor_0_0_1,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10091,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Floor - 53.940 m2, Surface Area: 48 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10091,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Floor_0_0_1,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Ceiling - 53.940 m2 (Adiabatic), Surface Area: 37.440m2
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Ceiling_1_0_0,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Ceiling_1_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    10.85070303,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    10.85070303,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Ceiling - 53.940 m2 (Adiabatic), Surface Area: 16.500m2
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Ceiling_1_0_1,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Ceiling_1_0_1,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    10.85070303,             !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    10.85070303,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Wall - 39.000 m2 - 90.0°, Surface Area: 39.000m2
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Wall_2_0_0,  !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Partition - 52.000 m2 (1F, N-ElecMech), Surface Area: 52
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Partition_3_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC,              !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Partition_7_0_10094,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Partition - 52.000 m2 (1F, N-ElecMech), Surface Area: 52 <Other side>
-BuildingSurface:Detailed,
-    1F:NXElecMech_Partition_7_0_10094,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Partition_3_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-DSPS-Stair, Partition - 11.440 m2 (1F, 08-Vending), Surface Area: 11.44
-BuildingSurface:Detailed,
-    1F:NXDSPSXStair_Partition_7_0_0,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXDSPSXStair,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:08XVending_Partition_3_0_10095,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    10.85070303,             !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    10.85070303,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, N-DSPS-Stair, Partition - 11.440 m2 (1F, 08-Vending), Surface Area: 11.44 <Other side>
 BuildingSurface:Detailed,
@@ -9163,8 +7497,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXDSPSXStair_Partition_7_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9263,8 +7597,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Partition_4_0_10098,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9280,31 +7614,6 @@ BuildingSurface:Detailed,
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -3.2492969696,           !- Vertex 4 X-coordinate {m}
     11.58340817,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, 09-Office 1, Partition - 59.280 m2 (1F, N-ElecMech), Surface Area: 59.28 <Other side>
-BuildingSurface:Detailed,
-    1F:NXElecMech_Partition_4_0_10098,  !- Name
-    Wall,                    !- Surface Type
-    IW1 - IBEC_Rev,          !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:09XOffice1_Partition_3_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.2492969696,           !- Vertex 1 X-coordinate {m}
-    22.98340717,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 2 X-coordinate {m}
-    11.58340817,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 3 X-coordinate {m}
-    11.58340817,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
 ! 1F, 09-Office 1, Wall - 136.240 m2 - 0.0°, Surface Area: 136.240m2
@@ -9354,206 +7663,6 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 3 Y-coordinate {m}
     15.2,                    !- Vertex 3 Z-coordinate {m}
     -29.44929697,            !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Floor - 211.820 m2, Surface Area: 26
-BuildingSurface:Detailed,
-    1F:NXElecMech_Floor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10099,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    11.58340817,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    11.58340817,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Floor - 211.820 m2, Surface Area: 26 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10099,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    11.58340817,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    11.58340817,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Floor - 211.820 m2, Surface Area: 185.82
-BuildingSurface:Detailed,
-    1F:NXElecMech_Floor_0_0_1,  !- Name
-    Floor,                   !- Surface Type
-    FG1 - IBEC,              !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10100,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    11.58340817,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.24929697,             !- Vertex 2 X-coordinate {m}
-    11.58340817,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.24929697,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Floor - 211.820 m2, Surface Area: 185.82 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10100,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Floor_0_0_1,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    11.58340817,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    11.58340817,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Ceiling - 211.820 m2 (Adiabatic), Surface Area: 71.820m2
-BuildingSurface:Detailed,
-    1F:NXElecMech_Ceiling_1_0_0,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Ceiling_1_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    11.58340817,             !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    11.58340817,             !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Ceiling - 211.820 m2 (Adiabatic), Surface Area: 140.000m2
-BuildingSurface:Detailed,
-    1F:NXElecMech_Ceiling_1_0_1,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Reversed,     !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:NXElecMech_Ceiling_1_0_1,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.05070303,              !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    15.2,                    !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    15.2,                    !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    3.05070303,              !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Wall - 72.800 m2 - 90.0°, Surface Area: 72.800m2
-BuildingSurface:Detailed,
-    1F:NXElecMech_Wall_2_0_0,!- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    22.98340717,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    15.2;                    !- Vertex 4 Z-coordinate {m}
-
-! 1F, N-ElecMech, Wall - 84.760 m2 - 0.0°, Surface Area: 84.760m2
-BuildingSurface:Detailed,
-    1F:NXElecMech_Wall_3_0_0,!- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    1F:NXElecMech,           !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    22.98340717,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 2 X-coordinate {m}
-    22.98340717,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.2492969696,           !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    15.2,                    !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
     22.98340717,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
@@ -11864,7 +9973,7 @@ BuildingSurface:Detailed,
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
     OtherSideCoefficients,    !- Outside Boundary Condition
-    2X6F:NXWC1,               !- Outside Boundary Condition Object
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -12214,7 +10323,7 @@ BuildingSurface:Detailed,
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
     OtherSideCoefficients,    !- Outside Boundary Condition
-    2X6F:NXWC2,               !- Outside Boundary Condition Object
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -16402,150 +14511,6 @@ FenestrationSurface:Detailed,
     -10.01659183,            !- Vertex 4 Y-coordinate {m}
     14.797;                  !- Vertex 4 Z-coordinate {m}
 
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:02XLobby_Partition_6_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:02XLobby_Partition_6_0_0,  !- Building Surface Name
-    1F:NXVestibule_Partition_5_0_0_0_0_0_Win_10016,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -8.1492969697,           !- Vertex 1 X-coordinate {m}
-    -10.01359183,            !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 2 X-coordinate {m}
-    -8.31959183,             !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 3 X-coordinate {m}
-    -8.31959183,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 4 X-coordinate {m}
-    -10.01359183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Partition_5_0_0_0_0_0_Win_10016,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:NXVestibule_Partition_5_0_10014,  !- Building Surface Name
-    1F:02XLobby_Partition_6_0_0_0_0_0_Win,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -8.1492969697,           !- Vertex 1 X-coordinate {m}
-    -8.31959183,             !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 2 X-coordinate {m}
-    -10.01359183,            !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 3 X-coordinate {m}
-    -10.01359183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -8.1492969697,           !- Vertex 4 X-coordinate {m}
-    -8.31959183,             !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 31.932m2
-FenestrationSurface:Detailed,
-    1F:02XLobby_Partition_7_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:02XLobby_Partition_7_0_0,  !- Building Surface Name
-    1F:NXVestibule_Partition_4_0_0_0_0_0_Win_10018,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -8.14629697,             !- Vertex 1 X-coordinate {m}
-    -8.31659183,             !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -1.75229697,             !- Vertex 2 X-coordinate {m}
-    -8.31659183,             !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -1.75229697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -8.14629697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 31.932m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Partition_4_0_0_0_0_0_Win_10018,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:NXVestibule_Partition_4_0_10016,  !- Building Surface Name
-    1F:02XLobby_Partition_7_0_0_0_0_0_Win,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -1.75229697,             !- Vertex 1 X-coordinate {m}
-    -8.31659183,             !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -8.14629697,             !- Vertex 2 X-coordinate {m}
-    -8.31659183,             !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -8.14629697,             !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -1.75229697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:02XLobby_Partition_8_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:02XLobby_Partition_8_0_0,  !- Building Surface Name
-    1F:NXVestibule_Partition_3_0_0_0_0_0_Win_10020,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -1.7492969697,           !- Vertex 1 X-coordinate {m}
-    -8.31959183,             !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 2 X-coordinate {m}
-    -10.01359183,            !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 3 X-coordinate {m}
-    -10.01359183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 4 X-coordinate {m}
-    -8.31959183,             !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Partition_3_0_0_0_0_0_Win_10020,  !- Name
-    Window,                  !- Surface Type
-    Project internal glazing - 1003,  !- Construction Name
-    1F:NXVestibule_Partition_3_0_10018,  !- Building Surface Name
-    1F:02XLobby_Partition_8_0_0_0_0_0_Win,  !- Outside Boundary Condition Object
-    0,                       !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -1.7492969697,           !- Vertex 1 X-coordinate {m}
-    -10.01359183,            !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 2 X-coordinate {m}
-    -8.31959183,             !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 3 X-coordinate {m}
-    -8.31959183,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -1.7492969697,           !- Vertex 4 X-coordinate {m}
-    -10.01359183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
 ! Window, 8.242m2
 FenestrationSurface:Detailed,
     1F:02XLobby_Wall_9_0_0_0_0_0_Win,  !- Name
@@ -16569,126 +14534,6 @@ FenestrationSurface:Detailed,
     -1.74629697,             !- Vertex 4 X-coordinate {m}
     -10.01659183,            !- Vertex 4 Y-coordinate {m}
     14.797;                  !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 9.516m2
-FenestrationSurface:Detailed,
-    1F:NXWC_Wall_2_0_0_0_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXWC_Wall_2_0_0,      !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -12.51359183,            !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -1.86959183,             !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -1.86959183,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    -12.51359183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 5.806m2
-FenestrationSurface:Detailed,
-    1F:NXWC_Wall_7_0_0_0_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXWC_Wall_7_0_0,      !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    6.55370303,              !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    13.04770303,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    13.04770303,             !- Vertex 3 X-coordinate {m}
-    -12.51659183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    6.55370303,              !- Vertex 4 X-coordinate {m}
-    -12.51659183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Wall_2_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Model Building external glazing - 1001,  !- Construction Name
-    1F:NXVestibule_Wall_2_0_0,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -1.7492969699,           !- Vertex 1 X-coordinate {m}
-    -11.71359183,            !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 2 X-coordinate {m}
-    -10.01959183,            !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 3 X-coordinate {m}
-    -10.01959183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -1.7492969699,           !- Vertex 4 X-coordinate {m}
-    -11.71359183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 8.460m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Wall_6_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Model Building external glazing - 1001,  !- Construction Name
-    1F:NXVestibule_Wall_6_0_0,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -8.1492969699,           !- Vertex 1 X-coordinate {m}
-    -10.01959183,            !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 2 X-coordinate {m}
-    -11.71359183,            !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 3 X-coordinate {m}
-    -11.71359183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -8.1492969699,           !- Vertex 4 X-coordinate {m}
-    -10.01959183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Window, 31.932m2
-FenestrationSurface:Detailed,
-    1F:NXVestibule_Wall_7_0_0_0_0_0_Win,  !- Name
-    Window,                  !- Surface Type
-    Model Building external glazing - 1001,  !- Construction Name
-    1F:NXVestibule_Wall_7_0_0,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -8.14629697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10.203,                  !- Vertex 1 Z-coordinate {m}
-    -1.75229697,             !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10.203,                  !- Vertex 2 Z-coordinate {m}
-    -1.75229697,             !- Vertex 3 X-coordinate {m}
-    -11.71659183,            !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -8.14629697,             !- Vertex 4 X-coordinate {m}
-    -11.71659183,            !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
 
 ! Sub-surface, 2.230m2
 FenestrationSurface:Detailed,
@@ -16761,30 +14606,6 @@ FenestrationSurface:Detailed,
     1.40070303,              !- Vertex 4 X-coordinate {m}
     -12.51659183,            !- Vertex 4 Y-coordinate {m}
     12.9;                    !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 6.700m2
-FenestrationSurface:Detailed,
-    1F:NXMech2_Wall_4_0_0_0_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXMech2_Wall_4_0_0,   !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    8.98040817,              !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    1.48640817,              !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    1.48640817,              !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    8.98040817,              !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
 
 ! Hole, 4.800m2
 FenestrationSurface:Detailed,
@@ -16882,54 +14703,6 @@ FenestrationSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     12.597;                  !- Vertex 4 Z-coordinate {m}
 
-! Sub-surface, 2.408m2
-FenestrationSurface:Detailed,
-    1F:NXDSPSXStair_Wall_2_0_0_0_0_1_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXDSPSXStair_Wall_2_0_0,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    1.48640817,              !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    4.18040817,              !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    4.18040817,              !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    1.48640817,              !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 4.286m2
-FenestrationSurface:Detailed,
-    1F:NXDSPSXStair_Wall_2_0_0_1_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXDSPSXStair_Wall_2_0_0,  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    4.18640817,              !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    8.98040817,              !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    8.98040817,              !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    4.18640817,              !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
 ! Sub-surface, 23.417m2
 FenestrationSurface:Detailed,
     1F:09XOffice1_Wall_4_0_0_4_0_0_Subsurface,  !- Name
@@ -17025,54 +14798,6 @@ FenestrationSurface:Detailed,
     -29.44929697,            !- Vertex 4 X-coordinate {m}
     21.38340817,             !- Vertex 4 Y-coordinate {m}
     12.9;                    !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 12.511m2
-FenestrationSurface:Detailed,
-    1F:NXElecMech_Wall_2_0_0_0_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXElecMech_Wall_2_0_0,!- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    8.98640817,              !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    22.98040717,             !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    22.98040717,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    8.98640817,              !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
-
-! Sub-surface, 14.567m2
-FenestrationSurface:Detailed,
-    1F:NXElecMech_Wall_3_0_0_0_0_0_Subsurface,  !- Name
-    Door,                    !- Surface Type
-    W2 - IBEC,               !- Construction Name
-    1F:NXElecMech_Wall_3_0_0,!- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    AutoCalculate,           !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    13.04770303,             !- Vertex 1 X-coordinate {m}
-    22.98340717,             !- Vertex 1 Y-coordinate {m}
-    14.303,                  !- Vertex 1 Z-coordinate {m}
-    -3.24629697,             !- Vertex 2 X-coordinate {m}
-    22.98340717,             !- Vertex 2 Y-coordinate {m}
-    14.303,                  !- Vertex 2 Z-coordinate {m}
-    -3.24629697,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    15.197,                  !- Vertex 3 Z-coordinate {m}
-    13.04770303,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    15.197;                  !- Vertex 4 Z-coordinate {m}
 
 ! Sub-surface, 2.990m2
 FenestrationSurface:Detailed,
@@ -18466,27 +16191,6 @@ WindowShadingControl,
     1F:10XOffice2_Wall_6_0_0_0_0_3_Win;  !- Fenestration Surface 2 Name
 
 WindowShadingControl,
-    21001,                   !- Name
-    1F:NXVestibule,          !- Zone Name
-    ,                        !- Shading Control Sequence Number
-    InteriorBlind,           !- Shading Type
-    Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
-    ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
-    No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
-    FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
-    ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
-    ,                        !- Daylighting Control Object Name
-    Group,                   !- Multiple Surface Control Type
-    1F:NXVestibule_Wall_2_0_0_0_0_0_Win,  !- Fenestration Surface 1 Name
-    1F:NXVestibule_Wall_6_0_0_0_0_0_Win,  !- Fenestration Surface 2 Name
-    1F:NXVestibule_Wall_7_0_0_0_0_0_Win;  !- Fenestration Surface 3 Name
-
-WindowShadingControl,
     31001,                   !- Name
     1F:04XCntrlMntrngRm,     !- Zone Name
     ,                        !- Shading Control Sequence Number
@@ -18734,7 +16438,7 @@ InternalMass,
 !-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:OTHERSIDECOEFFICIENTS ===========
 
 SurfaceProperty:OtherSideCoefficients,
-    2X6F:NXWC1,               !- Name
+    NonACRoom,               !- Name
     9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
     ,                        !- Constant Temperature {C}
     ,                        !- Constant Temperature Coefficient
@@ -18746,18 +16450,6 @@ SurfaceProperty:OtherSideCoefficients,
     No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
     24;                      !- Period of Sinusoidal Variation {hr}
 
-SurfaceProperty:OtherSideCoefficients,
-    2X6F:NXWC2,               !- Name
-    9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
-    ,                        !- Constant Temperature {C}
-    ,                        !- Constant Temperature Coefficient
-    0.5,                     !- External Dry-Bulb Temperature Coefficient
-    ,                        !- Ground Temperature Coefficient
-    ,                        !- Wind Speed Coefficient
-    0.5,                     !- Zone Air Temperature Coefficient
-    ,                        !- Constant Temperature Schedule Name
-    No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
-    24;                      !- Period of Sinusoidal Variation {hr}
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
@@ -19983,118 +17675,6 @@ ZoneInfiltration:DesignFlowRate,
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
     0.005417,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXWC Infiltration,    !- Name
-    1F:NXWC,                 !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.009999,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXVestibule Infiltration,  !- Name
-    1F:NXVestibule,          !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003143,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXMech2 Infiltration, !- Name
-    1F:NXMech2,              !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007042,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXStrXES1XKtchntt Infiltration,  !- Name
-    1F:NXStrXES1XKtchntt,    !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003709,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXEVXDSPS Infiltration,  !- Name
-    1F:NXEVXDSPS,            !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.003779,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXEV Infiltration,    !- Name
-    1F:NXEV,                 !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.002565,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXDSPSXStair Infiltration,  !- Name
-    1F:NXDSPSXStair,         !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.007791,                !- Design Flow Rate {m3/s}
-    ,                        !- Flow per Zone Floor Area {m3/s-m2}
-    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour {1/hr}
-    1,                       !- Constant Term Coefficient
-    0,                       !- Temperature Term Coefficient
-    0,                       !- Velocity Term Coefficient
-    0;                       !- Velocity Squared Term Coefficient
-
-ZoneInfiltration:DesignFlowRate,
-    1F:NXElecMech Infiltration,  !- Name
-    1F:NXElecMech,           !- Zone or ZoneList Name
-    On 24/7,                 !- Schedule Name
-    Flow/zone,               !- Design Flow Rate Calculation Method
-    0.030596,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}

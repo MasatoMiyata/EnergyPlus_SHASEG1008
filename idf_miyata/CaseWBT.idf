@@ -4710,23 +4710,6 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
-! PIT - pit
-Zone,
-    PIT:Pit,                 !- Name
-    0,                       !- Direction of Relative North {deg}
-    0,                       !- X Origin {m}
-    0,                       !- Y Origin {m}
-    0,                       !- Z Origin {m}
-    1,                       !- Type
-    1,                       !- Multiplier
-    ,                        !- Ceiling Height {m}
-    1659.625,                !- Volume {m3}
-    1508.75,                 !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
-    ,                        !- Zone Outside Convection Algorithm
-    Yes;                     !- Part of Total Floor Area
-
-
 !-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
 
 ! 1F, 10-Office 2, Floor - 273.000 m2, Surface Area: 273
@@ -4735,8 +4718,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:10XOffice2,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10000,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -4751,31 +4734,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     -9.94929697,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 10-Office 2, Floor - 273.000 m2, Surface Area: 273 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10000,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:10XOffice2_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -9.94929697,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -9.94929697,             !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -5011,8 +4969,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10005,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5030,39 +4988,14 @@ BuildingSurface:Detailed,
     -8.31659183,             !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 02-Lobby, Floor - 104.120 m2, Surface Area: 3.06 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10005,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Floor_0_0_0, !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.74929697,             !- Vertex 1 X-coordinate {m}
-    -10.01659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.05070303,              !- Vertex 2 X-coordinate {m}
-    -10.01659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.05070303,              !- Vertex 3 X-coordinate {m}
-    -8.31659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -1.74929697,             !- Vertex 4 X-coordinate {m}
-    -8.31659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 02-Lobby, Floor - 104.120 m2, Surface Area: 80.36
 BuildingSurface:Detailed,
     1F:02XLobby_Floor_0_0_1, !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10006,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5080,39 +5013,14 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 02-Lobby, Floor - 104.120 m2, Surface Area: 80.36 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10006,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Floor_0_0_1, !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.14929697,             !- Vertex 1 X-coordinate {m}
-    -8.31659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.05070303,              !- Vertex 2 X-coordinate {m}
-    -8.31659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.05070303,              !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -8.14929697,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 02-Lobby, Floor - 104.120 m2, Surface Area: 20.7
 BuildingSurface:Detailed,
     1F:02XLobby_Floor_0_0_2, !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10007,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5127,31 +5035,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     -8.14929697,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 02-Lobby, Floor - 104.120 m2, Surface Area: 20.7 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10007,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:02XLobby_Floor_0_0_2, !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -9.94929697,             !- Vertex 1 X-coordinate {m}
-    -10.01659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.14929697,             !- Vertex 2 X-coordinate {m}
-    -10.01659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.14929697,             !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -9.94929697,             !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -5489,8 +5372,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:07XBreakRoom,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10021,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5505,31 +5388,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     3.30070303,              !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 07-Break Room, Floor - 26.000 m2, Surface Area: 26 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10021,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:07XBreakRoom_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.05070303,              !- Vertex 1 X-coordinate {m}
-    -6.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.30070303,              !- Vertex 2 X-coordinate {m}
-    -6.51659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.30070303,              !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    0.05070303,              !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -5764,8 +5622,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:06XDressing2,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10027,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -5780,31 +5638,6 @@ BuildingSurface:Detailed,
     -2.51659183,             !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     6.55070303,              !- Vertex 4 X-coordinate {m}
-    -2.51659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 06-Dressing 2, Floor - 13.000 m2, Surface Area: 13 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10027,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:06XDressing2_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.30070303,              !- Vertex 1 X-coordinate {m}
-    -6.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.55070303,              !- Vertex 2 X-coordinate {m}
-    -6.51659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.55070303,              !- Vertex 3 X-coordinate {m}
-    -2.51659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    3.30070303,              !- Vertex 4 X-coordinate {m}
     -2.51659183,             !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -6042,8 +5875,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:04XCntrlMntrngRm,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10039,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6058,31 +5891,6 @@ BuildingSurface:Detailed,
     -6.51659183,             !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     6.55070303,              !- Vertex 4 X-coordinate {m}
-    -6.51659183,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 04-Central Monitoring Room, Floor - 39.000 m2, Surface Area: 39 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10039,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:04XCntrlMntrngRm_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.05070303,              !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.55070303,              !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.55070303,              !- Vertex 3 X-coordinate {m}
-    -6.51659183,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    0.05070303,              !- Vertex 4 X-coordinate {m}
     -6.51659183,             !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -6217,8 +6025,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10045,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6236,39 +6044,14 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 12.48 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10045,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -14.29929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -11.69929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -11.69929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -14.29929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 15.84
 BuildingSurface:Detailed,
     1F:01XCorridor_Floor_0_0_1,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10046,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6286,39 +6069,14 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 15.84 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10046,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_1,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -22.94929697,            !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -19.64929697,            !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -19.64929697,            !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -22.94929697,            !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 63.18
 BuildingSurface:Detailed,
     1F:01XCorridor_Floor_0_0_2,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10047,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6336,39 +6094,14 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 63.18 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10047,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_2,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -22.94929697,            !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.45070303,              !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.45070303,              !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -22.94929697,            !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 12.48
 BuildingSurface:Detailed,
     1F:01XCorridor_Floor_0_0_3,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10048,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6386,39 +6119,14 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 12.48 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10048,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_3,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.45070303,              !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    0.45070303,              !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 28.08
 BuildingSurface:Detailed,
     1F:01XCorridor_Floor_0_0_4,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10049,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6436,39 +6144,14 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 28.08 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10049,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_4,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    0.45070303,              !- Vertex 1 X-coordinate {m}
-    1.48340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    10.85070303,             !- Vertex 2 X-coordinate {m}
-    1.48340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    10.85070303,             !- Vertex 3 X-coordinate {m}
-    4.18340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    0.45070303,              !- Vertex 4 X-coordinate {m}
-    4.18340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 ! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 16.38
 BuildingSurface:Detailed,
     1F:01XCorridor_Floor_0_0_5,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10050,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -6483,31 +6166,6 @@ BuildingSurface:Detailed,
     11.58340817,             !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     3.05070303,              !- Vertex 4 X-coordinate {m}
-    11.58340817,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 01-Corridor, Floor - 148.440 m2, Surface Area: 16.38 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10050,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:01XCorridor_Floor_0_0_5,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -3.24929697,             !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    3.05070303,              !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    3.05070303,              !- Vertex 3 X-coordinate {m}
-    11.58340817,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -3.24929697,             !- Vertex 4 X-coordinate {m}
     11.58340817,             !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -7345,8 +7003,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10084,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7361,31 +7019,6 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     -3.24929697,             !- Vertex 4 X-coordinate {m}
-    8.98340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 03-EV Hall, Floor - 14.400 m2, Surface Area: 14.4 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10084,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:03XEVHall_Floor_0_0_0,!- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -6.24929697,             !- Vertex 1 X-coordinate {m}
-    4.18340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.24929697,             !- Vertex 2 X-coordinate {m}
-    4.18340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.24929697,             !- Vertex 3 X-coordinate {m}
-    8.98340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -6.24929697,             !- Vertex 4 X-coordinate {m}
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -7522,8 +7155,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10096,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7538,31 +7171,6 @@ BuildingSurface:Detailed,
     22.98340717,             !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     -3.24929697,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 09-Office 1, Floor - 366.800 m2, Surface Area: 366.8 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10096,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:09XOffice1_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    8.98340817,              !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -3.24929697,             !- Vertex 2 X-coordinate {m}
-    8.98340817,              !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -3.24929697,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
     22.98340717,             !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -7672,8 +7280,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:05XDressing1,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10103,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7688,31 +7296,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     6.55070303,              !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 05-Dressing 1, Floor - 13.000 m2, Surface Area: 13 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10103,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:05XDressing1_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    3.30070303,              !- Vertex 1 X-coordinate {m}
-    -2.51659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    6.55070303,              !- Vertex 2 X-coordinate {m}
-    -2.51659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    6.55070303,              !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    3.30070303,              !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -7797,8 +7380,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    PIT:Pit_Ceiling_1_0_10106,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7813,31 +7396,6 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 3 Y-coordinate {m}
     10,                      !- Vertex 3 Z-coordinate {m}
     13.05070303,             !- Vertex 4 X-coordinate {m}
-    1.48340817,              !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! 1F, 08-Vending, Floor - 21.775 m2, Surface Area: 21.775 <Other side>
-BuildingSurface:Detailed,
-    PIT:Pit_Ceiling_1_0_10106,  !- Name
-    Ceiling,                 !- Surface Type
-    FG1 - IBEC_Rev,          !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    1F:08XVending_Floor_0_0_0,  !- Outside Boundary Condition Object
-    NoSun,                   !- Sun Exposure
-    NoWind,                  !- Wind Exposure
-    0,                       !- View Factor to Ground
-    4,                       !- Number of Vertices
-    6.55070303,              !- Vertex 1 X-coordinate {m}
-    -1.86659183,             !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -1.86659183,             !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    1.48340817,              !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    6.55070303,              !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     10;                      !- Vertex 4 Z-coordinate {m}
 
@@ -14115,207 +13673,6 @@ BuildingSurface:Detailed,
     6.55070303,              !- Vertex 4 X-coordinate {m}
     5.75840717,              !- Vertex 4 Y-coordinate {m}
     43.2;                    !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, External floor - 1508.750 m2, Surface Area: 1508.750m2
-BuildingSurface:Detailed,
-    PIT:Pit_ExtFloor_0_0_0,  !- Name
-    Floor,                   !- Surface Type
-    Pit floor,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    8.9,                     !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    8.9,                     !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    8.9,                     !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    8.9;                     !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Ceiling/roof - 1508.750 m2, Surface Area: 3.060m2
-BuildingSurface:Detailed,
-    PIT:Pit_Roof_1_0_0,      !- Name
-    Roof,                    !- Surface Type
-    R1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -1.74929697,             !- Vertex 1 X-coordinate {m}
-    -11.71659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.05070303,              !- Vertex 2 X-coordinate {m}
-    -11.71659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.05070303,              !- Vertex 3 X-coordinate {m}
-    -10.01659183,            !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -1.74929697,             !- Vertex 4 X-coordinate {m}
-    -10.01659183,            !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Ceiling/roof - 1508.750 m2, Surface Area: 6.560m2
-BuildingSurface:Detailed,
-    PIT:Pit_Roof_1_0_1,      !- Name
-    Roof,                    !- Surface Type
-    R1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -8.14929697,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    0.05070303,              !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    0.05070303,              !- Vertex 3 X-coordinate {m}
-    -11.71659183,            !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -8.14929697,             !- Vertex 4 X-coordinate {m}
-    -11.71659183,            !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Ceiling/roof - 1508.750 m2, Surface Area: 4.500m2
-BuildingSurface:Detailed,
-    PIT:Pit_Roof_1_0_2,      !- Name
-    Roof,                    !- Surface Type
-    R1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -9.94929697,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    10,                      !- Vertex 1 Z-coordinate {m}
-    -8.14929697,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    10,                      !- Vertex 2 Z-coordinate {m}
-    -8.14929697,             !- Vertex 3 X-coordinate {m}
-    -10.01659183,            !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -9.94929697,             !- Vertex 4 X-coordinate {m}
-    -10.01659183,            !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Wall - 39.050 m2 - 90.0°, Surface Area: 39.050m2
-BuildingSurface:Detailed,
-    PIT:Pit_Wall_2_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    8.9,                     !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    22.98340717,             !- Vertex 2 Y-coordinate {m}
-    8.9,                     !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    -12.51659183,            !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Wall - 46.750 m2 - 0.0°, Surface Area: 46.750m2
-BuildingSurface:Detailed,
-    PIT:Pit_Wall_3_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    13.05070303,             !- Vertex 1 X-coordinate {m}
-    22.98340717,             !- Vertex 1 Y-coordinate {m}
-    8.9,                     !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    22.98340717,             !- Vertex 2 Y-coordinate {m}
-    8.9,                     !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    22.98340717,             !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    13.05070303,             !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Wall - 39.050 m2 - 270.0°, Surface Area: 39.050m2
-BuildingSurface:Detailed,
-    PIT:Pit_Wall_4_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    22.98340717,             !- Vertex 1 Y-coordinate {m}
-    8.9,                     !- Vertex 1 Z-coordinate {m}
-    -29.44929697,            !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    8.9,                     !- Vertex 2 Z-coordinate {m}
-    -29.44929697,            !- Vertex 3 X-coordinate {m}
-    -12.51659183,            !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    22.98340717,             !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
-! PIT, pit, Wall - 46.750 m2 - 180.0°, Surface Area: 46.750m2
-BuildingSurface:Detailed,
-    PIT:Pit_Wall_5_0_0,      !- Name
-    Wall,                    !- Surface Type
-    W1 - IBEC,               !- Construction Name
-    PIT:Pit,                 !- Zone Name
-    Outdoors,                !- Outside Boundary Condition
-    ,                        !- Outside Boundary Condition Object
-    SunExposed,              !- Sun Exposure
-    WindExposed,             !- Wind Exposure
-    AutoCalculate,           !- View Factor to Ground
-    4,                       !- Number of Vertices
-    -29.44929697,            !- Vertex 1 X-coordinate {m}
-    -12.51659183,            !- Vertex 1 Y-coordinate {m}
-    8.9,                     !- Vertex 1 Z-coordinate {m}
-    13.05070303,             !- Vertex 2 X-coordinate {m}
-    -12.51659183,            !- Vertex 2 Y-coordinate {m}
-    8.9,                     !- Vertex 2 Z-coordinate {m}
-    13.05070303,             !- Vertex 3 X-coordinate {m}
-    -12.51659183,            !- Vertex 3 Y-coordinate {m}
-    10,                      !- Vertex 3 Z-coordinate {m}
-    -29.44929697,            !- Vertex 4 X-coordinate {m}
-    -12.51659183,            !- Vertex 4 Y-coordinate {m}
-    10;                      !- Vertex 4 Z-coordinate {m}
-
 
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 

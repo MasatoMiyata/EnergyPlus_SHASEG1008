@@ -38,8 +38,8 @@ Building,
     3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
     4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    ,                        !- Maximum Number of Warmup Days
-    6;                       !- Minimum Number of Warmup Days
+    90,                      !- Maximum Number of Warmup Days
+    25;                      !- Minimum Number of Warmup Days
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SHADOWCALCULATION ===========
@@ -89,14 +89,14 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    1;                       !- Number of Timesteps per Hour
+    4;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
 
 ConvergenceLimits,
     1,                       !- Minimum System Timestep {minutes}
-    25;                      !- Maximum HVAC Iterations
+    50;                      !- Maximum HVAC Iterations
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
@@ -12903,69 +12903,6 @@ SurfaceProperty:OtherSideCoefficients,
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
 People,
-    People 1F:10XOffice2,    !- Name
-    1F:10XOffice2,           !- Zone or ZoneList Name
-    JP Office - office occupants,  !- Number of People Schedule Name
-    People/Area,             !- Number of People Calculation Method
-    ,                        !- Number of People
-    0.1,                     !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
-    0.3,                     !- Fraction Radiant
-    0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19336, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19336, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
-
-People,
-    People 1F:07XBreakRoom,  !- Name
-    1F:07XBreakRoom,         !- Zone or ZoneList Name
-    JP Office - locker/storage occ.,  !- Number of People Schedule Name
-    People/Area,             !- Number of People Calculation Method
-    ,                        !- Number of People
-    0.3,                     !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
-    0.3,                     !- Fraction Radiant
-    0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19357, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19357, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
-
-People,
-    People 1F:06XDressing2,  !- Name
-    1F:06XDressing2,         !- Zone or ZoneList Name
-    JP Office - locker/storage occ.,  !- Number of People Schedule Name
-    People/Area,             !- Number of People Calculation Method
-    ,                        !- Number of People
-    0.3,                     !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
-    0.3,                     !- Fraction Radiant
-    0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19365, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19365, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
-
-People,
     People 1F:04XCntrlMntrngRm,  !- Name
     1F:04XCntrlMntrngRm,     !- Zone or ZoneList Name
     JP Office - CMR occupants,  !- Number of People Schedule Name
@@ -12976,36 +12913,15 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19390, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19390, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
-
-People,
-    People 1F:09XOffice1,    !- Name
-    1F:09XOffice1,           !- Zone or ZoneList Name
-    JP Office - office occupants,  !- Number of People Schedule Name
-    People/Area,             !- Number of People Calculation Method
-    ,                        !- Number of People
-    0.1,                     !- People per Zone Floor Area {person/m2}
-    ,                        !- Zone Floor Area per Person {m2/person}
-    0.3,                     !- Fraction Radiant
-    0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19469, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19469, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 1F:05XDressing1,  !- Name
@@ -13018,19 +12934,61 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19491, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19491, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
-    People 2X6F:05X1XOfficeSP,  !- Name
-    2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
+    People 1F:06XDressing2,  !- Name
+    1F:06XDressing2,         !- Zone or ZoneList Name
+    JP Office - locker/storage occ.,  !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.3,                     !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    0.67,                    !- Sensible Heat Fraction
+    Activity Schedule 19365, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ,                        !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
+
+People,
+    People 1F:07XBreakRoom,  !- Name
+    1F:07XBreakRoom,         !- Zone or ZoneList Name
+    JP Office - locker/storage occ.,  !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.3,                     !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    0.67,                    !- Sensible Heat Fraction
+    Activity Schedule 19357, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ,                        !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
+
+People,
+    People 1F:09XOffice1,    !- Name
+    1F:09XOffice1,           !- Zone or ZoneList Name
     JP Office - office occupants,  !- Number of People Schedule Name
     People/Area,             !- Number of People Calculation Method
     ,                        !- Number of People
@@ -13038,20 +12996,20 @@ People,
     ,                        !- Zone Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19625, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    Activity Schedule 19469, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19625, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
-    People 2X6F:05X3XOfficeSI,  !- Name
-    2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
+    People 1F:10XOffice2,    !- Name
+    1F:10XOffice2,           !- Zone or ZoneList Name
     JP Office - office occupants,  !- Number of People Schedule Name
     People/Area,             !- Number of People Calculation Method
     ,                        !- Number of People
@@ -13059,16 +13017,16 @@ People,
     ,                        !- Zone Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19640, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    Activity Schedule 19336, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19640, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 2X6F:04X1XOfficeNP,  !- Name
@@ -13081,15 +13039,15 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19657, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19657, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 2X6F:04X2XOfficeNEP,  !- Name
@@ -13102,15 +13060,15 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19664, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19664, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 2X6F:04X3XOfficeNWP,  !- Name
@@ -13123,15 +13081,15 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19671, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19671, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 2X6F:04X4XOfficeNI,  !- Name
@@ -13144,15 +13102,36 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19678, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19678, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
+
+People,
+    People 2X6F:05X1XOfficeSP,  !- Name
+    2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
+    JP Office - office occupants,  !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.1,                     !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    0.67,                    !- Sensible Heat Fraction
+    Activity Schedule 19625, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ,                        !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 2X6F:05X2XOfficeSWP,  !- Name
@@ -13165,19 +13144,19 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19693, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19693, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
-    People 7F:05XOffice2,    !- Name
-    7F:05XOffice2,           !- Zone or ZoneList Name
+    People 2X6F:05X3XOfficeSI,  !- Name
+    2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
     JP Office - office occupants,  !- Number of People Schedule Name
     People/Area,             !- Number of People Calculation Method
     ,                        !- Number of People
@@ -13185,16 +13164,16 @@ People,
     ,                        !- Zone Floor Area per Person {m2/person}
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
-    Activity Schedule 19803, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    Activity Schedule 19640, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19803, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
 
 People,
     People 7F:04XOffice1,    !- Name
@@ -13207,15 +13186,38 @@ People,
     0.3,                     !- Fraction Radiant
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19827, !- Activity Level Schedule Name
-    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
-    Work efficiency,         !- Work Efficiency Schedule Name
-    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
     ,                        !- Clothing Insulation Calculation Method Schedule Name
-    Clothing Schedule 19827, !- Clothing Insulation Schedule Name
-    Default Air Velocity for Comfort Calculations;  !- Air Velocity Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
+
+People,
+    People 7F:05XOffice2,    !- Name
+    7F:05XOffice2,           !- Zone or ZoneList Name
+    JP Office - office occupants,  !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.1,                     !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    0.67,                    !- Sensible Heat Fraction
+    Activity Schedule 19803, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ,                        !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    ,                        !- Work Efficiency Schedule Name
+    ,                        !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    ;                        !- Air Velocity Schedule Name
+
+
 
 
 !-   ===========  ALL OBJECTS IN CLASS: LIGHTS ===========
@@ -15813,10 +15815,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:10XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15842,10 +15844,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:02XLobby In,     !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15871,10 +15873,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:07XBreakRoom In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15900,10 +15902,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:06XDressing2 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15929,10 +15931,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:04XCntrlMntrngRm In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15958,10 +15960,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -15987,10 +15989,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16016,10 +16018,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:09XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16045,10 +16047,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:05XDressing1 In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16074,10 +16076,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 1F:08XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16103,10 +16105,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:01XCorridor In,!- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16132,10 +16134,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:03XEVHall In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16161,10 +16163,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X1XOfficeSP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16190,10 +16192,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X3XOfficeSI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16219,10 +16221,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:02XVending In, !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16248,10 +16250,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X1XOfficeNP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16277,10 +16279,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X2XOfficeNEP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16306,10 +16308,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X3XOfficeNWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16335,10 +16337,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:04X4XOfficeNI In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16364,10 +16366,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 2X6F:05X2XOfficeSWP In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16393,10 +16395,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:01XCorridor In,  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16422,10 +16424,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:03XEVHall In,    !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16451,10 +16453,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:05XOffice2 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16480,10 +16482,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:02XVending In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -16509,10 +16511,10 @@ ZoneHVAC:IdealLoadsAirSystem,
     Node 7F:04XOffice1 In,   !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    50,                      !- Maximum Heating Supply Air Temperature {C}
-    13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0100,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0100,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     ,                        !- Heating Limit
     ,                        !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}

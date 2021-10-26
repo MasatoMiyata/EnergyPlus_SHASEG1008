@@ -11839,7 +11839,7 @@ BuildingSurface:Detailed,
     IW1 - IBEC_Rev,          !- Construction Name
     2X6F:NXStairXDSPS,       !- Zone Name
     Surface,                 !- Outside Boundary Condition
-    2X6F:02XVending_Partition_3_0_10161,  !- Outside Boundary Condition Object
+    2X6F:NXStairXDSPS_Partition_8_0_0,  !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -11863,8 +11863,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:NXStairXDSPS_Partition_8_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    2X6F:NXWC1,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -12189,7 +12189,7 @@ BuildingSurface:Detailed,
     IW1 - IBEC_Rev,          !- Construction Name
     2X6F:NXWC,               !- Zone Name
     Surface,                 !- Outside Boundary Condition
-    2X6F:02XVending_Partition_6_0_10171,  !- Outside Boundary Condition Object
+    2X6F:NXWC_Partition_3_0_0,  !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -12213,8 +12213,8 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:NXWC_Partition_3_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,    !- Outside Boundary Condition
+    2X6F:NXWC2,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -18734,18 +18734,30 @@ InternalMass,
 !-   ===========  ALL OBJECTS IN CLASS: SURFACEPROPERTY:OTHERSIDECOEFFICIENTS ===========
 
 SurfaceProperty:OtherSideCoefficients,
-    nonACzone,               !- Name
-    ,                        !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+    2X6F:NXWC1,               !- Name
+    9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
     ,                        !- Constant Temperature {C}
-    1,                       !- Constant Temperature Coefficient
-    0.1,                     !- External Dry-Bulb Temperature Coefficient
+    ,                        !- Constant Temperature Coefficient
+    0.5,                     !- External Dry-Bulb Temperature Coefficient
     ,                        !- Ground Temperature Coefficient
     ,                        !- Wind Speed Coefficient
-    0.9,                     !- Zone Air Temperature Coefficient
+    0.5,                     !- Zone Air Temperature Coefficient
     ,                        !- Constant Temperature Schedule Name
     No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
     24;                      !- Period of Sinusoidal Variation {hr}
 
+SurfaceProperty:OtherSideCoefficients,
+    2X6F:NXWC2,               !- Name
+    9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+    ,                        !- Constant Temperature {C}
+    ,                        !- Constant Temperature Coefficient
+    0.5,                     !- External Dry-Bulb Temperature Coefficient
+    ,                        !- Ground Temperature Coefficient
+    ,                        !- Wind Speed Coefficient
+    0.5,                     !- Zone Air Temperature Coefficient
+    ,                        !- Constant Temperature Schedule Name
+    No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+    24;                      !- Period of Sinusoidal Variation {hr}
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 

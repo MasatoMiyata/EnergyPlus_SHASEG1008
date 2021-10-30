@@ -1339,9 +1339,41 @@ ThermostatSetpoint:DualSetpoint,
 
 参考： https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-zone-forced-air-units.html#zonehvacidealloadsairsystem[ZoneHVAC:IdealLoadsAirSystemの作成方法, role="external", window="_blank"]
 
-ZoneHVAC:IdealLoadsAirSystemコンポーネントを使えば、最もシンプルにHVACシステムを設定することができる。
-ユーザーは完全なHVACシステムをモデル化することなく、建物の性能を検討したい場合に使用される。
-設定が必要なのは、ゾーン制御、ゾーン機器構成、及び理想的な負荷システムコンポーネントだけである。
+最もシンプルなゾーン装置は、ZoneHVAC:IdealLoadsAirSystemコンポーネントです。
+ZoneHVAC:IdealLoadsAirSystemは、ユーザーが完全な空調システムをモデル化することなく、建物の性能を検討したい場合に使用されます。
+このような場合、通常は ZoneHVAC:IdealLoadsAirSystem が唯一の空調コンポーネントとなります。
+理想的なシステムに必要なのは、ゾーン制御、ゾーン機器構成、および理想的な負荷システムコンポーネントだけです。
+リターン・プレナムの使用はオプションで、AirloopHVAC:ReturnPlenumオブジェクトを使用する必要があります。
+
+このコンポーネントは、無限または有限の冷暖房能力で動作させることができます。
+無限容量または有限容量のいずれのモードでも、ユーザーは冷暖房のオン/オフスケジュールや外気の制御を指定できます。
+また、オプションで、除湿、加湿、エコノマイザー、熱回収の制御も可能です。
+このコンポーネントは、同じゾーンを担当する他のHVAC機器と組み合わせて使用することができます。
+
+このコンポーネントは、ゾーンの排気条件（プレナムが取り付けられている場合はプレナムの出口条件）にある空気と指定された量の外気を混合し、
+熱と湿気を100％の効率で加えたり取り除いたりして、指定された条件の給気流を作り出す理想的なユニットと考えることができる。
+供給空気の調整に必要なエネルギーは計測され、DistrictHeatingおよびDistrictCoolingとして報告される。
+
+
+注意事項： +
+ZoneHVAC:IdealLoadsAirSystemでは、ゾーンから空気を抽出するために、ゾーンリターンノードまたはオプションのゾーンエキゾーストノードを使用します。AirloopHVAC:ReturnPlenumを使用する場合、理想負荷システムの入口はプレナム出口空気ノードに接続され、理想負荷システムの出口はゾーン入口ノードに接続される。
+ゾーン排気ノードとプレナム入口空気ノードの間に接続されるノード名は、ZoneHVAC:EquipmentConnectionsおよびAirloopHVAC:ReturnPlenumオブジェクト内で一致しなければならない。
+HVACコンポーネントがサービスを提供するすべてのゾーンには、たとえこのノードが何にも接続されていなくても、戻り空気ノードが必要である。
+複数の理想的な負荷空気システムが同じAirloopHVAC:ReturnPlenumに接続されている場合、
+理想的な負荷空気システムの1つがZoneHVAC:ReturnPlenum出口空気ノードに接続され、
+同じリターンプレナムに接続されている残りの理想的な負荷空気システムがZoneHVAC:ReturnPlenum誘導空気出口ノードに接続されます。
+
+ZoneHVAC:IdealLoadsAirSystemは、バージョン7.0（2011年10月）で大幅に拡張されました。
+このアップグレードの一環として、供給空気流の含水率が変化すると、潜熱冷却（除湿）または潜熱加熱（加湿）の負荷が発生し、
+DistrictCoolingおよびDistrictHeatingのエネルギー消費として計測されます。
+バージョン7.0以前では、理想負荷システムが暖房モードの場合、顕熱のエネルギーのみが計測されていた。
+この結果、特に「Humidification Control Type」の「ConstantSupplyHumidityRatio」オプションを使用している場合、
+報告されるエネルギー使用量が以前のバージョンと比べて大幅に変化します。
+
+バージョン7.0に移行した古いidfファイルは、除湿および加湿制御の両方にConstantSupplyHumidityRatioオプションを使用するように自動的に設定されますが、
+これは本システムの旧バージョンで使用されていた制御と同等であるためです。
+ただし、ユーザーはすべての湿度制御オプションを確認し、シミュレーションの目的に応じて最適なものを選択する必要があります。
+
 
 .ZoneHVAC:IdealLoadsAirSystem
 ----

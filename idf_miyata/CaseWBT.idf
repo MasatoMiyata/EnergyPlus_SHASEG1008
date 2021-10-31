@@ -4086,7 +4086,6 @@ GlobalGeometryRules,
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
 
-
 ! 1F - 01-Corridor
 Zone,
     1F:01XCorridor,          !- Name
@@ -4246,7 +4245,6 @@ Zone,
     TARP,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
-
 
 ! 2-6F - 01-Corridor
 Zone,
@@ -4408,7 +4406,6 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
-
 ! 7F - 01-Corridor
 Zone,
     7F:01XCorridor,          !- Name
@@ -4489,6 +4486,7 @@ Zone,
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
+
 !-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
 
 ! 1F, 10-Office 2, Floor - 273.000 m2, Surface Area: 273
@@ -4497,7 +4495,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:10XOffice2,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -4647,7 +4645,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:10XOffice2,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -4665,7 +4663,6 @@ BuildingSurface:Detailed,
     -22.94929697,            !- Vertex 4 X-coordinate {m}
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
-
 
 ! 1F, 10-Office 2, Wall - 72.800 m2 - 270.0°, Surface Area: 72.800m2
 BuildingSurface:Detailed,
@@ -4748,7 +4745,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -4773,7 +4770,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -4798,7 +4795,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5023,7 +5020,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5042,14 +5039,13 @@ BuildingSurface:Detailed,
     -10.01659183,            !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, 02-Lobby, Partition - 33.280 m2 (1F, N-Vestibule), Surface Area: 1.3484
 BuildingSurface:Detailed,
     1F:02XLobby_Partition_7_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5068,14 +5064,13 @@ BuildingSurface:Detailed,
     -8.31659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, 02-Lobby, Partition - 8.840 m2 (1F, N-Vestibule), Surface Area: 0.3802
 BuildingSurface:Detailed,
     1F:02XLobby_Partition_8_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5093,7 +5088,6 @@ BuildingSurface:Detailed,
     -1.7492969697,           !- Vertex 4 X-coordinate {m}
     -8.31659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
-
 
 ! 1F, 02-Lobby, Wall - 9.360 m2 - 180.0°, Surface Area: 9.360m2
 BuildingSurface:Detailed,
@@ -5126,7 +5120,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:02XLobby,             !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5151,7 +5145,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:07XBreakRoom,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5401,7 +5395,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:06XDressing2,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5451,7 +5445,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:06XDressing2,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5469,7 +5463,6 @@ BuildingSurface:Detailed,
     6.5507030304,            !- Vertex 4 X-coordinate {m}
     -6.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
-
 
 ! 1F, 06-Dressing 2, Partition - 16.900 m2 (1F, 05-Dressing 1), Surface Area: 16.9
 BuildingSurface:Detailed,
@@ -5571,14 +5564,13 @@ BuildingSurface:Detailed,
     -6.51659183,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, N-WC, Partition - 33.800 m2 (1F, 08-Vending), Surface Area: 33.8 <Other side>
 BuildingSurface:Detailed,
     1F:08XVending_Partition_6_0_10034,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5603,7 +5595,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:05XDressing1,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5628,7 +5620,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:04XCntrlMntrngRm,     !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5647,14 +5639,13 @@ BuildingSurface:Detailed,
     -12.51659183,            !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, 04-Central Monitoring Room, Floor - 39.000 m2, Surface Area: 39
 BuildingSurface:Detailed,
     1F:04XCntrlMntrngRm_Floor_0_0_0,  !- Name
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:04XCntrlMntrngRm,     !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5754,7 +5745,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5779,7 +5770,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5804,7 +5795,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5829,7 +5820,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5854,7 +5845,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5879,7 +5870,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5904,7 +5895,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -5929,7 +5920,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6079,7 +6070,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6254,7 +6245,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6279,7 +6270,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6304,7 +6295,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6323,14 +6314,13 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, 01-Corridor, Partition - 13.520 m2 (1F, N-ElecMech), Surface Area: 13.52
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_13_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6349,14 +6339,13 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, 01-Corridor, Partition - 32.760 m2 (1F, N-ElecMech), Surface Area: 32.76
 BuildingSurface:Detailed,
     1F:01XCorridor_Partition_14_0_0,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6374,7 +6363,6 @@ BuildingSurface:Detailed,
     3.05070303,              !- Vertex 4 X-coordinate {m}
     11.58340817,             !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
-
 
 ! 1F, 01-Corridor, Partition - 13.520 m2 (1F, 09-Office 1), Surface Area: 13.52
 BuildingSurface:Detailed,
@@ -6432,7 +6420,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6457,7 +6445,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6482,7 +6470,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6557,7 +6545,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6582,7 +6570,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6657,7 +6645,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6682,7 +6670,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6707,7 +6695,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6732,7 +6720,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6757,7 +6745,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6782,7 +6770,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6832,7 +6820,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:03XEVHall,            !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6850,7 +6838,6 @@ BuildingSurface:Detailed,
     -3.2492969696,           !- Vertex 4 X-coordinate {m}
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
-
 
 ! 1F, 03-EV Hall, Partition - 15.600 m2 (1F, 09-Office 1), Surface Area: 15.6
 BuildingSurface:Detailed,
@@ -6902,14 +6889,13 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     15.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 1F, N-DSPS-Stair, Partition - 11.440 m2 (1F, 08-Vending), Surface Area: 11.44 <Other side>
 BuildingSurface:Detailed,
     1F:08XVending_Partition_3_0_10095,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6934,7 +6920,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -6984,7 +6970,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     1F:09XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7059,7 +7045,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:05XDressing1,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7159,7 +7145,7 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     FG1 - IBEC,              !- Construction Name
     1F:08XVending,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7234,7 +7220,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7259,7 +7245,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7284,7 +7270,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X3XOfficeNWP,     !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7309,7 +7295,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:05X2XOfficeSWP,     !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7334,7 +7320,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:05X3XOfficeSI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7559,7 +7545,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7734,7 +7720,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7759,7 +7745,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7784,7 +7770,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7859,7 +7845,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7884,7 +7870,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7959,7 +7945,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -7984,7 +7970,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8059,7 +8045,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8084,7 +8070,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8103,14 +8089,13 @@ BuildingSurface:Detailed,
     4.18340817,              !- Vertex 4 Y-coordinate {m}
     27.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 2-6F, N-Stair_ES1_Kitchenette, Partition - 21.400 m2 (2-6F, 04-4-Office NI), Surface Area: 21.4 <Other side>
 BuildingSurface:Detailed,
     2X6F:04X4XOfficeNI_Partition_7_0_10143,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8135,7 +8120,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:03XEVHall,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8160,7 +8145,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8235,7 +8220,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:03XEVHall,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8304,14 +8289,13 @@ BuildingSurface:Detailed,
     8.98340817,              !- Vertex 4 Y-coordinate {m}
     27.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 2-6F, N-EV, Partition - 14.800 m2 (2-6F, 04-4-Office NI), Surface Area: 14.8 <Other side>
 BuildingSurface:Detailed,
     2X6F:04X4XOfficeNI_Partition_11_0_10154,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8336,7 +8320,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X2XOfficeNEP,     !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8361,7 +8345,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8386,7 +8370,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8461,7 +8445,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:05X1XOfficeSP,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8611,7 +8595,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -8636,7 +8620,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     2X6F:05X3XOfficeSI,      !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9480,14 +9464,13 @@ BuildingSurface:Detailed,
     1.48340817,              !- Vertex 4 Y-coordinate {m}
     27.2;                    !- Vertex 4 Z-coordinate {m}
 
-
 ! 7F, N-Mech 2, Partition - 30.000 m2 (7F, 01-Corridor), Surface Area: 30 <Other side>
 BuildingSurface:Detailed,
     7F:01XCorridor_Partition_4_0_10202,  !- Name
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9512,7 +9495,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9537,7 +9520,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:05XOffice2,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9787,7 +9770,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9962,7 +9945,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -9987,7 +9970,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10012,7 +9995,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10087,7 +10070,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10112,7 +10095,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10187,7 +10170,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10212,7 +10195,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10287,7 +10270,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10312,7 +10295,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10337,7 +10320,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10362,7 +10345,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:03XEVHall,            !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10387,7 +10370,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10462,7 +10445,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:03XEVHall,            !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10537,7 +10520,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10562,7 +10545,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10587,7 +10570,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:02XVending,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10662,7 +10645,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:05XOffice2,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -10787,7 +10770,7 @@ BuildingSurface:Detailed,
     Wall,                    !- Surface Type
     IW1 - IBEC,              !- Construction Name
     7F:02XVending,           !- Zone Name
-    OtherSideCoefficients,    !- Outside Boundary Condition
+    OtherSideCoefficients,   !- Outside Boundary Condition
     NonACRoom,               !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
@@ -11005,6 +10988,7 @@ BuildingSurface:Detailed,
     -29.44929697,            !- Vertex 4 X-coordinate {m}
     22.98340717,             !- Vertex 4 Y-coordinate {m}
     39.2;                    !- Vertex 4 Z-coordinate {m}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 
@@ -12914,14 +12898,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19390, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 1F:05XDressing1,  !- Name
@@ -12935,14 +12912,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19491, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 1F:06XDressing2,  !- Name
@@ -12956,14 +12926,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19365, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 1F:07XBreakRoom,  !- Name
@@ -12977,14 +12940,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19357, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 1F:09XOffice1,    !- Name
@@ -12998,14 +12954,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19469, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 1F:10XOffice2,    !- Name
@@ -13019,14 +12968,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19336, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:04X1XOfficeNP,  !- Name
@@ -13040,14 +12982,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19657, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:04X2XOfficeNEP,  !- Name
@@ -13061,14 +12996,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19664, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:04X3XOfficeNWP,  !- Name
@@ -13082,14 +13010,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19671, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:04X4XOfficeNI,  !- Name
@@ -13103,14 +13024,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19678, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:05X1XOfficeSP,  !- Name
@@ -13124,14 +13038,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19625, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:05X2XOfficeSWP,  !- Name
@@ -13145,14 +13052,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19693, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 2X6F:05X3XOfficeSI,  !- Name
@@ -13166,14 +13066,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19640, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 7F:04XOffice1,    !- Name
@@ -13187,14 +13080,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19827, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 People,
     People 7F:05XOffice2,    !- Name
@@ -13208,16 +13094,7 @@ People,
     0.67,                    !- Sensible Heat Fraction
     Activity Schedule 19803, !- Activity Level Schedule Name
     ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
-    No,                      !- Enable ASHRAE 55 Comfort Warnings
-    ,                        !- Mean Radiant Temperature Calculation Type
-    ,                        !- Surface Name/Angle Factor List Name
-    ,                        !- Work Efficiency Schedule Name
-    ,                        !- Clothing Insulation Calculation Method
-    ,                        !- Clothing Insulation Calculation Method Schedule Name
-    ,                        !- Clothing Insulation Schedule Name
-    ;                        !- Air Velocity Schedule Name
-
-
+    No;                      !- Enable ASHRAE 55 Comfort Warnings
 
 
 !-   ===========  ALL OBJECTS IN CLASS: LIGHTS ===========
@@ -14615,9 +14492,9 @@ DesignSpecification:ZoneAirDistribution,
 !-   ===========  ALL OBJECTS IN CLASS: SIZING:PARAMETERS ===========
 
 Sizing:Parameters,
-    1.3,                     !- Heating Sizing Factor
-    1.3,                     !- Cooling Sizing Factor
-    2;                       !- Timesteps in Averaging Window
+    1,                       !- Heating Sizing Factor
+    1,                       !- Cooling Sizing Factor
+    8;                       !- Timesteps in Averaging Window
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SIZING:ZONE ===========
@@ -17114,73 +16991,143 @@ Output:Constructions,
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Mean Air Temperature,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Mean Air Humidity Ratio,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
+!     hourly;                  !- Reporting Frequency
+
+
 Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Humidity Ratio,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
+    Timestep;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
-    hourly;                  !- Reporting Frequency
-
+    Timestep;                  !- Reporting Frequency

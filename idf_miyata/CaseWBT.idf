@@ -16991,143 +16991,143 @@ Output:Constructions,
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Mean Air Temperature,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Mean Air Humidity Ratio,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-! 
-! Output:Variable,
-!     *,                       !- Key Value
-!     Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
-!     hourly;                  !- Reporting Frequency
-
-
 Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
-    Timestep;                !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Humidity Ratio,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
     Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
-    Timestep;                  !- Reporting Frequency
+    hourly;                  !- Reporting Frequency
+
+
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Mean Air Temperature,  !- Variable Name
+!     Timestep;                !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Mean Air Humidity Ratio,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Heating Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Heating Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Heating Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Cooling Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Cooling Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Cooling Energy,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Heating Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Heating Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Heating Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Sensible Cooling Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Latent Cooling Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency
+! 
+! Output:Variable,
+!     *,                       !- Key Value
+!     Zone Ideal Loads Zone Total Cooling Rate,  !- Variable Name
+!     Timestep;                  !- Reporting Frequency

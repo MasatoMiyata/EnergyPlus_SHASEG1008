@@ -6928,160 +6928,394 @@ Schedule:Compact,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_計算結果20211018時点"><a class="link" href="#_計算結果20211018時点">7.3. 計算結果（2021/10/18時点）</a></h3>
+<h3 id="_energyplus_idfファイルの編集_20211119"><a class="link" href="#_energyplus_idfファイルの編集_20211119">7.3. EnergyPlus idfファイルの編集 (2021/11/19)</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>冷房負荷と暖房負荷が同時に発生する。</p>
+<p>外気導入の削除<br></p>
+</li>
+<li>
+<p>隣室条件の設定<br></p>
+</li>
+<li>
+<p>人体発熱の設定を調整<br></p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
+<div class="sect3">
+<h4 id="_外気導入の削除"><a class="link" href="#_外気導入の削除">7.3.1. 外気導入の削除</a></h4>
+<div class="paragraph">
+<p>外気導入を削除し、すきま風分のみとした。</p>
+</div>
+<div class="listingblock">
+<div class="title">ZoneInfiltration:DesignFlowRate</div>
 <div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_廊下.png" alt="図">
+<pre>ZoneInfiltration:DesignFlowRate,
+    1F:01XCorridor Infiltration 1,  !- Name
+    1F:01XCorridor,          !- Zone or ZoneList Name
+    On 24/7,                 !- Schedule Name
+    Flow/zone,               !- Design Flow Rate Calculation Method
+    0.0109,                  !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
+    ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+    ,                        !- Air Changes per Hour {1/hr}
+    1,                       !- Constant Term Coefficient
+    0,                       !- Temperature Term Coefficient
+    0,                       !- Velocity Term Coefficient
+    0;                       !- Velocity Squared Term Coefficient</pre>
 </div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_ロビー.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_EVホール.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_中央監視室.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_更衣室1.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_更衣室2.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_休憩室.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_自販機コーナー.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_事務室1.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_1F_事務室2.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_廊下.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_自販機コーナー.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_EVホール.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室1_ペリメータ北.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室1_ペリメータ北東.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室1_ペリメータ北西.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室1_インテリア.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室2_ペリメータ南.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室2_ペリメータ南西.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_2-6F_事務室2_インテリア.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_7F_廊下.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_7F_自販機コーナー.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_7F_EVホール.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_7F_事務室1.png" alt="図">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures_caseWBT/建物全体テスト_温湿度と熱負荷のグラフ_7F_事務室2".png" alt="図">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pepple"><a class="link" href="#_pepple">7.3.1. pepple</a></h4>
+<h4 id="_outside_boundary_condition"><a class="link" href="#_outside_boundary_condition">7.3.2. Outside Boundary Condition</a></h4>
+<div class="paragraph">
+<p>BuildingSurface:DetailedオブジェクトのField: Outside Boundary Conditionにて、
+壁の外側の条件を設定することができる。<br>
+OtherSideCoeﬀicientsを選択すると計算式で与えることもできる。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#field-outside-boundary-condition-3">bigladder:BuildingSurface:Detailed</a></p>
+</div>
+<div class="literalblock">
+<div class="title">Outside Boundary Condition の選択肢</div>
+<div class="content">
+<pre>1.	Surface
+この表面が内部表面である場合はこれを選択します。
+値は、ベースゾーンのサーフェスまたは別のゾーンのサーフェスのいずれかになります。
+隣接するゾーンの表面を指定することにより、2つのゾーン間の熱バランスを正確にシミュレートできます。
+EnergyPlusは、ゾーンのグループを同時にシミュレートし、ゾーン間の熱伝達を含みます。
+ただし、これにより計算が複雑になるため、2つのゾーンに大きな温度差がない限り、他のゾーンを指定する必要はありません。
+2つのゾーンに大きな違いがない場合（温度に関して）、サーフェスはそれ自体を外部環境として使用するか、このフィールドを断熱として指定する必要があります。
+このサーフェスの「外側」（に隣接）のサーフェス名は、次のフィールドに配置されます。
+
+2.	Adiabatic
+同じゾーンの内面。この表面はゾーン外に熱を伝達しませんが、それでも熱を熱質量で蓄えます。
+表面の内面のみがゾーンと熱を交換します（つまり、表面の両側がゾーンと熱を交換する内部パーティションをモデル化するには、2つの断熱表面が必要です）。
+外部境界条件オブジェクトは空白のままにすることができます。
+
+3.	Zone
+これはSurfaceに似ていますが、EnergyPlusは、これがサーフェスに入力されると、隣接するゾーンに必要なサーフェスを自動的に作成します。
+サーフェスに窓やドアがある場合、EnergyPlusは適切なサブサーフェスも自動的に作成します。
+
+4.	Outdoors
+この表面が外気温条件にさらされる場合は、これが選択です。
+この種の表面の詳細な仕様については、以下の太陽への露出と風への露出を参照してください。
+
+5.	Foundation
+代替モデル（現在はKivaTMモデルのみ）を使用して、基礎表面の多次元熱伝達を説明します。
+外側境界条件オブジェクトは、Foundation：Kivaオブジェクトの名前を参照します（または、追加の断熱材なしでデフォルトの基礎を使用するには、空白のままにします）。
+
+6.	Ground
+この表面の外側の温度は、その月のSite：GroundTemperature：Surfaceの値になります。
+
+7.	GroundFCfactorMethod
+この表面が地面に露出していて、Construction：CfactorUndergroundWallを使用している場合は、これが選択です。この表面の外側の温度は、その月のSite：GroundTemperature：FcfactorMethod値になります。
+
+8.	OtherSideCoeﬀicients
+このサーフェスにカスタムのユーザー指定の温度またはその他のパラメーターがある場合（SurfaceProperty：OtherSideCoeﬀicientsの仕様を参照）、これを選択します。
+外側の境界条件は、SurfaceProperty：OtherSideCoeﬀicients仕様の名前になります。
+
+9.	OtherSideConditionsModel
+この表面に、外部に取り付けられた、蒸散コレクターや通気型太陽光発電パネルなどの特別にモデル化されたマルチスキンコンポーネントがある場合（SurfaceProp-erty：OtherSideConditionsModel仕様を参照）、これを選択します。外面環境は、SurfaceProperty：OtherSideConditionsModel仕様の名前になります。
+
+10. GroundSlabPreprocessorAverage
+スラブプリプロセッサ計算の平均結果を使用します。
+
+11. GroundSlabPreprocessorCore
+スラブプリプロセッサ計算からのコア結果を使用します。
+
+12. GroundSlabPreprocessorPerimeter
+スラブプリプロセッサ計算からの境界結果を使用します。
+
+13. GroundBasementPreprocessorAverageWall
+地下室のプリプロセッサ計算からの平均壁結果を使用します。
+
+14. GroundBasementPreprocessorAverageFloor
+地下室のプリプロセッサ計算からの平均フロア結果を使用します。
+
+15. GroundBasementPreprocessorUpperWall
+地下室のプリプロセッサ計算からの上部壁の結果を使用します。
+
+16. GroundBasementPreprocessorLowerWall
+地下室のプリプロセッサ計算からの下部壁の結果を使用します。</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_surfacepropertyothersidecoeﬀicients"><a class="link" href="#_surfacepropertyothersidecoeﬀicients">7.3.3. SurfaceProperty:OtherSideCoeﬀicients</a></h4>
+<div class="paragraph">
+<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyothersidecoefficients">bigladder:SurfaceProperty:OtherSideCoeﬀicients</a></p>
+</div>
+<div class="paragraph">
+<p>サーフェスのステートメント（Outside Boundary Condition）において、OtherSideCoeﬀicientsを参照することで、サーフェスの外側の温度を直接制御することができます。
+また、OtherSideCoeﬀicientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。
+OtherSideCoeﬀicientsを使用する場合、太陽の影響は考慮されないことに注意する必要があります。
+さらに、OtherSideCoeﬀicientsがサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができます）。</p>
+</div>
+<div class="paragraph">
+<p>OtherSideCoeﬀicientsは、すべてのタイプの伝熱面に同じ効果を与えます。
+言い換えれば、OtherSideCoeﬀicientsを指定した室内表面と、同一のOtherSideCoeﬀicientsを指定した外壁は、まったく同じようにシミュレーションされます。
+OtherSideCoeﬀicientsを使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。
+様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外壁の場合は屋外の環境が相手側の環境となります。
+内壁の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。
+同様に、OtherSideCoeﬀicientsを指定したサーフェスでは、他面環境をコントロールすることができます。</p>
+</div>
+<div class="paragraph">
+<p>サーフェスを介した熱伝導は、ゾーンロードの計算において非常に重要な要素です。
+この熱伝達を計算するための情報は、表面が屋外環境やシミュレーションされている別のゾーンにさらされていれば、すぐに入手できます。
+時には、EnergyPlusモデルに含まれていないエリアに隣接する表面の熱伝達をモデル化したい場合があります。
+例えば、オフィスエリアが倉庫に隣接していて、ユーザーはオフィスエリアのシミュレーションにしか興味がない場合です。
+OtherSideCoeﬀicientsが指定されたインテリアサーフェスは、サーフェスの反対側の環境を制御するために使用することができ、それによって隣接するサーフェスを介した熱伝達を考慮することができます。</p>
+</div>
+<div class="paragraph">
+<p>OtherSideCoeﬀicientsは、以下に示すように表面の「反対側」に影響を与えます。各係数には特別な意味があります。
+特定の係数を使用しない場合は、0または空白を入力することができます。
+反対側の係数を使用する方法は2つあることに注意してください。
+外側面の温度を直接設定する場合（下記の対流・輻射複合係数が0以下の場合）と、
+フィルム係数（下記の対流・輻射複合係数の正の値）と外気温度の両方を設定する場合に使用します。</p>
+</div>
+<div class="listingblock">
+<div class="title">SurfaceProperty:OtherSideCoefficients</div>
+<div class="content">
+<pre>!  Example input using temperature schedule
+SurfaceProperty:OtherSideCoefficients,
+      OSCCoef:Zn005:Wall003,   !- Name
+      0,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+      0.000000,                !- Constant Temperature {C}
+      1.000000,                !- Constant Temperature Coefficient
+      0.000000,                !- External Dry-Bulb Temperature Coefficient
+      0.000000,                !- Ground Temperature Coefficient
+      0.000000,                !- Wind Speed Coefficient
+      0.000000,                !- Zone Air Temperature Coefficient
+      Zn005Wall003OtherSideTempSched;  !- Constant Temperature Schedule Name
+
+!  Example input for outside heat transfer coefficient of 1.23, using Toadb
+SurfaceProperty:OtherSideCoefficients,
+      OSCCoef:Zn005:Wall004,   !- Name
+      1.230000,                !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+      0.000000,                !- Constant Temperature {C}
+      0.000000,                !- Constant Temperature Coefficient
+      1.000000,                !- External Dry-Bulb Temperature Coefficient
+      0.000000,                !- Ground Temperature Coefficient
+      0.000000,                !- Wind Speed Coefficient
+      0.000000,                !- Zone Air Temperature Coefficient
+      ,                        !- Constant Temperature Schedule Name
+      No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+      24,                      !- Period of Sinusoidal Variation {hr}
+      0.,                      !- Previous Other Side Temperature Coefficient
+      ,                        !- Minimum Other Side Temperature Limit {C}
+      ;                        !- Maximum Other Side Temperature Limit {C}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ガイドラインでは「非空調室が隣接している場合、計算対象室と外気の中間温度を仮定する
+（1F 床面は地下部をピット と想定して隣室扱いとし、同様の仮定とする）」と記されているので、次のように設定する。</p>
+</div>
+<div class="listingblock">
+<div class="title">隣室条件の設定</div>
+<div class="content">
+<pre>BuildingSurface:Detailed,
+    1F:10XOffice2_Partition_4_0_0,  !- Name
+    Wall,                    !- Surface Type
+    IW1 - IBEC,              !- Construction Name
+    1F:10XOffice2,           !- Zone Name
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    NonACRoom,               !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    0,                       !- View Factor to Ground
+    4,                       !- Number of Vertices
+    -22.94929697,            !- Vertex 1 X-coordinate {m}
+    1.48340817,              !- Vertex 1 Y-coordinate {m}
+    10,                      !- Vertex 1 Z-coordinate {m}
+    -29.44929697,            !- Vertex 2 X-coordinate {m}
+    1.48340817,              !- Vertex 2 Y-coordinate {m}
+    10,                      !- Vertex 2 Z-coordinate {m}
+    -29.44929697,            !- Vertex 3 X-coordinate {m}
+    1.48340817,              !- Vertex 3 Y-coordinate {m}
+    15.2,                    !- Vertex 3 Z-coordinate {m}
+    -22.94929697,            !- Vertex 4 X-coordinate {m}
+    1.48340817,              !- Vertex 4 Y-coordinate {m}
+    15.2;                    !- Vertex 4 Z-coordinate {m}
+
+SurfaceProperty:OtherSideCoefficients,
+    NonACRoom,               !- Name
+    9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+    ,                        !- Constant Temperature {C}
+    ,                        !- Constant Temperature Coefficient
+    0.5,                     !- External Dry-Bulb Temperature Coefficient
+    ,                        !- Ground Temperature Coefficient
+    ,                        !- Wind Speed Coefficient
+    0.5,                     !- Zone Air Temperature Coefficient
+    ,                        !- Constant Temperature Schedule Name
+    No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+    24;                      !- Period of Sinusoidal Variation {hr}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>OtherSideCoeﬀicientsは、下記の式で与えられる。係数C1〜C8は以下で説明する入力項目である。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figures/OthersideCoefficients.png" alt="図" width="800">
+</div>
+<div class="title">図 11. OtherSideCoeﬀicients</div>
+</div>
+<div class="sect4">
+<h5 id="_name_7"><a class="link" href="#_name_7">7.3.3.1. Name</a></h5>
+<div class="paragraph">
+<p>OtherSideCoefficientsをOutside Boundary Conditionとして使用しているSurfaceステートメントで参照される文字列です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_combined_convectiveradiative_film_coefficient_c1"><a class="link" href="#_combined_convectiveradiative_film_coefficient_c1">7.3.3.2. Combined Convective/Radiative Film Coefficient (C1)</a></h5>
+<div class="paragraph">
+<p>これはトリガーとなる値である。
+値が0より大きい場合、それは複合対流/放射膜係数であるとみなされる。
+値が0より大きい場合、残りのフィールドは、まず外気温度を計算し、次に外気温度とフィルム係数に基づいて外部表面温度を計算するために使用される。
+このフィールドが0以下の場合、残りのフィールドは表面温度を計算するために使用されます（外気温度ではありません）。
+このフィールドの単位は、対流熱伝達率と同じ　W/(m2*K)　です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_constant_temperature_c2"><a class="link" href="#_constant_temperature_c2">7.3.3.3. Constant Temperature (C2)</a></h5>
+<div class="paragraph">
+<p>このフィールドは、表面温度または外気温度のいずれかを計算する際に一定の要素となる温度項を定義する。
+2番目のパラメータにスケジュール名が含まれている場合、このパラメータの値はスケジュールの値で上書きされます。
+このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_constant_temperature_coefficient_c3"><a class="link" href="#_constant_temperature_coefficient_c3">7.3.3.4. Constant Temperature Coefficient (C3)</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、一定の温度に適用される一定の係数を定義する（前のフィールドを参照）。
+このパラメータは無次元である。
+C2の設定にスケジュールが使用されている場合、このパラメータの値は通常1.0です。
+このフィールドは、Sinusoidal Variation of Constant Temperature Coefficient = Yesの場合は無視されます。
+このフィールドのデフォルトは1.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_external_dry_bulb_temperature_coefficient_c4"><a class="link" href="#_external_dry_bulb_temperature_coefficient_c4">7.3.3.5. External Dry-Bulb Temperature Coefficient (C4)</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、外気乾球温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_ground_temperature_coefficient_c5"><a class="link" href="#_ground_temperature_coefficient_c5">7.3.3.6. Ground Temperature Coefficient (C5)</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、地面の温度（参考：Site:GroundTemperature:BuildingSurface）に適用される一定の係数を定義します。
+このパラメータは無次元です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_wind_speed_coefficient_c6"><a class="link" href="#_wind_speed_coefficient_c6">7.3.3.7. Wind Speed Coefficient (C6)</a></h5>
+<div class="paragraph">
+<p>このフィールドは、外気乾球温度と風速の積に適用される一定の係数を定義する。
+このパラメータは、逆速度またはs/mの単位を持ちます。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_air_temperature_coefficient_c7"><a class="link" href="#_zone_air_temperature_coefficient_c7">7.3.3.8. Zone Air Temperature Coefficient (C7)</a></h5>
+<div class="paragraph">
+<p>このフィールドは、このサーフェスが属するゾーンの温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_constant_temperature_schedule_name"><a class="link" href="#_constant_temperature_schedule_name">7.3.3.9. Constant Temperature Schedule Name</a></h5>
+<div class="paragraph">
+<p>このフィールドは、スケジュール名を入力するために使用される。そのスケジュールは「一定」の温度値C2を供給する。
+C2にスケジュールが使用されている場合、C3フィールドの値は通常1.0であることに注意してください。
+空白でない場合、このフィールドには有効なスケジュール名を入力する必要があります。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sinusoidal_variation_of_constant_temperature_coefficient"><a class="link" href="#_sinusoidal_variation_of_constant_temperature_coefficient">7.3.3.10. Sinusoidal Variation of Constant Temperature Coefficient</a></h5>
+<div class="paragraph">
+<p>このフィールドはオプションで、一定温度に適用される係数を規定する別の方法を定義するために使用できます（フィールド「Constant Temperature」および「Constant Temperature Coefficient」を参照）。
+このパラメータは、以下の式では "C2 "と表示されています。このフィールドが省略されるか、空白にされるか、または「No」に設定された場合、C2は定数です（フィールド「Constant Temperature Coefficient」で定義されます）。
+ただし、この項目が「Yes」に設定されている場合、C2の値はユニタリーサイン波に応じて以下のように変化します。</p>
+</div>
+<div class="paragraph">
+<p>期間の値は、次のフィールドで制御されます。時間帯の値は、ゾーンのタイムステップに基づいており、単位は時間である。
+ここでのサイン関数は、ラジアンとしての入力を使用します。
+このオプションを使用すると、「C2」の値は-1.0～1.0の間で変化し、「一定の温度係数」フィールドに入力された値は使用されません。
+このオプションは、前のフィールドで一定の温度をスケジュールするのと同時に使用することはできません。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_period_of_sinusoidal_variation"><a class="link" href="#_period_of_sinusoidal_variation">7.3.3.11. Period of Sinusoidal Variation</a></h5>
+<div class="paragraph">
+<p>このフィールドは、前のフィールドで選択した「Sinusoidal Variation of Constant Temperature Coefficient」機能を使用する際に、正弦波の周期を定義するために使用される。
+このフィールドは、正弦波の期間を時間単位で表します。
+デフォルトは24時間で、日周期の正弦波が得られます。ここに入力された値は、前のフィールドの式における「period」である。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_previous_other_side_temperature_coefficient_c8"><a class="link" href="#_previous_other_side_temperature_coefficient_c8">7.3.3.12. Previous Other Side Temperature Coefficient (C8)</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、前のゾーン・タイム・ステップからこのオブジェクトによって計算された相手側温度に適用される一定の係数を定義する。
+このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_minimum_other_side_temperature_limit"><a class="link" href="#_minimum_other_side_temperature_limit">7.3.3.13. Minimum Other Side Temperature Limit</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、相手側の温度結果の下限値を℃で指定する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_maximum_other_side_temperature_limit"><a class="link" href="#_maximum_other_side_temperature_limit">7.3.3.14. Maximum Other Side Temperature Limit</a></h5>
+<div class="paragraph">
+<p>このフィールドでは、他方の温度結果の上限を℃で指定する。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pepple"><a class="link" href="#_pepple">7.3.4. Pepple</a></h4>
+<div class="paragraph">
+<p>人体発熱の設定を行う。</p>
+</div>
 <div class="paragraph">
 <p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-internal-gains-people-lights-other.html#people">bigladder解説</a></p>
 </div>
+<div class="listingblock">
+<div class="title">People</div>
+<div class="content">
+<pre>People,
+    People 1F:09XOffice1,    !- Name
+    1F:09XOffice1,           !- Zone or ZoneList Name
+    JP Office - office occupants,  !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.1,                     !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    0.67,                    !- Sensible Heat Fraction
+    Activity Schedule 19469, !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
+    No;                      !- Enable ASHRAE 55 Comfort Warnings</pre>
+</div>
+</div>
 <div class="paragraph">
-<p>peppleは、空間の状態に対する居住者の影響をモデル化するために使用される。
+<p>Peopleは、空間の状態に対する居住者の影響をモデル化するために使用される。
 以下の定義では、基本的な影響に加えて、居住者グループの熱的快適性を報告するために使用できる情報を提供しています。
-EnergyPlusには、Fanger、Pierce Two-Node、およびKansas State University Two-Nodeの熱的快適性モデルが用意されている。
-ユーザーは、空気速度スケジュール名の後に適切な選択キーワードを追加するだけで、各Peopleステートメントにこれらのモデルのいずれかを選択することができます。
+EnergyPlusには、Fanger、Pierce Two-Node、および Kansas State University Two-Node の熱的快適性モデルが用意されている。
+ユーザーは、空気速度スケジュール名の後に適切な選択キーワードを追加するだけで、
+各Peopleステートメントにこれらのモデルのいずれかを選択することができます。
 熱的快適性の計算は、これらの熱的快適性モデルの特定の要求を含む人々の声明に対してのみ行われます。.
 このオブジェクトは、ゾーンの二酸化炭素シミュレーションのために、人々の活動レベルに基づく二酸化炭素発生率の入力も必要です。</p>
 </div>
 <div class="sect4">
-<h5 id="_name_7"><a class="link" href="#_name_7">7.3.1.1. Name</a></h5>
+<h5 id="_name_8"><a class="link" href="#_name_8">7.3.4.1. Name</a></h5>
 <div class="paragraph">
 <p>Peopleオブジェクトの名前です。すべてのPeopleオブジェクトで一意でなければなりません。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_or_zonelist_name_2"><a class="link" href="#_zone_or_zonelist_name_2">7.3.1.2. Zone or ZoneList Name</a></h5>
+<h5 id="_zone_or_zonelist_name_2"><a class="link" href="#_zone_or_zonelist_name_2">7.3.4.2. Zone or ZoneList Name</a></h5>
 <div class="paragraph">
 <p>このフィールドはゾーン（参照：Zone）またはゾーンリスト（参照：ZoneList）の名前であり、
 特定の人数定義を建物内のサーマルゾーンまたはサーマルゾーンのセットにリンクする。
@@ -7097,7 +7331,7 @@ Zonelistオプションは、人数計算方法のpeople/areaおよびarea/perso
 </div>
 </div>
 <div class="sect4">
-<h5 id="_number_of_people_schedule_name"><a class="link" href="#_number_of_people_schedule_name">7.3.1.3. Number of People Schedule Name</a></h5>
+<h5 id="_number_of_people_schedule_name"><a class="link" href="#_number_of_people_schedule_name">7.3.4.3. Number of People Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドには、人数パラメーターを変更するスケジュール（参考：スケジュール）の名前を入力します（「人数計算方法と関連フィールド」参照）。
 スケジュールの値は任意の正の数とすることができます。
@@ -7105,7 +7339,7 @@ Zonelistオプションは、人数計算方法のpeople/areaおよびarea/perso
 </div>
 </div>
 <div class="sect4">
-<h5 id="_number_of_people_calculation_method"><a class="link" href="#_number_of_people_calculation_method">7.3.1.4. Number of People Calculation Method</a></h5>
+<h5 id="_number_of_people_calculation_method"><a class="link" href="#_number_of_people_calculation_method">7.3.4.4. Number of People Calculation Method</a></h5>
 <div class="paragraph">
 <p>このフィールドは、次の3つのフィールドのうちどのフィールドを埋めるかを示すキー／選択肢であり、ゾーン内の居住者（人）の公称数を計算する方法を記述します。キー／選択肢は以下の通りです。</p>
 </div>
@@ -7123,7 +7357,7 @@ Zonelistオプションは、人数計算方法のpeople/areaおよびarea/perso
 </div>
 </div>
 <div class="sect4">
-<h5 id="_number_of_people"><a class="link" href="#_number_of_people">7.3.1.5. Number of People</a></h5>
+<h5 id="_number_of_people"><a class="link" href="#_number_of_people">7.3.4.5. Number of People</a></h5>
 <div class="paragraph">
 <p>このフィールドは、ゾーン内の最大人数を表すために使用され、それにスケジュール分数（スケジュールフィールドを参照）が掛けられます。
 EnergyPlusでは、人数は実数のスケジュールに適用される「ダイバーシティ・ファクター」とすることができるため、若干柔軟性があります。
@@ -7131,19 +7365,19 @@ EnergyPlusでは、人数は実数のスケジュールに適用される「ダ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_people_per_zone_floor_area"><a class="link" href="#_people_per_zone_floor_area">7.3.1.6. People per Zone Floor Area</a></h5>
+<h5 id="_people_per_zone_floor_area"><a class="link" href="#_people_per_zone_floor_area">7.3.4.6. People per Zone Floor Area</a></h5>
 <div class="paragraph">
 <p>この係数（人/m2)は、ゾーンの床面積とともに使用され、「人数」欄に記載された最大人数を決定します。方法欄の選択は「人/面積」としてください。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_zone_floor_area_per_person"><a class="link" href="#_zone_floor_area_per_person">7.3.1.7. Zone Floor Area per Person</a></h5>
+<h5 id="_zone_floor_area_per_person"><a class="link" href="#_zone_floor_area_per_person">7.3.4.7. Zone Floor Area per Person</a></h5>
 <div class="paragraph">
 <p>この係数（m2/人）をゾーンの床面積と合わせて使用し、「人数」欄に記載された最大人数を決定します。方法欄の選択は「面積／人」としてください。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fraction_radiant"><a class="link" href="#_fraction_radiant">7.3.1.8. Fraction Radiant</a></h5>
+<h5 id="_fraction_radiant"><a class="link" href="#_fraction_radiant">7.3.4.8. Fraction Radiant</a></h5>
 <div class="paragraph">
 <p>このフィールドは0.0から1.0までの10進数で、ゾーン内の人間が発する熱の種類を特徴づけるために使用される。
 このフィールドで指定された数値は、ゾーン内の人間からの長波長放射ゲインの量を与えるために、人間によって放出される総顕在エネルギーに乗算されます。
@@ -7152,7 +7386,7 @@ EnergyPlusでは、人数は実数のスケジュールに適用される「ダ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_sensible_heat_fraction"><a class="link" href="#_sensible_heat_fraction">7.3.1.9. Sensible Heat Fraction</a></h5>
+<h5 id="_sensible_heat_fraction"><a class="link" href="#_sensible_heat_fraction">7.3.4.9. Sensible Heat Fraction</a></h5>
 <div class="paragraph">
 <p>ユーザーはこのフィールドを使用して、このPEOPLEオブジェクトによるヒートゲインの固定顕在分を指定することができます。
 通常、プログラムは顕在/潜熱の分割を計算しますが、このフィールドではユーザーがこの分割を制御できます。
@@ -7160,7 +7394,7 @@ EnergyPlusでは、人数は実数のスケジュールに適用される「ダ�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_activity_level_schedule_name"><a class="link" href="#_activity_level_schedule_name">7.3.1.10. Activity Level Schedule Name</a></h5>
+<h5 id="_activity_level_schedule_name"><a class="link" href="#_activity_level_schedule_name">7.3.4.10. Activity Level Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、設計条件におけるゾーンの一人当たりのヒートゲインの量を決定するスケジュールの名前である。
 このヒートゲインは、基本的なゾーンのヒートバランスや、熱的快適性のモデル化に影響を与える。
@@ -7181,7 +7415,7 @@ ASHRAE HOFからの情報に加えて、活動レベルのスケジュール値�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_carbon_dioxide_generation_rate"><a class="link" href="#_carbon_dioxide_generation_rate">7.3.1.11. Carbon Dioxide Generation Rate</a></h5>
+<h5 id="_carbon_dioxide_generation_rate"><a class="link" href="#_carbon_dioxide_generation_rate">7.3.4.11. Carbon Dioxide Generation Rate</a></h5>
 <div class="paragraph">
 <p>この数値入力フィールドは、一人当たりの二酸化炭素発生率をm3/s-Wの単位で指定します。
 このオブジェクトからの総二酸化炭素発生率は人の数 * 人のスケジュール * 人の活動 * 二酸化炭素発生率。デフォルト値は3.82E-8 m3/s-Wです（ASHRAE Standard 62.1-2007の一般成人を対象とした0.0084 cfm/met/personの値から取得）。
@@ -7189,7 +7423,7 @@ ASHRAE HOFからの情報に加えて、活動レベルのスケジュール値�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_enable_ashrae_55_comfort_warnings"><a class="link" href="#_enable_ashrae_55_comfort_warnings">7.3.1.12. Enable ASHRAE 55 comfort warnings</a></h5>
+<h5 id="_enable_ashrae_55_comfort_warnings"><a class="link" href="#_enable_ashrae_55_comfort_warnings">7.3.4.12. Enable ASHRAE 55 comfort warnings</a></h5>
 <div class="paragraph">
 <p>このフィールドには、「Yes」または「No」のいずれかを指定します。
 Yesを指定すると、空間の状態がASHRAE 55の快適範囲外にある場合に警告が生成されます。
@@ -7198,7 +7432,7 @@ Yesを指定すると、空間の状態がASHRAE 55の快適範囲外にある�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_mean_radiant_temperature_calculation_type"><a class="link" href="#_mean_radiant_temperature_calculation_type">7.3.1.13. Mean Radiant Temperature Calculation Type</a></h5>
+<h5 id="_mean_radiant_temperature_calculation_type"><a class="link" href="#_mean_radiant_temperature_calculation_type">7.3.4.13. Mean Radiant Temperature Calculation Type</a></h5>
 <div class="paragraph">
 <p>このフィールドは、ユーザーが熱的快適性モデルに使用したい平均放射温度（MRT）計算のタイプを指定します。
 現時点では、MRTの計算タイプには、ゾーン平均、表面加重、角度係数のリストの3つのオプションがあります。
@@ -7224,7 +7458,7 @@ ComfortViewFactorAnglesオブジェクト（次のオブジェクトの説明を
 </div>
 </div>
 <div class="sect4">
-<h5 id="_surface_nameangle_factor_list_name"><a class="link" href="#_surface_nameangle_factor_list_name">7.3.1.14. Surface Name/Angle Factor List Name</a></h5>
+<h5 id="_surface_nameangle_factor_list_name"><a class="link" href="#_surface_nameangle_factor_list_name">7.3.4.14. Surface Name/Angle Factor List Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、ユーザーがMRTの計算タイプに「SurfaceWeighted」または「AngleFactor」を選択した場合のみ有効です（前出の入力フィールドの説明を参照）。
 SurfaceWeighted "の場合、このフィールドには、人々が居住するゾーン内のサーフェスの名前が入ります。
@@ -7236,7 +7470,7 @@ Fanger、Pierce、またはKSUの熱的快適性モデルのいずれかを実�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_work_efficiency_schedule_name"><a class="link" href="#_work_efficiency_schedule_name">7.3.1.15. Work Efficiency Schedule Name</a></h5>
+<h5 id="_work_efficiency_schedule_name"><a class="link" href="#_work_efficiency_schedule_name">7.3.4.15. Work Efficiency Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、熱的快適性の計算に使用される人体内のエネルギー使用効率を決定するスケジュールの名前です。
 なお、ゾーンのヒートバランス計算では、身体で生成されたすべてのエネルギーが熱に変換されると仮定する。
@@ -7252,7 +7486,7 @@ Fanger、Pierce、またはKSUの熱的快適性モデルのいずれかを実�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_clothing_insulation_calculation_method"><a class="link" href="#_clothing_insulation_calculation_method">7.3.1.16. Clothing Insulation Calculation Method</a></h5>
+<h5 id="_clothing_insulation_calculation_method"><a class="link" href="#_clothing_insulation_calculation_method">7.3.4.16. Clothing Insulation Calculation Method</a></h5>
 <div class="paragraph">
 <p>このフィールドは、次の2つのフィールドのうち、どのフィールドを埋めるかを示すキー／選択肢のフィールドで、
 ゾーン内の居住者（人）の衣服の断熱値を計算する方法を記述しています。キー／選択肢は以下の通りです。</p>
@@ -7271,7 +7505,7 @@ Fanger、Pierce、またはKSUの熱的快適性モデルのいずれかを実�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_clothing_insulation_calculation_method_schedule_name"><a class="link" href="#_clothing_insulation_calculation_method_schedule_name">7.3.1.17. Clothing Insulation Calculation Method Schedule Name</a></h5>
+<h5 id="_clothing_insulation_calculation_method_schedule_name"><a class="link" href="#_clothing_insulation_calculation_method_schedule_name">7.3.4.17. Clothing Insulation Calculation Method Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、1日の特定の時間帯にどの衣類断熱方法（ClothingInsulationScheduleまたはDynamicClothingModelASHRAE55）を使用するかを指定します。
 スケジュールの値が1の場合はClothingInsulationSchedule方式、
@@ -7281,18 +7515,18 @@ Fanger、Pierce、またはKSUの熱的快適性モデルのいずれかを実�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_clothing_insulation_schedule_name"><a class="link" href="#_clothing_insulation_schedule_name">7.3.1.18. Clothing Insulation Schedule Name</a></h5>
+<h5 id="_clothing_insulation_schedule_name"><a class="link" href="#_clothing_insulation_schedule_name">7.3.4.18. Clothing Insulation Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、シミュレーション期間の様々な時間帯に典型的なゾーンの居住者が着用する衣服の量を定義するスケジュールの名前です。ClothingInsulationScheduleを選択してください（"ClothingInsulationSchedule"）。
 このパラメータは正の実数であり、単位はCloである。
-Cloの典型的な値は、ASHRAE 2009 HOFの表7、9.8ページ（衣服のアンサンブルについて）および表[table:window-modeling-options]、9.9ページ（衣服の値について）に記載されています）またはwww.cbe.berkeley.edu/comforttool/。
+Cloの典型的な値は、ASHRAE 2009 HOFの表7、9.8ページ（衣服のアンサンブルについて）および表[table:window-modeling-options]、9.9ページ（衣服の値について）または <a href="http://www.cbe.berkeley.edu/comforttool/" class="bare">http://www.cbe.berkeley.edu/comforttool/</a> に記載されています。
 このフィールドは、Fanger、Pierce、またはKSUの熱的快適性モデルのいずれかを実行する際に必要です。
 ここにスケジュールが表示されていても、温熱環境モデルが選択されていない場合は、警告メッセージが表示され、
 このスケジュールはエラーファイルに「unused」と記載されます。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_air_velocity_schedule_name"><a class="link" href="#_air_velocity_schedule_name">7.3.1.19. Air Velocity Schedule Name</a></h5>
+<h5 id="_air_velocity_schedule_name"><a class="link" href="#_air_velocity_schedule_name">7.3.4.19. Air Velocity Schedule Name</a></h5>
 <div class="paragraph">
 <p>このフィールドは、シミュレーション期間中の空間内の空気の移動量を時間の関数として概算するスケジュールの名前です。
 スケジュールの各数値は正の実数であり、単位はメートル毎秒である必要がある。
@@ -7302,7 +7536,7 @@ Cloの典型的な値は、ASHRAE 2009 HOFの表7、9.8ページ（衣服のア�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_thermal_comfort_model_type_up_to_5_allowed"><a class="link" href="#_thermal_comfort_model_type_up_to_5_allowed">7.3.1.20. Thermal Comfort Model Type (up to 5 allowed)</a></h5>
+<h5 id="_thermal_comfort_model_type_up_to_5_allowed"><a class="link" href="#_thermal_comfort_model_type_up_to_5_allowed">7.3.4.20. Thermal Comfort Model Type (up to 5 allowed)</a></h5>
 <div class="paragraph">
 <p>最後の1つから5つのフィールドはオプションで、EnergyPlus内の様々な熱的快適性モデルを起動するためのものです。
 Fanger、Pierce、KSU、AdaptiveASH55、AdaptiveCEN15251というキーワードを入力することで、
@@ -7314,268 +7548,6 @@ AdaptiveCEN15251 は、過去 30 日間の実行平均外気温度が 10.0～30.
 なお、最大5つのモデルを指定することができるため、ユーザーは必要に応じて5つのモデルすべてを用いてEnergyPlusにこのPeople Statementで特定された人の熱的快適性を計算させることができる。
 なお、KSUモデルは計算量が多く、シミュレーションの実行時間が大幅に増加する可能性があります。
 熱的快適性の計算方法については、『エンジニアリング・リファレンス』を参照してください。</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sizingparameters"><a class="link" href="#_sizingparameters">7.3.2. Sizing:Parameters</a></h4>
-<div class="paragraph">
-<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder解説</a></p>
-</div>
-<div class="paragraph">
-<p>このオブジェクトでは、グローバルな冷暖房サイズ比を指定することができる。
-これらの比率は、ゾーンレベルで、すべてのゾーンの冷暖房負荷と空気流量に適用される。
-これらの新しい負荷と空気流量は、システムレベルの流量と容量の計算に使用され、すべてのコンポーネントのサイジング計算に使用される。
-ユーザーは、計算されたゾーン設計流量シーケンスを平滑化するために使用できる移動平均ウィンドウの幅（負荷タイムステップ）を指定することもできます。
-このパラメータの使用方法は以下の通りです。</p>
-</div>
-<div class="sect4">
-<h5 id="_heating_sizing_factor"><a class="link" href="#_heating_sizing_factor">7.3.2.1. Heating Sizing Factor</a></h5>
-<div class="paragraph">
-<p>すべてのゾーン設計加熱負荷と風量に適用されるグローバル加熱サイズ比。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_sizing_factor"><a class="link" href="#_cooling_sizing_factor">7.3.2.2. Cooling Sizing Factor</a></h5>
-<div class="paragraph">
-<p>すべてのゾーンの設計冷房負荷と風量に適用されるグローバル冷房サイズ比</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">7.3.2.3. Timesteps in Averaging Window</a></h5>
-<div class="paragraph">
-<p>ゾーン設計流量シーケンスの平均化ウィンドウにおける負荷タイムステップの数。
-デフォルトは1で、この場合、計算されたゾーン設計流量は負荷タイムステップで平均化される。</p>
-</div>
-<div class="paragraph">
-<p>ゾーン設計空気流量の計算は、固定温度で加熱または冷却された空気が無限に供給される可能性を想定して実行される。
-したがって、計算された設計風量は、負荷や負荷の変化がどれほど大きくても、また急激であっても、常に満たすことができる。
-しかし、実際には、風量はダクトサイズとファンの容量によって制限されます。
-理想的なゾーン設計流量の計算は、特にユーザーが夜間設定やセットバックのあるサーモスタットスケジュールを使用してサイジング計算を行っている場合、非現実的に大きな流量になる可能性があります。
-計算されたゾーン設計流量は、常に負荷タイムステップの平均値である。
-ユーザーは、サーモスタットの設定やセットバックの影響を軽減し、ウォームアップやクールダウンの流量が設計流量の計算を支配するのを防ぐために、より広範な平均を実行したいと思うかもしれません。
-平均化ウィンドウの幅を指定することで、ユーザーはこれを行うことができます。</p>
-</div>
-<div class="paragraph">
-<p>例えば、負荷計算のタイムステップが15分で、ユーザーが「平均化ウィンドウのタイムステップ」を4に指定した場合、ゾーンの設計空気流量は1時間の時間帯で平均化されます。
-8を指定すると、2時間の期間で平均化されることになります。</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sizingzone"><a class="link" href="#_sizingzone">7.3.3. Sizing:Zone</a></h4>
-<div class="paragraph">
-<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingzone">bigladder解説</a></p>
-</div>
-<div class="paragraph">
-<p>Sizing:Zoneオブジェクトは、単一ゾーンのゾーン設計気流計算を行うために必要なデータを提供します。
-この計算は、一定の温度と湿度で可変量の供給空気を想定している。
-必要な情報は、ゾーン入口の給気条件、すなわち冷暖房の温度と湿度の比率である。
-この計算は、入力に含まれるすべての設計日に対して行われる。
-最大冷房負荷と風量、最大暖房負荷と風量は、システムレベルの設計計算やコンポーネントの自動サイジング計算のために保存されます。</p>
-</div>
-<div class="paragraph">
-<p>Sizing:Zoneオブジェクトは、設計仕様の外気オブジェクトの名前を参照することで、ユーザーが設計外気流量を指定できる場所でもあります。
-このデータは、システムのサイジング計算や、外気を使用するゾーン・コンポーネントのサイジングに使用するために保存されます。</p>
-</div>
-<div class="paragraph">
-<p>ユーザーは、暖房および冷却設計空気流量に制限を設けることもできます。
-以下の「暖房設計風量法」および「冷房設計風量法」と、各暖房・冷房風量入力フィールドの説明を参照してください。
-ユーザーは、ゾーン設計計算において、専用外気システムがゾーン設計負荷と風量に与える影響を考慮するよう求めることができます。
-設計計算では、理想化されたSOAシステムのゾーンへの熱付加率を計算し、その結果をゾーンの総負荷と流量に加減します。</p>
-</div>
-<div class="sect4">
-<h5 id="_zone_name_2"><a class="link" href="#_zone_name_2">7.3.3.1. Zone Name</a></h5>
-<div class="paragraph">
-<p>このSizing:Zoneオブジェクトに対応するゾーンの名前。これは、このSizing:Zoneオブジェクトの入力データを使用して、設計風量の計算が行われるゾーンである。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_cooling_design_supply_air_temperature_input_method"><a class="link" href="#_zone_cooling_design_supply_air_temperature_input_method">7.3.3.2. Zone Cooling Design Supply Air Temperature Input Method</a></h5>
-<div class="paragraph">
-<p>入力は、SupplyAirTemperatureまたはTemperatureDifferenceのいずれかでなければならない。
-SupplyAirTemperature は、ゾーン冷却設計供給空気温度のフィールド入力が、ゾーン冷却設計空気流量の決定に使用されることを意味する。
-TemperatureDifference は、ゾーン冷却設計供給空気温度差のフィールドの入力が、ゾーン冷却設計空気流量を決定するために使用されることを意味する。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_cooling_design_supply_air_temperature"><a class="link" href="#_zone_cooling_design_supply_air_temperature">7.3.3.3. Zone Cooling Design Supply Air Temperature</a></h5>
-<div class="paragraph">
-<p>ゾーン冷却設計風量計算のための供給空気温度（摂氏）。
-冷房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
-ゾーンの負荷は、ゾーン空気流量を変化させることで満たされる。最大ゾーン流量は、ゾーン冷却設計風量として保存される。
-このフィールドは、Zone Cooling Design Supply Air Temperature Input Method = SupplyAirTemperatureの場合にのみ使用される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_cooling_design_supply_air_temperature_difference"><a class="link" href="#_zone_cooling_design_supply_air_temperature_difference">7.3.3.4. Zone Cooling Design Supply Air Temperature Difference</a></h5>
-<div class="paragraph">
-<p>ゾーンの冷房設計空気流量を計算するための、冷房設計供給空気温度と室内空気温度の温度差（摂氏）。
-冷房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
-ゾーン負荷は、ゾーン風量を変化させることで満たされる。最大ゾーン流量は、ゾーン冷却設計風量として保存される。
-このフィールドは、Zone Cooling Design Supply Air Temperature Input Method = TemperatureDifferenceの場合にのみ使用される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_heating_design_supply_air_temperature_input_method"><a class="link" href="#_zone_heating_design_supply_air_temperature_input_method">7.3.3.5. Zone Heating Design Supply Air Temperature Input Method</a></h5>
-<div class="paragraph">
-<p>入力は、SupplyAirTemperatureまたはTemperatureDifferenceのいずれかでなければならない。
-SupplyAirTemperatureは、ゾーン暖房設計供給空気温度のフィールドからのユーザー入力が、ゾーン暖房設計空気流量の決定に使用されることを意味する。
-温度差とは、ゾーン暖房設計供給空気温度差のフィールドからのユーザーの入力が、ゾーン暖房設計空気流量の決定に使用されることを意味する。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_heating_design_supply_air_temperature"><a class="link" href="#_zone_heating_design_supply_air_temperature">7.3.3.6. Zone Heating Design Supply Air Temperature</a></h5>
-<div class="paragraph">
-<p>ゾーン暖房設計風量計算のための供給空気温度（摂氏）。暖房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
-ゾーンの負荷は、ゾーンの空気流量を変化させることで満たされる。
-ゾーンの最大流量は、ゾーン暖房設計風量として保存されます。
-このフィールドは、Zone Heating Design Supply Air Temperature Input Method = SupplyAirTemperatureの場合にのみ使用される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_heating_design_supply_air_temperature_difference"><a class="link" href="#_zone_heating_design_supply_air_temperature_difference">7.3.3.7. Zone Heating Design Supply Air Temperature Difference</a></h5>
-<div class="paragraph">
-<p>ゾーンの暖房設計風量を計算するための、暖房設計供給空気温度と室内空気温度の温度差（摂氏）。
-暖房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。ゾーンの負荷は、ゾーン風量を変化させることで満たされる。
-ゾーンの最大流量は、ゾーン暖房設計風量として保存されます。
-このフィールドは、Zone Heating Design Supply Air Temperature Input Method = TemperatureDifferenceの場合にのみ使用される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_cooling_design_supply_air_humidity_ratio"><a class="link" href="#_zone_cooling_design_supply_air_humidity_ratio">7.3.3.8. Zone Cooling Design Supply Air Humidity Ratio</a></h5>
-<div class="paragraph">
-<p>ゾーン冷房設計風量計算における供給空気の乾燥空気1キログラムあたりの水のキログラム単位の湿度比。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_heating_design_supply_air_humidity_ratio"><a class="link" href="#_zone_heating_design_supply_air_humidity_ratio">7.3.3.9. Zone Heating Design Supply Air Humidity Ratio</a></h5>
-<div class="paragraph">
-<p>ゾーン暖房設計風量計算における給気の乾燥空気1キログラムあたりの水のキログラム単位の湿度比。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_design_specification_outdoor_air_object_name"><a class="link" href="#_design_specification_outdoor_air_object_name">7.3.3.10. Design Specification Outdoor Air Object Name</a></h5>
-<div class="paragraph">
-<p>このアルファ・フィールドは、ゾーンの設計外気流量を指定するDesignSpecification:OutdoorAirオブジェクトの名前を指定する。
-DesignSpecification:OutdoorAirオブジェクトのOutdoor Air MethodフィールドにIndoorAirQualityProcedureの選択肢が入力されると、同じフィールドのSumの選択肢に基づいて設計外気流量が計算される。
-ProportionalControlBasedOnDesignOccupancy または ProportionalControlBasedonOccupancySchedule の選択が入力された場合、設計外気流量は、エンジニアリングリファレンスの「Proportional Control」のセクションで指定された方程式に基づいて計算されます。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_heating_sizing_factor"><a class="link" href="#_zone_heating_sizing_factor">7.3.3.11. Zone Heating Sizing Factor</a></h5>
-<div class="paragraph">
-<p>この入力は、ゾーンレベルの暖房サイズ比である。ゾーンの設計暖房空気流量および負荷は、このフィールドに入力された数値を乗じて得られる。
-この入力は、Sizing:Parametersオブジェクトの建物レベルのサイズ調整係数の入力よりも優先されます。
-もちろん、このフィールドが空白またはゼロの場合は、Sizing:Parametersオブジェクトのグローバルな暖房のサイズ調整係数が使用されます。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zone_cooling_sizing_factor"><a class="link" href="#_zone_cooling_sizing_factor">7.3.3.12. Zone Cooling Sizing Factor</a></h5>
-<div class="paragraph">
-<p>この入力は、ゾーンレベルの冷却サイズ比である。
-ゾーン設計の冷却風量および負荷は、このフィールドに入力された数値を乗じて算出される。
-この入力は、Sizing:Parametersオブジェクトに入力された建物レベルのサイジング係数よりも優先される。
-もちろん、このフィールドが空白またはゼロの場合は、Sizing:Parametersオブジェクトのグローバル冷却サイズ係数が使用される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_design_air_flow_method"><a class="link" href="#_cooling_design_air_flow_method">7.3.3.13. Cooling Design Air Flow Method</a></h5>
-<div class="paragraph">
-<p>入力は、Flow/Zone、DesignDay、または DesignDayWithLimit のいずれかでなければならない。Flow/Zoneは、プログラムがフィールドCooling Design Air Flow Rateの入力をゾーン設計冷却空気流量として使用することを意味する。DesignDayとは、プログラムがSizing:Zoneの入力データと設計日のシミュレーションを用いて、最小外気要求によって設定された制限以外の制限を課すことなく、ゾーン設計冷房空気流量を算出することを意味する。DesignDayWithLimitとは、「ゾーン床面積当たりの冷却最小風量」と「冷却最小風量」の最大値が、設計最大冷却風量の下限値を設定することを意味する。既定の方法はDesignDay：すなわち、プログラムは換気要件を条件として計算された設計値を使用する。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_design_air_flow_rate"><a class="link" href="#_cooling_design_air_flow_rate">7.3.3.14. Cooling Design Air Flow Rate</a></h5>
-<div class="paragraph">
-<p>設計ゾーンの冷却空気流量を立方メートル／秒で示す。この入力は、「Cooling Design Air Flow Method」が「Flow/Zone」と指定されている場合に使用される。この値には、グローバルまたはゾーンサイジングファクターとゾーンマルチプライヤーが乗じられる。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_minimum_air_flow_per_zone_floor_area"><a class="link" href="#_cooling_minimum_air_flow_per_zone_floor_area">7.3.3.15. Cooling Minimum Air Flow per Zone Floor Area</a></h5>
-<div class="paragraph">
-<p>平方メートルあたりのゾーン冷却最小体積流量（単位はm3/s-m2）。このフィールドは、「Cooling Design Air Flow Method」が「DesignDayWithLimit」と指定されている場合に使用される。この場合には、ゾーン設計冷却空気流量の下限を設定する。どのような場合でも、ゾーン床面積当たりの冷却最小風量、冷却最小風量、冷却最小風量フラクション、および設計外気風量（VRP調整を含む）から得られる最大風量を用いて、VAVシステムのゾーンの最小給気風量を設定する。既定値は0.000762で、0.15cfm/ft2に相当する。適用されるサイジングファクターは、この値には適用されない。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_minimum_air_flow"><a class="link" href="#_cooling_minimum_air_flow">7.3.3.16. Cooling Minimum Air Flow</a></h5>
-<div class="paragraph">
-<p>ゾーン冷却の最小体積流量（単位：m3/s）。このフィールドは、Cooling Design Air Flow MethodがDesignDayWithLimitとして指定されている場合に使用される。この場合には、ゾーン設計冷却空気流量の下限を設定する。すべての場合において、ゾーン床面積当たりの冷却最小空気流量、冷却最小空気流量、冷却最小空気流量フラクション、および設計外気流量（VRP調整を含む）から得られた最大流量が、VAVシステムのゾーンの最小供給空気流量を設定するために使用される。デフォルトはゼロである。適用されるサイジングファクターはこの値には適用されない。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_cooling_minimum_air_flow_fraction"><a class="link" href="#_cooling_minimum_air_flow_fraction">7.3.3.17. Cooling Minimum Air Flow Fraction</a></h5>
-<div class="paragraph">
-<p>ゾーン設計冷却体積流量の端数として表されるゾーン設計冷却体積流量の最小値。どのような場合でも、「ゾーン床面積当たりの冷却最小空気流量」、「冷却最小空気流量」、「冷却最小空気流量分数」から得られる最大流量と、設計外気流量（VRP調整を含む）を用いて、VAVシステムのゾーンの最小給気流量を設定する。既定値は 0.2 である。この入力は現在、VAVエアターミナルユニットおよびファンの最小流量のサイズ決定に使用される。現在、他のコンポーネントの自動サイジングには影響しない。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_design_air_flow_method"><a class="link" href="#_heating_design_air_flow_method">7.3.3.18. Heating Design Air Flow Method</a></h5>
-<div class="paragraph">
-<p>入力は、Flow/Zone、DesignDay、または DesignDayWithLimit のいずれかでなければならない。Flow/Zoneは、プログラムがフィールドHeating Design Air Flow Rateの入力をゾーン設計加熱空気流量として使用することを意味する。DesignDayとは、プログラムがSizing:Zoneの入力データと設計日のシミュレーションを使用して、最低外気要件で設定された制限以外の制限を課すことなく、ゾーン設計暖房空気流量を計算することを意味する。DesignDayWithLimitとは、「ゾーン床面積あたりの暖房最大風量」および「暖房最大風量」の最大値により、設計最大暖房風量の下限値を設定することを意味する。既定の方法はDesignDayです。つまり、プログラムは換気要件を条件として計算された設計値を使用します。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_design_air_flow_rate"><a class="link" href="#_heating_design_air_flow_rate">7.3.3.19. Heating Design Air Flow Rate</a></h5>
-<div class="paragraph">
-<p>設計ゾーンの暖房空気流量を立方メートル/秒で表したもの。この入力は、「暖房設計空気流量方法」が「流量／ゾーン」と指定されている場合に使用されます。この値には、グローバルまたはゾーンサイジングファクターとゾーンマルチプライヤーが掛けられます。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_maximum_air_flow_per_zone_floor_area"><a class="link" href="#_heating_maximum_air_flow_per_zone_floor_area">7.3.3.20. Heating Maximum Air Flow per Zone Floor Area</a></h5>
-<div class="paragraph">
-<p>平方メートルあたりのゾーン暖房最大体積流量（単位はm3/s-m2）。このフィールドは、Heating Design Air Flow MethodがDesignDayWithLimitとして指定されている場合に使用される。この場合、ゾーン設計暖房用空気流量の上限を設定する。このフィールドと次の2つの入力フィールドでは、ゾーン床面積あたりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を使用して、VAVシステムのゾーンの最大暖房供給風量を設定する。既定値は0.002032で、0.40cfm/ft2に相当します。これらの入力フィールドを使って計算された最大暖房設計流量が、サイジング中に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えません。最大暖房設計流量の計算には、これら3つのフィールドのうち1つだけを選択する方が適切な場合があります（つまり、これら3つのフィールドのうち1つ以上が0の場合は、最大暖房設計流量の計算には使用されません）。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_maximum_air_flow"><a class="link" href="#_heating_maximum_air_flow">7.3.3.21. Heating Maximum Air Flow</a></h5>
-<div class="paragraph">
-<p>ゾーン暖房の最大体積流量（単位：m3/s）。このフィールドは、「暖房設計気流方法」がDesignDayWithLimitとして指定されている場合に使用される。この場合、ゾーン設計暖房空気流量の上限を設定する。このフィールドおよびその前後の2つの入力フィールドでは、ゾーン床面積あたりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を使用して、VAVシステムのゾーンの最大暖房供給風量を設定する。既定値は0.1415762で、300cfmに相当します。これらの入力フィールドを使用して計算された最大暖房設計流量が、サイジング時に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えない。最大暖房設計流量の算出には、これら3つのフィールドのうち1つだけを選択する方が適切な場合がある（すなわち、これら3つのフィールドのうち1つ以上が0の場合、最大暖房設計流量の算出には使用されない）。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_heating_maximum_air_flow_fraction"><a class="link" href="#_heating_maximum_air_flow_fraction">7.3.3.22. Heating Maximum Air Flow Fraction</a></h5>
-<div class="paragraph">
-<p>ゾーン設計最大暖房流量をゾーン設計冷房流量の割合で表したもの。本フィールドおよび前の2つの入力フィールドでは、ゾーン床面積当たりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を用いて、VAVシステムのゾーンの最大暖房供給空気流量を設定する。既定値は0.3です。これらの入力フィールドを使用して計算された最大暖房設計流量が、サイジング中に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えません。最大暖房設計流量を計算するには、これら3つのフィールドのうち1つだけを選択する方が適切な場合があります（つまり、これら3つのフィールドのうち1つ以上が0の場合は、最大暖房設計流量の計算には使用されません）。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_design_specification_zone_air_distribution_object_name"><a class="link" href="#_design_specification_zone_air_distribution_object_name">7.3.3.23. Design Specification Zone Air Distribution Object Name</a></h5>
-<div class="paragraph">
-<p>ゾーンまたはゾーン・リストに適用される空気分配の有効性と二次再循環空気の割合を定義するDesignSpecification:ZoneAirDistributionオブジェクトの名前。このオブジェクトは、DesignSpecification:ZoneAirDistributionオブジェクトが指定されていない場合、Controller:MechanicalVentilationオブジェクトの同じゾーンに使用することができる。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_account_for_dedicated_outdoor_air_system"><a class="link" href="#_account_for_dedicated_outdoor_air_system">7.3.3.24. Account for Dedicated Outdoor Air System</a></h5>
-<div class="paragraph">
-<p>デフォルトはNoである。Yesを選択すると、ゾーンサイジング計算では、後続の入力を使用して、専用外気システム（DOAS）によってゾーンに課せられるヒートゲインまたはロス（ヒートゲインは正、ヒートロスは負）を計算する。そして、このヒートゲインをゾーンの設計ヒートゲインに加え、DOASのヒートゲインとゾーンの設計ヒートゲインを満たすようにゾーンの設計風量を調整する。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_dedicated_outdoor_air_system_control_strategy"><a class="link" href="#_dedicated_outdoor_air_system_control_strategy">7.3.3.25. Dedicated Outdoor Air System Control Strategy</a></h5>
-<div class="paragraph">
-<p>これは、DOAシステムの理想的な制御戦略を3つの中から選ぶ選択フィールドです。選択肢は「NeutralSupplyAir」、「NeutralDehumidifiedSupplyAir」、「ColdSupplyAir」です。デフォルトは「NeutralSupplyAir」です。</p>
-</div>
-<div class="paragraph">
-<p>NeutralSupplyAirは、ゾーンに供給される換気空気がほとんど加熱または冷却されないことを意味します。空気は、後続の2つのフィールドで指定された低温と高温の設定値の間を保つように加熱または冷却されます。これらのフィールドには、21.1℃と23.9℃が適しています。</p>
-</div>
-<div class="paragraph">
-<p>NeutralDehumidifiedSupplyAirは、換気用空気を冷却して除湿した後、中性の温度に再加熱することを意味します。換気用空気は、（必要に応じて）下側の設定温度まで冷却され、上側の設定温度まで再加熱されます。設定値としては、14.4度と22.2度が良いでしょう。</p>
-</div>
-<div class="paragraph">
-<p>ColdSupplyAirは、換気用の空気をゾーンへの冷却供給に使用することを意味します。冷たい外気は上限の設定値まで加熱され、暖かい外気は下限の設定値まで冷却されます。設定値としては、12.2℃と14.4℃が良いでしょう。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_dedicated_outdoor_air_low_temperature_setpoint_for_design"><a class="link" href="#_dedicated_outdoor_air_low_temperature_setpoint_for_design">7.3.3.26. Dedicated Outdoor Air Low Temperature Setpoint for Design</a></h5>
-<div class="paragraph">
-<p>DOAS設計制御戦略で使用する低めの設定点温度。デフォルトでは、3つの設計制御戦略について上記の値に自動設定されます。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_dedicated_outdoor_air_high_temperature_setpoint_for_design"><a class="link" href="#_dedicated_outdoor_air_high_temperature_setpoint_for_design">7.3.3.27. Dedicated Outdoor Air High Temperature Setpoint for Design</a></h5>
-<div class="paragraph">
-<p>DOASの設計制御戦略で使用する高い方のセットポイント温度です。単位は℃で、デフォルトは3つのデザイン制御戦略について上記の値に自動設定されます。</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -7685,7 +7657,7 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <div class="content">
 <img src="figures/EPlaunch.png" alt="図" width="600">
 </div>
-<div class="title">図 11. EPLaunchの設定</div>
+<div class="title">図 12. EPLaunchの設定</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -7695,273 +7667,295 @@ EPlaunchのOptions画面において「Allow More Than 250 Columns」にチェ�
 <h2 id="_参考"><a class="link" href="#_参考">10. 参考</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_隣室条件の与え方"><a class="link" href="#_隣室条件の与え方">10.1. 隣室条件の与え方</a></h3>
+<h3 id="_機器能力の設定"><a class="link" href="#_機器能力の設定">10.1. 機器能力の設定</a></h3>
 <div class="sect3">
-<h4 id="_outside_boundary_condition"><a class="link" href="#_outside_boundary_condition">10.1.1. Outside Boundary Condition</a></h4>
+<h4 id="_sizingparameters"><a class="link" href="#_sizingparameters">10.1.1. Sizing:Parameters</a></h4>
 <div class="paragraph">
-<p>BuildingSurface:DetailedオブジェクトのField: Outside Boundary Conditionにて、壁の外側の条件を設定することができる。<br>
-OtherSideCoeﬀicientsを選択すると計算式で与えることもできる（内壁に使えるかどうかは未確認）。</p>
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder解説</a></p>
 </div>
 <div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-thermal-zone-description-geometry.html#field-outside-boundary-condition-3">bigladder:BuildingSurface:Detailed</a></p>
+<p>このオブジェクトでは、グローバルな冷暖房サイズ比を指定することができる。
+これらの比率は、ゾーンレベルで、すべてのゾーンの冷暖房負荷と空気流量に適用される。
+これらの新しい負荷と空気流量は、システムレベルの流量と容量の計算に使用され、すべてのコンポーネントのサイジング計算に使用される。
+ユーザーは、計算されたゾーン設計流量シーケンスを平滑化するために使用できる移動平均ウィンドウの幅（負荷タイムステップ）を指定することもできます。
+このパラメータの使用方法は以下の通りです。</p>
 </div>
-<div class="literalblock">
-<div class="title">Outside Boundary Condition の選択肢</div>
-<div class="content">
-<pre>1.	Surface
-この表面が内部表面である場合はこれを選択します。
-値は、ベースゾーンのサーフェスまたは別のゾーンのサーフェスのいずれかになります。
-隣接するゾーンの表面を指定することにより、2つのゾーン間の熱バランスを正確にシミュレートできます。
-EnergyPlusは、ゾーンのグループを同時にシミュレートし、ゾーン間の熱伝達を含みます。
-ただし、これにより計算が複雑になるため、2つのゾーンに大きな温度差がない限り、他のゾーンを指定する必要はありません。
-2つのゾーンに大きな違いがない場合（温度に関して）、サーフェスはそれ自体を外部環境として使用するか、このフィールドを断熱として指定する必要があります。
-このサーフェスの「外側」（に隣接）のサーフェス名は、次のフィールドに配置されます。
-
-2.	Adiabatic
-同じゾーンの内面。この表面はゾーン外に熱を伝達しませんが、それでも熱を熱質量で蓄えます。
-表面の内面のみがゾーンと熱を交換します（つまり、表面の両側がゾーンと熱を交換する内部パーティションをモデル化するには、2つの断熱表面が必要です）。
-外部境界条件オブジェクトは空白のままにすることができます。
-
-3.	Zone
-これはSurfaceに似ていますが、EnergyPlusは、これがサーフェスに入力されると、隣接するゾーンに必要なサーフェスを自動的に作成します。
-サーフェスに窓やドアがある場合、EnergyPlusは適切なサブサーフェスも自動的に作成します。
-
-4.	Outdoors
-この表面が外気温条件にさらされる場合は、これが選択です。
-この種の表面の詳細な仕様については、以下の太陽への露出と風への露出を参照してください。
-
-5.	Foundation
-代替モデル（現在はKivaTMモデルのみ）を使用して、基礎表面の多次元熱伝達を説明します。
-外側境界条件オブジェクトは、Foundation：Kivaオブジェクトの名前を参照します（または、追加の断熱材なしでデフォルトの基礎を使用するには、空白のままにします）。
-
-6.	Ground
-この表面の外側の温度は、その月のSite：GroundTemperature：Surfaceの値になります。
-
-7.	GroundFCfactorMethod
-この表面が地面に露出していて、Construction：CfactorUndergroundWallを使用している場合は、これが選択です。この表面の外側の温度は、その月のSite：GroundTemperature：FcfactorMethod値になります。
-
-8.	OtherSideCoeﬀicients
-このサーフェスにカスタムのユーザー指定の温度またはその他のパラメーターがある場合（SurfaceProperty：OtherSideCoeﬀicientsの仕様を参照）、これを選択します。
-外側の境界条件は、SurfaceProperty：OtherSideCoeﬀicients仕様の名前になります。
-
-9.	OtherSideConditionsModel
-この表面に、外部に取り付けられた、蒸散コレクターや通気型太陽光発電パネルなどの特別にモデル化されたマルチスキンコンポーネントがある場合（SurfaceProp-erty：OtherSideConditionsModel仕様を参照）、これを選択します。外面環境は、SurfaceProperty：OtherSideConditionsModel仕様の名前になります。
-
-10. GroundSlabPreprocessorAverage
-スラブプリプロセッサ計算の平均結果を使用します。
-
-11. GroundSlabPreprocessorCore
-スラブプリプロセッサ計算からのコア結果を使用します。
-
-12. GroundSlabPreprocessorPerimeter
-スラブプリプロセッサ計算からの境界結果を使用します。
-
-13. GroundBasementPreprocessorAverageWall
-地下室のプリプロセッサ計算からの平均壁結果を使用します。
-
-14. GroundBasementPreprocessorAverageFloor
-地下室のプリプロセッサ計算からの平均フロア結果を使用します。
-
-15. GroundBasementPreprocessorUpperWall
-地下室のプリプロセッサ計算からの上部壁の結果を使用します。
-
-16. GroundBasementPreprocessorLowerWall
-地下室のプリプロセッサ計算からの下部壁の結果を使用します。</pre>
+<div class="sect4">
+<h5 id="_heating_sizing_factor"><a class="link" href="#_heating_sizing_factor">10.1.1.1. Heating Sizing Factor</a></h5>
+<div class="paragraph">
+<p>すべてのゾーン設計加熱負荷と風量に適用されるグローバル加熱サイズ比。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_sizing_factor"><a class="link" href="#_cooling_sizing_factor">10.1.1.2. Cooling Sizing Factor</a></h5>
+<div class="paragraph">
+<p>すべてのゾーンの設計冷房負荷と風量に適用されるグローバル冷房サイズ比</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_timesteps_in_averaging_window"><a class="link" href="#_timesteps_in_averaging_window">10.1.1.3. Timesteps in Averaging Window</a></h5>
+<div class="paragraph">
+<p>ゾーン設計流量シーケンスの平均化ウィンドウにおける負荷タイムステップの数。
+デフォルトは1で、この場合、計算されたゾーン設計流量は負荷タイムステップで平均化される。</p>
+</div>
+<div class="paragraph">
+<p>ゾーン設計空気流量の計算は、固定温度で加熱または冷却された空気が無限に供給される可能性を想定して実行される。
+したがって、計算された設計風量は、負荷や負荷の変化がどれほど大きくても、また急激であっても、常に満たすことができる。
+しかし、実際には、風量はダクトサイズとファンの容量によって制限されます。
+理想的なゾーン設計流量の計算は、特にユーザーが夜間設定やセットバックのあるサーモスタットスケジュールを使用してサイジング計算を行っている場合、非現実的に大きな流量になる可能性があります。
+計算されたゾーン設計流量は、常に負荷タイムステップの平均値である。
+ユーザーは、サーモスタットの設定やセットバックの影響を軽減し、ウォームアップやクールダウンの流量が設計流量の計算を支配するのを防ぐために、より広範な平均を実行したいと思うかもしれません。
+平均化ウィンドウの幅を指定することで、ユーザーはこれを行うことができます。</p>
+</div>
+<div class="paragraph">
+<p>例えば、負荷計算のタイムステップが15分で、ユーザーが「平均化ウィンドウのタイムステップ」を4に指定した場合、ゾーンの設計空気流量は1時間の時間帯で平均化されます。
+8を指定すると、2時間の期間で平均化されることになります。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_surfacepropertyothersidecoeﬀicients"><a class="link" href="#_surfacepropertyothersidecoeﬀicients">10.1.2. SurfaceProperty:OtherSideCoeﬀicients</a></h4>
+<h4 id="_sizingzone"><a class="link" href="#_sizingzone">10.1.2. Sizing:Zone</a></h4>
 <div class="paragraph">
-<p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-advanced-surface-concepts.html#surfacepropertyothersidecoefficients">bigladder:SurfaceProperty:OtherSideCoeﬀicients</a></p>
-</div>
-<div class="paragraph">
-<p>サーフェスのステートメント（Outside Boundary Condition）において、OtherSideCoeﬀicientsを参照することで、サーフェスの外側の温度を直接制御することができます。
-また、OtherSideCoeﬀicientsを使用して、サーフェイスの外部対流熱伝達係数と、それに対応する外気温度を制御することもできます。
-OtherSideCoeﬀicientsを使用する場合、太陽の影響は考慮されないことに注意する必要があります。
-さらに、OtherSideCoeﬀicientsがサーフェスに指定された場合、そのサーフェスのサブサーフェスにも適用されます（サブサーフェスは独自の係数セットを持つことができます）。</p>
+<p>参考：　<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingzone">bigladder解説</a></p>
 </div>
 <div class="paragraph">
-<p>OtherSideCoeﬀicientsは、すべてのタイプの伝熱面に同じ効果を与えます。
-言い換えれば、OtherSideCoeﬀicientsを指定した室内表面と、同一のOtherSideCoeﬀicientsを指定した外壁は、まったく同じようにシミュレーションされます。
-OtherSideCoeﬀicientsを使用するサーフェスは、新しいまたは別のタイプのサーフェスと考えるべきです。すべての熱伝達面は、伝導伝達関数によって同じようにシミュレートされます。
-様々な種類の伝熱面の唯一の違いは、伝熱面の反対側の環境です。例えば、外壁の場合は屋外の環境が相手側の環境となります。
-内壁の場合、表面の外側の面の温度は、表面の内側の面の温度と等しく設定されます。
-同様に、OtherSideCoeﬀicientsを指定したサーフェスでは、他面環境をコントロールすることができます。</p>
+<p>Sizing:Zoneオブジェクトは、単一ゾーンのゾーン設計気流計算を行うために必要なデータを提供します。
+この計算は、一定の温度と湿度で可変量の供給空気を想定している。
+必要な情報は、ゾーン入口の給気条件、すなわち冷暖房の温度と湿度の比率である。
+この計算は、入力に含まれるすべての設計日に対して行われる。
+最大冷房負荷と風量、最大暖房負荷と風量は、システムレベルの設計計算やコンポーネントの自動サイジング計算のために保存されます。</p>
 </div>
 <div class="paragraph">
-<p>サーフェスを介した熱伝導は、ゾーンロードの計算において非常に重要な要素です。
-この熱伝達を計算するための情報は、表面が屋外環境やシミュレーションされている別のゾーンにさらされていれば、すぐに入手できます。
-時には、EnergyPlusモデルに含まれていないエリアに隣接する表面の熱伝達をモデル化したい場合があります。
-例えば、オフィスエリアが倉庫に隣接していて、ユーザーはオフィスエリアのシミュレーションにしか興味がない場合です。
-OtherSideCoeﬀicientsが指定されたインテリアサーフェスは、サーフェスの反対側の環境を制御するために使用することができ、それによって隣接するサーフェスを介した熱伝達を考慮することができます。</p>
+<p>Sizing:Zoneオブジェクトは、設計仕様の外気オブジェクトの名前を参照することで、ユーザーが設計外気流量を指定できる場所でもあります。
+このデータは、システムのサイジング計算や、外気を使用するゾーン・コンポーネントのサイジングに使用するために保存されます。</p>
 </div>
 <div class="paragraph">
-<p>OtherSideCoeﬀicientsは、以下に示すように表面の「反対側」に影響を与えます。各係数には特別な意味があります。
-特定の係数を使用しない場合は、0または空白を入力することができます。
-反対側の係数を使用する方法は2つあることに注意してください。
-外側面の温度を直接設定する場合（下記の対流・輻射複合係数が0以下の場合）と、
-フィルム係数（下記の対流・輻射複合係数の正の値）と外気温度の両方を設定する場合に使用します。</p>
+<p>ユーザーは、暖房および冷却設計空気流量に制限を設けることもできます。
+以下の「暖房設計風量法」および「冷房設計風量法」と、各暖房・冷房風量入力フィールドの説明を参照してください。
+ユーザーは、ゾーン設計計算において、専用外気システムがゾーン設計負荷と風量に与える影響を考慮するよう求めることができます。
+設計計算では、理想化されたSOAシステムのゾーンへの熱付加率を計算し、その結果をゾーンの総負荷と流量に加減します。</p>
 </div>
-<div class="listingblock">
-<div class="title">SurfaceProperty:OtherSideCoefficients</div>
-<div class="content">
-<pre>!  Example input using temperature schedule
-SurfaceProperty:OtherSideCoefficients,
-      OSCCoef:Zn005:Wall003,   !- Name
-      0,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
-      0.000000,                !- Constant Temperature {C}
-      1.000000,                !- Constant Temperature Coefficient
-      0.000000,                !- External Dry-Bulb Temperature Coefficient
-      0.000000,                !- Ground Temperature Coefficient
-      0.000000,                !- Wind Speed Coefficient
-      0.000000,                !- Zone Air Temperature Coefficient
-      Zn005Wall003OtherSideTempSched;  !- Constant Temperature Schedule Name
-
-!  Example input for outside heat transfer coefficient of 1.23, using Toadb
-SurfaceProperty:OtherSideCoefficients,
-      OSCCoef:Zn005:Wall004,   !- Name
-      1.230000,                !- Combined Convective/Radiative Film Coefficient {W/m2-K}
-      0.000000,                !- Constant Temperature {C}
-      0.000000,                !- Constant Temperature Coefficient
-      1.000000,                !- External Dry-Bulb Temperature Coefficient
-      0.000000,                !- Ground Temperature Coefficient
-      0.000000,                !- Wind Speed Coefficient
-      0.000000,                !- Zone Air Temperature Coefficient
-      ,                        !- Constant Temperature Schedule Name
-      No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
-      24,                      !- Period of Sinusoidal Variation {hr}
-      0.,                      !- Previous Other Side Temperature Coefficient
-      ,                        !- Minimum Other Side Temperature Limit {C}
-      ;                        !- Maximum Other Side Temperature Limit {C}</pre>
+<div class="sect4">
+<h5 id="_zone_name_2"><a class="link" href="#_zone_name_2">10.1.2.1. Zone Name</a></h5>
+<div class="paragraph">
+<p>このSizing:Zoneオブジェクトに対応するゾーンの名前。これは、このSizing:Zoneオブジェクトの入力データを使用して、設計風量の計算が行われるゾーンである。</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_zone_cooling_design_supply_air_temperature_input_method"><a class="link" href="#_zone_cooling_design_supply_air_temperature_input_method">10.1.2.2. Zone Cooling Design Supply Air Temperature Input Method</a></h5>
+<div class="paragraph">
+<p>入力は、SupplyAirTemperatureまたはTemperatureDifferenceのいずれかでなければならない。
+SupplyAirTemperature は、ゾーン冷却設計供給空気温度のフィールド入力が、ゾーン冷却設計空気流量の決定に使用されることを意味する。
+TemperatureDifference は、ゾーン冷却設計供給空気温度差のフィールドの入力が、ゾーン冷却設計空気流量を決定するために使用されることを意味する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_cooling_design_supply_air_temperature"><a class="link" href="#_zone_cooling_design_supply_air_temperature">10.1.2.3. Zone Cooling Design Supply Air Temperature</a></h5>
+<div class="paragraph">
+<p>ゾーン冷却設計風量計算のための供給空気温度（摂氏）。
+冷房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
+ゾーンの負荷は、ゾーン空気流量を変化させることで満たされる。最大ゾーン流量は、ゾーン冷却設計風量として保存される。
+このフィールドは、Zone Cooling Design Supply Air Temperature Input Method = SupplyAirTemperatureの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_cooling_design_supply_air_temperature_difference"><a class="link" href="#_zone_cooling_design_supply_air_temperature_difference">10.1.2.4. Zone Cooling Design Supply Air Temperature Difference</a></h5>
+<div class="paragraph">
+<p>ゾーンの冷房設計空気流量を計算するための、冷房設計供給空気温度と室内空気温度の温度差（摂氏）。
+冷房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
+ゾーン負荷は、ゾーン風量を変化させることで満たされる。最大ゾーン流量は、ゾーン冷却設計風量として保存される。
+このフィールドは、Zone Cooling Design Supply Air Temperature Input Method = TemperatureDifferenceの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_heating_design_supply_air_temperature_input_method"><a class="link" href="#_zone_heating_design_supply_air_temperature_input_method">10.1.2.5. Zone Heating Design Supply Air Temperature Input Method</a></h5>
+<div class="paragraph">
+<p>入力は、SupplyAirTemperatureまたはTemperatureDifferenceのいずれかでなければならない。
+SupplyAirTemperatureは、ゾーン暖房設計供給空気温度のフィールドからのユーザー入力が、ゾーン暖房設計空気流量の決定に使用されることを意味する。
+温度差とは、ゾーン暖房設計供給空気温度差のフィールドからのユーザーの入力が、ゾーン暖房設計空気流量の決定に使用されることを意味する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_heating_design_supply_air_temperature"><a class="link" href="#_zone_heating_design_supply_air_temperature">10.1.2.6. Zone Heating Design Supply Air Temperature</a></h5>
+<div class="paragraph">
+<p>ゾーン暖房設計風量計算のための供給空気温度（摂氏）。暖房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。
+ゾーンの負荷は、ゾーンの空気流量を変化させることで満たされる。
+ゾーンの最大流量は、ゾーン暖房設計風量として保存されます。
+このフィールドは、Zone Heating Design Supply Air Temperature Input Method = SupplyAirTemperatureの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_heating_design_supply_air_temperature_difference"><a class="link" href="#_zone_heating_design_supply_air_temperature_difference">10.1.2.7. Zone Heating Design Supply Air Temperature Difference</a></h5>
+<div class="paragraph">
+<p>ゾーンの暖房設計風量を計算するための、暖房設計供給空気温度と室内空気温度の温度差（摂氏）。
+暖房設計日のシミュレーションでは、この温度の空気がゾーンに供給される。ゾーンの負荷は、ゾーン風量を変化させることで満たされる。
+ゾーンの最大流量は、ゾーン暖房設計風量として保存されます。
+このフィールドは、Zone Heating Design Supply Air Temperature Input Method = TemperatureDifferenceの場合にのみ使用される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_cooling_design_supply_air_humidity_ratio"><a class="link" href="#_zone_cooling_design_supply_air_humidity_ratio">10.1.2.8. Zone Cooling Design Supply Air Humidity Ratio</a></h5>
+<div class="paragraph">
+<p>ゾーン冷房設計風量計算における供給空気の乾燥空気1キログラムあたりの水のキログラム単位の湿度比。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_heating_design_supply_air_humidity_ratio"><a class="link" href="#_zone_heating_design_supply_air_humidity_ratio">10.1.2.9. Zone Heating Design Supply Air Humidity Ratio</a></h5>
+<div class="paragraph">
+<p>ゾーン暖房設計風量計算における給気の乾燥空気1キログラムあたりの水のキログラム単位の湿度比。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_design_specification_outdoor_air_object_name"><a class="link" href="#_design_specification_outdoor_air_object_name">10.1.2.10. Design Specification Outdoor Air Object Name</a></h5>
+<div class="paragraph">
+<p>このアルファ・フィールドは、ゾーンの設計外気流量を指定するDesignSpecification:OutdoorAirオブジェクトの名前を指定する。
+DesignSpecification:OutdoorAirオブジェクトのOutdoor Air MethodフィールドにIndoorAirQualityProcedureの選択肢が入力されると、同じフィールドのSumの選択肢に基づいて設計外気流量が計算される。
+ProportionalControlBasedOnDesignOccupancy または ProportionalControlBasedonOccupancySchedule の選択が入力された場合、設計外気流量は、エンジニアリングリファレンスの「Proportional Control」のセクションで指定された方程式に基づいて計算されます。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_heating_sizing_factor"><a class="link" href="#_zone_heating_sizing_factor">10.1.2.11. Zone Heating Sizing Factor</a></h5>
+<div class="paragraph">
+<p>この入力は、ゾーンレベルの暖房サイズ比である。ゾーンの設計暖房空気流量および負荷は、このフィールドに入力された数値を乗じて得られる。
+この入力は、Sizing:Parametersオブジェクトの建物レベルのサイズ調整係数の入力よりも優先されます。
+もちろん、このフィールドが空白またはゼロの場合は、Sizing:Parametersオブジェクトのグローバルな暖房のサイズ調整係数が使用されます。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zone_cooling_sizing_factor"><a class="link" href="#_zone_cooling_sizing_factor">10.1.2.12. Zone Cooling Sizing Factor</a></h5>
+<div class="paragraph">
+<p>この入力は、ゾーンレベルの冷却サイズ比である。
+ゾーン設計の冷却風量および負荷は、このフィールドに入力された数値を乗じて算出される。
+この入力は、Sizing:Parametersオブジェクトに入力された建物レベルのサイジング係数よりも優先される。
+もちろん、このフィールドが空白またはゼロの場合は、Sizing:Parametersオブジェクトのグローバル冷却サイズ係数が使用される。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_design_air_flow_method"><a class="link" href="#_cooling_design_air_flow_method">10.1.2.13. Cooling Design Air Flow Method</a></h5>
+<div class="paragraph">
+<p>入力は、Flow/Zone、DesignDay、または DesignDayWithLimit のいずれかでなければならない。Flow/Zoneは、プログラムがフィールドCooling Design Air Flow Rateの入力をゾーン設計冷却空気流量として使用することを意味する。DesignDayとは、プログラムがSizing:Zoneの入力データと設計日のシミュレーションを用いて、最小外気要求によって設定された制限以外の制限を課すことなく、ゾーン設計冷房空気流量を算出することを意味する。DesignDayWithLimitとは、「ゾーン床面積当たりの冷却最小風量」と「冷却最小風量」の最大値が、設計最大冷却風量の下限値を設定することを意味する。既定の方法はDesignDay：すなわち、プログラムは換気要件を条件として計算された設計値を使用する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_design_air_flow_rate"><a class="link" href="#_cooling_design_air_flow_rate">10.1.2.14. Cooling Design Air Flow Rate</a></h5>
+<div class="paragraph">
+<p>設計ゾーンの冷却空気流量を立方メートル／秒で示す。この入力は、「Cooling Design Air Flow Method」が「Flow/Zone」と指定されている場合に使用される。この値には、グローバルまたはゾーンサイジングファクターとゾーンマルチプライヤーが乗じられる。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_minimum_air_flow_per_zone_floor_area"><a class="link" href="#_cooling_minimum_air_flow_per_zone_floor_area">10.1.2.15. Cooling Minimum Air Flow per Zone Floor Area</a></h5>
+<div class="paragraph">
+<p>平方メートルあたりのゾーン冷却最小体積流量（単位はm3/s-m2）。このフィールドは、「Cooling Design Air Flow Method」が「DesignDayWithLimit」と指定されている場合に使用される。この場合には、ゾーン設計冷却空気流量の下限を設定する。どのような場合でも、ゾーン床面積当たりの冷却最小風量、冷却最小風量、冷却最小風量フラクション、および設計外気風量（VRP調整を含む）から得られる最大風量を用いて、VAVシステムのゾーンの最小給気風量を設定する。既定値は0.000762で、0.15cfm/ft2に相当する。適用されるサイジングファクターは、この値には適用されない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_minimum_air_flow"><a class="link" href="#_cooling_minimum_air_flow">10.1.2.16. Cooling Minimum Air Flow</a></h5>
+<div class="paragraph">
+<p>ゾーン冷却の最小体積流量（単位：m3/s）。このフィールドは、Cooling Design Air Flow MethodがDesignDayWithLimitとして指定されている場合に使用される。この場合には、ゾーン設計冷却空気流量の下限を設定する。すべての場合において、ゾーン床面積当たりの冷却最小空気流量、冷却最小空気流量、冷却最小空気流量フラクション、および設計外気流量（VRP調整を含む）から得られた最大流量が、VAVシステムのゾーンの最小供給空気流量を設定するために使用される。デフォルトはゼロである。適用されるサイジングファクターはこの値には適用されない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cooling_minimum_air_flow_fraction"><a class="link" href="#_cooling_minimum_air_flow_fraction">10.1.2.17. Cooling Minimum Air Flow Fraction</a></h5>
+<div class="paragraph">
+<p>ゾーン設計冷却体積流量の端数として表されるゾーン設計冷却体積流量の最小値。どのような場合でも、「ゾーン床面積当たりの冷却最小空気流量」、「冷却最小空気流量」、「冷却最小空気流量分数」から得られる最大流量と、設計外気流量（VRP調整を含む）を用いて、VAVシステムのゾーンの最小給気流量を設定する。既定値は 0.2 である。この入力は現在、VAVエアターミナルユニットおよびファンの最小流量のサイズ決定に使用される。現在、他のコンポーネントの自動サイジングには影響しない。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_heating_design_air_flow_method"><a class="link" href="#_heating_design_air_flow_method">10.1.2.18. Heating Design Air Flow Method</a></h5>
+<div class="paragraph">
+<p>入力は、Flow/Zone、DesignDay、または DesignDayWithLimit のいずれかでなければならない。Flow/Zoneは、プログラムがフィールドHeating Design Air Flow Rateの入力をゾーン設計加熱空気流量として使用することを意味する。DesignDayとは、プログラムがSizing:Zoneの入力データと設計日のシミュレーションを使用して、最低外気要件で設定された制限以外の制限を課すことなく、ゾーン設計暖房空気流量を計算することを意味する。DesignDayWithLimitとは、「ゾーン床面積あたりの暖房最大風量」および「暖房最大風量」の最大値により、設計最大暖房風量の下限値を設定することを意味する。既定の方法はDesignDayです。つまり、プログラムは換気要件を条件として計算された設計値を使用します。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_heating_design_air_flow_rate"><a class="link" href="#_heating_design_air_flow_rate">10.1.2.19. Heating Design Air Flow Rate</a></h5>
+<div class="paragraph">
+<p>設計ゾーンの暖房空気流量を立方メートル/秒で表したもの。この入力は、「暖房設計空気流量方法」が「流量／ゾーン」と指定されている場合に使用されます。この値には、グローバルまたはゾーンサイジングファクターとゾーンマルチプライヤーが掛けられます。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_heating_maximum_air_flow_per_zone_floor_area"><a class="link" href="#_heating_maximum_air_flow_per_zone_floor_area">10.1.2.20. Heating Maximum Air Flow per Zone Floor Area</a></h5>
+<div class="paragraph">
+<p>平方メートルあたりのゾーン暖房最大体積流量（単位はm3/s-m2）。このフィールドは、Heating Design Air Flow MethodがDesignDayWithLimitとして指定されている場合に使用される。この場合、ゾーン設計暖房用空気流量の上限を設定する。このフィールドと次の2つの入力フィールドでは、ゾーン床面積あたりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を使用して、VAVシステムのゾーンの最大暖房供給風量を設定する。既定値は0.002032で、0.40cfm/ft2に相当します。これらの入力フィールドを使って計算された最大暖房設計流量が、サイジング中に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えません。最大暖房設計流量の計算には、これら3つのフィールドのうち1つだけを選択する方が適切な場合があります（つまり、これら3つのフィールドのうち1つ以上が0の場合は、最大暖房設計流量の計算には使用されません）。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_heating_maximum_air_flow"><a class="link" href="#_heating_maximum_air_flow">10.1.2.21. Heating Maximum Air Flow</a></h5>
+<div class="paragraph">
+<p>ゾーン暖房の最大体積流量（単位：m3/s）。このフィールドは、「暖房設計気流方法」がDesignDayWithLimitとして指定されている場合に使用される。この場合、ゾーン設計暖房空気流量の上限を設定する。このフィールドおよびその前後の2つの入力フィールドでは、ゾーン床面積あたりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を使用して、VAVシステムのゾーンの最大暖房供給風量を設定する。既定値は0.1415762で、300cfmに相当します。これらの入力フィールドを使用して計算された最大暖房設計流量が、サイジング時に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えない。最大暖房設計流量の算出には、これら3つのフィールドのうち1つだけを選択する方が適切な場合がある（すなわち、これら3つのフィールドのうち1つ以上が0の場合、最大暖房設計流量の算出には使用されない）。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_heating_maximum_air_flow_fraction"><a class="link" href="#_heating_maximum_air_flow_fraction">10.1.2.22. Heating Maximum Air Flow Fraction</a></h5>
+<div class="paragraph">
+<p>ゾーン設計最大暖房流量をゾーン設計冷房流量の割合で表したもの。本フィールドおよび前の2つの入力フィールドでは、ゾーン床面積当たりの暖房最大風量、暖房最大風量、および暖房最大風量分数から得られる最大風量を用いて、VAVシステムのゾーンの最大暖房供給空気流量を設定する。既定値は0.3です。これらの入力フィールドを使用して計算された最大暖房設計流量が、サイジング中に計算された設計暖房流量よりも大きい場合、これらの入力フィールドはサイジングに影響を与えません。最大暖房設計流量を計算するには、これら3つのフィールドのうち1つだけを選択する方が適切な場合があります（つまり、これら3つのフィールドのうち1つ以上が0の場合は、最大暖房設計流量の計算には使用されません）。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_design_specification_zone_air_distribution_object_name"><a class="link" href="#_design_specification_zone_air_distribution_object_name">10.1.2.23. Design Specification Zone Air Distribution Object Name</a></h5>
+<div class="paragraph">
+<p>ゾーンまたはゾーン・リストに適用される空気分配の有効性と二次再循環空気の割合を定義するDesignSpecification:ZoneAirDistributionオブジェクトの名前。このオブジェクトは、DesignSpecification:ZoneAirDistributionオブジェクトが指定されていない場合、Controller:MechanicalVentilationオブジェクトの同じゾーンに使用することができる。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_account_for_dedicated_outdoor_air_system"><a class="link" href="#_account_for_dedicated_outdoor_air_system">10.1.2.24. Account for Dedicated Outdoor Air System</a></h5>
+<div class="paragraph">
+<p>デフォルトはNoである。Yesを選択すると、ゾーンサイジング計算では、後続の入力を使用して、専用外気システム（DOAS）によってゾーンに課せられるヒートゲインまたはロス（ヒートゲインは正、ヒートロスは負）を計算する。そして、このヒートゲインをゾーンの設計ヒートゲインに加え、DOASのヒートゲインとゾーンの設計ヒートゲインを満たすようにゾーンの設計風量を調整する。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_dedicated_outdoor_air_system_control_strategy"><a class="link" href="#_dedicated_outdoor_air_system_control_strategy">10.1.2.25. Dedicated Outdoor Air System Control Strategy</a></h5>
+<div class="paragraph">
+<p>これは、DOAシステムの理想的な制御戦略を3つの中から選ぶ選択フィールドです。選択肢は「NeutralSupplyAir」、「NeutralDehumidifiedSupplyAir」、「ColdSupplyAir」です。デフォルトは「NeutralSupplyAir」です。</p>
 </div>
 <div class="paragraph">
-<p>OtherSideCoeﬀicientsは、下記の式で与えられる。係数C1〜C8は以下で説明する入力項目である。</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="figures/OthersideCoefficients.png" alt="図" width="800">
-</div>
-<div class="title">図 12. OtherSideCoeﬀicients</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_8"><a class="link" href="#_name_8">10.1.3. Name</a></h4>
-<div class="paragraph">
-<p>OtherSideCoefficientsをOutside Boundary Conditionとして使用しているSurfaceステートメントで参照される文字列です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_combined_convectiveradiative_film_coefficient_c1"><a class="link" href="#_combined_convectiveradiative_film_coefficient_c1">10.1.4. Combined Convective/Radiative Film Coefficient (C1)</a></h4>
-<div class="paragraph">
-<p>これはトリガーとなる値である。
-値が0より大きい場合、それは複合対流/放射膜係数であるとみなされる。
-値が0より大きい場合、残りのフィールドは、まず外気温度を計算し、次に外気温度とフィルム係数に基づいて外部表面温度を計算するために使用される。
-このフィールドが0以下の場合、残りのフィールドは表面温度を計算するために使用されます（外気温度ではありません）。
-このフィールドの単位は、対流熱伝達率と同じ　W/(m2*K)　です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_constant_temperature_c2"><a class="link" href="#_constant_temperature_c2">10.1.5. Constant Temperature (C2)</a></h4>
-<div class="paragraph">
-<p>このフィールドは、表面温度または外気温度のいずれかを計算する際に一定の要素となる温度項を定義する。
-2番目のパラメータにスケジュール名が含まれている場合、このパラメータの値はスケジュールの値で上書きされます。
-このフィールドのデフォルトは0.0です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_constant_temperature_coefficient_c3"><a class="link" href="#_constant_temperature_coefficient_c3">10.1.6. Constant Temperature Coefficient (C3)</a></h4>
-<div class="paragraph">
-<p>このフィールドでは、一定の温度に適用される一定の係数を定義する（前のフィールドを参照）。
-このパラメータは無次元である。
-C2の設定にスケジュールが使用されている場合、このパラメータの値は通常1.0です。
-このフィールドは、Sinusoidal Variation of Constant Temperature Coefficient = Yesの場合は無視されます。
-このフィールドのデフォルトは1.0です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_external_dry_bulb_temperature_coefficient_c4"><a class="link" href="#_external_dry_bulb_temperature_coefficient_c4">10.1.7. External Dry-Bulb Temperature Coefficient (C4)</a></h4>
-<div class="paragraph">
-<p>このフィールドでは、外気乾球温度に適用される一定の係数を定義する。
-このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ground_temperature_coefficient_c5"><a class="link" href="#_ground_temperature_coefficient_c5">10.1.8. Ground Temperature Coefficient (C5)</a></h4>
-<div class="paragraph">
-<p>このフィールドでは、地面の温度（参考：Site:GroundTemperature:BuildingSurface）に適用される一定の係数を定義します。
-このパラメータは無次元です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_wind_speed_coefficient_c6"><a class="link" href="#_wind_speed_coefficient_c6">10.1.9. Wind Speed Coefficient (C6)</a></h4>
-<div class="paragraph">
-<p>このフィールドは、外気乾球温度と風速の積に適用される一定の係数を定義する。
-このパラメータは、逆速度またはs/mの単位を持ちます。このフィールドのデフォルトは0.0です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_zone_air_temperature_coefficient_c7"><a class="link" href="#_zone_air_temperature_coefficient_c7">10.1.10. Zone Air Temperature Coefficient (C7)</a></h4>
-<div class="paragraph">
-<p>このフィールドは、このサーフェスが属するゾーンの温度に適用される一定の係数を定義する。
-このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_constant_temperature_schedule_name"><a class="link" href="#_constant_temperature_schedule_name">10.1.11. Constant Temperature Schedule Name</a></h4>
-<div class="paragraph">
-<p>このフィールドは、スケジュール名を入力するために使用される。そのスケジュールは「一定」の温度値C2を供給する。
-C2にスケジュールが使用されている場合、C3フィールドの値は通常1.0であることに注意してください。
-空白でない場合、このフィールドには有効なスケジュール名を入力する必要があります。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sinusoidal_variation_of_constant_temperature_coefficient"><a class="link" href="#_sinusoidal_variation_of_constant_temperature_coefficient">10.1.12. Sinusoidal Variation of Constant Temperature Coefficient</a></h4>
-<div class="paragraph">
-<p>このフィールドはオプションで、一定温度に適用される係数を規定する別の方法を定義するために使用できます（フィールド「Constant Temperature」および「Constant Temperature Coefficient」を参照）。
-このパラメータは、以下の式では "C2 "と表示されています。このフィールドが省略されるか、空白にされるか、または「No」に設定された場合、C2は定数です（フィールド「Constant Temperature Coefficient」で定義されます）。
-ただし、この項目が「Yes」に設定されている場合、C2の値はユニタリーサイン波に応じて以下のように変化します。</p>
+<p>NeutralSupplyAirは、ゾーンに供給される換気空気がほとんど加熱または冷却されないことを意味します。空気は、後続の2つのフィールドで指定された低温と高温の設定値の間を保つように加熱または冷却されます。これらのフィールドには、21.1℃と23.9℃が適しています。</p>
 </div>
 <div class="paragraph">
-<p>期間の値は、次のフィールドで制御されます。時間帯の値は、ゾーンのタイムステップに基づいており、単位は時間である。
-ここでのサイン関数は、ラジアンとしての入力を使用します。
-このオプションを使用すると、「C2」の値は-1.0～1.0の間で変化し、「一定の温度係数」フィールドに入力された値は使用されません。
-このオプションは、前のフィールドで一定の温度をスケジュールするのと同時に使用することはできません。</p>
+<p>NeutralDehumidifiedSupplyAirは、換気用空気を冷却して除湿した後、中性の温度に再加熱することを意味します。換気用空気は、（必要に応じて）下側の設定温度まで冷却され、上側の設定温度まで再加熱されます。設定値としては、14.4度と22.2度が良いでしょう。</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_period_of_sinusoidal_variation"><a class="link" href="#_period_of_sinusoidal_variation">10.1.13. Period of Sinusoidal Variation</a></h4>
 <div class="paragraph">
-<p>このフィールドは、前のフィールドで選択した「Sinusoidal Variation of Constant Temperature Coefficient」機能を使用する際に、正弦波の周期を定義するために使用される。
-このフィールドは、正弦波の期間を時間単位で表します。
-デフォルトは24時間で、日周期の正弦波が得られます。ここに入力された値は、前のフィールドの式における「period」である。</p>
+<p>ColdSupplyAirは、換気用の空気をゾーンへの冷却供給に使用することを意味します。冷たい外気は上限の設定値まで加熱され、暖かい外気は下限の設定値まで冷却されます。設定値としては、12.2℃と14.4℃が良いでしょう。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_previous_other_side_temperature_coefficient_c8"><a class="link" href="#_previous_other_side_temperature_coefficient_c8">10.1.14. Previous Other Side Temperature Coefficient (C8)</a></h4>
+<div class="sect4">
+<h5 id="_dedicated_outdoor_air_low_temperature_setpoint_for_design"><a class="link" href="#_dedicated_outdoor_air_low_temperature_setpoint_for_design">10.1.2.26. Dedicated Outdoor Air Low Temperature Setpoint for Design</a></h5>
 <div class="paragraph">
-<p>このフィールドでは、前のゾーン・タイム・ステップからこのオブジェクトによって計算された相手側温度に適用される一定の係数を定義する。
-このパラメータは無次元です。このフィールドのデフォルトは0.0です。</p>
+<p>DOAS設計制御戦略で使用する低めの設定点温度。デフォルトでは、3つの設計制御戦略について上記の値に自動設定されます。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_minimum_other_side_temperature_limit"><a class="link" href="#_minimum_other_side_temperature_limit">10.1.15. Minimum Other Side Temperature Limit</a></h4>
+<div class="sect4">
+<h5 id="_dedicated_outdoor_air_high_temperature_setpoint_for_design"><a class="link" href="#_dedicated_outdoor_air_high_temperature_setpoint_for_design">10.1.2.27. Dedicated Outdoor Air High Temperature Setpoint for Design</a></h5>
 <div class="paragraph">
-<p>このフィールドでは、相手側の温度結果の下限値を℃で指定する。</p>
+<p>DOASの設計制御戦略で使用する高い方のセットポイント温度です。単位は℃で、デフォルトは3つのデザイン制御戦略について上記の値に自動設定されます。</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_maximum_other_side_temperature_limit"><a class="link" href="#_maximum_other_side_temperature_limit">10.1.16. Maximum Other Side Temperature Limit</a></h4>
-<div class="paragraph">
-<p>このフィールドでは、他方の温度結果の上限を℃で指定する。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ポンプの設定方法"><a class="link" href="#_ポンプの設定方法">10.2. ポンプの設定方法</a></h3>
+<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.2. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
+<div class="paragraph">
+<p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
+</div>
+<div class="paragraph">
+<p>EnergyPlusにおいては予熱時間そのものの概念はないが、最大負荷を求める際の平均時間を設定することで、類似の処理を行えるようになっている。オブジェクトSizing:ParametersのTimesteps in Averaging Windowに平均処理を行うタイムステップ数を指定することができる。以下は<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder:Input Output Reference:Sizing:Parameters:Timesteps in Averaging Window</a>の和訳である。以下ではゾーン設計風量にのみ言及しているが、ゾーン設計風量の計算はAuto-sizingの計算フロー上、最も上流側で行われるようであるため、空調システムや熱源システムの容量設計においてもここで指定したステップ数が反映されると思われる。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timesteps_in_averaging_window_2"><a class="link" href="#_timesteps_in_averaging_window_2">10.3. Timesteps in Averaging Window</a></h3>
+<div class="paragraph">
+<p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
+</div>
+<div class="paragraph">
+<p>ゾーン設計風量計算は、一定の温度で加熱または冷却空気が無限に供給されると想定して実行される。したがって、計算された設計風量は、どれほど大きく急激な負荷であっても、常にあらゆる負荷変動に対応できる。実際には、風量はダクトのサイズとファンの容量によって制限される。理想的なゾーン設計風量計算では、特にユーザーが夜間のセットアップまたはセットバックを伴うサーモスタットスケジュールを使用してサイジング計算を実行している場合、非現実的に大きな風量が発生する可能性がある。計算されたゾーン設計風量は、常にタイムステップにわたって平均化される。ユーザーは、サーモスタットのセットアップとセットバックの影響を軽減し、ウォームアップまたはクールダウン時の風量が設計風量の計算において支配的になるのを防ぐために、より平均時間を長く指定することができる。</p>
+</div>
+<div class="paragraph">
+<p>たとえば、負荷計算のタイムステップが15分で、ユーザーがこの平均化タイムステップ数を4に指定した場合、ゾーン設計風量は1時間にわたって平均化される。8を指定すると、2時間の平均となる。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ポンプの設定方法"><a class="link" href="#_ポンプの設定方法">10.4. ポンプの設定方法</a></h3>
 <div class="sect3">
-<h4 id="_2ポンプシステムのモデリング方法"><a class="link" href="#_2ポンプシステムのモデリング方法">10.2.1. 2ポンプシステムのモデリング方法</a></h4>
+<h4 id="_2ポンプシステムのモデリング方法"><a class="link" href="#_2ポンプシステムのモデリング方法">10.4.1. 2ポンプシステムのモデリング方法</a></h4>
 <div class="paragraph">
 <p>2ポンプシステム（一次ポンプと二次ポンプがあるシステム）をモデリングする場合は、
 「PlantLoop」オブジェクトの「Common Pipe Simulation」フィールドを「TwoWayCommonPipe」として、
@@ -7975,7 +7969,7 @@ C2にスケジュールが使用されている場合、C3フィールドの値�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_様々なパターンのモデリング"><a class="link" href="#_様々なパターンのモデリング">10.2.2. 様々なパターンのモデリング</a></h4>
+<h4 id="_様々なパターンのモデリング"><a class="link" href="#_様々なパターンのモデリング">10.4.2. 様々なパターンのモデリング</a></h4>
 <div class="paragraph">
 <p>複数の熱源を設置したうえで、一次ポンプと二次ポンプを設置した場合の解析に不具合が発生する。</p>
 </div>
@@ -8033,9 +8027,9 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </div>
 </div>
 <div class="sect2">
-<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.3. EnergyPlusにおけるErrorの取り扱い</a></h3>
+<h3 id="_energyplusにおけるerrorの取り扱い"><a class="link" href="#_energyplusにおけるerrorの取り扱い">10.5. EnergyPlusにおけるErrorの取り扱い</a></h3>
 <div class="sect3">
-<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.3.1. Errorの重大さによる分類</a></h4>
+<h4 id="_errorの重大さによる分類"><a class="link" href="#_errorの重大さによる分類">10.5.1. Errorの重大さによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/errors.html#errors">bigladder:Input Output Reference</a></p>
 </div>
@@ -8071,7 +8065,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </table>
 </div>
 <div class="sect3">
-<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.3.2. Errorの実行プロセスによる分類</a></h4>
+<h4 id="_errorの実行プロセスによる分類"><a class="link" href="#_errorの実行プロセスによる分類">10.5.2. Errorの実行プロセスによる分類</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/error-messages-details.html#error-messages-details">bigladder:Tips and Tricks</a></p>
 </div>
@@ -8109,7 +8103,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.3.3. Preprocessorからのエラーメッセージ</a></h4>
+<h4 id="_preprocessorからのエラーメッセージ"><a class="link" href="#_preprocessorからのエラーメッセージ">10.5.3. Preprocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-preprocessors.html#example-error-messages-for-preprocessors">bigladder:Tips and Tricks</a></p>
 </div>
@@ -8117,7 +8111,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 <p>すべてのPreprocessorプログラムは、検出したエラーに対してOutput：PreprocessorMessageオブジェクトを生成する。これらのエラーを理解するには、実際のPreprocessorプログラムのドキュメントを参照する必要がある場合がある。 Preprocessorからのエラーメッセージは、errファイルの最初に表示される。メッセージの形式は、&lt;objectname&gt;（つまり、Output：Preprocessormessage）、引用符で囲まれたプログラム名（たとえば、EPMacro）、そしてメッセージの文字列（Warning、Severe、Fatal）である。 Fatalの場合、EnergyPlusはすべてのエラーメッセージを生成した後に実行を中止する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例"><a class="link" href="#_warningの例">10.3.3.1. Warningの例</a></h5>
+<h5 id="_warningの例"><a class="link" href="#_warningの例">10.5.3.1. Warningの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPXMLPreProc2" has the following Warning conditions:
@@ -8128,7 +8122,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例"><a class="link" href="#_severeの例">10.3.3.2. Severeの例</a></h5>
+<h5 id="_severeの例"><a class="link" href="#_severeの例">10.5.3.2. Severeの例</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>Output:PreprocessorMessage = "EPMacro" has the following Severe conditions:
@@ -8141,7 +8135,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </div>
 </div>
 <div class="sect3">
-<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.3.4. Input Pocessorからのエラーメッセージ</a></h4>
+<h4 id="_input_pocessorからのエラーメッセージ"><a class="link" href="#_input_pocessorからのエラーメッセージ">10.5.4. Input Pocessorからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-for-the-input.html#example-error-messages-for-the-input-processor">bigladder:Tips and Tricks</a></p>
 </div>
@@ -8149,7 +8143,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 <p>InputProcessorはEnergyPlusプログラムの一部であり、入力ファイルをスキャンし、IDD（Input Data Dictionary）の要件と照合する。InputProcessorのエラーはIPから始まる文字列で表示される。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.3.4.1. Warningの例</a></h5>
+<h5 id="_warningの例_2"><a class="link" href="#_warningの例_2">10.5.4.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8164,7 +8158,7 @@ EMS（EnergyPlus状のマクロ）を使用してポンプの動作を制御す�
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.3.4.2. Severeの例</a></h5>
+<h5 id="_severeの例_2"><a class="link" href="#_severeの例_2">10.5.4.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8206,7 +8200,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.3.4.3. Fatalの例</a></h5>
+<h5 id="_fatalの例"><a class="link" href="#_fatalの例">10.5.4.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Fatalエラーのメッセージは上記のSevereエラーの結果として表示されるようである。</p>
 </div>
@@ -8218,7 +8212,7 @@ Possible Invalid Numerics or other problems</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.3.5. Module GetInputからのエラーメッセージ</a></h4>
+<h4 id="_module_getinputからのエラーメッセージ"><a class="link" href="#_module_getinputからのエラーメッセージ">10.5.5. Module GetInputからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-from-module-getinput.html#example-error-messages-from-module-getinput-routines">bigladder:Tips and Tricks</a></p>
 </div>
@@ -8226,7 +8220,7 @@ Possible Invalid Numerics or other problems</code></pre>
 <p>シミュレーションが開始されると、各モジュールが呼び出され、入力ファイルから値を取得する。これらは通常、GetInputルーチンと呼ばれる。IDDの制限では完全に記述できないエラーチェックを入力に対して追加で行い、さらに、オブジェクトが別のオブジェクトに対して与える可能性のある影響も考慮する。</p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.3.5.1. Warningの例</a></h5>
+<h5 id="_warningの例_3"><a class="link" href="#_warningの例_3">10.5.5.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8369,7 +8363,7 @@ Dropping Vertex [2].</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.3.5.2. Severeの例</a></h5>
+<h5 id="_severeの例_3"><a class="link" href="#_severeの例_3">10.5.5.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8431,19 +8425,19 @@ Number of Surface Sides at minimum.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.3.5.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_2"><a class="link" href="#_fatalの例_2">10.5.5.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>このカテゴリーのSevereエラーはたいていFatalエラーにつながり、シミュレーションは途中で終了する。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.3.6. SizingとSimulationからのエラーメッセージ</a></h4>
+<h4 id="_sizingとsimulationからのエラーメッセージ"><a class="link" href="#_sizingとsimulationからのエラーメッセージ">10.5.6. SizingとSimulationからのエラーメッセージ</a></h4>
 <div class="paragraph">
 <p><a href="https://bigladdersoftware.com/epx/docs/9-4/tips-and-tricks-using-energyplus/example-error-messages-during-sizing.html#example-error-messages-during-sizing-and-simulation">bigladder:Tips and Tricks</a></p>
 </div>
 <div class="sect4">
-<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.3.6.1. Warningの例</a></h5>
+<h5 id="_warningの例_4"><a class="link" href="#_warningの例_4">10.5.6.1. Warningの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8462,7 +8456,7 @@ Check Sizing:Zone and ZoneControl:Thermostat inputs.</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.3.6.2. Severeの例</a></h5>
+<h5 id="_severeの例_4"><a class="link" href="#_severeの例_4">10.5.6.2. Severeの例</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -8483,7 +8477,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.3.6.3. Fatalの例</a></h5>
+<h5 id="_fatalの例_3"><a class="link" href="#_fatalの例_3">10.5.6.3. Fatalの例</a></h5>
 <div class="paragraph">
 <p>Severeエラーの数などが表示される。</p>
 </div>
@@ -8498,7 +8492,7 @@ Zone = "ZONE 1", Diagnostic Details:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.3.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
+<h4 id="_energyplusのerrorに対する考え方についての考察"><a class="link" href="#_energyplusのerrorに対する考え方についての考察">10.5.7. EnergyPlusのErrorに対する考え方についての考察</a></h4>
 <div class="paragraph">
 <p>上記より、建物側（負荷計算）に関するエラーは多く定義されている印象を受ける。しかし、システム側については参照できるドキュメント類からエラーの定義について十分確認できなかった。オブジェクトによってはユーザー自ら温度や流量などの上下限値を指定するものある。</p>
 </div>
@@ -8523,27 +8517,6 @@ Real64 const MaxFrac(1.0);                   // Maximum fraction
 Real64 const MinFrac(0.0);                   // Minimum fraction</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_energyplusのauto_sizing機能における予熱予冷時間の取り扱い"><a class="link" href="#_energyplusのauto_sizing機能における予熱予冷時間の取り扱い">10.4. EnergyPlusのAuto-sizing機能における予熱/予冷時間の取り扱い</a></h3>
-<div class="paragraph">
-<p>日本では、容量設計を行う際、立ち上がり時の蓄熱負荷の影響を緩和するため、予熱/予冷時間の概念を取り入れることが一般的である。この時間は、空調システムを起動してから設定温度に達するまでの時間を表している。例えば、予熱時間を2時間として朝6時にシステムが起動する場合、7時の時点では設定温度に達しないが、8時には達することになる。この場合、7時の時点で設定温度に達するようにする場合よりも設計容量を小さくすることができる。特に蓄熱負荷の影響が大きい冬季暖房運転においては予熱時間を2〜3時間とする方が実際的な容量とすることができる。なお、予熱時間をゼロとした場合、理論上必要な装置容量は無限大となる。</p>
-</div>
-<div class="paragraph">
-<p>EnergyPlusにおいては予熱時間そのものの概念はないが、最大負荷を求める際の平均時間を設定することで、類似の処理を行えるようになっている。オブジェクトSizing:ParametersのTimesteps in Averaging Windowに平均処理を行うタイムステップ数を指定することができる。以下は<a href="https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-design-objects.html#sizingparameters">bigladder:Input Output Reference:Sizing:Parameters:Timesteps in Averaging Window</a>の和訳である。以下ではゾーン設計風量にのみ言及しているが、ゾーン設計風量の計算はAuto-sizingの計算フロー上、最も上流側で行われるようであるため、空調システムや熱源システムの容量設計においてもここで指定したステップ数が反映されると思われる。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_timesteps_in_averaging_window_2"><a class="link" href="#_timesteps_in_averaging_window_2">10.5. Timesteps in Averaging Window</a></h3>
-<div class="paragraph">
-<p>ゾーン設計風量の平均化処理を行う際のタイムステップ数を入力する。デフォルトは1であり、この場合、計算されたゾーン設計風量は、タイムステップにわたって平均化された値である。</p>
-</div>
-<div class="paragraph">
-<p>ゾーン設計風量計算は、一定の温度で加熱または冷却空気が無限に供給されると想定して実行される。したがって、計算された設計風量は、どれほど大きく急激な負荷であっても、常にあらゆる負荷変動に対応できる。実際には、風量はダクトのサイズとファンの容量によって制限される。理想的なゾーン設計風量計算では、特にユーザーが夜間のセットアップまたはセットバックを伴うサーモスタットスケジュールを使用してサイジング計算を実行している場合、非現実的に大きな風量が発生する可能性がある。計算されたゾーン設計風量は、常にタイムステップにわたって平均化される。ユーザーは、サーモスタットのセットアップとセットバックの影響を軽減し、ウォームアップまたはクールダウン時の風量が設計風量の計算において支配的になるのを防ぐために、より平均時間を長く指定することができる。</p>
-</div>
-<div class="paragraph">
-<p>たとえば、負荷計算のタイムステップが15分で、ユーザーがこの平均化タイムステップ数を4に指定した場合、ゾーン設計風量は1時間にわたって平均化される。8を指定すると、2時間の平均となる。</p>
 </div>
 </div>
 <div class="sect2">

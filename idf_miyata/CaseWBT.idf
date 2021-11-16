@@ -3360,7 +3360,7 @@ WindowMaterial:Blind,
     0.025,                   !- Slat Width {m}
     0.0225,                  !- Slat Separation {m}
     0.001,                   !- Slat Thickness {m}
-    90,                      !- Slat Angle {deg}
+    3,                       !- Slat Angle {deg}
     0.9,                     !- Slat Conductivity {W/m-K}
     0,                       !- Slat Beam Solar Transmittance
     0.66,                    !- Front Side Slat Beam Solar Reflectance
@@ -12609,15 +12609,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     1F:10XOffice2_Wall_5_0_0_0_0_2_Win,  !- Fenestration Surface 1 Name
@@ -12629,15 +12629,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     1F:04XCntrlMntrngRm_Wall_7_0_0_0_0_1_Win;  !- Fenestration Surface 1 Name
@@ -12648,15 +12648,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     1F:09XOffice1_Wall_4_0_0_0_0_4_Win,  !- Fenestration Surface 1 Name
@@ -12668,15 +12668,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     2X6F:05X1XOfficeSP_Wall_5_0_0_0_0_6_Win;  !- Fenestration Surface 1 Name
@@ -12687,15 +12687,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     2X6F:04X1XOfficeNP_Wall_3_0_0_0_0_7_Win;  !- Fenestration Surface 1 Name
@@ -12706,15 +12706,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     2X6F:04X2XOfficeNEP_Wall_2_0_0_0_0_2_Win;  !- Fenestration Surface 1 Name
@@ -12725,15 +12725,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     2X6F:04X3XOfficeNWP_Wall_3_0_0_0_0_2_Win;  !- Fenestration Surface 1 Name
@@ -12744,15 +12744,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     2X6F:05X2XOfficeSWP_Wall_5_0_0_0_0_2_Win;  !- Fenestration Surface 1 Name
@@ -12763,15 +12763,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     7F:05XOffice2_Wall_6_0_0_0_0_2_Win,  !- Fenestration Surface 1 Name
@@ -12783,15 +12783,15 @@ WindowShadingControl,
     ,                        !- Shading Control Sequence Number
     InteriorBlind,           !- Shading Type
     Model Building external glazing - 2001,  !- Construction with Shading Name
-    OnIfScheduleAllows,      !- Shading Control Type
-    On 24/7,                 !- Schedule Name
+    AlwaysOn,                !- Shading Control Type
+    ,                        !- Schedule Name
     ,                        !- Setpoint {W/m2, W or deg C}
-    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Shading Control Is Scheduled
     No,                      !- Glare Control Is Active
-    ,                        !- Shading Device Material Name
+    Blind,                   !- Shading Device Material Name
     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
     ,                        !- Slat Angle Schedule Name
-    0,                       !- Setpoint 2 {W/m2 or deg C}
+    ,                        !- Setpoint 2 {W/m2 or deg C}
     ,                        !- Daylighting Control Object Name
     Group,                   !- Multiple Surface Control Type
     7F:04XOffice1_Wall_2_0_0_0_0_2_Win,  !- Fenestration Surface 1 Name

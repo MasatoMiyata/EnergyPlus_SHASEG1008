@@ -7345,8 +7345,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7370,8 +7370,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Floor_0_0_1,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7395,8 +7395,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Floor_0_0_2,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7420,8 +7420,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Floor_0_0_3,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7445,8 +7445,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7470,8 +7470,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Ceiling_1_0_1,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7495,8 +7495,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Ceiling_1_0_2,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -7520,8 +7520,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:01XCorridor,        !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:01XCorridor_Ceiling_1_0_3,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8170,8 +8170,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:03XEVHall,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:03XEVHall_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8195,8 +8195,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:03XEVHall,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:03XEVHall_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8395,8 +8395,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:05X1XOfficeSP,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X1XOfficeSP_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8420,8 +8420,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:05X1XOfficeSP,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X1XOfficeSP_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8645,8 +8645,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:05X3XOfficeSI,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X3XOfficeSI_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8670,8 +8670,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:05X3XOfficeSI,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X3XOfficeSI_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8795,8 +8795,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:02XVending_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8820,8 +8820,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:02XVending,         !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:02XVending_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8870,8 +8870,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:04X1XOfficeNP,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X1XOfficeNP_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -8895,8 +8895,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:04X1XOfficeNP,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X1XOfficeNP_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9095,8 +9095,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:04X2XOfficeNEP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X2XOfficeNEP_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9120,8 +9120,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:04X2XOfficeNEP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X2XOfficeNEP_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9220,8 +9220,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:04X3XOfficeNWP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X3XOfficeNWP_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9245,8 +9245,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:04X3XOfficeNWP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X3XOfficeNWP_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9345,8 +9345,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X4XOfficeNI_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9370,8 +9370,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:04X4XOfficeNI,      !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:04X4XOfficeNI_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9395,8 +9395,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     2X6F:05X2XOfficeSWP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X2XOfficeSWP_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9420,8 +9420,8 @@ BuildingSurface:Detailed,
     Ceiling,                 !- Surface Type
     CL1_FL1 - IBEC_Reversed, !- Construction Name
     2X6F:05X2XOfficeSWP,     !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    2X6F:05X2XOfficeSWP_Ceiling_1_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9545,8 +9545,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:01XCorridor_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9570,8 +9570,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:01XCorridor_Floor_0_0_1,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9595,8 +9595,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:01XCorridor_Floor_0_0_2,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -9620,8 +9620,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:01XCorridor,          !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:01XCorridor_Floor_0_0_3,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -10395,8 +10395,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:03XEVHall,            !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:03XEVHall_Floor_0_0_0,!- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -10595,8 +10595,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:05XOffice2,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:05XOffice2_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -10795,8 +10795,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:02XVending,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:02XVending_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -10870,8 +10870,8 @@ BuildingSurface:Detailed,
     Floor,                   !- Surface Type
     CL1_FL1 - IBEC,          !- Construction Name
     7F:04XOffice1,           !- Zone Name
-    Surface,                 !- Outside Boundary Condition
-    7F:04XOffice1_Floor_0_0_0,  !- Outside Boundary Condition Object
+    OtherSideCoefficients,   !- Outside Boundary Condition
+    SameTempRoom,            !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
     0,                       !- View Factor to Ground
@@ -12882,6 +12882,20 @@ SurfaceProperty:OtherSideCoefficients,
     ,                        !- Constant Temperature Schedule Name
     No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
     24;                      !- Period of Sinusoidal Variation {hr}
+
+SurfaceProperty:OtherSideCoefficients,
+    SameTempRoom,            !- Name
+    9,                       !- Combined Convective/Radiative Film Coefficient {W/m2-K}
+    ,                        !- Constant Temperature {C}
+    ,                        !- Constant Temperature Coefficient
+    0,                       !- External Dry-Bulb Temperature Coefficient
+    ,                        !- Ground Temperature Coefficient
+    ,                        !- Wind Speed Coefficient
+    1.0,                     !- Zone Air Temperature Coefficient
+    ,                        !- Constant Temperature Schedule Name
+    No,                      !- Sinusoidal Variation of Constant Temperature Coefficient
+    24;                      !- Period of Sinusoidal Variation {hr}
+
 
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========

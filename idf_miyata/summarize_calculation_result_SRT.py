@@ -72,6 +72,23 @@ data[ "潜熱負荷_J/15min" ] = data[ Qc_latent ] - data[ Qh_latent ]
 data[ "顕熱負荷_W/m2" ] = data[ "顕熱負荷_J/15min" ] /roomlist["Zone1"]["面積"] / (15*60)
 data[ "潜熱負荷_W/m2" ] = data[ "潜熱負荷_J/15min" ] /roomlist["Zone1"]["面積"] / (15*60)
 
+#-----------------------------------------------------------
+# 積算負荷、最大負荷の出力
+#-----------------------------------------------------------
+
+print( "---- 積算負荷・最大負荷 ----")
+
+# 積算負荷 [MJ/m2年]
+print( data[ data["顕熱負荷_J/15min" ] > 0 ]["顕熱負荷_J/15min" ].sum() / 1000000 /roomlist["Zone1"]["面積"])
+print( data[ data["潜熱負荷_J/15min" ] > 0 ]["潜熱負荷_J/15min" ].sum() / 1000000 /roomlist["Zone1"]["面積"])
+print( data[ data["顕熱負荷_J/15min" ] < 0 ]["顕熱負荷_J/15min" ].sum() / 1000000 /roomlist["Zone1"]["面積"])
+print( data[ data["潜熱負荷_J/15min" ] < 0 ]["潜熱負荷_J/15min" ].sum() / 1000000 /roomlist["Zone1"]["面積"])
+
+# 最大負荷 [W/m2]
+print( data[ data["顕熱負荷_W/m2"] > 0 ]["顕熱負荷_W/m2"].max())
+print( data[ data["潜熱負荷_W/m2"] > 0 ]["潜熱負荷_W/m2"].max())
+print( data[ data["顕熱負荷_W/m2"] < 0 ]["顕熱負荷_W/m2"].min())
+print( data[ data["潜熱負荷_W/m2"] < 0 ]["潜熱負荷_W/m2"].min())
 
 #-----------------------------------------------------------
 # 室温のグラフ

@@ -27,6 +27,10 @@
 **   ~~~   **  During Warmup, Environment=JSBC2O18 (O1-O1:31-12), at Simulation time=01/01 00:00 - 00:15
 ```
 
+#2021.11.17追記
+上記エラーはVer. 9.5のlink:https://github.com/NREL/EnergyPlus/pull/8556[Release note]によると解決されているかもしれない。
+
+
 * EnergyPlusにおけるサブシステムの計算方法についてlink:https://unmethours.com/question/61452/how-to-simulate-a-subsystem-by-energyplus/[Unmet Hours]で質問したが、まだ回答なし。
 
 * ガイドラインの機器仕様の反映（以下にて説明）

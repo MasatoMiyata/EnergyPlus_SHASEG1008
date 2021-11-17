@@ -1,0 +1,32 @@
+&location
+City='Tokyo'
+StateProv='NA'
+Country=Japan
+InWMO=724120
+InLat=35.7
+InLong=139.8
+InElev=6
+InTime=9
+/
+
+&wthdata
+NumInHour=1
+InputFileType='CUSTOM'
+InFormat='DELIMITED'
+DataElements=Date,HH:MM,Global Horizontal Radiation,Direct Normal Radiation,Diffuse Horizontal Radiation,Horizontal Infrared Radiation Intensity from Sky,Dry Bulb Temperature,Dew Point Temperature,Relative Humidity,Atmospheric Pressure,Wind Speed,Wind Direction,Liquid Precipitation Depth,Snow Depth
+DataUnits='mm/dd/yyyy','hh:mm','Wh/m2','Wh/m2','Wh/m2','Wh/m2','C','C','%','Pa','m/s','deg','mm','mm'
+DataConversionFactors=1,1,1,1,1,1,1,1,1,1,1,1,1,1
+DelimiterChar=','
+DecimalSymbolChar='.'
+/
+
+&miscdata
+Comments1='EPW Custom def format'
+SourceData='SHASE guideline heat source subsystem test'
+/
+
+&datacontrol
+NumRecordsToSkip=1
+MaxNumRecordsToRead=8784
+MissingWindDirAction=RANDOM
+/

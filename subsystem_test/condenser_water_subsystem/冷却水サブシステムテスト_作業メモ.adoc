@@ -1,0 +1,102 @@
+== 冷却水サブシステムテストに関する作業メモ
+
+=== 2021.11.19
+
+==== 冷却水サブシステムのモデリング
+熱源サブシステムモデル（JSBC2018_updated_HSsubsystem_rev2.idf）から以下の点を変更する。	
+
+===== PlantEquipmentOperation（熱源台数制御）
+以下の通り、ARのみを運転するように変更する。ARの定格能力は527kWであるが、少し余裕を見て600kWまでとしている。
+
+```
+  PlantEquipmentOperation:CoolingLoad,
+    CHW Loop Scheme 1,       !- Name
+    0,                       !- Load Range 1 Lower Limit {W}
+    600000,                  !- Load Range 1 Upper Limit {W}
+    CHW Loop Scheme 1 Range 1 Equipment List;  !- Range 1 Equipment List Name
+
+  PlantEquipmentList,
+    CHW Loop Scheme 1 Range 1 Equipment List,  !- Name
+    Chiller:Absorption:Indirect,      !- Equipment 1 Object Type
+    AR;                               !- Equipment 1 Name
+```
+
+===== LoadProfile:Plant Schedule (負荷熱量入力オブジェクトのスケジュール)
+LoadProfile:Plantに与える負荷熱量と冷水流量のスケジュールを以下の通り変更する。
+
+```
+  Schedule:Compact,
+    Load Profile 1 Load Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+    THROUGH: 1/4,            !- Field 1
+    FOR: AllDays,            !- Field 2
+    UNTIL: 24:00,-527000,    !- Field 3
+    THROUGH: 12/31,          !- Field 1
+    FOR: AllDays,            !- Field 2
+    UNTIL: 24:00,-421600;      !- Field 3
+
+  Schedule:Compact,
+    Load Profile 1 Flow Frac Schedule,  !- Name
+    Any Number,              !- Schedule Type Limits Name
+     THROUGH: 12/31,         !- Field 1
+    FOR: AllDays,            !- Field 2
+    UNTIL: 24:00,0.468;      !- Field 11
+```
+
+===== CoolingTower:VariableSpeed (変風量制御の冷却塔)
+変風量制御用の冷却塔として2つのオブジェクト、link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#coolingtowervariablespeed[CoolingTower:VariableSpeed]とlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#coolingtowervariablespeedmerkel[CoolingTower:VariableSpeed:Merkel]がある。詳細は調べていないが、前者はメーカ提供特性に基づく近似モデル、後者はより理論的なモデルのようである。ただし、後者においてもファン電力の風量特性やUA値の水量特性はユーザ指定のカーブで与えなければならない。前者のモデルにおいて、熱交換特性はユーザ指定のカーブを与えることもできるし、組み込み済みの特性（2種類）から選択することもできる。今回は前者のモデルを使用した。ファン電力特性は風量の3次式（y=x^3）として与えた。
+
+```
+  CoolingTower:VariableSpeed,
+    Cooling Tower,       !- Name
+    Cooling Tower Water Inlet Node,  !- Water Inlet Node Name
+    Cooling Tower Water Outlet Node, !- Water Outlet Node Name
+    YorkCalc,            !- Tower Model Type
+    ,                    !- Tower Model Coefficient Name
+    27,                  !- Design Inlet Air Wet-Bulb Temperature {C}
+    5,                   !- Design Approach Temperature {C}
+    5,                   !- Design Range Temperature {C}
+    0.044883,            !- Design Water Flow Rate {m3/s}
+    29.717,              !- Design Air Flow Rate {m3/s}
+    8140,                !- Design Fan Power {W}
+    cubic_curve,         !- Fan Power Ratio - function of Air Flow Rate Curve Name
+    0.4,                 !- Minimum Air Flow Rate Ratio
+    0.125,               !- Fraction of Tower Capacity in Free Convection Regime
+    0,                   !- Basin Heater Capacity {W/K}
+    2,                   !- Basin Heater Set Point Temperature {C}
+    On 24/7,             !- Basin Heater Operating Schedule Name
+    SaturatedExit,       !- Evaporation Loss Mode
+    ,                    !- Evaporation Loss Factor
+    0.05,                !- Makeup Water Usage due to Drift {percent}
+    ConcentrationRatio,  !- Blowdown Calculation Mode
+    3,                   !- Blowdown Concentration Ratio
+    On 24/7,             !- Schedule Name for Makeup Water Usage due to Blowdown
+    ,                    !- Name of Water Storage Tank for Supply
+    ,                    !- Outdoor Air Inlet Node Name
+    ,                    !- Number of Cells
+    MinimalCell,         !- Cell Control
+    ,                    !- Cell Minimum Water Flow Rate Fraction
+    ,                    !- Cell Maximum Water Flow Rate Fraction
+    1.000 ;              !- Sizing Factor
+```
+
+===== 冷却水変流量制御
+link:https://unmethours.com/question/54977/how-to-simulate-a-variable-speed-condenser-water-pump-in-energyplus/[Unmet Hours]によると、現状のEnergyPlusは変流量制御に対応していないようである。よって、今回のトライアルでは一定流量とした。
+
+==== 計算結果
+「20210121冷却水サブシステムテスト計算結果入力ファイル.xlsx」を参照。
+
+* 冷却水温度、冷却塔ファン電力、冷却塔ファンINV比（風量比）については他のツールとほぼ同等の結果となった。
+* 冷却水流量が一定のため、ポンプ電力やシステムCOPには大きな差がある。
+* 冷却水温度設定値を高くするCWS130においてもバイパスが発生していない。
+* 前回報告した通り、吸収式オブジェクトが冷却水温度特性を反映できないため、ガス消費量やCOPに大きな差がある。
+* 冷却水変流量制御を行えないため、温度差設定値を変更するCWS210は計算していない。
+
+==== 今後の課題
+* 吸収式の冷却水温度特性がCOPに与える影響が大きい。以前報告したガス吸収式オブジェクトのエラーについて、Ver. 9.5では改善されているようである（link:https://github.com/NREL/EnergyPlus/pull/8556[Link]）。バージョンを9.4から上げることになるが、試してみても良いかもしれない。ただし、年間計算の全体システムテストでは冷却水温度設定値は32℃固定であるためこの影響は小さいと思われる。
+* バイパス（三方弁）のモデリングについて確認要。
+* 冷却水変流量制御は今のところ考慮できない。ただし、年間計算の全体システムテストでは冷却水は固定流量である。
+
+
+
+

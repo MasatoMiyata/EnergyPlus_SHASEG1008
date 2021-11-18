@@ -13802,7 +13802,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:01XCorridor,        !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00960,                 !- Design Flow Rate {m3/s}
+    0.04800,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13816,7 +13816,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:02XVending,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00157,                 !- Design Flow Rate {m3/s}
+    0.00787,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13830,7 +13830,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:03XEVHall,          !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00087,                 !- Design Flow Rate {m3/s}
+    0.00433,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13844,7 +13844,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.01406,                 !- Design Flow Rate {m3/s}
+    0.07031,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13858,7 +13858,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X2XOfficeNEP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00431,                 !- Design Flow Rate {m3/s}
+    0.02156,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13872,7 +13872,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X3XOfficeNWP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00431,                 !- Design Flow Rate {m3/s}
+    0.02156,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13886,7 +13886,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X4XOfficeNI,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02194,                 !- Design Flow Rate {m3/s}
+    0.10969,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13900,7 +13900,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.01256,                 !- Design Flow Rate {m3/s}
+    0.06281,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13914,7 +13914,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:05X2XOfficeSWP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00431,                 !- Design Flow Rate {m3/s}
+    0.02156,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13928,7 +13928,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02093,                 !- Design Flow Rate {m3/s}
+    0.10463,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -15698,7 +15698,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,!- Heating Limit
     1.406,                   !- Maximum Heating Air Flow Rate {m3/s}
     28112,                   !- Maximum Sensible Heating Capacity {W}
@@ -15727,7 +15727,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,!- Heating Limit
     0.860,                   !- Maximum Heating Air Flow Rate {m3/s}
     17200,                   !- Maximum Sensible Heating Capacity {W}
@@ -15756,7 +15756,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.103,                   !- Maximum Heating Air Flow Rate {m3/s}
     2064,                    !- Maximum Sensible Heating Capacity {W}
@@ -15785,7 +15785,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.530,                   !- Maximum Heating Air Flow Rate {m3/s}
     10608,                   !- Maximum Sensible Heating Capacity {W}
@@ -15814,7 +15814,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.110,                   !- Maximum Heating Air Flow Rate {m3/s}
     2201.8,                  !- Maximum Sensible Heating Capacity {W}
@@ -15843,7 +15843,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.110,                   !- Maximum Heating Air Flow Rate {m3/s}
     2201.8,                  !- Maximum Sensible Heating Capacity {W}
@@ -15872,7 +15872,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.220,                   !- Maximum Heating Air Flow Rate {m3/s}
     4403.6,                  !- Maximum Sensible Heating Capacity {W}
@@ -15901,7 +15901,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.187,                   !- Maximum Heating Air Flow Rate {m3/s}
     3749.6,                  !- Maximum Sensible Heating Capacity {W}
@@ -15930,7 +15930,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     3.202,                   !- Maximum Heating Air Flow Rate {m3/s}
     64032,                   !- Maximum Sensible Heating Capacity {W}
@@ -15959,7 +15959,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     3.276,                   !- Maximum Heating Air Flow Rate {m3/s}
     65520,                   !- Maximum Sensible Heating Capacity {W}
@@ -15988,13 +15988,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    1.238,                   !- Maximum Heating Air Flow Rate {m3/s}
-    24768,                   !- Maximum Sensible Heating Capacity {W}
+    6.192,                   !- Maximum Heating Air Flow Rate {m3/s}
+    123840,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    1.238,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    24768,                   !- Maximum Total Cooling Capacity {W}
+    6.192,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    123840,                   !- Maximum Total Cooling Capacity {W}
     2X6F:01XCorridor Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:01XCorridor Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16017,13 +16017,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    0.187,                   !- Maximum Heating Air Flow Rate {m3/s}
-    3749.6,                  !- Maximum Sensible Heating Capacity {W}
+    0.937,                   !- Maximum Heating Air Flow Rate {m3/s}
+    18748,                  !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    0.187,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    3749.6,                  !- Maximum Total Cooling Capacity {W}
+    0.937,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    18748,                  !- Maximum Total Cooling Capacity {W}
     2X6F:02XVending Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:02XVending Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16046,13 +16046,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    0.103,                   !- Maximum Heating Air Flow Rate {m3/s}
-    2064,                    !- Maximum Sensible Heating Capacity {W}
+    0.516,                   !- Maximum Heating Air Flow Rate {m3/s}
+    10320,                    !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    0.103,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    2064,                    !- Maximum Total Cooling Capacity {W}
+    0.516,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    10320,                    !- Maximum Total Cooling Capacity {W}
     2X6F:03XEVHall Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:03XEVHall Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16075,13 +16075,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    2.250,                   !- Maximum Heating Air Flow Rate {m3/s}
-    45000,                   !- Maximum Sensible Heating Capacity {W}
+    11.250,                   !- Maximum Heating Air Flow Rate {m3/s}
+    225000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    2.250,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    45000,                   !- Maximum Total Cooling Capacity {W}
+    11.250,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    225000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:04X1XOfficeNP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X1XOfficeNP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16104,13 +16104,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    0.690,                   !- Maximum Heating Air Flow Rate {m3/s}
-    13800,                   !- Maximum Sensible Heating Capacity {W}
+    3.450,                   !- Maximum Heating Air Flow Rate {m3/s}
+    69000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    0.690,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    13800,                   !- Maximum Total Cooling Capacity {W}
+    3.450,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    69000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:04X2XOfficeNEP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X2XOfficeNEP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16133,13 +16133,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    0.690,                   !- Maximum Heating Air Flow Rate {m3/s}
-    13800,                   !- Maximum Sensible Heating Capacity {W}
+    3.450,                   !- Maximum Heating Air Flow Rate {m3/s}
+    69000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    0.690,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    13800,                   !- Maximum Total Cooling Capacity {W}
+    3.450,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    69000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:04X3XOfficeNWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X3XOfficeNWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16162,13 +16162,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    3.510,                   !- Maximum Heating Air Flow Rate {m3/s}
-    70200,                   !- Maximum Sensible Heating Capacity {W}
+    17.550,                   !- Maximum Heating Air Flow Rate {m3/s}
+    351000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    3.510,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    70200,                   !- Maximum Total Cooling Capacity {W}
+    17.550,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    351000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:04X4XOfficeNI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:04X4XOfficeNI Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16191,13 +16191,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    2.010,                   !- Maximum Heating Air Flow Rate {m3/s}
-    40200,                   !- Maximum Sensible Heating Capacity {W}
+    10.050,                   !- Maximum Heating Air Flow Rate {m3/s}
+    201000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    2.010,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    40200,                   !- Maximum Total Cooling Capacity {W}
+    10.050,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    201000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:05X1XOfficeSP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X1XOfficeSP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16220,13 +16220,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    0.690,                   !- Maximum Heating Air Flow Rate {m3/s}
-    13800,                   !- Maximum Sensible Heating Capacity {W}
+    3.450,                   !- Maximum Heating Air Flow Rate {m3/s}
+    69000,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    0.690,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    13800,                   !- Maximum Total Cooling Capacity {W}
+    3.450,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    69000,                   !- Maximum Total Cooling Capacity {W}
     2X6F:05X2XOfficeSWP Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X2XOfficeSWP Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16249,13 +16249,13 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
-    3.348,                   !- Maximum Heating Air Flow Rate {m3/s}
-    66960,                   !- Maximum Sensible Heating Capacity {W}
+    16.740,                   !- Maximum Heating Air Flow Rate {m3/s}
+    334800,                   !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,  !- Cooling Limit
-    3.348,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    66960,                   !- Maximum Total Cooling Capacity {W}
+    16.740,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    334800,                   !- Maximum Total Cooling Capacity {W}
     2X6F:05X3XOfficeSI Heating Availability Sch,  !- Heating Availability Schedule Name
     2X6F:05X3XOfficeSI Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -16278,7 +16278,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     1.238,                   !- Maximum Heating Air Flow Rate {m3/s}
     24768,                   !- Maximum Sensible Heating Capacity {W}
@@ -16307,7 +16307,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.187,                   !- Maximum Heating Air Flow Rate {m3/s}
     3749.6,                  !- Maximum Sensible Heating Capacity {W}
@@ -16336,7 +16336,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     0.103,                   !- Maximum Heating Air Flow Rate {m3/s}
     2064,                    !- Maximum Sensible Heating Capacity {W}
@@ -16365,7 +16365,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     7.140,                   !- Maximum Heating Air Flow Rate {m3/s}
     142800,                  !- Maximum Sensible Heating Capacity {W}
@@ -16394,7 +16394,7 @@ ZoneHVAC:IdealLoadsAirSystem,
     40,                      !- Maximum Heating Supply Air Temperature {C}
     15,                      !- Minimum Cooling Supply Air Temperature {C}
     0.005,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,  !- Heating Limit
     6.048,                   !- Maximum Heating Air Flow Rate {m3/s}
     120960,                  !- Maximum Sensible Heating Capacity {W}

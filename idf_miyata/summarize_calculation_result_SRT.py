@@ -72,6 +72,7 @@ data[ "潜熱負荷_J/15min" ] = data[ Qc_latent ] - data[ Qh_latent ]
 data[ "顕熱負荷_W/m2" ] = data[ "顕熱負荷_J/15min" ] /roomlist["Zone1"]["面積"] / (15*60)
 data[ "潜熱負荷_W/m2" ] = data[ "潜熱負荷_J/15min" ] /roomlist["Zone1"]["面積"] / (15*60)
 
+
 #-----------------------------------------------------------
 # 積算負荷、最大負荷の出力
 #-----------------------------------------------------------
@@ -90,6 +91,7 @@ print( data[ data["潜熱負荷_W/m2"] > 0 ]["潜熱負荷_W/m2"].max())
 print( data[ data["顕熱負荷_W/m2"] < 0 ]["顕熱負荷_W/m2"].min())
 print( data[ data["潜熱負荷_W/m2"] < 0 ]["潜熱負荷_W/m2"].min())
 
+
 #-----------------------------------------------------------
 # 室温のグラフ
 #-----------------------------------------------------------
@@ -100,14 +102,14 @@ plt.subplot(411)
 plt.plot(data[temperature]) 
 plt.title("室温の変動: Zone1")
 plt.ylabel("室温 [℃]")
-plt.ylim([0,35])
+plt.ylim([0,40])
 plt.grid()
 
 plt.subplot(412)
 plt.plot(data[humidity]*1000) 
 plt.title("絶対湿度の変動: Zone1")
 plt.ylabel("絶対湿度 [g/kgDA]")
-plt.ylim([0,20])
+plt.ylim([0,25])
 plt.grid()
 
 plt.subplot(413)
@@ -115,6 +117,7 @@ plt.plot(data[Qc_sensible] /roomlist["Zone1"]["面積"] / (15*60), 'b')
 plt.plot(data[Qh_sensible]*(-1)/roomlist["Zone1"]["面積"] / (15*60), 'r')
 plt.title("顕熱負荷の変動: Zone1")
 plt.ylabel("顕熱負荷 [W/㎡]")
+plt.ylim([-300,200])
 plt.grid()
 
 plt.subplot(414)
@@ -122,6 +125,7 @@ plt.plot(data[ Qc_latent ]/roomlist["Zone1"]["面積"]/(15*60), 'b')
 plt.plot(data[ Qh_latent ]*(-1)/roomlist["Zone1"]["面積"]/(15*60), 'r')
 plt.title("潜熱負荷の変動: Zone1")
 plt.ylabel("潜熱負荷 [W/㎡]")
+plt.ylim([-300,200])
 plt.grid()
 
 plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_"+ "Zone1" +".png")

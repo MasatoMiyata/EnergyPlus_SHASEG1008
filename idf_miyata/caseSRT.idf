@@ -157,18 +157,18 @@ RunPeriodControl:SpecialDays,
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDTEMPERATURE:BUILDINGSURFACE ===========
 
 Site:GroundTemperature:BuildingSurface,
-    10,                      !- January Ground Temperature {C}
-    10,                      !- February Ground Temperature {C}
-    10,                      !- March Ground Temperature {C}
-    10,                      !- April Ground Temperature {C}
-    10,                      !- May Ground Temperature {C}
-    10,                      !- June Ground Temperature {C}
-    10,                      !- July Ground Temperature {C}
-    10,                      !- August Ground Temperature {C}
-    10,                      !- September Ground Temperature {C}
-    10,                      !- October Ground Temperature {C}
-    10,                      !- November Ground Temperature {C}
-    10;                      !- December Ground Temperature {C}
+    18,                      !- January Ground Temperature {C}
+    18,                      !- February Ground Temperature {C}
+    18,                      !- March Ground Temperature {C}
+    18,                      !- April Ground Temperature {C}
+    18,                      !- May Ground Temperature {C}
+    18,                      !- June Ground Temperature {C}
+    18,                      !- July Ground Temperature {C}
+    18,                      !- August Ground Temperature {C}
+    18,                      !- September Ground Temperature {C}
+    18,                      !- October Ground Temperature {C}
+    18,                      !- November Ground Temperature {C}
+    18;                      !- December Ground Temperature {C}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:GROUNDREFLECTANCE ===========
@@ -546,11 +546,11 @@ Material,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-! 15mmに変更
+! 10mmに変更
 Material,
     FIBERGLASS-66mm,         !- Name
     Rough,                   !- Roughness
-    0.015,                   !- Thickness {m}
+    0.010,                   !- Thickness {m}
     0.040,                   !- Conductivity {W/m-K}
     12.000,                  !- Density {kg/m3}
     840.00,                  !- Specific Heat {J/kg-K}
@@ -580,11 +580,11 @@ Material,
     0.600000,                !- Solar Absorptance
     0.600000;                !- Visible Absorptance
 
-! 25mmに変更
+! 15mmに変更
 Material,
     FIBERGLASS-1003mm,       !- Name
     Rough,                   !- Roughness
-    0.025,                   !- Thickness {m}
+    0.015,                   !- Thickness {m}
     0.040,                   !- Conductivity {W/m-K}
     1.000,                   !- Density {kg/m3}
     100.0,                   !- Specific Heat {J/kg-K}
@@ -607,7 +607,7 @@ Material,
 Material,
     FIBERGLASS-111mm,        !- Name
     Rough,                   !- Roughness
-    0.015,                  !- Thickness {m}
+    0.015,                   !- Thickness {m}
     0.040,                   !- Conductivity {W/m-K}
     12.000,                  !- Density {kg/m3}
     840.00,                  !- Specific Heat {J/kg-K}
@@ -634,7 +634,7 @@ WindowMaterial:Glazing,
     SpectralAverage,         !- Optical Data Type
     ,                        !- Window Glass Spectral Data Set Name
     0.003175,                !- Thickness {m}
-    0.86156,                 !- Solar Transmittance at Normal Incidence
+    0.56156,                 !- Solar Transmittance at Normal Incidence
     0.07846,                 !- Front Side Solar Reflectance at Normal Incidence
     0.07846,                 !- Back Side Solar Reflectance at Normal Incidence
     0.91325,                 !- Visible Transmittance at Normal Incidence
@@ -863,11 +863,11 @@ FenestrationSurface:Detailed,
     ,                        !- Frame and Divider Name
     1,                       !- Multiplier
     4,                       !- Number of Vertices
-    1.000000000000,          !- Vertex 1 X-coordinate {m}
+    2.000000000000,          !- Vertex 1 X-coordinate {m}
     0.000000000000,          !- Vertex 1 Y-coordinate {m}
     2.000000000000,          !- Vertex 1 Z-coordinate {m}
 
-    1.000000000000,          !- Vertex 2 X-coordinate {m}
+    2.000000000000,          !- Vertex 2 X-coordinate {m}
     0.000000000000,          !- Vertex 2 Y-coordinate {m}
     0.500000000000,          !- Vertex 2 Z-coordinate {m}
 
@@ -879,32 +879,32 @@ FenestrationSurface:Detailed,
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.000000000000;          !- Vertex 4 Z-coordinate {m}
 
-! 窓を 1.5m×1.5m に変更
-FenestrationSurface:Detailed,
-    Window_S2,               !- Name
-    Window,                  !- Surface Type
-    Window_configure,        !- Construction Name
-    Wall_S,                  !- Building Surface Name
-    ,                        !- Outside Boundary Condition Object
-    0.5,                     !- View Factor to Ground
-    ,                        !- Frame and Divider Name
-    1,                       !- Multiplier
-    4,                       !- Number of Vertices
-    5.000000000000,          !- Vertex 1 X-coordinate {m}
-    0.000000000000,          !- Vertex 1 Y-coordinate {m}
-    2.000000000000,          !- Vertex 1 Z-coordinate {m}
-
-    5.000000000000,          !- Vertex 2 X-coordinate {m}
-    0.000000000000,          !- Vertex 2 Y-coordinate {m}
-    0.500000000000,          !- Vertex 2 Z-coordinate {m}
-
-    7.500000000000,          !- Vertex 3 X-coordinate {m}
-    0.000000000000,          !- Vertex 3 Y-coordinate {m}
-    0.500000000000,          !- Vertex 3 Z-coordinate {m}
-
-    7.500000000000,          !- Vertex 4 X-coordinate {m}
-    0.000000000000,          !- Vertex 4 Y-coordinate {m}
-    2.000000000000;          !- Vertex 4 Z-coordinate {m}
+! ! 窓を 1.5m×1.5m に変更
+! FenestrationSurface:Detailed,
+!     Window_S2,               !- Name
+!     Window,                  !- Surface Type
+!     Window_configure,        !- Construction Name
+!     Wall_S,                  !- Building Surface Name
+!     ,                        !- Outside Boundary Condition Object
+!     0.5,                     !- View Factor to Ground
+!     ,                        !- Frame and Divider Name
+!     1,                       !- Multiplier
+!     4,                       !- Number of Vertices
+!     6.000000000000,          !- Vertex 1 X-coordinate {m}
+!     0.000000000000,          !- Vertex 1 Y-coordinate {m}
+!     2.000000000000,          !- Vertex 1 Z-coordinate {m}
+! 
+!     6.000000000000,          !- Vertex 2 X-coordinate {m}
+!     0.000000000000,          !- Vertex 2 Y-coordinate {m}
+!     0.500000000000,          !- Vertex 2 Z-coordinate {m}
+! 
+!     7.500000000000,          !- Vertex 3 X-coordinate {m}
+!     0.000000000000,          !- Vertex 3 Y-coordinate {m}
+!     0.500000000000,          !- Vertex 3 Z-coordinate {m}
+! 
+!     7.500000000000,          !- Vertex 4 X-coordinate {m}
+!     0.000000000000,          !- Vertex 4 Y-coordinate {m}
+!     2.000000000000;          !- Vertex 4 Z-coordinate {m}
 
 WindowShadingControl,
     Shading Control 1,         !- Name
@@ -925,24 +925,24 @@ WindowShadingControl,
     Group,                   !- Multiple Surface Control Type
     Window_S1;               !- Fenestration Surface 1 Name
 
-WindowShadingControl,
-    Shading Control 2,       !- Name
-    Zone1,                   !- Zone Name
-    1,                       !- Shading Control Sequence Number
-    InteriorBlind,           !- Shading Type
-    ,                        !- Construction with Shading Name
-    AlwaysOn,                !- Shading Control Type
-    ,                        !- Schedule Name
-    ,                        !- Setpoint {W/m2, W or deg C}
-    No,                      !- Shading Control Is Scheduled
-    No,                      !- Glare Control Is Active
-    Blind,                   !- Shading Device Material Name
-    FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
-    ,                        !- Slat Angle Schedule Name
-    ,                        !- Setpoint 2 {W/m2 or deg C}
-    ,                        !- Daylighting Control Object Name
-    Group,                   !- Multiple Surface Control Type
-    Window_S2;               !- Fenestration Surface 1 Name
+! WindowShadingControl,
+!     Shading Control 2,       !- Name
+!     Zone1,                   !- Zone Name
+!     1,                       !- Shading Control Sequence Number
+!     InteriorBlind,           !- Shading Type
+!     ,                        !- Construction with Shading Name
+!     AlwaysOn,                !- Shading Control Type
+!     ,                        !- Schedule Name
+!     ,                        !- Setpoint {W/m2, W or deg C}
+!     No,                      !- Shading Control Is Scheduled
+!     No,                      !- Glare Control Is Active
+!     Blind,                   !- Shading Device Material Name
+!     FixedSlatAngle,          !- Type of Slat Angle Control for Blinds
+!     ,                        !- Slat Angle Schedule Name
+!     ,                        !- Setpoint 2 {W/m2 or deg C}
+!     ,                        !- Daylighting Control Object Name
+!     Group,                   !- Multiple Surface Control Type
+!     Window_S2;               !- Fenestration Surface 1 Name
 
 WindowMaterial:Blind,
     Blind,                   !- Name
@@ -1033,9 +1033,9 @@ ZoneInfiltration:DesignFlowRate,
     Infil_1,                 !- Name
     Zone1,                   !- Zone or ZoneList Name
     Sch 1,                   !- Schedule Name
-    Flow/Area,               !- Design Flow Rate Calculation Method
-    ,                        !- Design Flow Rate {m3/s}
-    0.0014,                  !- Flow per Zone Floor Area {m3/s-m2}
+    Flow/Zone,               !- Design Flow Rate Calculation Method
+    0.07,                    !- Design Flow Rate {m3/s}
+    ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
     1,                       !- Constant Term Coefficient
@@ -1081,22 +1081,51 @@ ThermostatSetpoint:DualSetpoint,
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
 
+! ZoneHVAC:IdealLoadsAirSystem,
+!     Zone1Air,                !- Name
+!     ,                        !- Availability Schedule Name
+!     NODE_1,                  !- Zone Supply Air Node Name
+!     ,                        !- Zone Exhaust Air Node Name
+!     ,                        !- System Inlet Air Node Name
+!     ,                        !- Maximum Heating Supply Air Temperature {C}
+!     ,                        !- Minimum Cooling Supply Air Temperature {C}
+!     ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     ,                        !- Heating Limit
+!     ,                        !- Maximum Heating Air Flow Rate {m3/s}
+!     ,                        !- Maximum Sensible Heating Capacity {W}
+!     ,                        !- Cooling Limit
+!     ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+!     ,                        !- Maximum Total Cooling Capacity {W}
+!     Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
+!     Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
+!     Humidistat,              !- Dehumidification Control Type
+!     ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+!     Humidistat,              !- Humidification Control Type
+!     ,                        !- Design Specification Outdoor Air Object Name
+!     ,                        !- Outdoor Air Inlet Node Name
+!     ,                        !- Demand Controlled Ventilation Type
+!     ,                        !- Outdoor Air Economizer Type
+!     ,                        !- Heat Recovery Type
+!     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+!     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
 ZoneHVAC:IdealLoadsAirSystem,
     Zone1Air,                !- Name
     ,                        !- Availability Schedule Name
     NODE_1,                  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    40,                      !- Maximum Heating Supply Air Temperature {C}
-    15,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0156,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0077,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    35,                      !- Maximum Heating Supply Air Temperature {C}
+    16,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.0078,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.0079,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     LimitFlowRateAndCapacity,!- Heating Limit
-    0.576,                   !- Maximum Heating Air Flow Rate {m3/s}
-    11520,                   !- Maximum Sensible Heating Capacity {W}
+    0.283,                   !- Maximum Heating Air Flow Rate {m3/s}
+    4800,                    !- Maximum Sensible Heating Capacity {W}
     LimitFlowRateAndCapacity,!- Cooling Limit
-    0.576,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    11520,                   !- Maximum Total Cooling Capacity {W}
+    0.276,                   !- Maximum Cooling Air Flow Rate {m3/s}
+    6000,                    !- Maximum Total Cooling Capacity {W}
     Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
     Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type

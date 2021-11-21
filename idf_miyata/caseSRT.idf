@@ -1081,51 +1081,22 @@ ThermostatSetpoint:DualSetpoint,
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:IDEALLOADSAIRSYSTEM ===========
 
-! ZoneHVAC:IdealLoadsAirSystem,
-!     Zone1Air,                !- Name
-!     ,                        !- Availability Schedule Name
-!     NODE_1,                  !- Zone Supply Air Node Name
-!     ,                        !- Zone Exhaust Air Node Name
-!     ,                        !- System Inlet Air Node Name
-!     ,                        !- Maximum Heating Supply Air Temperature {C}
-!     ,                        !- Minimum Cooling Supply Air Temperature {C}
-!     ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-!     ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-!     ,                        !- Heating Limit
-!     ,                        !- Maximum Heating Air Flow Rate {m3/s}
-!     ,                        !- Maximum Sensible Heating Capacity {W}
-!     ,                        !- Cooling Limit
-!     ,                        !- Maximum Cooling Air Flow Rate {m3/s}
-!     ,                        !- Maximum Total Cooling Capacity {W}
-!     Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
-!     Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
-!     Humidistat,              !- Dehumidification Control Type
-!     ,                        !- Cooling Sensible Heat Ratio {dimensionless}
-!     Humidistat,              !- Humidification Control Type
-!     ,                        !- Design Specification Outdoor Air Object Name
-!     ,                        !- Outdoor Air Inlet Node Name
-!     ,                        !- Demand Controlled Ventilation Type
-!     ,                        !- Outdoor Air Economizer Type
-!     ,                        !- Heat Recovery Type
-!     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
-!     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
-
 ZoneHVAC:IdealLoadsAirSystem,
     Zone1Air,                !- Name
     ,                        !- Availability Schedule Name
     NODE_1,                  !- Zone Supply Air Node Name
     ,                        !- Zone Exhaust Air Node Name
     ,                        !- System Inlet Air Node Name
-    35,                      !- Maximum Heating Supply Air Temperature {C}
-    16,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.0078,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-    0.0079,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-    LimitFlowRateAndCapacity,!- Heating Limit
-    0.283,                   !- Maximum Heating Air Flow Rate {m3/s}
-    4800,                    !- Maximum Sensible Heating Capacity {W}
-    LimitFlowRateAndCapacity,!- Cooling Limit
-    0.276,                   !- Maximum Cooling Air Flow Rate {m3/s}
-    6000,                    !- Maximum Total Cooling Capacity {W}
+    ,                        !- Maximum Heating Supply Air Temperature {C}
+    ,                        !- Minimum Cooling Supply Air Temperature {C}
+    ,                        !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    ,                        !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    ,                        !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
     Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
     Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
     Humidistat,              !- Dehumidification Control Type
@@ -1138,6 +1109,35 @@ ZoneHVAC:IdealLoadsAirSystem,
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+! ZoneHVAC:IdealLoadsAirSystem,
+!     Zone1Air,                !- Name
+!     ,                        !- Availability Schedule Name
+!     NODE_1,                  !- Zone Supply Air Node Name
+!     ,                        !- Zone Exhaust Air Node Name
+!     ,                        !- System Inlet Air Node Name
+!     35,                      !- Maximum Heating Supply Air Temperature {C}
+!     16,                      !- Minimum Cooling Supply Air Temperature {C}
+!     0.0078,                  !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     0.0079,                  !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+!     LimitFlowRateAndCapacity,!- Heating Limit
+!     0.283,                   !- Maximum Heating Air Flow Rate {m3/s}
+!     4800,                    !- Maximum Sensible Heating Capacity {W}
+!     LimitFlowRateAndCapacity,!- Cooling Limit
+!     0.276,                   !- Maximum Cooling Air Flow Rate {m3/s}
+!     6000,                    !- Maximum Total Cooling Capacity {W}
+!     Zone1 Heating Availability Sch,  !- Heating Availability Schedule Name
+!     Zone1 Cooling Availability Sch,  !- Cooling Availability Schedule Name
+!     Humidistat,              !- Dehumidification Control Type
+!     ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+!     Humidistat,              !- Humidification Control Type
+!     ,                        !- Design Specification Outdoor Air Object Name
+!     ,                        !- Outdoor Air Inlet Node Name
+!     ,                        !- Demand Controlled Ventilation Type
+!     ,                        !- Outdoor Air Economizer Type
+!     ,                        !- Heat Recovery Type
+!     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+!     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
 
 
 !-   ===========  ALL OBJECTS IN CLASS: ZONEHVAC:EQUIPMENTLIST ===========

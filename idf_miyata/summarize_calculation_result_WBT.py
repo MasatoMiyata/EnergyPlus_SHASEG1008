@@ -237,6 +237,22 @@ for room_name in roomlist:
 
 
 #-----------------------------------------------------------
+# 最大負荷の発生日
+#-----------------------------------------------------------
+
+print("★ 最大負荷が出現する日時")
+
+for room_name in roomlist:
+
+    print( "----" + room_name + "----")
+
+    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].idxmax() )
+    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].idxmax() )
+    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].idxmin() )
+    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].idxmin() )
+
+
+#-----------------------------------------------------------
 # 基準階の事務室の時系列負荷 （CSVに出力）
 #-----------------------------------------------------------
 
@@ -254,8 +270,6 @@ csvdata = pd.DataFrame([], columns=[
 for room_name in roomlist:
 
     if "事務室" in room_name and "2-6F" in room_name:
-
-        print( "----" + room_name + "----")
 
         tmpdata = data[ room_name + "顕熱負荷_W/m2" ]["2022-01-04 0:00:00":"2022-01-05 1:00:00"]
         tmpdata = tmpdata.append(data[ room_name + "顕熱負荷_W/m2" ]["2022-04-05 0:00:00":"2022-04-06 1:00:00"] )
@@ -460,4 +474,4 @@ for room_name in roomlist:
 
         plt.savefig("建物全体テスト_温湿度と熱負荷のグラフ_代表日_11月"+ room_name +".png")
 
-plt.show()
+# plt.show()

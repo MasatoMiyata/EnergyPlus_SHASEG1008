@@ -167,7 +167,7 @@ for colunms_name in data.columns:
 # # print(data[roomlist["1F事務室2"] + ":Zone Mean Air Temperature [C](Hourly)"]["2022-01-01 7:00:00":"2022-01-01 17:00:00"])
 
 # 最後の一年のデータを抽出
-data = data["2022-01-01 7:00:00":"2023-01-01 0:00:00"]
+data = data["2022-01-01 0:00:00":"2023-01-01 0:00:00"]
 
 
 #-----------------------------------------------------------
@@ -207,9 +207,22 @@ for room_name in roomlist:
 # 積算負荷、最大負荷の出力
 #-----------------------------------------------------------
 
+data["顕熱負荷_冷房_W"] = 0
+data["潜熱負荷_冷房_W"] = 0
+data["顕熱負荷_暖房_W"] = 0
+data["潜熱負荷_暖房_W"] = 0
+total_floor_area = 0
+
+
 for room_name in roomlist:
 
     print( "----" + room_name + "----")
+
+    data["顕熱負荷_冷房_W"] += data[room_name + "_顕熱負荷_W" ]
+    data["潜熱負荷_冷房_W"] += data[room_name + "_潜熱負荷_W" ]
+    data["顕熱負荷_暖房_W"] += data[room_name + "_顕熱負荷_W" ]
+    data["潜熱負荷_暖房_W"] += data[room_name + "_潜熱負荷_W" ]
+    total_floor_area += (roomlist[room_name]["面積"] * roomlist[room_name]["階数"])
 
     # 積算負荷 [MWh]
     print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].sum() / 1000000  )
@@ -236,11 +249,31 @@ for room_name in roomlist:
     print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].min() /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
 
 
+print("--- 合計 ---")
+print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].max()/1000)
+print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].max()/1000)
+print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].min()/1000)
+print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].min()/1000)
+print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].max()/total_floor_area)
+print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].max()/total_floor_area)
+print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].min()/total_floor_area)
+print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].min()/total_floor_area)
+
+
+# 保存
+data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
+
+
 #-----------------------------------------------------------
 # 最大負荷の発生日
 #-----------------------------------------------------------
 
 print("★ 最大負荷が出現する日時")
+
+print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].idxmax())
+print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].idxmax())
+print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].idxmin())
+print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].idxmin())
 
 for room_name in roomlist:
 
@@ -303,7 +336,7 @@ for room_name in roomlist:
 
 
 #-----------------------------------------------------------
-# 室温のグラフ
+# 室温のグラフ (png)
 #-----------------------------------------------------------
 
 for room_name in roomlist:

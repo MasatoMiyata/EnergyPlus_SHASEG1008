@@ -204,36 +204,85 @@ for room_name in roomlist:
     data[ room_name + "_全熱負荷_W" ] = data[ room_name + "_顕熱負荷_W" ] + data[ room_name + "_潜熱負荷_W" ]
     data[ room_name + "_全熱負荷_J" ] = data[ room_name + "_顕熱負荷_J" ] + data[ room_name + "_潜熱負荷_J" ]
 
+    # 床面積あたりの負荷
     data[ room_name + "_顕熱負荷_W/m2" ] = data[ room_name + "_顕熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
     data[ room_name + "_潜熱負荷_W/m2" ] = data[ room_name + "_潜熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
     data[ room_name + "_全熱負荷_W/m2" ] = data[ room_name + "_全熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
 
 #-----------------------------------------------------------
-# 積算負荷、最大負荷の出力
+# 建物全体の全熱負荷
 #-----------------------------------------------------------
 
-data["顕熱負荷_冷房_W"] = 0
-data["潜熱負荷_冷房_W"] = 0
-data["顕熱負荷_暖房_W"] = 0
-data["潜熱負荷_暖房_W"] = 0
+data["建物全体_全熱負荷_J"] = 0
+data["建物全体_顕熱負荷_W"] = 0
+data["建物全体_潜熱負荷_W"] = 0
 total_floor_area = 0
-
 
 for room_name in roomlist:
 
-    print( "----" + room_name + "----")
-
-    data["顕熱負荷_冷房_W"] += data[room_name + "_顕熱負荷_W" ]
-    data["潜熱負荷_冷房_W"] += data[room_name + "_潜熱負荷_W" ]
-    data["顕熱負荷_暖房_W"] += data[room_name + "_顕熱負荷_W" ]
-    data["潜熱負荷_暖房_W"] += data[room_name + "_潜熱負荷_W" ]
+    data["建物全体_全熱負荷_J"] += data[room_name + "_全熱負荷_J" ]
+    data["建物全体_顕熱負荷_W"] += data[room_name + "_顕熱負荷_W" ]
+    data["建物全体_潜熱負荷_W"] += data[room_name + "_潜熱負荷_W" ]
     total_floor_area += (roomlist[room_name]["面積"] * roomlist[room_name]["階数"])
 
+
+#-----------------------------------------------------------
+# 全熱負荷が最大となる日
+#-----------------------------------------------------------
+
+# 冷房負荷
+print("---- 最大負荷が出現する日時（冷房） ---- ")
+print(data[ data["建物全体_全熱負荷_J"] > 0 ]["建物全体_全熱負荷_J"].idxmax())   # 冷房負荷の最大
+for room_name in roomlist:
+    print( data[ data[room_name + "_全熱負荷_J" ] > 0 ][room_name + "_全熱負荷_J" ].idxmax() )   # 冷房負荷の最大
+
+# 暖房負荷
+print("---- 最大負荷が出現する日時（暖房） ---- ")
+print(data[ data["建物全体_全熱負荷_J"] < 0 ]["建物全体_全熱負荷_J"].idxmin())   # 暖房負荷の最大
+for room_name in roomlist:
+    print( data[ data[room_name + "_全熱負荷_J" ] < 0 ][room_name + "_全熱負荷_J" ].idxmin() )   # 暖房負荷の最大
+
+
+
+#-----------------------------------------------------------
+# 積算負荷、最大負荷の出力
+#-----------------------------------------------------------
+
+print("---- 積算負荷、最大負荷 ---- ")
+
+# 積算負荷 [MWh]
+print( data[ data["建物全体_顕熱負荷_W" ] > 0 ]["建物全体_顕熱負荷_W"].sum() / 1000000  )  # 冷房顕熱
+print( data[ data["建物全体_潜熱負荷_W" ] > 0 ]["建物全体_潜熱負荷_W"].sum() / 1000000  )  # 冷房顕熱
+print( data[ data["建物全体_顕熱負荷_W" ] < 0 ]["建物全体_顕熱負荷_W"].sum() / 1000000  )  # 冷房顕熱
+print( data[ data["建物全体_潜熱負荷_W" ] < 0 ]["建物全体_潜熱負荷_W"].sum() / 1000000  )  # 冷房顕熱
+
+# 積算負荷 [MJ/m2年]
+print( data[ data["建物全体_顕熱負荷_W" ] > 0 ]["建物全体_顕熱負荷_W"].sum() * 3600 / 1000000 /total_floor_area )  # 冷房顕熱
+print( data[ data["建物全体_潜熱負荷_W" ] > 0 ]["建物全体_潜熱負荷_W"].sum() * 3600 / 1000000 /total_floor_area )  # 冷房顕熱
+print( data[ data["建物全体_顕熱負荷_W" ] < 0 ]["建物全体_顕熱負荷_W"].sum() * 3600 / 1000000 /total_floor_area )  # 冷房顕熱
+print( data[ data["建物全体_潜熱負荷_W" ] < 0 ]["建物全体_潜熱負荷_W"].sum() * 3600 / 1000000 /total_floor_area )  # 冷房顕熱
+
+index_cooling_max = data[ data["建物全体_全熱負荷_J"] > 0 ]["建物全体_全熱負荷_J"].idxmax()
+index_heating_max = data[ data["建物全体_全熱負荷_J"] < 0 ]["建物全体_全熱負荷_J"].idxmin()
+
+print(data["建物全体_顕熱負荷_W"][ index_cooling_max ] /1000)
+print(data["建物全体_潜熱負荷_W"][ index_cooling_max ] /1000)
+print(data["建物全体_顕熱負荷_W"][ index_heating_max ] /1000)
+print(data["建物全体_潜熱負荷_W"][ index_heating_max ] /1000)
+print(data["建物全体_顕熱負荷_W"][ index_cooling_max ] /total_floor_area)
+print(data["建物全体_潜熱負荷_W"][ index_cooling_max ] /total_floor_area)
+print(data["建物全体_顕熱負荷_W"][ index_heating_max ] /total_floor_area)
+print(data["建物全体_潜熱負荷_W"][ index_heating_max ] /total_floor_area)
+
+for room_name in roomlist:
+
+    print("----" + room_name + "----")
+
     # 積算負荷 [MWh]
-    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].sum() / 1000000  )
-    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].sum() / 1000000  )
-    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].sum() / 1000000  )
-    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].sum() / 1000000  )
+    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].sum() / 1000000  )   # 冷房顕熱
+    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].sum() / 1000000  )   # 冷房潜熱
+    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].sum() / 1000000  )   # 暖房顕熱
+    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].sum() / 1000000  )   # 暖房潜熱
 
     # 積算負荷 [MJ/m2年]
     print( data[ data[room_name + "_顕熱負荷_J" ] > 0 ][room_name + "_顕熱負荷_J" ].sum() / 1000000 /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
@@ -241,53 +290,26 @@ for room_name in roomlist:
     print( data[ data[room_name + "_顕熱負荷_J" ] < 0 ][room_name + "_顕熱負荷_J" ].sum() / 1000000 /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
     print( data[ data[room_name + "_潜熱負荷_J" ] < 0 ][room_name + "_潜熱負荷_J" ].sum() / 1000000 /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
 
+    # 全熱負荷が最大となる日の特定
+    index_cooling_max = data[ data[room_name + "_全熱負荷_J" ] > 0 ][room_name + "_全熱負荷_J" ].idxmax()
+    index_heating_max = data[ data[room_name + "_全熱負荷_J" ] < 0 ][room_name + "_全熱負荷_J" ].idxmin()
+
     # 最大負荷 [kW]
-    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].max() / 1000  )
-    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].max() / 1000  )
-    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].min() / 1000  )
-    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].min() / 1000  )
+    print( data[room_name + "_顕熱負荷_W"][ index_cooling_max ] / 1000  )
+    print( data[room_name + "_潜熱負荷_W"][ index_cooling_max ] / 1000  )
+    print( data[room_name + "_顕熱負荷_W"][ index_heating_max ] / 1000  )
+    print( data[room_name + "_潜熱負荷_W"][ index_heating_max ] / 1000  )
 
     # 最大負荷 [W/m2]
-    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].max() /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
-    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].max() /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
-    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].min() /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
-    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].min() /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
-
-
-print("--- 合計 ---")
-print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].max()/1000)
-print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].max()/1000)
-print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].min()/1000)
-print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].min()/1000)
-print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].max()/total_floor_area)
-print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].max()/total_floor_area)
-print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].min()/total_floor_area)
-print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].min()/total_floor_area)
+    print( data[room_name + "_顕熱負荷_W" ][ index_cooling_max ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
+    print( data[room_name + "_潜熱負荷_W" ][ index_cooling_max ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
+    print( data[room_name + "_顕熱負荷_W" ][ index_heating_max ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
+    print( data[room_name + "_潜熱負荷_W" ][ index_heating_max ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"])
 
 
 # 保存
-data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
+# data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
 
-
-#-----------------------------------------------------------
-# 最大負荷の発生日
-#-----------------------------------------------------------
-
-print("★ 最大負荷が出現する日時")
-
-print(data[ data["顕熱負荷_冷房_W"] > 0 ]["顕熱負荷_冷房_W"].idxmax())
-print(data[ data["潜熱負荷_冷房_W"] > 0 ]["潜熱負荷_冷房_W"].idxmax())
-print(data[ data["顕熱負荷_暖房_W"] < 0 ]["顕熱負荷_暖房_W"].idxmin())
-print(data[ data["潜熱負荷_暖房_W"] < 0 ]["潜熱負荷_暖房_W"].idxmin())
-
-for room_name in roomlist:
-
-    print( "----" + room_name + "----")
-
-    print( data[ data[room_name + "_顕熱負荷_W" ] > 0 ][room_name + "_顕熱負荷_W" ].idxmax() )
-    print( data[ data[room_name + "_潜熱負荷_W" ] > 0 ][room_name + "_潜熱負荷_W" ].idxmax() )
-    print( data[ data[room_name + "_顕熱負荷_W" ] < 0 ][room_name + "_顕熱負荷_W" ].idxmin() )
-    print( data[ data[room_name + "_潜熱負荷_W" ] < 0 ][room_name + "_潜熱負荷_W" ].idxmin() )
 
 
 #-----------------------------------------------------------

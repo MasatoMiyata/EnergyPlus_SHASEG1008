@@ -199,9 +199,14 @@ for room_name in roomlist:
     data[ room_name + "_顕熱負荷_J" ] = data[roomlist[room_name]["ID"] + sensible_cooling_energy_J] - data[roomlist[room_name]["ID"] + sensible_heating_energy_J]
     data[ room_name + "_潜熱負荷_J" ] = data[roomlist[room_name]["ID"] + latent_cooling_energy_J]   - data[roomlist[room_name]["ID"] + latent_heating_energy_J]
 
-    data[ room_name + "顕熱負荷_W/m2" ] = data[ room_name + "_顕熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
-    data[ room_name + "潜熱負荷_W/m2" ] = data[ room_name + "_潜熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
 
+    # 全熱負荷（単純な積算）
+    data[ room_name + "_全熱負荷_W" ] = data[ room_name + "_顕熱負荷_W" ] + data[ room_name + "_潜熱負荷_W" ]
+    data[ room_name + "_全熱負荷_J" ] = data[ room_name + "_顕熱負荷_J" ] + data[ room_name + "_潜熱負荷_J" ]
+
+    data[ room_name + "_顕熱負荷_W/m2" ] = data[ room_name + "_顕熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
+    data[ room_name + "_潜熱負荷_W/m2" ] = data[ room_name + "_潜熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
+    data[ room_name + "_全熱負荷_W/m2" ] = data[ room_name + "_全熱負荷_W" ] /roomlist[room_name]["面積"]/roomlist[room_name]["階数"]
 
 #-----------------------------------------------------------
 # 積算負荷、最大負荷の出力
@@ -304,17 +309,17 @@ for room_name in roomlist:
 
     if "事務室" in room_name and "2-6F" in room_name:
 
-        tmpdata = data[ room_name + "顕熱負荷_W/m2" ]["2022-01-04 0:00:00":"2022-01-05 1:00:00"]
-        tmpdata = tmpdata.append(data[ room_name + "顕熱負荷_W/m2" ]["2022-04-05 0:00:00":"2022-04-06 1:00:00"] )
-        tmpdata = tmpdata.append(data[ room_name + "顕熱負荷_W/m2" ]["2022-07-18 0:00:00":"2022-07-19 1:00:00"] )
-        tmpdata = tmpdata.append(data[ room_name + "顕熱負荷_W/m2" ]["2022-11-1 0:00:00":"2022-11-2 1:00:00"] )
+        tmpdata = data[ room_name + "_顕熱負荷_W/m2" ]["2022-01-04 0:00:00":"2022-01-05 1:00:00"]
+        tmpdata = tmpdata.append(data[ room_name + "_顕熱負荷_W/m2" ]["2022-04-05 0:00:00":"2022-04-06 1:00:00"] )
+        tmpdata = tmpdata.append(data[ room_name + "_顕熱負荷_W/m2" ]["2022-07-18 0:00:00":"2022-07-19 1:00:00"] )
+        tmpdata = tmpdata.append(data[ room_name + "_顕熱負荷_W/m2" ]["2022-11-1 0:00:00":"2022-11-2 1:00:00"] )
 
         csvdata[room_name + "_顕熱"] = tmpdata
 
-        tmpdata = data[ room_name + "潜熱負荷_W/m2" ]["2022-01-04 0:00:00":"2022-01-05 1:00:00"]
-        tmpdata = tmpdata.append(data[ room_name + "潜熱負荷_W/m2" ]["2022-04-05 0:00:00":"2022-04-06 1:00:00"] )
-        tmpdata = tmpdata.append(data[ room_name + "潜熱負荷_W/m2" ]["2022-07-18 0:00:00":"2022-07-19 1:00:00"] )
-        tmpdata = tmpdata.append(data[ room_name + "潜熱負荷_W/m2" ]["2022-11-1 0:00:00":"2022-11-2 1:00:00"] )
+        tmpdata = data[ room_name + "_潜熱負荷_W/m2" ]["2022-01-04 0:00:00":"2022-01-05 1:00:00"]
+        tmpdata = tmpdata.append(data[ room_name + "_潜熱負荷_W/m2" ]["2022-04-05 0:00:00":"2022-04-06 1:00:00"] )
+        tmpdata = tmpdata.append(data[ room_name + "_潜熱負荷_W/m2" ]["2022-07-18 0:00:00":"2022-07-19 1:00:00"] )
+        tmpdata = tmpdata.append(data[ room_name + "_潜熱負荷_W/m2" ]["2022-11-1 0:00:00":"2022-11-2 1:00:00"] )
 
         csvdata[room_name + "_潜熱"] = tmpdata
 

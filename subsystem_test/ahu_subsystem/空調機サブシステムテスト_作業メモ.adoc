@@ -1,0 +1,174 @@
+== 空調機サブシステムテストに関する作業メモ
+
+=== 2022.01.14
+
+==== 空調機サブシステムのモデリング
+VAV全体システムモデル（JSBC2018_updated_VAVsystem.idf）から以下の点を変更する。	
+
+===== 不要なゾーン、空調機器の削除
+空調機サブシステムの対象ゾーン（NP、NEP、NWP）以外のゾーンをすべて削除した。削除対象オブジェクトは、Zone, BuildingSurface:Detailed, SurfaceProperty:ConvectionCoefficients, People, Lighting, OtherEquipment, Infiltration。また、これに併せて不要な空調機、VAVも削除した。最終的に残るのは3つの対象ゾーンのVAVとAHU1台のみである。
+
+===== 対象ゾーンの設定
+
+====== Surface
+表面は天井、床、外壁のみを残し、内壁は削除した。天井、床、外壁についてはすべて同様に1mの断熱材とし、外表面の日射・風への曝露は無し、さらに断熱境界とした。
+
+```
+  Material,
+    JP- XPS Extruded Polystyrene_1m,  !- Name
+    Rough,                   !- Roughness
+    1.00,                    !- Thickness {m}
+    .04,                     !- Conductivity {W/m-K}
+    25,                      !- Density {kg/m3}
+    100,                     !- Specific Heat {J/kg-K}
+    .9,                      !- Thermal Absorptance
+    .8,                      !- Solar Absorptance
+    .8;                      !- Visible Absorptance
+  
+  Construction,
+    W1m - IBEC,               !- Name
+    JP- XPS Extruded Polystyrene_1m;  !- Layer 4
+
+  BuildingSurface:Detailed,
+    2X6F:04X1XOfficeNP_ExtFloor_0_0_0,  !- Name
+    Floor,                   !- Surface Type
+    W1m - IBEC,              !- Construction Name
+    2X6F:04X1XOfficeNP,      !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    AutoCalculate,           !- View Factor to Ground
+    4,                       !- Number of Vertices
+    8.05070303,17.98340717,23.2,  !- X,Y,Z ==> Vertex 1 {m}
+    -24.44929697,17.98340717,23.2,  !- X,Y,Z ==> Vertex 2 {m}
+    -29.44929697,22.98340717,23.2,  !- X,Y,Z ==> Vertex 3 {m}
+    13.05070303,22.98340717,23.2;  !- X,Y,Z ==> Vertex 4 {m}
+```
+
+====== 内部発熱
+顕熱内部発熱としてOtherEquipmentにて指定の熱量を一定値で与える。
+
+```
+  OtherEquipment,
+    2X6F:04X1XOfficeNP Equipment gain 1,  !- Name
+    Electricity,             !- Fuel Type
+    2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
+    JP Office - office equipments NP,  !- Schedule Name
+    EquipmentLevel,          !- Design Level Calculation Method
+    13800,                   !- Design Level {W}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/person}
+    0,                       !- Fraction Latent
+    0,                       !- Fraction Radiant
+    0,                       !- Fraction Lost
+    0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
+    ELECTRIC EQUIPMENT#2X6F:04X1XOfficeNP#05;  !- End-Use Subcategory
+```
+
+===== 空調機ファン
+Fan total efficiencyはモータ効率とファン効率の積のようで、これと定格風量、静圧から定格消費電力が計算されるようである。Fan total efficiencyは性能曲線からファン効率の最大値（0.62）、モータ効率（0.90）、インバータ効率（0.97）を掛け合わせた数字とした。
+
+Fan power coefficientはファン電力消費率を風量比の4次式で近似する際の係数である。給気ファン、還気ファンともに指定の抵抗曲線と合致するように与えた。2つ目のファンの名前がExtract fanとなっているが、これが還気ファンである。
+
+```
+  Fan:VariableVolume,
+    AHU1-1 AHU Supply Fan,   !- Name
+    On 24/7,                 !- Availability Schedule Name
+    0.541,                   !- Fan Total Efficiency
+    838.00,                  !- Pressure Rise {Pa}
+    2.076700,                !- Maximum Flow Rate {m3/s}
+    Fraction,                !- Fan Power Minimum Flow Rate Input Method
+    0.400,                   !- Fan Power Minimum Flow Fraction
+    0.000000,                !- Fan Power Minimum Air Flow Rate {m3/s}
+    0.900000,                !- Motor Efficiency
+    1.00,                    !- Motor In Airstream Fraction
+    0.0597,                  !- Fan Power Coefficient 1
+    0,                       !- Fan Power Coefficient 2
+    0,                       !- Fan Power Coefficient 3
+    0.9403,                  !- Fan Power Coefficient 4
+    0.0000000000,            !- Fan Power Coefficient 5
+    AHU1-1 AHU Cooling Coil Air Outlet Node,  !- Air Inlet Node Name
+    AHU1-1 Supply Side Outlet 1,  !- Air Outlet Node Name
+    General;                 !- End-Use Subcategory
+
+  Fan:VariableVolume,
+    AHU1-1 AHU Extract Fan,  !- Name
+    On 24/7,                 !- Availability Schedule Name
+    0.541,                   !- Fan Total Efficiency
+    348.00,                  !- Pressure Rise {Pa}
+    2.076700,                !- Maximum Flow Rate {m3/s}
+    Fraction,                !- Fan Power Minimum Flow Rate Input Method
+    0.400,                   !- Fan Power Minimum Flow Fraction
+    0.000000,                !- Fan Power Minimum Air Flow Rate {m3/s}
+    0.900000,                !- Motor Efficiency
+    1.00,                    !- Motor In Airstream Fraction
+    0,                       !- Fan Power Coefficient 1
+    0,                       !- Fan Power Coefficient 2
+    0,                       !- Fan Power Coefficient 3
+    1,                       !- Fan Power Coefficient 4
+    0.0000000000,            !- Fan Power Coefficient 5
+    AHU1-1 Supply Side Inlet,!- Air Inlet Node Name
+    AHU1-1 AHU Extract Fan Air Outlet Node,  !- Air Outlet Node Name
+    General;                 !- End-Use Subcategory
+```
+
+===== 給気温度リセット制御
+EnergyPlusでは以下の4つの制御を選択できる（link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-setpoint-managers.html#setpointmanagerwarmest[Link]）。
+
+.給気温度制御の種類
+|======================================
+| SetpointManager:Scheduled | スケジュールで設定値を与える。最もシンプルな設定。
+| SetpointManager:Warmest | 冷房用のリセット制御。最大風量ベースでリセットするため風量は大きくなる。
+| SetpointManager:Coldest | 暖房用のリセット制御。Warmestと同様、風量は大きくなる。
+| SetpointManager:WarmestTemperatureFlow | 冷房用のリセット制御。温度優先と風量優先を選択可能。
+|======================================
+
+給気温度リセット制御を行わないCase 100, 110, 120はSetpointManager:Scheduledを使用し、給気温度リセット制御を行う残りの2ケースについてはSetpointManager:WarmestとSetpointManager:WarmestTemperatureFlowの両方を試した。
+
+```
+  SetpointManager:Scheduled,
+    AHU1-1 Setpoint Manager Cooling,  !- Name
+    Temperature,             !- Control Variable
+    Air loop cooling set point temperature: Always 16.0 C, !- Schedule Name
+    AHU1-1 Setpoint Manager Cooling Node List;  !- Setpoint Node or NodeList Name
+```
+
+```
+  SetpointManager:Warmest,
+    AHU1-1 Setpoint Manager Cooling,   !- Name
+    Temperature,   !- Control Variable
+    AHU1-1,   !- HVAC Air Loop Name
+    16,   !- Minimum Setpoint Temperature
+    22,   !- Maximum Setpoint Temperature
+    MaximumTemperature,   !- Strategy
+    AHU1-1 Setpoint Manager Cooling Node List;   !- Setpoint Node or NodeList Name
+```
+
+```
+  SetpointManager:WarmestTemperatureFlow,
+    AHU1-1 Setpoint Manager Cooling, !- Name
+    Temperature, !- Control Variable
+    AHU1-1, !- HVAC Air Loop Name
+    16, !- Minimum Setpoint Temperature
+    22, !- Maximum Setpoint Temperature
+    TemperatureFirst, !- Strategy
+    AHU1-1 Setpoint Manager Cooling Node List, !- Setpoint Node or NodeList Name
+    0.2; !- Minimum Turndown Ratio
+```
+
+===== 熱源システム
+AHP1台のみを残し、もう1つのAHPとARは削除した。AHPの容量は空調機と合わせた。
+
+==== 計算結果
+「AHS_results_EnergyPlus.xlsx」を参照。
+
+* Case 100, 110, 120については他のツールとほぼ同様の結果となった。
+* "Warmest"を用いる場合、Case 200（負荷均一）では給気温度が上限値となり、他のツールよりも風量が大きくなる。Case 300（負荷偏在）では、他のツールと近い結果になった。
+* "WarmestTemperatureFlow"を用いる場合、Case 200（負荷均一）では他のツールと近い結果になった。Case 300（負荷偏在）では、なぜか給気温度が下限値の16℃となり、負荷率の低いゾーンNPでは室温設定を満たせず過剰冷房となった。
+* エネルギーの観点で見ると、冷水コイル処理熱量はどちらの場合でも他のツールとほぼ同等の値となっている。一方、ファン電力については両制御でCase 200, 300で逆の傾向になっている。
+
+==== 今後の課題
+* EnergyPlusの給気温度リセット制御についてもう少し詳細な勉強、調査が必要。"WarmestTemperatureFlow"は負荷偏在時に室温設定値を満たせないとすると致命的な欠陥があると言える。また、暖房時は"WarmestTemperatureFlow"と対になる制御がない。そう考えると"Warmest"が無難かもしれない。
+* 以上で3つのサブシステムテストを概ね完了した。ただし、これらは現在ガイドライン制定委員会で行っている更新作業の前の旧バージョンであるため、新ガイドラインに掲載するためには更新後のサブシステムテストを実施する必要がある。また、サブシステムテストとしてはもう1つ蓄熱サブシステムテストがある。
+

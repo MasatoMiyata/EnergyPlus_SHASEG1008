@@ -149,7 +149,8 @@ roomlist = {
 #-----------------------------
 
 # 時刻ラベルを生成
-dates = pd.date_range(start='1/1/2021 1:00:00', end='1/1/2023 0:00:00', freq='H')
+dates = pd.date_range(start='12/1/2021 1:00:00', end='1/1/2023 0:00:00', freq='H')
+# dates = pd.date_range(start='1/1/2021 1:00:00', end='1/1/2023 0:00:00', freq='H')
 
 # CSVファイルの読み込み
 data  = pd.read_csv(filepath_or_buffer=filename, sep=",", header=[0], encoding="cp932")
@@ -308,7 +309,7 @@ for room_name in roomlist:
 
 
 # 保存
-# data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
+data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
 
 
 

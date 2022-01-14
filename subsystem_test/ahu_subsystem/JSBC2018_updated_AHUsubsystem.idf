@@ -2360,24 +2360,24 @@
   !  Air loop cooling set point temperature: Always 16.0 C, !- Schedule Name
   !  AHU1-1 Setpoint Manager Cooling Node List;  !- Setpoint Node or NodeList Name
   
-  SetpointManager:Warmest,
-    AHU1-1 Setpoint Manager Cooling,   !- Name
-    Temperature,   !- Control Variable
-    AHU1-1,   !- HVAC Air Loop Name
-    16,   !- Minimum Setpoint Temperature
-    22,   !- Maximum Setpoint Temperature
-    MaximumTemperature,   !- Strategy
-    AHU1-1 Setpoint Manager Cooling Node List;   !- Setpoint Node or NodeList Name
+  ! SetpointManager:Warmest,
+  !  AHU1-1 Setpoint Manager Cooling,   !- Name
+  !  Temperature,   !- Control Variable
+  !  AHU1-1,   !- HVAC Air Loop Name
+  !  16,   !- Minimum Setpoint Temperature
+  !  22,   !- Maximum Setpoint Temperature
+  !  MaximumTemperature,   !- Strategy
+  !  AHU1-1 Setpoint Manager Cooling Node List;   !- Setpoint Node or NodeList Name
 
-  ! SetpointManager:WarmestTemperatureFlow,
-  !  AHU1-1 Setpoint Manager Cooling, !- Name
-  !  Temperature, !- Control Variable
-  ! AHU1-1, !- HVAC Air Loop Name
-  !  16, !- Minimum Setpoint Temperature
-  !  22, !- Maximum Setpoint Temperature
-  !  TemperatureFirst, !- Strategy
-  !  AHU1-1 Setpoint Manager Cooling Node List, !- Setpoint Node or NodeList Name
-  !  0.2; !- Minimum Turndown Ratio
+  SetpointManager:WarmestTemperatureFlow,
+    AHU1-1 Setpoint Manager Cooling, !- Name
+    Temperature, !- Control Variable
+    AHU1-1, !- HVAC Air Loop Name
+    16, !- Minimum Setpoint Temperature
+    22, !- Maximum Setpoint Temperature
+    TemperatureFirst, !- Strategy
+    AHU1-1 Setpoint Manager Cooling Node List, !- Setpoint Node or NodeList Name
+    0.4; !- Minimum Turndown Ratio
 
   NodeList,
     AHU1-1 Setpoint Manager Cooling Node List,  !- Name

@@ -312,6 +312,25 @@ for room_name in roomlist:
 data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
 
 
+#-----------------------------------------------------------
+# 全ての室の時系列負荷 （CSVに出力）
+#-----------------------------------------------------------
+
+csvdata_building_total = pd.DataFrame([])
+
+for room_name in roomlist: 
+    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_顕熱負荷_W" ] )
+
+for room_name in roomlist: 
+    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_潜熱負荷_W" ] )
+
+for room_name in roomlist: 
+    csvdata_building_total = csvdata_building_total.append( data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"] )
+
+for room_name in roomlist: 
+    csvdata_building_total = csvdata_building_total.append( data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000 )
+
+csvdata_building_total.T.to_csv("建物全体テスト_負荷_温湿度データ.csv", encoding="cp932")
 
 #-----------------------------------------------------------
 # 基準階の事務室の時系列負荷 （CSVに出力）

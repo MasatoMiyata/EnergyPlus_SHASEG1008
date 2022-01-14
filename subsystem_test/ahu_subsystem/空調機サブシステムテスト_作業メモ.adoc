@@ -154,7 +154,7 @@ EnergyPlusでは以下の4つの制御を選択できる（link:https://bigladde
     22, !- Maximum Setpoint Temperature
     TemperatureFirst, !- Strategy
     AHU1-1 Setpoint Manager Cooling Node List, !- Setpoint Node or NodeList Name
-    0.2; !- Minimum Turndown Ratio
+    0.4; !- Minimum Turndown Ratio
 ```
 
 ===== 熱源システム
@@ -165,10 +165,10 @@ AHP1台のみを残し、もう1つのAHPとARは削除した。AHPの容量は�
 
 * Case 100, 110, 120については他のツールとほぼ同様の結果となった。
 * "Warmest"を用いる場合、Case 200（負荷均一）では給気温度が上限値となり、他のツールよりも風量が大きくなる。Case 300（負荷偏在）では、他のツールと近い結果になった。
-* "WarmestTemperatureFlow"を用いる場合、Case 200（負荷均一）では他のツールと近い結果になった。Case 300（負荷偏在）では、なぜか給気温度が下限値の16℃となり、負荷率の低いゾーンNPでは室温設定を満たせず過剰冷房となった。
+* "WarmestTemperatureFlow"を用いる場合、Case 200（負荷均一）では他のツールと近い結果になった。Case 300（負荷偏在）では、なぜか負荷率の低いゾーンNPでは室温設定を満たせず過剰冷房となった。
 * エネルギーの観点で見ると、冷水コイル処理熱量はどちらの場合でも他のツールとほぼ同等の値となっている。一方、ファン電力については両制御でCase 200, 300で逆の傾向になっている。
 
 ==== 今後の課題
-* EnergyPlusの給気温度リセット制御についてもう少し詳細な勉強、調査が必要。"WarmestTemperatureFlow"は負荷偏在時に室温設定値を満たせないとすると致命的な欠陥があると言える。また、暖房時は"WarmestTemperatureFlow"と対になる制御がない。そう考えると"Warmest"が無難かもしれない。
+* EnergyPlusの給気温度リセット制御についてもう少し詳細な勉強、調査が必要。"WarmestTemperatureFlow"は負荷偏在時に室温設定値を満たせないとすると致命的な欠陥があると言える。また、暖房時は"WarmestTemperatureFlow"と対になる制御がない。
 * 以上で3つのサブシステムテストを概ね完了した。ただし、これらは現在ガイドライン制定委員会で行っている更新作業の前の旧バージョンであるため、新ガイドラインに掲載するためには更新後のサブシステムテストを実施する必要がある。また、サブシステムテストとしてはもう1つ蓄熱サブシステムテストがある。
 

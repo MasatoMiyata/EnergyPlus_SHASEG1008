@@ -38,8 +38,8 @@ Building,
     3.9999999E-02,           !- Loads Convergence Tolerance Value {W}
     4.0000002E-03,           !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    90,                      !- Maximum Number of Warmup Days
-    25;                      !- Minimum Number of Warmup Days
+    30,                      !- Maximum Number of Warmup Days
+    10;                      !- Minimum Number of Warmup Days
 
 
 !-   ===========  ALL OBJECTS IN CLASS: SHADOWCALCULATION ===========
@@ -81,7 +81,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
     All,                     !- Name
     ,                        !- Zone or ZoneList Name
     10,                      !- Temperature Capacity Multiplier
-    1.0,                     !- Humidity Capacity Multiplier
+    10,                      !- Humidity Capacity Multiplier
     1.0,                     !- Carbon Dioxide Capacity Multiplier
     1.0;                     !- Generic Contaminant Capacity Multiplier
 
@@ -89,7 +89,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
 Timestep,
-    4;                       !- Number of Timesteps per Hour
+    12;                       !- Number of Timesteps per Hour
 
 
 !-   ===========  ALL OBJECTS IN CLASS: CONVERGENCELIMITS ===========
@@ -168,6 +168,7 @@ Site:Location,
 !     ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
 !     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
 !     0;                       !- Sky Clearness
+
 RunPeriod,
     RunPeriod 1,             !- Name
     12,                       !- Begin Month

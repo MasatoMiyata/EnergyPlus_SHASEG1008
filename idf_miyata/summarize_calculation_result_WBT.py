@@ -157,7 +157,7 @@ data  = pd.read_csv(filepath_or_buffer=filename, sep=",", header=[0], encoding="
 
 # 時刻ラベルをインデックスに指定（ csvファイルの時刻は 1〜24時で記載されており、datetime型として認識できない ）
 data.index = dates
-data.index.name = "data_hour"
+data.index.name = "date_hour"
 
 for colunms_name in data.columns:
     if colunms_name[-1] == " ":  # EnergyPlusの出力項目名称の末尾になぜか空白が入ってしまう場合がある問題を解消

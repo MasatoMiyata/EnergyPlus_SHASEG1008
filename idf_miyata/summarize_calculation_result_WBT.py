@@ -318,19 +318,19 @@ data.to_csv("建物全体テスト_全データ.csv", encoding="cp932")
 
 csvdata_building_total = pd.DataFrame([])
 
-for room_name in roomlist: 
-    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_顕熱負荷_W" ] )
+for room_name in roomlist:
+    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_顕熱負荷_W" ]/roomlist[room_name]["階数"] )
 
 for room_name in roomlist: 
-    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_潜熱負荷_W" ] )
+    csvdata_building_total = csvdata_building_total.append( data[ room_name + "_潜熱負荷_W" ]/roomlist[room_name]["階数"] )
 
-for room_name in roomlist: 
+for room_name in roomlist:
     csvdata_building_total = csvdata_building_total.append( data[roomlist[room_name]["ID"] + ":Zone Mean Air Temperature [C](Hourly)"] )
 
 for room_name in roomlist: 
-    csvdata_building_total = csvdata_building_total.append( data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"]*1000 )
+    csvdata_building_total = csvdata_building_total.append( data[roomlist[room_name]["ID"] + ":Zone Mean Air Humidity Ratio [kgWater/kgDryAir](Hourly)"] )
 
-csvdata_building_total.T.to_csv("建物全体テスト_負荷_温湿度データ.csv", encoding="cp932")
+csvdata_building_total.T.to_csv("熱負荷建物全体テスト_年間出力データフォーマット_TB100_EnergyPlus.csv", encoding="cp932")
 
 #-----------------------------------------------------------
 # 基準階の事務室の時系列負荷 （CSVに出力）

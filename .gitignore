@@ -41,5 +41,7 @@ DesignBuilder/*.sql
 DesignBuilder/*.Rproj
 DesignBuilder/Case600_2.idf
 .gitignore
+*.png
+*.xlsx
 DesignBuilder/Case600.skp
 

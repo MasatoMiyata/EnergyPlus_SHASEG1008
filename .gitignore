@@ -28,12 +28,11 @@ idf_miyata/集計結果*
 idf_miyata/CaseSRT/*
 idf_miyata/CaseWBT/*
 
-DesignBuilder/*postprocessed
-DesignBuilder/Case*.csv
-DesignBuilder/*Meter.csv
-DesignBuilder/*Table.csv
-DesignBuilder/*Zsz.csv
-DesignBuilder/Case600_2.idf
+*postprocessed
+Case*.csv
+*Meter.csv
+*Table.csv
+*Zsz.csv
 
 
 

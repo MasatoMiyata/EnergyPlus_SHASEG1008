@@ -1,0 +1,118 @@
+== EPW気象データについて
+
+=== EPW気象データの概要
+EPWはEnergyPlus Weatherの略であり、EnergyPlus用の気象データファイルである。link:https://energyplus.net/weather[EnergyPlusのウェブサイト]から地点を検索してダウンロードできる。
+
+EPWのデータ項目についてはlink:https://designbuilder.co.uk/cahelp/Content/EnergyPlusWeatherFileFormat.htm[DesignBuilderのウェブサイト]において丁寧に解説されている。下表に主な気象要素を示す。
+
+.EPWの主要な気象要素
+[options="header"]
+|======================================
+| 項目 | 説明
+| Dry Bulb Temperature | 当該時刻の乾球温度 [℃]。レンジは-70〜70。欠損の場合は99.9が入力される。
+| Dew Point Temperature | 当該時刻の露点温度 [℃]。レンジは-70〜70。欠損の場合は99.9が入力される。
+| Relative Humidity | 当該時刻の相対湿度 [%RH]。レンジは0〜110。欠損の場合は999が入力される。
+| Atmospheric Station Pressure | 当該時刻の観測ステーションの大気圧 [Pa]。レンジは31,000〜120,000。欠損の場合は999,999が入力される。
+| Horizontal Infrared Radiation Intensity | 前時刻から当該時刻までの積算の大気放射量 [Wh/m2]。最小値はゼロ。欠損の場合はOpaque Sky Coverから計算される。欠損の場合は9999が入力される。
+| Global Horizontal Radiation | 前時刻から当該時刻までの積算の水平面全天日射量 [Wh/m2]。最小値はゼロ。欠損の場合は9999が入力される。
+| Direct Normal Radiation | 前時刻から当該時刻までの積算の法線面直達日射量 [Wh/m2]。最小値はゼロ。欠損の場合は9999が入力される。
+| Diffuse Horizontal Radiation | 前時刻から当該時刻までの積算の水平面拡散日射量 [Wh/m2]。最小値はゼロ。欠損の場合は9999が入力される。
+| Wind Direction | 当該時刻の風向 [°]。北＝0、東＝90、南＝180、西＝270。無風の場合の風向はゼロとする。レン時は0〜360。欠損の場合は999が入力される。
+| Wind Speed | 当該時刻の風速 [m/s]。レンジは0〜40。欠損の場合は999が入力される。
+| Total Sky Cover | 当該時刻の雲量。0が快晴、10が完全に雲で覆われた状態。その上部にある空や雲の層が完全に見えなくなる厚い雲と、部分的に透明な薄い雲の両方を含む。欠損の場合は99が入力される。
+| Opaque Sky Cover | 当該時刻の雲量。0が快晴、10が完全に雲で覆われた状態。その上部にある空や雲の層が完全に見えなくなる厚い雲のみを含む。欠損の場合は99が入力される。
+|======================================
+
+link:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/climate-calculations.html#sky-radiation-modeling[Engineering Reference]によると、EnergyPlusのシミュレーションに必須の気象要素はDry-Bulb Temperature, Dew-Point Temperature, Relative Humidity, Barometric Pressure, Direct Normal Radiation, Diffuse Horizontal Radiation, Total & Opaque Sky Cover, Wind Direction, Wind Speedである。
+
+Global Horizontal Radiationは、この値そのものはEnergyPlusのシミュレーションでは使用されないが、法線面直達日射量と水平面拡散日射量のデータが欠損している場合にはこのデータからlink:https://bigladdersoftware.com/epx/docs/9-4/engineering-reference/climate-calculations.html#perez-directdiffuse-splitting-model[Perezモデル]によって直散分離を行うようである。また、すべての日射量のデータが欠損している場合はZhang-Huang Solar Modelを用いてTotal sky cover, Dry-bulb temperature, Relative humidity, Wind speedから全天日射量を推定するようである。
+
+EPWデータにはTotal Sky CoverとOpaque Sky Coverの2つの値があり、前者は部分的に透けているような薄い雲を含めた値、後者は含めない値である。link:https://www.metds.co.jp/?smd_process_download=1&download_id=610[気象データシステムのドキュメント]によると日本で使っている雲量はTotal sky coverを指すようである。雲量（Opaque sky cover）からHorizontal Infrared Radiation Intensityを推定する場合、Clear sky emissivityの計算式は4つ（Clark & Allen, Martin & Berdahl, Brunt, Idso）から選択でき、デフォルトはClark & Allenとなっている。Clear sky emissivityはWaltonの式を用いて雲量（Opaque sky cover）に基づいて補正される。
+
+=== 拡張アメダス気象データからEPWデータへの変換
+
+必要なデータを用意した上でEnergyPlusに付属しているlink:https://bigladdersoftware.com/epx/docs/9-4/auxiliary-programs/using-the-weather-converter.html#using-the-weather-converter[WeatherConverter]を使用してCSVからEPWに変換する。拡張アメダス気象データからEPWデータへ変換する際の手順や注意点についてはlink:https://www.metds.co.jp/?smd_process_download=1&download_id=610[気象データシステム]に詳述されている。このドキュメントによると、変換時のポイントは以下である。
+
+* データ項目の違い
+* 単位の違い
+* 時刻の違い
+
+==== データ項目の違い
+
+EA気象データDVDには、一次データ(基本データ)として気温、絶対湿度、水平面全天日射量、大気放射量、降水量、風向・風速、日照時間の8気象要素のデータが含まれている。これらからEnergyPlusのシミュレーションに必要なデータを用意しなければならない。つまり、
+
+* 気温と絶対湿度から露点温度と相対湿度を演算
+* 水平面全天日射量からPerezモデルによって法線面直達と水平面拡散に直散分離
+* 大気放射量から雲量を演算
+
+といった処理を行う必要がある。なお、2点目について、変換元データに水平面全天日射量のみ含まれている場合はWeatherConverter内で自動的に直散分離を行うため、事前に直散分離を行う必要はないようである。また、3点目の雲量についても、日射量と大気放射量のデータがある場合は使用されないようなので、事前に演算しておく必要はないのかもしれない。
+
+==== 単位の違い
+
+下表の通り一部のデータの単位が異なっているため注意が必要である。
+
+.EA気象データとEPWの単位の違い
+[options="header"]
+|==========================================
+| データ項目 | EA気象データ | EPW
+| 日射量・放射量 | 0.01MJ/m2h | Wh/m2
+| 風向 | 16方位(0〜16) | 0~360°
+|==========================================
+
+==== 時刻の違い
+
+日射量・放射量のデータについて、EA気象データは正時の前後30分の積算値であるのに対し、EPWでは前の1時間の積算値を用いている。よって、EPWへ変換する前にあらかじめデータを30分ずらしておく必要がある。link:https://www.metds.co.jp/?smd_process_download=1&download_id=610[気象データシステム]によれば、1時間データを1分値に線形補間してから正時-1〜正時の積算値を算出することで、実際のEPW方式のデータと近い結果が得られると報告している。この30分のずれを修正した後に直散分離を行う場合は、太陽位置の計算時刻も正時−30分となる点に注意が必要である。
+
+==== WeatherConverterを用いたEPWへの変換
+
+link:https://bigladdersoftware.com/epx/docs/9-4/auxiliary-programs/using-the-weather-converter.html#using-the-weather-converter[WeatherConverter]を用いてCSVからEPWに変換する。
+
+変換する際にはデータファイルと同一ファイル名のlink:https://bigladdersoftware.com/epx/docs/9-4/auxiliary-programs/definitions-file-custom-file-processing.html#definitions-file-custom-file-processing[定義ファイル（.def）]を作成する必要がある。
+
+
+以下にdefファイルの入力例を示す。
+```
+&location
+City='Tokyo'
+StateProv='NA'
+Country=Tokyo
+InWMO=47662
+InLat=35.7
+InLong=139.8
+InElev=0
+InTime=9
+/
+
+&wthdata
+NumInHour=1
+InputFileType='CUSTOM'
+InFormat='DELIMITED'
+DataElements=Date,HH:MM,Dry Bulb Temperature,Dew Point Temperature,Relative Humidity,Atmospheric Pressure,Horizontal Infrared Radiation Intensity from Sky,Global Horizontal Radiation,Wind Direction,Wind Speed
+DataUnits='mm/dd/yyyy','hh:mm','C','C','%','Pa','Wh/m2','Wh/m2','deg','m/s'
+DataConversionFactors=1,1,1,1,1,100,1,1,1,1
+DelimiterChar=','
+DecimalSymbolChar='.'
+/
+
+&miscdata
+Comments1='EPW Custom def format'
+SourceData='AMeDAS Standard Year 2000 Tokyo'
+/
+
+&datacontrol
+NumRecordsToSkip=1
+MaxNumRecordsToRead=8760
+MissingWindDirAction=RANDOM
+/
+```
+
+上記の通り、変換元データは、乾球温度、露点温度、相対湿度、大気圧、大気放射量、水平面全天日射量、風向、風速である。また、1列目の日付データはパソコンの設定によって自動的に年月日の順序が入れ替わる場合があるため注意が必要である。
+
+変換時に行った前処理は以下の通りである。
+
+* 気温と絶対湿度から露点温度と相対湿度を演算
+* 日射量と放射量のデータを30分ずらす。ここでは単純に前時刻と当該時刻の平均値とした
+* 日射量、放射量、風向の単位を変換
+* 大気圧は1013.25hPaで一定
+* 風速は高度補正を行う前の値を使用（つまり、高度6.5mの風速）
+

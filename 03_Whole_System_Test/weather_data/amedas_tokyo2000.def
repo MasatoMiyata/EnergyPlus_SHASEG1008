@@ -1,0 +1,32 @@
+&location
+City='Tokyo'
+StateProv='NA'
+Country=Tokyo
+InWMO=47662
+InLat=35.7
+InLong=139.8
+InElev=0
+InTime=9
+/
+
+&wthdata
+NumInHour=1
+InputFileType='CUSTOM'
+InFormat='DELIMITED'
+DataElements=Date,HH:MM,Dry Bulb Temperature,Dew Point Temperature,Relative Humidity,Atmospheric Pressure,Horizontal Infrared Radiation Intensity from Sky,Global Horizontal Radiation,Wind Direction,Wind Speed
+DataUnits='dd/mm/yyyy','hh:mm','C','C','%','Pa','Wh/m2','Wh/m2','deg','m/s'
+DataConversionFactors=1,1,1,1,1,100,1,1,1,1
+DelimiterChar=','
+DecimalSymbolChar='.'
+/
+
+&miscdata
+Comments1='EPW Custom def format'
+SourceData='AMeDAS Standard Year 2000 Tokyo'
+/
+
+&datacontrol
+NumRecordsToSkip=1
+MaxNumRecordsToRead=8760
+MissingWindDirAction=RANDOM
+/

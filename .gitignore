@@ -33,6 +33,8 @@ Case*.csv
 *Meter.csv
 *Table.csv
 *Zsz.csv
+*.stat
+*.ddy
 
 
 

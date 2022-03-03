@@ -11,7 +11,7 @@ plt.rcParams['grid.linewidth'] = 0.5
 plt.rcParams["font.size"] = 10
 
 # ファイル名の指定
-filename = "./idf_miyata/CaseWBT.csv"
+filename = "./01_Load_Test/02_Building/CaseL-BLD100.csv"
 
 roomlist = {
     "1F_廊下":{

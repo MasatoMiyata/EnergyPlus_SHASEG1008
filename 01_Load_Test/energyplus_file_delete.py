@@ -1,6 +1,6 @@
 import os
 
-path = "./idf_miyata"
+path = "./01_Load_Test/02_Building"
 
 # ファイル名の取得
 files = os.listdir(path)

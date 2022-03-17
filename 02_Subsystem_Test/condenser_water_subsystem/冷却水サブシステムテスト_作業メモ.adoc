@@ -98,5 +98,72 @@ link:https://unmethours.com/question/54977/how-to-simulate-a-variable-speed-cond
 * 冷却水変流量制御は今のところ考慮できない。ただし、年間計算の全体システムテストでは冷却水は固定流量である。
 
 
+=== 2022.3.17
+2022年版ガイドラインの冷却水サブシステムテストを実施する。以前のガイドライン（上述）との大きな違いは、定風量・定流量のテストケースシリーズが追加されたことである。
+
+==== CoolingTower:SingleSpeed (定風量制御の冷却塔)
+以下にlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#coolingtowersinglespeed[CoolingTower:SingleSpeed] (定風量制御の冷却塔)オブジェクトの入力例を示す。入力は概ねCoolingTower:VariableSpeedであるが、モデル自体が異なるためか、計算結果を見ると定格入口条件時の出口温度はやや異なるようである。
+
+```
+  CoolingTower:SingleSpeed,
+    Cooling Tower,           !- Name
+    Cooling Tower Water Inlet Node,  !- Water Inlet Node Name
+    Cooling Tower Water Outlet Node, !- Water Outlet Node Name
+    0.044883,                !- Design Water Flow Rate {m3/s}
+    29.717,                  !- Design Air Flow Rate {m3/s}
+    8140,                    !- Design Fan Power {W}
+    187880,                  !- Design U-Factor Times Area Value {W/K}
+    autocalculate,           !- Free Convection Air Flow Rate {m3/s}
+    ,                        !- Free Convection Air Flow Rate Sizing Factor
+    autocalculate,           !- Free Convection U-Factor Times Area Value {W/K}
+    ,                        !- Free Convection U-Factor Times Area Value Sizing Factor
+    NominalCapacity,  !- Performance Input Method
+    ,                        !- Heat Rejection Capacity and Nominal Capacity Sizing Ratio
+    939400,                  !- Nominal Capacity {W}
+    ,                        !- Free Convection Capacity {W}
+    ,                        !- Free Convection Nominal Capacity Sizing Factor
+    32,                        !- Design Inlet Air Dry-Bulb Temperature {C}
+    27,                        !- Design Inlet Air Wet-Bulb Temperature {C}
+    5,                        !- Design Approach Temperature {deltaC}
+    5,                        !- Design Range Temperature {deltaC}
+    ,                        !- Basin Heater Capacity {W/K}
+    ,                        !- Basin Heater Setpoint Temperature {C}
+    ,                        !- Basin Heater Operating Schedule Name
+    SaturatedExit,           !- Evaporation Loss Mode
+    ,                        !- Evaporation Loss Factor {percent/K}
+    0.0080,                  !- Drift Loss Percent {percent}
+    ConcentrationRatio,      !- Blowdown Calculation Mode
+    3.0000,                  !- Blowdown Concentration Ratio
+    ,                        !- Blowdown Makeup Water Usage Schedule Name
+    ,                        !- Supply Water Storage Tank Name
+    ,                        !- Outdoor Air Inlet Node Name
+    FluidBypass,              !- Capacity Control
+    1,                       !- Number of Cells
+    MinimalCell,             !- Cell Control
+    ,                        !- Cell Minimum  Water Flow Rate Fraction
+    ,                        !- Cell Maximum Water Flow Rate Fraction
+    1.0000;                  !- Sizing Factor
+```
+
+==== 計算結果
+Appendix C サブシステムテスト(冷却水) _E+.xlsxに計算結果を示す。
+
+*　E+では冷却水系の機器の接続が冷却水ポンプ→冷却塔→吸収式の順となり、ガイドラインの条件と異なってしまう。よって、ポンプ出口温度は他のツールと同位置の値とはならない。
+
+*　E+は冷却水の変流量制御ができないため、S-CD200シリーズも冷却塔ファンのみINVで、ポンプは固定速となっている。そのため、冷却水温度差を変更するS-CD215は未実施である。
+
+*　使っている吸収式モデルにバグがあるようで、冷却水温度変化にともなうCOP特性が反映されない（冷却水温度でCOPが変化しない）。
+
+*　AR冷却水放熱量は冷水熱量＋ガス消費量とほぼ一致するため、すべての排熱が冷却水側へ放熱されるようになっているようである。
+
+*　定風量の冷却塔と変風量の冷却塔は別のオブジェクトであるため、定格条件のケースS-CD100と200でも両者に差がある。定風量の方が指定条件よりも熱交換効率が高いようである。
+
+*　三方弁制御は定風量の冷却塔のみ行えるようで、変風量の場合は、下限風量以下になると1ステップ内でON/OFF運転を行うようである。変風量の場合の下限風量比は40％にしているが、結果が40％以下になっているのはそれが原因と考えられる。ちなみに出力しているのは回転数比ではなく風量比。
+
+*　冷却水ポンプの揚程や回転数比は出力できない。
+
+==== まとめ
+冷却水変流量制御ができないことと吸収式モデルで冷却水温度特性を考慮できないことを除けば、概ね他のツールと近い結果になっていると言える。
+
 
 

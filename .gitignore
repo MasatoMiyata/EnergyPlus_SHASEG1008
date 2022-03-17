@@ -22,7 +22,7 @@ backup/*
 *.png
 *.skp
 
-#*.xlsx
+*.xlsx
 idf_miyata/archive/*
 idf_miyata/集計結果*
 idf_miyata/CaseSRT/*

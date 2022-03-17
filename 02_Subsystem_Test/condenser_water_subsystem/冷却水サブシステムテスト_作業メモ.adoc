@@ -102,7 +102,7 @@ link:https://unmethours.com/question/54977/how-to-simulate-a-variable-speed-cond
 2022年版ガイドラインの冷却水サブシステムテストを実施する。以前のガイドライン（上述）との大きな違いは、定風量・定流量のテストケースシリーズが追加されたことである。
 
 ==== CoolingTower:SingleSpeed (定風量制御の冷却塔)
-以下にlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#coolingtowersinglespeed[CoolingTower:SingleSpeed] (定風量制御の冷却塔)オブジェクトの入力例を示す。入力は概ねCoolingTower:VariableSpeedであるが、モデル自体が異なるためか、計算結果を見ると定格入口条件時の出口温度はやや異なるようである。
+以下にlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-condenser-equipment.html#coolingtowersinglespeed[CoolingTower:SingleSpeed] (定風量制御の冷却塔)オブジェクトの入力例を示す。入力は概ねCoolingTower:VariableSpeedと同様であるが、モデル自体が異なるためか、計算結果を見ると定格入口条件時の出口温度はやや異なるようである。
 
 ```
   CoolingTower:SingleSpeed,

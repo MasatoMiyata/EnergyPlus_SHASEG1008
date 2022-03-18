@@ -184,4 +184,71 @@ _The curve output is multiplied by the chiller’s nominal capacity and operatin
 
 WGメンバーに異存がなければ、上記は今後の課題として残しておき、次回から冷却水サブシステムテストに取り組むつもりである。
 
+=== 2022.3.18
+2022年版ガイドラインの熱源サブシステムテストを実施する。以前のガイドライン（上述）との大きな違いは、ポンプの制御方法を変更するケース（1次ポンプの変流量化、2次ポンプの末端差圧制御）、温水運転のケースが追加されたことである。
+
+==== 入力ファイルの修正点
+E+では2ポンプシステムのモデリングに課題があるため、上述の通り1ポンプシステムとして部分負荷特性（流量比―電力比の2次カーブ）によって近似的にガイドライン指定の2ポンプシステムの特性を再現していた。よって、ポンプの制御方法を変更するケースでは、同様の方法で部分負荷特性を与えることで近似的にモデル化した。
+
+これまで使用していた空冷HPオブジェクト（Chiller:Electric:EIR）、吸収式オブジェクト（Chiller:Absorption:Indirect）は冷水専用であるため、温水運転ケースではそれぞれlink:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#plhp_eir[HeatPump:PlantLoop:EIR:Heating]、link:https://bigladdersoftware.com/epx/docs/9-4/input-output-reference/group-plant-equipment.html#boilerhotwater[Boiler:HotWater]に変更した。
+
+
+HeatPump:PlantLoop:EIR:HeatingはChiller:Electric:EIRとほぼ同様の入力パラメータであり、冷温水出口温度と外気温度に基づく最大能力補正カーブ、EIR補正カーブと、部分負荷率に基づくEIR補正カーブを指定できる。なお、本オブジェクトは空冷／水冷の両方を扱うことができること、冷水／温水で対になるようにモデリングできることから、利便性が高い。ただし、Chiller:Electric:EIRと同様の考え方で補正カーブを作成したところ、（おそらく）部分負荷率に基づくEIR補正カーブのみ、部分負荷効率が過剰に高くなるという異なる挙動を示した。マニュアルには記されていないが異なるロジックでモデル化されているか、何らかのバグがある可能性がある。ここでは出力が指定の特性と概ね一致するように2次式を調整した。
+
+```
+  HeatPump:PlantLoop:EIR:Heating,
+    AHP1,            !- Name
+    AHP1 CHW Inlet Node, !- Load Side Inlet Node Name
+    AHP1 CHW Outlet Node,  !- Load Side Outlet Node Name
+    AirSource,               ! Condenser Type
+    AHP1 Outdoor Air Inlet Node,  !- Source Side Inlet Node Name
+    AHP1 Outdoor Air Outlet Node,  !- Source Side Outlet Node Name
+    ,            !- Companion Heat Pump Name
+    0.014333,                   !- Load Side Design Volume Flow Rate {m3/s}
+    autosize,                   !- Source Side Design Volume Flow Rate {m3/s}
+    300000,                   !- Reference Capacity
+    3.0,                     !- Reference COP
+    ,                        !- Sizing Factor
+    Air cooled CentCapFT,        !- Heating Capacity Modifier Function of Temperature Curve Name
+    Air cooled CentEIRFT,        !- Electric Input to Heating Output Ratio Modifier Function of Temperature Curve Name
+    Air cooled CentEIRFPLR;         !- Electric Input to Heating Output Ratio Modifier Function of Part Load Ratio Curve Name
+```
+
+Boiler:HotWaterでは燃料タイプを選択できるが、熱量変換方法の違いが生じないよう電気を選択した。
+```
+  Boiler:HotWater,
+    AR,   !- Boiler Name
+    Electricity,          !- Fuel Type
+    527000,               !- Nominal Capacity {W}
+    0.8711,                !- Nominal Thermal Efficiency
+    ,       !- Efficiency Curve Temperature Evaluation Variable
+    , !- Boiler Efficiency Curve Name
+    0.025200,              !- Max Design Boiler Water Flow Rate {m3/s}
+    0.10,                !- Minimum Part Load Ratio
+    1.00,                !- Maximum Part Load Ratio
+    1.00,                !- Optimum Part Load Ratio
+    AR CHW Inlet Node,   !- Boiler Water Inlet Node
+    AR CHW Outlet Node,  !- Boiler Water Outlet Node
+    80,                  !- Temp Upper Limit Water Outlet {C}
+    ConstantFlow,        !- Boiler Flow Mode
+    5100.0;                !- Parasitic Electric Load {W}
+```
+
+==== 計算結果
+「熱源サブシステムテスト_結果貼付けシート_ver3.2_E+.xlsx」に計算結果を示す。
+
+* 吸収式オブジェクトの不具合により冷却水温度特性が反映されないため、S-PS101-cのシステムCOPが低い。
+
+* S-PS120-cのシステムCOPが高い。空冷HPの低負荷時の部分負荷効率が高いようである。
+
+* ポンプの部分負荷特性は温度差固定かつ90％増段を前提として与えているため、条件が異なるS-PS111-c,S-PS112-c,S-PS120-cではポンプ消費エネルギーが他のツールとやや異なっている。
+
+* 変流量の1ポンプシステムとしてモデル化しているため、冷水運転の場合はバイパス流量がゼロとなっている。
+
+* 温水運転の場合は、HeatPump:PlantLoop:EIR:Heatingが強制的に定格流量を求めるようで、1次側流量は熱源台数に応じて固定となりバイパスが生じている。そのため、S-PS110-hとS-PS130-hではポンプ消費エネルギーが大きくなっている。
+
+==== まとめ
+ポンプのモデリングと吸収式の冷却水温度特性に課題が残るものの、概ね他のツールと近い計算結果となった。また、HeatPump:PlantLoop:EIR:Heatingの部分負荷特性についても今後確認が必要である。もしかすると最新バージョンでは改善されているかもしれない。
+
+
 

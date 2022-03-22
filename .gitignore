@@ -23,10 +23,12 @@ backup/*
 *.skp
 
 #*.xlsx
-idf_miyata/archive/*
-idf_miyata/集計結果*
-idf_miyata/CaseSRT/*
-idf_miyata/CaseWBT/*
+01_Load_Test/01_Single_Multiple/Results/*.xlsx
+01_Load_Test/01_Single_Multiple/Results/詳細比較/*.xlsx
+01_Load_Test/02_Building/Results/*.xlsx
+01_Load_Test/02_Building/Results/CaseSRT/*.xlsx
+01_Load_Test/02_Building/Setting/*.xlsx
+01_Load_Test/02_Building/Setting/*.xlsx
 
 *postprocessed
 Case*.csv

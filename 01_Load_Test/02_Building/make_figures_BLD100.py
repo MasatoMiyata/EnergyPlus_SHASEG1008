@@ -27,38 +27,39 @@ def import_data(filename):
     data.index.name = "date_hour"
     return data
 
-df_BEST = import_data("./TB100/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_BEST.xlsx")
-df_newHASP = import_data("./TB100/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_NewHASP.xlsx")
-df_EnergyPlus = import_data("./TB100/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_EnergyPlus.xlsx")
+df_BEST = import_data("./01_Load_Test/02_Building/Results/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_BEST.xlsx")
+df_newHASP = import_data("./01_Load_Test/02_Building/Results/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_NewHASP.xlsx")
+df_EnergyPlus = import_data("./01_Load_Test/02_Building/Results/熱負荷テスト(建物全体テスト)_年間出力データフォーマット案_TB100_EnergyPlus.xlsx")
+
 
 #%%
 
 room_list = [
-    "1F廊下",
-    "1Fロビー",
-    "1FEVホール",
+    # "1F廊下",
+    # "1Fロビー",
+    # "1FEVホール",
     "1F中央監視室",
-    "1F更衣室1",
-    "1F更衣室2",
-    "1F休憩室",
-    "1F自販機ｺｰﾅｰ",
-    "1F事務室1",
+    # "1F更衣室1",
+    # "1F更衣室2",
+    # "1F休憩室",
+    # "1F自販機ｺｰﾅｰ",
+    # "1F事務室1",
     "1F事務室2",
-    "2-6F廊下",
-    "2-6F自販機ｺｰﾅｰ",
-    "2-6FEVホール",
-    "2-6F事務室1NP",
-    "2-6F事務室1NEP",
-    "2-6F事務室1NWP",
+    # "2-6F廊下",
+    # "2-6F自販機ｺｰﾅｰ",
+    # "2-6FEVホール",
+    # "2-6F事務室1NP",
+    # "2-6F事務室1NEP",
+    # "2-6F事務室1NWP",
     "2-6F事務室1NI",
     "2-6F事務室2SP",
-    "2-6F事務室2SWP",
-    "2-6F事務室2SI",
-    "7F廊下",
-    "7F自販機ｺｰﾅｰ",
-    "7FEVホール",
-    "7F事務室1",
-    "7F事務室2",
+    # "2-6F事務室2SWP",
+    # "2-6F事務室2SI",
+    # "7F廊下",
+    # "7F自販機ｺｰﾅｰ",
+    # "7FEVホール",
+    # "7F事務室1",
+    # "7F事務室2",
 ]
 
 item_list = [

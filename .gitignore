@@ -29,6 +29,9 @@ backup/*
 01_Load_Test/02_Building/Results/CaseSRT/*.xlsx
 01_Load_Test/02_Building/Setting/*.xlsx
 01_Load_Test/02_Building/Setting/*.xlsx
+01_Load_Test/02_Building/output-CaseL-BLD100_ono
+
+summarize_calculation_result_BLD100_ono.py
 
 *postprocessed
 Case*.csv

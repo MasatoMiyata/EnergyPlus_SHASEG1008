@@ -54,18 +54,6 @@ ShadowCalculation,
     SimpleSkyDiffuseModeling;!- Sky Diffuse Modeling Algorithm
 
 
-!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:INSIDE ===========
-
-SurfaceConvectionAlgorithm:Inside,
-    TARP;                    !- Algorithm
-
-
-!-   ===========  ALL OBJECTS IN CLASS: SURFACECONVECTIONALGORITHM:OUTSIDE ===========
-
-SurfaceConvectionAlgorithm:Outside,
-    DOE-2;                   !- Algorithm
-
-
 !-   ===========  ALL OBJECTS IN CLASS: HEATBALANCEALGORITHM ===========
 
 HeatBalanceAlgorithm,
@@ -81,7 +69,7 @@ ZoneCapacitanceMultiplier:ResearchSpecial,
     All,                     !- Name
     ,                        !- Zone or ZoneList Name
     10,                      !- Temperature Capacity Multiplier
-    10,                      !- Humidity Capacity Multiplier
+    1,                       !- Humidity Capacity Multiplier
     1.0,                     !- Carbon Dioxide Capacity Multiplier
     1.0;                     !- Generic Contaminant Capacity Multiplier
 
@@ -4096,7 +4084,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     771.888,                 !- Volume {m3}
     163.5,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4112,7 +4100,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     541.424,                 !- Volume {m3}
     100,                     !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4128,7 +4116,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     74.88,                   !- Volume {m3}
     12.0,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4144,7 +4132,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     202.8,                   !- Volume {m3}
     39,                      !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4160,7 +4148,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     67.6,                    !- Volume {m3}
     10.9,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4176,7 +4164,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     67.6,                    !- Volume {m3}
     10.9,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4192,7 +4180,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     135.2,                   !- Volume {m3}
     21.8,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4208,7 +4196,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     113.23,                  !- Volume {m3}
     21.8,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4224,7 +4212,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     1907.3599,               !- Volume {m3}
     366.8,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4240,7 +4228,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     1419.6,                  !- Volume {m3}
     273,                     !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4256,7 +4244,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     528.24,                  !- Volume {m3}
     144.00,                  !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4272,7 +4260,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     87.1,                    !- Volume {m3}
     21.8,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4288,7 +4276,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     57.6,                    !- Volume {m3}
     12.0,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4304,7 +4292,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     750,                     !- Volume {m3}
     187.5,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4320,7 +4308,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     230,                     !- Volume {m3}
     57.5,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4336,7 +4324,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     230,                     !- Volume {m3}
     57.5,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4352,7 +4340,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     1169.9999,               !- Volume {m3}
     292.5,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4368,7 +4356,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     670,                     !- Volume {m3}
     167.5,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4384,7 +4372,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     230,                     !- Volume {m3}
     57.5,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4400,7 +4388,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     1116,                    !- Volume {m3}
     279,                     !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4416,7 +4404,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     528.24,                  !- Volume {m3}
     144.0,                   !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4432,7 +4420,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     87.1,                    !- Volume {m3}
     21.8,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4448,7 +4436,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     57.6,                    !- Volume {m3}
     12.0,                    !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4464,7 +4452,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     2379.9998,               !- Volume {m3}
     595,                     !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -4480,7 +4468,7 @@ Zone,
     ,                        !- Ceiling Height {m}
     2016,                    !- Volume {m3}
     504,                     !- Floor Area {m2}
-    TARP,                    !- Zone Inside Convection Algorithm
+    ,                    !- Zone Inside Convection Algorithm
     ,                        !- Zone Outside Convection Algorithm
     Yes;                     !- Part of Total Floor Area
 
@@ -12895,6 +12883,106 @@ SurfaceProperty:OtherSideCoefficients,
     24;                      !- Period of Sinusoidal Variation {hr}
 
 
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllExteriorSurfaces,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    18,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllExteriorWindows,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    18,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllExteriorWalls,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    18,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllExteriorRoofs,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    18,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllExteriorFloors,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    18,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllInteriorSurfaces,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    4,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllInteriorWindows,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    4,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllInteriorCeilings,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    4,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+    AllInteriorFloors,  !- Surface Types
+    Outside,                 !- Convection Coefficient 1 Location
+    Value,                   !- Convection Coefficient 1 Type
+    4,                      !- Convection Coefficient 1 {W/m2-K}
+    ,                        !- Convection Coefficient 1 Schedule Name
+    ,                        !- Convection Coefficient 1 User Curve Name
+    Inside,                  !- Convection Coefficient 2 Location
+    Value,                   !- Convection Coefficient 2 Type
+    4;                       !- Convection Coefficient 2 {W/m2-K}
+
+
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
 People,
@@ -13474,7 +13562,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#1F:10XOffice2#05;  !- End-Use Subcategory
@@ -13490,7 +13578,7 @@ OtherEquipment,
     30,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#1F:04XCntrlMntrngRm#05;  !- End-Use Subcategory
@@ -13506,7 +13594,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#1F:09XOffice1#05;  !- End-Use Subcategory
@@ -13522,7 +13610,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:05X1XOfficeSP#05;  !- End-Use Subcategory
@@ -13538,7 +13626,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:05X3XOfficeSI#05;  !- End-Use Subcategory
@@ -13554,7 +13642,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:04X1XOfficeNP#05;  !- End-Use Subcategory
@@ -13570,7 +13658,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:04X2XOfficeNEP#05;  !- End-Use Subcategory
@@ -13586,7 +13674,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:04X3XOfficeNWP#05;  !- End-Use Subcategory
@@ -13602,7 +13690,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:04X4XOfficeNI#05;  !- End-Use Subcategory
@@ -13618,7 +13706,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#2X6F:05X2XOfficeSWP#05;  !- End-Use Subcategory
@@ -13634,7 +13722,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#7F:05XOffice2#05;  !- End-Use Subcategory
@@ -13650,7 +13738,7 @@ OtherEquipment,
     12,                      !- Power per Zone Floor Area {W/m2}
     ,                        !- Power per Person {W/person}
     0,                       !- Fraction Latent
-    0.6,                     !- Fraction Radiant
+    0,                       !- Fraction Radiant
     0,                       !- Fraction Lost
     0,                       !- Carbon Dioxide Generation Rate {m3/s-W}
     ELECTRIC EQUIPMENT#7F:04XOffice1#05;  !- End-Use Subcategory
@@ -13803,7 +13891,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:01XCorridor,        !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.04800,                 !- Design Flow Rate {m3/s}
+    0.00960,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13817,7 +13905,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:02XVending,         !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00787,                 !- Design Flow Rate {m3/s}
+    0.00157,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13831,7 +13919,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:03XEVHall,          !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.00433,                 !- Design Flow Rate {m3/s}
+    0.00087,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13845,7 +13933,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X1XOfficeNP,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.07031,                 !- Design Flow Rate {m3/s}
+    0.01406,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13859,7 +13947,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X2XOfficeNEP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02156,                 !- Design Flow Rate {m3/s}
+    0.00431,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13873,7 +13961,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X3XOfficeNWP,     !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.02156,                 !- Design Flow Rate {m3/s}
+    0.00431,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13887,7 +13975,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:04X4XOfficeNI,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.10969,                 !- Design Flow Rate {m3/s}
+    0.02194,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13901,7 +13989,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:05X1XOfficeSP,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.06281,                 !- Design Flow Rate {m3/s}
+    0.01256,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
@@ -13929,7 +14017,7 @@ ZoneInfiltration:DesignFlowRate,
     2X6F:05X3XOfficeSI,      !- Zone or ZoneList Name
     On 24/7,                 !- Schedule Name
     Flow/zone,               !- Design Flow Rate Calculation Method
-    0.10463,                 !- Design Flow Rate {m3/s}
+    0.02093,                 !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
     ,                        !- Air Changes per Hour {1/hr}
